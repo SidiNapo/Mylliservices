@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle, MapPin } from 'lucide-react';
+import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -258,40 +258,123 @@ const AProposPage = () => {
         </div>
       </ParallaxSection>
       
-      {/* Social Responsibility - Updated with modern design */}
+      {/* Social Responsibility - Redesigned with modern interactive design */}
       <ParallaxSection 
-        backgroundGradient="linear-gradient(135deg, rgba(0,70,122,0.95) 0%, rgba(0,119,192,0.9) 50%, rgba(224,46,49,0.8) 100%)"
+        backgroundGradient="linear-gradient(135deg, rgba(0,70,122,0.95) 0%, rgba(0,119,192,0.9) 70%, rgba(224,46,49,0.85) 100%)"
         height="auto"
         className="py-24"
-        pattern="noise"
+        pattern="hexagons"
+        floatingElements={true}
+        interactive={true}
       >
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-lg">
-              <SectionHeading 
-                title="Notre Responsabilité Sociale"
-                subtitle="Au-delà des soins, un engagement pour une société plus inclusive"
-                variant="underline"
-                className="text-white"
-                highlightColor="white"
-              />
+          <div className="max-w-5xl mx-auto">
+            {/* Modern card with layered design */}
+            <div className="relative overflow-hidden z-10">
+              {/* Decorative elements */}
+              <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-mylli-secondary/30 blur-3xl"></div>
+              <div className="absolute -bottom-12 -left-12 w-64 h-64 rounded-full bg-mylli-quaternary/30 blur-3xl"></div>
               
-              <div className="text-center animate-fade-in">
-                <p className="text-xl mb-8 text-white/90">
-                  Mylli Services s'engage à promouvoir l'accessibilité aux soins de qualité pour tous. Nous participons activement à des initiatives communautaires et soutenons des associations locales qui œuvrent pour améliorer la vie des personnes âgées ou en situation de handicap.
-                </p>
-                <p className="text-xl mb-10 text-white/90">
-                  Chaque année, nous consacrons une partie de nos ressources à des actions de sensibilisation aux problématiques du vieillissement et de la d��pendance, ainsi qu'à la formation de jeunes professionnels de santé.
-                </p>
-                <Button asChild className="bg-white hover:bg-white/90 text-mylli-primary font-medium px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]">
-                  <Link to="/contact">
-                    Contactez-nous pour en savoir plus
-                  </Link>
-                </Button>
+              {/* Main content card with glassmorphism */}
+              <div className="bg-white/15 backdrop-blur-xl rounded-3xl p-10 md:p-16 border border-white/30 shadow-xl relative z-10 overflow-hidden">
+                {/* Decorative corner shapes */}
+                <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-white/20 to-transparent -translate-x-16 -translate-y-16 rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-mylli-secondary/30 to-transparent translate-x-16 translate-y-16 rounded-full"></div>
+                
+                <SectionHeading 
+                  title="Notre Responsabilité Sociale"
+                  subtitle="Au-delà des soins, un engagement pour une société plus inclusive"
+                  variant="underline"
+                  className="text-white"
+                  highlightColor="white"
+                />
+                
+                {/* Features grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/20 group">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center text-white group-hover:bg-mylli-primary/30 transition-all duration-300">
+                        <Heart className="h-6 w-6" />
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-xl font-bold text-white mb-2">Actions solidaires</h4>
+                        <p className="text-white/80">Nous soutenons des associations locales qui œuvrent pour améliorer la vie des personnes âgées ou en situation de handicap.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/20 group">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center text-white group-hover:bg-mylli-secondary/30 transition-all duration-300">
+                        <Users className="h-6 w-6" />
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-xl font-bold text-white mb-2">Sensibilisation</h4>
+                        <p className="text-white/80">Nous menons des actions de sensibilisation aux problématiques du vieillissement et de la dépendance.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/20 group">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center text-white group-hover:bg-mylli-quaternary/30 transition-all duration-300">
+                        <Award className="h-6 w-6" />
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-xl font-bold text-white mb-2">Formation</h4>
+                        <p className="text-white/80">Nous contribuons à la formation de jeunes professionnels de santé pour assurer la relève dans ce secteur essentiel.</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 transition-all duration-300 hover:bg-white/20 group">
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center text-white group-hover:bg-mylli-primary/30 transition-all duration-300">
+                        <Globe className="h-6 w-6" />
+                      </div>
+                      <div className="ml-4">
+                        <h4 className="text-xl font-bold text-white mb-2">Développement durable</h4>
+                        <p className="text-white/80">Nos pratiques professionnelles intègrent des préoccupations environnementales pour un impact positif global.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 mb-10">
+                  <div className="flex flex-col md:flex-row items-center">
+                    <div className="w-full md:w-2/3 mb-6 md:mb-0 md:pr-8">
+                      <h3 className="text-2xl font-bold text-white mb-3">Notre engagement communautaire</h3>
+                      <p className="text-white/80">
+                        Chaque année, Mylli Services s'engage à consacrer une partie de ses ressources à des projets sociaux qui renforcent le tissu communautaire et améliorent les conditions de vie des personnes vulnérables.
+                      </p>
+                    </div>
+                    <div className="w-full md:w-1/3 flex justify-center md:justify-end">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-tr from-mylli-primary/30 to-mylli-secondary/30 rounded-full blur-md animate-pulse-soft"></div>
+                        <div className="relative w-24 h-24 rounded-full bg-white/20 border-2 border-white/40 flex items-center justify-center">
+                          <span className="text-white text-3xl font-bold">10%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center animate-fade-in">
+                  <Button asChild className="bg-white hover:bg-white/90 text-mylli-primary font-medium px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]">
+                    <Link to="/contact" className="flex items-center">
+                      Contactez-nous pour en savoir plus
+                      <Shield className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        
+        {/* Animated decorative elements */}
+        <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-2 border-white/20 animate-spin-slow opacity-20"></div>
+        <div className="absolute top-20 right-20 w-32 h-32 rounded-full border border-mylli-secondary/20 animate-spin-slow opacity-20" style={{ animationDuration: '30s' }}></div>
       </ParallaxSection>
     </div>
   );
