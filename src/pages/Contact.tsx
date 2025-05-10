@@ -6,6 +6,7 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
+
 const ContactPage = () => {
   // Opening hours
   const openingHours = [{
@@ -135,27 +136,18 @@ const ContactPage = () => {
         <div className="container-custom relative z-10">
           <SectionHeading title="Prenons contact" subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" variant="gradient" className="mb-16" />
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
-            {/* Left side: Contact Information */}
-            <div className="lg:col-span-5 space-y-6">
-              <Card className="border-0 shadow-lg overflow-hidden bg-white">
-                
-              </Card>
-            </div>
-            
-            {/* Right side: Contact Form */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-                <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark p-6 flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                    <MessageSquare className="h-5 w-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Envoyez-nous un message</h3>
+          {/* Centered Contact Form */}
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+              <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark p-6 flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <MessageSquare className="h-5 w-5 text-white" />
                 </div>
-                
-                <div className="p-8">
-                  <ContactForm />
-                </div>
+                <h3 className="text-xl font-bold text-white">Envoyez-nous un message</h3>
+              </div>
+              
+              <div className="p-8">
+                <ContactForm />
               </div>
             </div>
           </div>
