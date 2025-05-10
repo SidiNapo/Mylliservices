@@ -7,6 +7,7 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -375,7 +376,12 @@ const HomePage = () => {
             </div>
             
             <div>
-              <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="modern" highlightColor="mylli-primary" />
+              <SectionHeading 
+                title="Depuis 10 ans à vos côtés" 
+                subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
+                align="left" 
+                variant="gradient" 
+              />
               
               <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
                 <p className="mb-4">
