@@ -82,6 +82,7 @@ const FonctionnementPage = () => {
       <PageBanner 
         title="Notre Fonctionnement" 
         subtitle="Un accompagnement personnalisé en 4 étapes simples"
+        variant="particles"
       />
       
       {/* Conseiller Section */}

@@ -127,6 +127,15 @@ export default {
 				'shimmer': {
 					'0%': { backgroundPosition: '-200% 0' },
 					'100%': { backgroundPosition: '200% 0' }
+				},
+				'radial-pulse': {
+					'0%': { transform: 'scale(0.95)', opacity: '0.7' },
+					'50%': { transform: 'scale(1.05)', opacity: '0.8' },
+					'100%': { transform: 'scale(0.95)', opacity: '0.7' }
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -140,7 +149,9 @@ export default {
 				'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
 				'parallax-scroll': 'parallax-scroll 20s linear infinite',
 				'background-pan': 'background-pan 20s linear infinite',
-				'shimmer': 'shimmer 2s infinite linear'
+				'shimmer': 'shimmer 2s infinite linear',
+				'radial-pulse': 'radial-pulse 4s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 12s linear infinite'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
