@@ -32,8 +32,8 @@ const Header = () => {
     { name: 'Nos Services', path: '/services' },
     { name: 'Notre Fonctionnement', path: '/fonctionnement' },
     { name: 'Notre Équipe', path: '/equipe' },
-    { name: 'À Propos', path: '/apropos' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'À Propos', path: '/apropos' }
+    // Removed the Contact entry from the array
   ];
 
   const isActiveLink = (path: string) => {
