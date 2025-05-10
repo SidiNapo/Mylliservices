@@ -121,10 +121,10 @@ const PageBanner = ({
               <div className="absolute top-[30%] right-[20%] w-20 h-20 border border-white/10 transform rotate-45"></div>
             </div>
             
-            {/* Light beams */}
+            {/* Light beams - removing the background effects here */}
             <div className="absolute inset-0">
-              <div className="absolute -top-[40%] -left-[20%] w-[100%] h-[80%] bg-gradient-to-br from-mylli-accent/20 to-transparent rounded-[100%] blur-3xl"></div>
-              <div className="absolute -bottom-[30%] -right-[10%] w-[70%] h-[70%] bg-gradient-to-tl from-mylli-secondary/20 to-transparent rounded-[100%] blur-3xl"></div>
+              {/* Removing the background gradient effect that was here */}
+              {/* Removing the second background gradient effect that was here */}
             </div>
           </>
         );
