@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,42 +6,55 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
-  
+
   // For mouse parallax effect
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0
+  });
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const {
+      clientX,
+      clientY
+    } = e;
+    const {
+      left,
+      top,
+      width,
+      height
+    } = e.currentTarget.getBoundingClientRect();
     const x = (clientX - left) / width - 0.5;
     const y = (clientY - top) / height - 0.5;
-    setMousePosition({ x, y });
+    setMousePosition({
+      x,
+      y
+    });
   };
-  
+
   // For animated counter
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         setIsVisible(true);
       }
-    }, { threshold: 0.1 });
-    
+    }, {
+      threshold: 0.1
+    });
     if (heroRef.current) {
       observer.observe(heroRef.current);
     }
-    
     return () => {
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
     };
   }, []);
-  
+
   // Animate count when section is visible
   useEffect(() => {
     if (isVisible) {
@@ -55,135 +67,69 @@ const HomePage = () => {
           return prevCount;
         });
       }, 200);
-      
       return () => clearInterval(interval);
     }
   }, [isVisible]);
 
   // Sample data for services
-  const services = [
-    {
-      title: "Aide-soignant(e) à domicile",
-      description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-      icon: <User size={40} strokeWidth={1.5} />,
-      link: "/services/aide-soignant"
-    },
-    {
-      title: "Infirmier(ère) à domicile",
-      description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-      icon: <Heart size={40} strokeWidth={1.5} />,
-      link: "/services/infirmier"
-    },
-    {
-      title: "Services de garde-malade",
-      description: "Présence continue et surveillance pour les personnes fragiles, jour, nuit ou 24h/24.",
-      icon: <Clock size={40} strokeWidth={1.5} />,
-      link: "/services/garde-malade"
-    }
-  ];
-  
+  const services = [{
+    title: "Aide-soignant(e) à domicile",
+    description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
+    icon: <User size={40} strokeWidth={1.5} />,
+    link: "/services/aide-soignant"
+  }, {
+    title: "Infirmier(ère) à domicile",
+    description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
+    icon: <Heart size={40} strokeWidth={1.5} />,
+    link: "/services/infirmier"
+  }, {
+    title: "Services de garde-malade",
+    description: "Présence continue et surveillance pour les personnes fragiles, jour, nuit ou 24h/24.",
+    icon: <Clock size={40} strokeWidth={1.5} />,
+    link: "/services/garde-malade"
+  }];
+
   // Sample data for how it works
-  const howItWorks = [
-    {
-      step: 1,
-      title: "Rencontre à domicile",
-      description: "Nous prenons le temps de vous rencontrer chez vous pour comprendre vos besoins."
-    },
-    {
-      step: 2,
-      title: "Proposition personnalisée",
-      description: "Nous élaborons un devis sur mesure adapté à vos besoins spécifiques."
-    },
-    {
-      step: 3,
-      title: "Présentation de l'intervenant",
-      description: "Nous vous présentons le soignant qui vous accompagnera."
-    },
-    {
-      step: 4,
-      title: "Suivi de satisfaction",
-      description: "Nous effectuons un suivi régulier pour garantir votre satisfaction."
-    }
-  ];
-  
+  const howItWorks = [{
+    step: 1,
+    title: "Rencontre à domicile",
+    description: "Nous prenons le temps de vous rencontrer chez vous pour comprendre vos besoins."
+  }, {
+    step: 2,
+    title: "Proposition personnalisée",
+    description: "Nous élaborons un devis sur mesure adapté à vos besoins spécifiques."
+  }, {
+    step: 3,
+    title: "Présentation de l'intervenant",
+    description: "Nous vous présentons le soignant qui vous accompagnera."
+  }, {
+    step: 4,
+    title: "Suivi de satisfaction",
+    description: "Nous effectuons un suivi régulier pour garantir votre satisfaction."
+  }];
+
   // Sample data for testimonials
-  const testimonials = [
-    {
-      quote: "Grâce à Mylli Services, ma mère peut rester à son domicile en toute sécurité. Un personnel attentionné et très professionnel.",
-      name: "Nadia M.",
-      title: "58 ans"
-    },
-    {
-      quote: "La garde de nuit a changé notre quotidien. Notre père est bien entouré et nous pouvons enfin dormir tranquilles.",
-      name: "Karim L.",
-      title: "45 ans"
-    },
-    {
-      quote: "L'infirmière qui s'occupe de ma tante est d'une gentillesse et d'un professionnalisme remarquables.",
-      name: "Sophia B.",
-      title: "52 ans"
-    }
-  ];
-  
-  return (
-    <div>
+  const testimonials = [{
+    quote: "Grâce à Mylli Services, ma mère peut rester à son domicile en toute sécurité. Un personnel attentionné et très professionnel.",
+    name: "Nadia M.",
+    title: "58 ans"
+  }, {
+    quote: "La garde de nuit a changé notre quotidien. Notre père est bien entouré et nous pouvons enfin dormir tranquilles.",
+    name: "Karim L.",
+    title: "45 ans"
+  }, {
+    quote: "L'infirmière qui s'occupe de ma tante est d'une gentillesse et d'un professionnalisme remarquables.",
+    name: "Sophia B.",
+    title: "52 ans"
+  }];
+  return <div>
       {/* Hero Section - Completely Redesigned */}
-      <section 
-        ref={heroRef}
-        className="relative min-h-[90vh] flex items-center overflow-hidden"
-        onMouseMove={handleMouseMove}
-      >
+      <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
         {/* Animated background */}
         <div className="absolute inset-0 bg-mesh-gradient opacity-90 z-0"></div>
         
         {/* Animated patterns and shapes */}
-        <div className="absolute inset-0 z-10 overflow-hidden">
-          {/* Floating circles */}
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div 
-              key={i}
-              className="absolute rounded-full mix-blend-overlay opacity-20"
-              style={{
-                width: `${Math.random() * 300 + 50}px`,
-                height: `${Math.random() * 300 + 50}px`,
-                left: `${Math.random() * 100}vw`,
-                top: `${Math.random() * 100}vh`,
-                background: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.3)`,
-                animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-                transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)`
-              }}
-            ></div>
-          ))}
-          
-          {/* Geometric shapes with parallax effect */}
-          <div 
-            className="absolute w-64 h-64 border-2 border-white/10 rounded-full top-1/4 right-1/4 animate-rotate-slow"
-            style={{ transform: `translateX(${mousePosition.x * 30}px) translateY(${mousePosition.y * 30}px)` }}
-          ></div>
-          <div 
-            className="absolute w-96 h-96 border border-white/20 rounded-full bottom-1/3 left-1/3 animate-rotate-slow"
-            style={{ transform: `translateX(${mousePosition.x * -40}px) translateY(${mousePosition.y * -40}px)` }}
-          ></div>
-          <div 
-            className="absolute w-40 h-40 border border-mylli-accent/30 transform rotate-45 top-1/3 right-1/4"
-            style={{ transform: `rotate(45deg) translateX(${mousePosition.x * 20}px) translateY(${mousePosition.y * 20}px)` }}
-          ></div>
-          
-          {/* Blob shapes */}
-          <div 
-            className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-mylli-accent/20 to-transparent rounded-full blur-3xl animate-blob"
-            style={{ transform: `translateX(${mousePosition.x * -30}px) translateY(${mousePosition.y * -30}px)` }}
-          ></div>
-          <div 
-            className="absolute -bottom-40 -left-20 w-80 h-80 bg-gradient-to-tr from-mylli-primary/30 to-transparent rounded-full blur-3xl animate-blob animation-delay-2000"
-            style={{ transform: `translateX(${mousePosition.x * 25}px) translateY(${mousePosition.y * 25}px)` }}
-          ></div>
-          <div 
-            className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-br from-mylli-secondary/20 to-transparent rounded-full blur-3xl animate-blob animation-delay-4000"
-            style={{ transform: `translateX(${mousePosition.x * -15}px) translateY(${mousePosition.y * -15}px)` }}
-          ></div>
-        </div>
+        
         
         {/* Main content */}
         <div className="container-custom relative z-20">
@@ -249,7 +195,10 @@ const HomePage = () => {
               {/* Main image container with animated border */}
               <div className="relative w-full aspect-square max-w-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-30 blur-md"></div>
-                <div className="absolute inset-2 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-50" style={{ animationDirection: 'reverse', animationDuration: '15s' }}></div>
+                <div className="absolute inset-2 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-50" style={{
+                animationDirection: 'reverse',
+                animationDuration: '15s'
+              }}></div>
                 <div className="absolute inset-3 rounded-full overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark to-mylli-primary opacity-90"></div>
                   <div className="w-full h-full relative flex items-center justify-center animate-float">
@@ -265,14 +214,21 @@ const HomePage = () => {
                     </div>
                     
                     {/* Decorative elements */}
-                    <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{ animationDelay: '1s' }}></div>
-                    <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{ animationDelay: '2s' }}></div>
+                    <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
+                    animationDelay: '1s'
+                  }}></div>
+                    <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
+                    animationDelay: '2s'
+                  }}></div>
                   </div>
                 </div>
               </div>
               
               {/* Floating cards */}
-              <div className="absolute -top-10 -left-10 md:left-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{ animationDelay: '0.5s', animationDuration: '4s' }}>
+              <div className="absolute -top-10 -left-10 md:left-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
+              animationDelay: '0.5s',
+              animationDuration: '4s'
+            }}>
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center text-mylli-primary mr-3">
                     <Heart size={18} />
@@ -281,7 +237,10 @@ const HomePage = () => {
                 </div>
               </div>
               
-              <div className="absolute -bottom-10 -right-10 md:right-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{ animationDelay: '1.5s', animationDuration: '5s' }}>
+              <div className="absolute -bottom-10 -right-10 md:right-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
+              animationDelay: '1.5s',
+              animationDuration: '5s'
+            }}>
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center text-mylli-accent mr-3">
                     <Shield size={18} />
@@ -312,11 +271,7 @@ const HomePage = () => {
       {/* About Section */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <SectionHeading 
-            title="Depuis 10 ans à vos côtés"
-            subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile."
-            align="center"
-          />
+          <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="center" />
           
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-mylli-gray mb-8 animate-fade-in">
@@ -336,23 +291,10 @@ const HomePage = () => {
       {/* Services Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <SectionHeading 
-            title="Nos Services"
-            subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile."
-          />
+          <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {services.map((service, index) => (
-              <ServiceCard 
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                link={service.link}
-                style="featured"
-                className="animate-fade-in"
-              />
-            ))}
+            {services.map((service, index) => <ServiceCard key={index} title={service.title} description={service.description} icon={service.icon} link={service.link} style="featured" className="animate-fade-in" />)}
           </div>
           
           <div className="text-center animate-fade-in">
@@ -368,21 +310,16 @@ const HomePage = () => {
       {/* How It Works Section */}
       <section className="section-padding bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Notre Fonctionnement"
-            subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins."
-          />
+          <SectionHeading title="Notre Fonctionnement" subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {howItWorks.map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card animate-fade-in">
+            {howItWorks.map((item, index) => <div key={index} className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card animate-fade-in">
                 <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-4 text-mylli-primary font-bold">
                   {item.step}
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
                 <p className="text-mylli-gray">{item.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           <div className="mt-10 text-center animate-fade-in">
@@ -411,22 +348,10 @@ const HomePage = () => {
       {/* Testimonial Section */}
       <section className="section-padding bg-mylli-primary/5">
         <div className="container-custom">
-          <SectionHeading 
-            title="Ce que disent nos clients"
-            subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté."
-          />
+          <SectionHeading title="Ce que disent nos clients" subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard 
-                key={index}
-                quote={testimonial.quote}
-                name={testimonial.name}
-                title={testimonial.title}
-                style="modern"
-                className="animate-fade-in"
-              />
-            ))}
+            {testimonials.map((testimonial, index) => <TestimonialCard key={index} quote={testimonial.quote} name={testimonial.name} title={testimonial.title} style="modern" className="animate-fade-in" />)}
           </div>
         </div>
       </section>
@@ -477,8 +402,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default HomePage;
