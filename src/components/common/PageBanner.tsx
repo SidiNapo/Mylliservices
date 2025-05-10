@@ -1,4 +1,3 @@
-
 import { ReactNode, useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +19,6 @@ const PageBanner = ({
   variant = 'default'
 }: PageBannerProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -32,17 +30,11 @@ const PageBanner = ({
       setScrollPosition(window.scrollY);
     };
     
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
     
     return () => {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -79,15 +71,7 @@ const PageBanner = ({
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/80 to-mylli-dark/90"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-mylli-dark/5 to-mylli-dark/20"></div>
-            {/* Dynamic light effect that follows mouse */}
-            <div 
-              className="absolute w-[40vw] h-[40vw] rounded-full radial-pulse opacity-20 pointer-events-none"
-              style={{ 
-                background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)',
-                left: `calc(${mousePosition.x}px - 20vw)`, 
-                top: `calc(${mousePosition.y}px - 20vw)` 
-              }}
-            ></div>
+            {/* Removed hover effect that follows mouse */}
           </>
         );
       case 'particles':
