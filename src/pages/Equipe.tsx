@@ -2,6 +2,7 @@
 import { Award, CheckCircle, Shield, Users } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
+import ParallaxSection from '@/components/common/ParallaxSection';
 
 const EquipePage = () => {
   const values = [
@@ -57,71 +58,88 @@ const EquipePage = () => {
         subtitle="Une équipe dévouée et des outils performants au service de votre bien-être"
       />
       
-      {/* Approach Section */}
-      <section className="section-padding bg-white">
+      {/* Approach Section with Parallax */}
+      <ParallaxSection
+        backgroundImage="https://images.unsplash.com/photo-1500673922987-e212871fec22"
+        height="auto"
+        className="py-24"
+      >
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-mylli-dark">
-              LE CARACTÈRE DES SOIGNANTS EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT
-            </h2>
-            <p className="text-lg text-mylli-gray">
-              Chez Mylli Services, nous sommes convaincus que la qualité des soins dépend autant des compétences techniques que des qualités humaines des intervenants. C'est pourquoi nous accordons une importance particulière au recrutement et à la formation continue de notre équipe.
-            </p>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white bg-opacity-90 backdrop-blur-xl rounded-3xl shadow-2xl p-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-mylli-dark bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
+                LE CARACTÈRE DES SOIGNANTS EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT
+              </h2>
+              <p className="text-xl text-mylli-gray">
+                Chez Mylli Services, nous sommes convaincus que la qualité des soins dépend autant des compétences techniques que des qualités humaines des intervenants. C'est pourquoi nous accordons une importance particulière au recrutement et à la formation continue de notre équipe.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
       
-      {/* Selection Process */}
-      <section className="section-padding bg-gray-50">
+      {/* Selection Process - Modern design */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <SectionHeading 
             title="Notre Processus de Sélection"
             subtitle="Une approche rigoureuse pour garantir l'excellence de nos intervenants"
+            variant="modern"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="animate-fade-in-right">
-              <div className="bg-white rounded-2xl shadow-card p-6 border-l-4 border-mylli-primary h-full">
-                <h3 className="text-xl font-bold mb-4 text-mylli-dark">Recrutement rigoureux</h3>
-                <ul className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
+              <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-primary h-full">
+                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-3">
+                    <span className="text-mylli-primary font-bold">1</span>
+                  </div>
+                  Recrutement rigoureux
+                </h3>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Vérification des qualifications professionnelles et des diplômes</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Contrôle des références et de l'expérience professionnelle</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Entretiens approfondis pour évaluer les compétences techniques</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Mises en situation pratiques pour tester les réactions</span>
                   </li>
                 </ul>
               </div>
             </div>
             
-            <div className="animate-fade-in-left">
-              <div className="bg-white rounded-2xl shadow-card p-6 border-l-4 border-mylli-secondary h-full">
-                <h3 className="text-xl font-bold mb-4 text-mylli-dark">Évaluation des qualités humaines</h3>
-                <ul className="space-y-3">
+            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
+              <div className="bg-gradient-to-br from-white to-mylli-secondary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-secondary h-full">
+                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-3">
+                    <span className="text-mylli-secondary font-bold">2</span>
+                  </div>
+                  Évaluation des qualités humaines
+                </h3>
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Évaluation de l'empathie et des capacités d'écoute</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Analyse de la patience et de la bienveillance</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Vérification de l'équilibre émotionnel et capacité à gérer le stress</span>
                   </li>
                   <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
+                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Évaluation de la capacité d'adaptation aux différentes situations</span>
                   </li>
                 </ul>
@@ -131,88 +149,109 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Training Section */}
-      <section className="section-padding bg-white">
+      {/* Training Section - Modern design */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <SectionHeading 
             title="Formation et Évaluation Continue"
             subtitle="Un programme complet pour maintenir l'excellence"
+            variant="gradient"
           />
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="bg-mylli-primary/5 rounded-2xl p-6 animate-fade-in">
-                <h3 className="text-xl font-bold mb-4 text-mylli-dark">Formation technique</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="bg-gradient-to-br from-mylli-primary/10 to-white rounded-3xl shadow-lg p-8 transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-mylli-primary/15 flex items-center justify-center mr-4">
+                    <Award size={32} className="text-mylli-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-mylli-dark">Formation technique</h3>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Formations spécifiques aux pathologies courantes</span>
                   </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Mise à jour des connaissances médicales</span>
                   </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Formation aux gestes d'urgence et premiers secours</span>
                   </li>
                 </ul>
               </div>
               
-              <div className="bg-mylli-primary/5 rounded-2xl p-6 animate-fade-in">
-                <h3 className="text-xl font-bold mb-4 text-mylli-dark">Formation relationnelle</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+              <div className="bg-gradient-to-br from-mylli-secondary/10 to-white rounded-3xl shadow-lg p-8 transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-xl">
+                <div className="flex items-center mb-6">
+                  <div className="w-16 h-16 rounded-full bg-mylli-secondary/15 flex items-center justify-center mr-4">
+                    <Users size={32} className="text-mylli-secondary" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-mylli-dark">Formation relationnelle</h3>
+                </div>
+                <ul className="space-y-4">
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Développement des compétences en communication</span>
                   </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Gestion des situations difficiles ou conflictuelles</span>
                   </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={18} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
                     <span className="text-mylli-gray">Accompagnement de la fin de vie et soutien aux familles</span>
                   </li>
                 </ul>
               </div>
             </div>
             
-            <div className="mt-8 p-6 border border-mylli-primary/20 rounded-2xl bg-white shadow-soft animate-fade-in">
-              <h3 className="text-xl font-bold mb-4 text-mylli-dark">Évaluation et suivi</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold mb-2 text-mylli-dark">Évaluation régulière</h4>
-                  <ul className="space-y-2">
+            <div className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-white to-gray-50 shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl">
+              <h3 className="text-2xl font-bold mb-8 text-mylli-dark text-center">Évaluation et suivi</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
+                    <div className="w-8 h-8 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-2">
+                      <span className="text-mylli-primary font-bold text-sm">A</span>
+                    </div>
+                    Évaluation régulière
+                  </h4>
+                  <ul className="space-y-3">
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Contrôles de qualité mensuels</span>
+                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Contrôles de qualité mensuels</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Visites surprises sur le terrain</span>
+                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Visites surprises sur le terrain</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Évaluation des compétences techniques</span>
+                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Évaluation des compétences techniques</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div>
-                  <h4 className="font-semibold mb-2 text-mylli-dark">Retours clients</h4>
-                  <ul className="space-y-2">
+                <div className="bg-white rounded-xl p-6 shadow-lg">
+                  <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
+                    <div className="w-8 h-8 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-2">
+                      <span className="text-mylli-secondary font-bold text-sm">B</span>
+                    </div>
+                    Retours clients
+                  </h4>
+                  <ul className="space-y-3">
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Enquêtes de satisfaction régulières</span>
+                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Enquêtes de satisfaction régulières</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Entretiens avec les patients et les familles</span>
+                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Entretiens avec les patients et les familles</span>
                     </li>
                     <li className="flex items-start">
-                      <CheckCircle size={16} className="text-mylli-secondary mt-1 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray text-sm">Système de recueil des suggestions d'amélioration</span>
+                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
+                      <span className="text-mylli-gray">Système de recueil des suggestions d'amélioration</span>
                     </li>
                   </ul>
                 </div>
@@ -222,60 +261,75 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Team Section */}
-      <section className="section-padding bg-gray-50">
+      {/* Team Section - Modern cards with parallax */}
+      <ParallaxSection
+        backgroundImage="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
+        height="auto"
+        className="py-24"
+      >
         <div className="container-custom">
           <SectionHeading 
             title="Notre Équipe de Direction"
             subtitle="Des professionnels expérimentés dédiés à votre bien-être"
+            variant="underline"
+            className="text-white"
+            highlightColor="white"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-fade-in"
-              >
-                <div className="h-48 bg-gradient-to-br from-mylli-primary to-mylli-dark flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-3xl font-bold text-white">{member.name.charAt(0)}</span>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {teamMembers.map((member, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl"
+                >
+                  <div className="h-36 bg-gradient-to-br from-mylli-primary/90 to-mylli-dark/90 flex items-center justify-center">
+                    <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-md border-4 border-white/30 flex items-center justify-center transform transition-all duration-500 hover:scale-110">
+                      <span className="text-3xl font-bold text-white">{member.name.charAt(0)}</span>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-1 text-mylli-dark">{member.name}</h3>
+                    <p className="text-mylli-primary font-medium mb-4">{member.title}</p>
+                    <p className="text-mylli-gray text-sm">{member.bio}</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1 text-mylli-dark">{member.name}</h3>
-                  <p className="text-mylli-primary font-medium mb-3">{member.title}</p>
-                  <p className="text-mylli-gray text-sm">{member.bio}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
       
-      {/* Values Section */}
-      <section className="section-padding bg-gradient-to-r from-mylli-primary to-mylli-dark text-white">
+      {/* Values Section - Modern glass cards */}
+      <section className="py-24 bg-gradient-to-r from-mylli-primary to-mylli-dark">
         <div className="container-custom">
           <SectionHeading 
             title="Nos Valeurs"
             subtitle="Des principes qui guident notre travail au quotidien"
+            variant="modern"
             className="text-white"
+            highlightColor="white"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 animate-fade-in"
-              >
-                <div className="flex items-start">
-                  <div className="mr-4 text-white">{value.icon}</div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-3 text-white">{value.title}</h3>
-                    <p className="text-white/90">{value.description}</p>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {values.map((value, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-lg transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-2xl hover:bg-white/15"
+                >
+                  <div className="flex items-start">
+                    <div className="w-16 h-16 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mr-6 transform transition-all duration-500 group-hover:rotate-12">
+                      <div className="text-white">{value.icon}</div>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-4 text-white">{value.title}</h3>
+                      <p className="text-white/80 text-lg">{value.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>

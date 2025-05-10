@@ -116,6 +116,10 @@ export default {
 					'0%, 100%': { opacity: '1' },
 					'50%': { opacity: '0.8' },
 				},
+				'parallax-scroll': {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(-50%)' }
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -126,6 +130,7 @@ export default {
 				'scale-in': 'scale-in 0.5s ease-out',
 				'float': 'float 3s ease-in-out infinite',
 				'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+				'parallax-scroll': 'parallax-scroll 20s linear infinite',
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
@@ -136,6 +141,10 @@ export default {
 				'soft': '0 4px 15px rgba(0, 0, 0, 0.05)',
 				'card': '0 10px 30px rgba(0, 0, 0, 0.08)',
 				'hover': '0 20px 40px rgba(0, 0, 0, 0.12)',
+			},
+			transitionProperty: {
+				'height': 'height',
+				'spacing': 'margin, padding',
 			}
 		}
 	},

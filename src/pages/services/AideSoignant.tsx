@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
+import ParallaxSection from '@/components/common/ParallaxSection';
 
 const AideSoignantPage = () => {
   // Roles of caregiver
@@ -57,52 +58,66 @@ const AideSoignantPage = () => {
         subtitle="Préservation de l'autonomie et accompagnement quotidien"
       />
       
-      {/* Introduction */}
-      <section className="section-padding bg-white">
+      {/* Introduction - Modern design */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-              <div className="lg:col-span-2 animate-fade-in-right">
-                <h2 className="text-3xl font-bold mb-6 text-mylli-dark">Un accompagnement quotidien personnalisé</h2>
-                <p className="text-mylli-gray mb-4">
-                  L'aide-soignant(e) à domicile stimule et préserve l'autonomie du patient tout en accomplissant différents actes de la vie quotidienne. Son approche globale prend en compte les dimensions physiques, psychologiques et sociales pour assurer un accompagnement complet.
-                </p>
-                <p className="text-mylli-gray mb-4">
-                  Au-delà des actes techniques, l'aide-soignant(e) développe une relation de confiance avec le patient et sa famille, facilitant ainsi la communication et l'adaptation des soins aux évolutions de la situation.
-                </p>
-                <p className="text-mylli-gray">
-                  Nos aide-soignant(e)s sont titulaires d'un diplôme d'État et bénéficient de formations continues régulières pour garantir la qualité des soins prodigués.
-                </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-center">
+              <div className="lg:col-span-2 order-2 lg:order-1">
+                <h2 className="text-3xl font-bold mb-8 text-mylli-dark bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
+                  Un accompagnement quotidien personnalisé
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-lg text-mylli-gray">
+                    L'aide-soignant(e) à domicile stimule et préserve l'autonomie du patient tout en accomplissant différents actes de la vie quotidienne. Son approche globale prend en compte les dimensions physiques, psychologiques et sociales pour assurer un accompagnement complet.
+                  </p>
+                  <p className="text-lg text-mylli-gray">
+                    Au-delà des actes techniques, l'aide-soignant(e) développe une relation de confiance avec le patient et sa famille, facilitant ainsi la communication et l'adaptation des soins aux évolutions de la situation.
+                  </p>
+                  <p className="text-lg text-mylli-gray">
+                    Nos aide-soignant(e)s sont titulaires d'un diplôme d'État et bénéficient de formations continues régulières pour garantir la qualité des soins prodigués.
+                  </p>
+                </div>
               </div>
               
-              <div className="lg:col-span-1 animate-fade-in-left">
-                <div className="bg-mylli-primary/5 rounded-2xl p-6 border border-mylli-primary/20">
-                  <div className="flex justify-center mb-6">
-                    <div className="w-20 h-20 rounded-full bg-mylli-primary/10 flex items-center justify-center">
-                      <User size={40} className="text-mylli-primary" />
+              <div className="lg:col-span-1 order-1 lg:order-2">
+                <div className="bg-gradient-to-br from-white to-mylli-light rounded-3xl shadow-xl p-8 border border-mylli-primary/20 transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl">
+                  <div className="flex justify-center mb-8">
+                    <div className="w-24 h-24 rounded-full bg-mylli-primary/10 flex items-center justify-center">
+                      <User size={48} className="text-mylli-primary" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 text-center text-mylli-dark">Bénéfices clés</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-center">
-                      <Star size={18} className="text-mylli-accent mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Maintien à domicile sécurisé</span>
+                  <h3 className="text-2xl font-bold mb-6 text-center text-mylli-dark">Bénéfices clés</h3>
+                  <ul className="space-y-4">
+                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
+                        <Star size={18} className="text-mylli-accent" />
+                      </div>
+                      <span className="text-mylli-gray font-medium">Maintien à domicile sécurisé</span>
                     </li>
-                    <li className="flex items-center">
-                      <Star size={18} className="text-mylli-accent mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Préservation de l'autonomie</span>
+                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
+                        <Star size={18} className="text-mylli-accent" />
+                      </div>
+                      <span className="text-mylli-gray font-medium">Préservation de l'autonomie</span>
                     </li>
-                    <li className="flex items-center">
-                      <Star size={18} className="text-mylli-accent mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Suivi rigoureux de l'état de santé</span>
+                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
+                        <Star size={18} className="text-mylli-accent" />
+                      </div>
+                      <span className="text-mylli-gray font-medium">Suivi rigoureux de l'état de santé</span>
                     </li>
-                    <li className="flex items-center">
-                      <Star size={18} className="text-mylli-accent mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Soutien psychologique et social</span>
+                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
+                        <Star size={18} className="text-mylli-accent" />
+                      </div>
+                      <span className="text-mylli-gray font-medium">Soutien psychologique et social</span>
                     </li>
-                    <li className="flex items-center">
-                      <Star size={18} className="text-mylli-accent mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Tranquillité d'esprit pour les proches</span>
+                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
+                        <Star size={18} className="text-mylli-accent" />
+                      </div>
+                      <span className="text-mylli-gray font-medium">Tranquillité d'esprit pour les proches</span>
                     </li>
                   </ul>
                 </div>
@@ -112,100 +127,133 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Roles */}
-      <section className="section-padding bg-gray-50">
+      {/* Roles with Parallax */}
+      <ParallaxSection
+        backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%)"
+        height="auto"
+        className="py-24"
+      >
         <div className="container-custom">
           <SectionHeading 
             title="Rôles de l'aide-soignant(e)"
             subtitle="Un accompagnement complet pour le bien-être quotidien"
+            variant="underline"
+            className="text-white"
+            highlightColor="white"
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {roles.map((role, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-2xl shadow-card p-6 transition-transform duration-300 hover:-translate-y-1 hover:shadow-hover border border-transparent hover:border-mylli-primary/20 animate-fade-in"
-              >
-                <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-4">
-                  {role.icon}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {roles.map((role, index) => (
+                <div 
+                  key={index}
+                  className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+                >
+                  <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-6">
+                    {role.icon}
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-mylli-dark">{role.title}</h3>
+                  <p className="text-mylli-gray">{role.description}</p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-mylli-dark">{role.title}</h3>
-                <p className="text-mylli-gray">{role.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
       
-      {/* Types of Interventions */}
-      <section className="section-padding bg-white">
+      {/* Types of Interventions - Modern cards with animation */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <SectionHeading 
             title="Types d'interventions"
             subtitle="Des formules adaptées à tous les besoins"
+            variant="gradient"
           />
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-mylli-primary to-mylli-dark text-white rounded-2xl p-6 transform transition-transform duration-300 hover:-translate-y-1 animate-fade-in">
-                <h3 className="text-xl font-bold mb-4">Garde de jour</h3>
-                <p className="text-white/90 mb-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-gradient-to-br from-mylli-primary to-mylli-dark text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
+                <h3 className="text-2xl font-bold mb-4 flex items-center">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                    <Clock size={24} className="text-white" />
+                  </div>
+                  Garde de jour
+                </h3>
+                <p className="text-white/90 mb-6 text-lg">
                   Présence attentive pendant la journée pour les soins quotidiens, l'accompagnement aux activités et la surveillance continue.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <p className="text-sm text-white/90">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <p className="text-white">
                     Horaires flexibles entre 7h et 20h selon vos besoins
                   </p>
                 </div>
               </div>
               
-              <div className="bg-gradient-to-br from-mylli-secondary to-mylli-primary/90 text-white rounded-2xl p-6 transform transition-transform duration-300 hover:-translate-y-1 animate-fade-in">
-                <h3 className="text-xl font-bold mb-4">Garde de nuit</h3>
-                <p className="text-white/90 mb-4">
+              <div className="bg-gradient-to-br from-mylli-secondary to-mylli-primary/90 text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
+                <h3 className="text-2xl font-bold mb-4 flex items-center">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                    <Clock size={24} className="text-white" />
+                  </div>
+                  Garde de nuit
+                </h3>
+                <p className="text-white/90 mb-6 text-lg">
                   Surveillance nocturne, aide au coucher et au lever, gestion des réveils nocturnes et des situations d'urgence.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <p className="text-sm text-white/90">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <p className="text-white">
                     Interventions de 20h à 7h avec possibilité de veille
                   </p>
                 </div>
               </div>
               
-              <div className="bg-gradient-to-br from-mylli-accent to-mylli-primary text-white rounded-2xl p-6 transform transition-transform duration-300 hover:-translate-y-1 animate-fade-in">
-                <h3 className="text-xl font-bold mb-4">Garde 24h/24h</h3>
-                <p className="text-white/90 mb-4">
+              <div className="bg-gradient-to-br from-mylli-accent to-mylli-primary text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
+                <h3 className="text-2xl font-bold mb-4 flex items-center">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                    <Clock size={24} className="text-white" />
+                  </div>
+                  Garde 24h/24h
+                </h3>
+                <p className="text-white/90 mb-6 text-lg">
                   Accompagnement permanent avec relève d'équipes pour une présence continue et des soins ininterrompus.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                  <p className="text-sm text-white/90">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <p className="text-white">
                     Service complet avec rotation des équipes soignantes
                   </p>
                 </div>
               </div>
             </div>
             
-            <div className="bg-mylli-primary/5 rounded-2xl p-6 mt-8 animate-fade-in">
+            <div className="bg-gradient-to-br from-mylli-light to-white rounded-3xl p-8 mt-16 shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl">
               <div className="flex items-start">
-                <Clock size={24} className="text-mylli-primary mt-1 mr-4 flex-shrink-0" />
+                <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-6 flex-shrink-0">
+                  <Clock size={32} className="text-mylli-primary" />
+                </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-mylli-dark">Interventions ponctuelles</h3>
-                  <p className="text-mylli-gray mb-4">
+                  <h3 className="text-2xl font-bold mb-6 text-mylli-dark">Interventions ponctuelles</h3>
+                  <p className="text-lg text-mylli-gray mb-6">
                     Nous proposons également des interventions ponctuelles pour:
                   </p>
-                  <ul className="space-y-2">
-                    <li className="flex items-center">
-                      <CheckCircle size={18} className="text-mylli-secondary mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Remplacements temporaires de l'aidant principal</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle size={18} className="text-mylli-secondary mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Périodes de convalescence après hospitalisation</span>
-                    </li>
-                    <li className="flex items-center">
-                      <CheckCircle size={18} className="text-mylli-secondary mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Accompagnement pour les rendez-vous médicaux</span>
-                    </li>
-                  </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+                      <div className="flex items-center">
+                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray">Remplacements temporaires de l'aidant principal</span>
+                      </div>
+                    </div>
+                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+                      <div className="flex items-center">
+                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray">Périodes de convalescence après hospitalisation</span>
+                      </div>
+                    </div>
+                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
+                      <div className="flex items-center">
+                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray">Accompagnement pour les rendez-vous médicaux</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,16 +261,24 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Testimonials */}
-      <section className="section-padding bg-gray-50">
+      {/* Testimonials with Parallax */}
+      <ParallaxSection
+        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+        height="auto"
+        className="py-24"
+        overlayOpacity={0.7}
+      >
         <div className="container-custom">
           <SectionHeading 
             title="Témoignages"
             subtitle="Ce que disent nos clients du service d'aide-soignant(e)"
+            variant="modern"
+            className="text-white"
+            highlightColor="white"
           />
           
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <TestimonialCard 
                   key={index}
@@ -230,37 +286,41 @@ const AideSoignantPage = () => {
                   name={testimonial.name}
                   title={testimonial.title}
                   style="modern"
-                  className="animate-fade-in"
+                  className="bg-white/90 backdrop-blur-md transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
                 />
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
       
-      {/* CTA */}
-      <section className="section-padding bg-gradient-to-r from-mylli-primary to-mylli-dark text-white">
+      {/* CTA - Modern design */}
+      <section className="py-24 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
-              Besoin d'un(e) aide-soignant(e) à domicile?
-            </h2>
-            <p className="text-xl opacity-90 mb-8 animate-fade-in">
-              Contactez-nous dès aujourd'hui pour un devis personnalisé adapté à vos besoins spécifiques.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in">
-              <Button asChild className="btn-accent">
-                <Link to="/contact">
-                  Demander un devis personnalisé
-                </Link>
-              </Button>
-              <a 
-                href="tel:+212661377438" 
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full border border-white bg-transparent hover:bg-white/10 transition-colors"
-              >
-                <Phone size={18} className="mr-2" />
-                +212 661 37 74 38
-              </a>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl">
+              <div className="text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8 animate-fade-in">
+                  Besoin d'un(e) aide-soignant(e) à domicile?
+                </h2>
+                <p className="text-xl opacity-90 mb-10 animate-fade-in">
+                  Contactez-nous dès aujourd'hui pour un devis personnalisé adapté à vos besoins spécifiques.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-6 animate-fade-in">
+                  <Button asChild className="bg-mylli-accent hover:bg-mylli-accent/90 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]">
+                    <Link to="/contact">
+                      Demander un devis personnalisé
+                    </Link>
+                  </Button>
+                  <a 
+                    href="tel:+212661377438" 
+                    className="inline-flex items-center justify-center px-8 py-6 rounded-full border-2 border-white bg-transparent hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]"
+                  >
+                    <Phone size={20} className="mr-3" />
+                    +212 661 37 74 38
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
