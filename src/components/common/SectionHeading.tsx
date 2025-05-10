@@ -1,3 +1,4 @@
+
 import { ReactNode } from 'react';
 interface SectionHeadingProps {
   title: string;
@@ -50,7 +51,7 @@ const SectionHeading = ({
         if (parts.length < 2) return <h2 className="section-title animate-fade-in">{title}</h2>;
         return <h2 className="section-title animate-fade-in">
             {parts[0]}
-            <span className="text-mylli-secondary">{highlightText}</span>
+            <span className="bg-gradient-to-r from-mylli-accent to-mylli-primary bg-clip-text text-transparent">{highlightText}</span>
             {parts[1]}
           </h2>;
       default:
@@ -59,7 +60,7 @@ const SectionHeading = ({
   };
   return <div className={`${alignmentClasses[align]} mb-12 md:mb-16 ${className}`}>
       {renderTitle()}
-      {subtitle && <p className="section-subtitle max-w-3xl animate-fade-in mx-[240px] my-[30px] px-0 py-0">
+      {subtitle && <p className="section-subtitle max-w-3xl animate-fade-in mx-auto mt-4 px-4">
           {subtitle}
         </p>}
       {children}

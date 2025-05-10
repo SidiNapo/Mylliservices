@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -128,26 +129,107 @@ const ContactPage = () => {
       </section>
       
       {/* Contact Form Section with Parallax - REDESIGNED */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-50">
+      <section className="py-24 relative overflow-hidden">
+        {/* Modern Background with Overlapping Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-mylli-light via-white to-blue-50 z-0"></div>
+        
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-mylli-primary/10 to-mylli-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-mylli-accent/10 to-mylli-secondary/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-[40%] h-[40%] bg-gradient-to-r from-mylli-primary/10 to-mylli-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl z-0"></div>
+        <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-gradient-to-l from-mylli-secondary/10 to-mylli-accent/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl z-0"></div>
+        
+        {/* Animated Wave Patterns */}
+        <div className="absolute inset-0 opacity-10 z-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute top-1/3 left-0 w-full opacity-20">
+            <path fill="#0099FF" fillOpacity="1" d="M0,160L40,149.3C80,139,160,117,240,128C320,139,400,181,480,181.3C560,181,640,139,720,133.3C800,128,880,160,960,186.7C1040,213,1120,235,1200,213.3C1280,192,1360,128,1400,96L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 left-0 w-full opacity-20">
+            <path fill="#E02E31" fillOpacity="1" d="M0,64L40,80C80,96,160,128,240,138.7C320,149,400,139,480,149.3C560,160,640,192,720,176C800,160,880,96,960,74.7C1040,53,1120,75,1200,101.3C1280,128,1360,160,1400,176L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
+          </svg>
+        </div>
+        
+        {/* Floating Dots */}
+        <div className="absolute inset-0 z-0">
+          {[...Array(10)].map((_, i) => (
+            <div 
+              key={i} 
+              className={`absolute rounded-full bg-mylli-primary/10 animate-pulse-soft`}
+              style={{
+                width: `${Math.random() * 20 + 5}px`,
+                height: `${Math.random() * 20 + 5}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${Math.random() * 5 + 3}s`
+              }}
+            ></div>
+          ))}
+        </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading title="Prenons contact" subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" variant="gradient" className="mb-16" />
+          <SectionHeading 
+            title="Prenons contact" 
+            subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" 
+            variant="split"
+            highlightText="contact" 
+            className="mb-16" 
+          />
           
           {/* Centered Contact Form */}
           <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark p-6 flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                  <MessageSquare className="h-5 w-5 text-white" />
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,119,192,0.25)] border border-mylli-primary/5">
+              {/* Header with Modern Gradient */}
+              <div className="bg-gradient-to-r from-mylli-primary to-mylli-accent p-8 relative overflow-hidden">
+                {/* Abstract Shapes */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                
+                <div className="relative flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                    <MessageSquare className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white">Envoyez-nous un message</h3>
                 </div>
-                <h3 className="text-xl font-bold text-white">Envoyez-nous un message</h3>
+                <p className="text-white/90 text-lg relative ml-16">
+                  Notre équipe est disponible pour répondre à toutes vos questions
+                </p>
               </div>
               
-              <div className="p-8">
-                <ContactForm />
+              {/* Form with Enhanced Styling */}
+              <div className="p-8 md:p-10">
+                <ContactForm className="space-y-6" />
+              </div>
+            </div>
+            
+            {/* Additional Contact Indicators */}
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-primary/10 shadow-lg shadow-mylli-primary/5 transform transition-all hover:scale-[1.02] duration-300">
+                <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="h-5 w-5 text-mylli-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-mylli-gray font-medium">Email</p>
+                  <a href="mailto:info@mylliservices.com" className="text-mylli-primary font-bold hover:underline">info@mylliservices.com</a>
+                </div>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-accent/10 shadow-lg shadow-mylli-accent/5 transform transition-all hover:scale-[1.02] duration-300">
+                <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center flex-shrink-0">
+                  <Phone className="h-5 w-5 text-mylli-accent" />
+                </div>
+                <div>
+                  <p className="text-sm text-mylli-gray font-medium">Téléphone</p>
+                  <a href="tel:+212661377438" className="text-mylli-accent font-bold hover:underline">+212 661 37 74 38</a>
+                </div>
+              </div>
+              
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-secondary/10 shadow-lg shadow-mylli-secondary/5 transform transition-all hover:scale-[1.02] duration-300">
+                <div className="w-10 h-10 rounded-full bg-mylli-secondary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="h-5 w-5 text-mylli-secondary" />
+                </div>
+                <div>
+                  <p className="text-sm text-mylli-gray font-medium">Notre adresse</p>
+                  <p className="text-mylli-secondary font-bold">19, rue Masmouda hay Al Hana</p>
+                </div>
               </div>
             </div>
           </div>

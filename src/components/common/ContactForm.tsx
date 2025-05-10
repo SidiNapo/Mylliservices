@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
+import { Send } from 'lucide-react';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 interface ContactFormProps {
   simple?: boolean;
@@ -51,47 +54,52 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
     return (
       <form onSubmit={handleSubmit} className={`${className}`}>
         <div className="grid grid-cols-1 gap-4">
-          <input 
+          <Input
             type="text" 
             name="name" 
             value={formData.name}
             onChange={handleChange}
             placeholder="Votre nom" 
             required 
-            className="input-field"
+            className="focus:border-mylli-primary"
           />
           
-          <input 
+          <Input
             type="tel" 
             name="phone" 
             value={formData.phone}
             onChange={handleChange}
             placeholder="Votre téléphone" 
             required 
-            className="input-field"
+            className="focus:border-mylli-primary"
           />
           
-          <input 
+          <Input
             type="email" 
             name="email" 
             value={formData.email}
             onChange={handleChange}
             placeholder="Votre email" 
             required 
-            className="input-field"
+            className="focus:border-mylli-primary"
           />
           
-          <textarea 
+          <Textarea
             name="message" 
             value={formData.message}
             onChange={handleChange}
             placeholder="Votre message" 
             rows={3} 
-            className="input-field resize-none"
-          ></textarea>
+            className="resize-none focus:border-mylli-primary"
+          />
           
-          <Button type="submit" className="btn-accent w-full" disabled={isSubmitting}>
+          <Button 
+            type="submit" 
+            className="bg-gradient-to-r from-mylli-primary to-mylli-accent hover:from-mylli-primary/90 hover:to-mylli-accent/90 text-white w-full rounded-xl py-3 px-6 transition-all duration-300 flex items-center justify-center gap-2" 
+            disabled={isSubmitting}
+          >
             {isSubmitting ? 'Envoi en cours...' : 'Demander un devis'}
+            {!isSubmitting && <Send className="h-4 w-4" />}
           </Button>
         </div>
       </form>
@@ -100,84 +108,113 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
   
   return (
     <form onSubmit={handleSubmit} className={`${className}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <input 
-          type="text" 
-          name="name" 
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Votre nom" 
-          required 
-          className="input-field"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="space-y-2">
+          <label htmlFor="name" className="text-sm font-medium text-mylli-dark/80">Votre nom</label>
+          <Input
+            id="name"
+            type="text" 
+            name="name" 
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Entrez votre nom complet" 
+            required 
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+          />
+        </div>
         
-        <input 
-          type="email" 
-          name="email" 
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Votre email" 
-          required 
-          className="input-field"
-        />
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-mylli-dark/80">Votre email</label>
+          <Input
+            id="email"
+            type="email" 
+            name="email" 
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Entrez votre adresse email" 
+            required 
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+          />
+        </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-        <input 
-          type="tel" 
-          name="phone" 
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Votre téléphone" 
-          required 
-          className="input-field"
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+        <div className="space-y-2">
+          <label htmlFor="phone" className="text-sm font-medium text-mylli-dark/80">Votre téléphone</label>
+          <Input
+            id="phone"
+            type="tel" 
+            name="phone" 
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Entrez votre numéro de téléphone" 
+            required 
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+          />
+        </div>
         
-        <select 
-          name="subject" 
-          value={formData.subject}
-          onChange={handleChange}
-          className="input-field"
-          required
-        >
-          <option value="">Objet de votre demande</option>
-          <option value="information">Demande d'information</option>
-          <option value="devis">Demande de devis</option>
-          <option value="urgence">Demande urgente</option>
-          <option value="autre">Autre</option>
-        </select>
+        <div className="space-y-2">
+          <label htmlFor="subject" className="text-sm font-medium text-mylli-dark/80">Objet de votre demande</label>
+          <select 
+            id="subject"
+            name="subject" 
+            value={formData.subject}
+            onChange={handleChange}
+            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            required
+          >
+            <option value="">Sélectionnez un objet</option>
+            <option value="information">Demande d'information</option>
+            <option value="devis">Demande de devis</option>
+            <option value="urgence">Demande urgente</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
       </div>
       
-      <div className="mb-4">
-        <select 
-          name="service" 
-          value={formData.service}
-          onChange={handleChange}
-          className="input-field w-full"
-        >
-          <option value="">Service qui vous intéresse (optionnel)</option>
-          <option value="aide-soignant">Aide-soignant(e) à domicile</option>
-          <option value="infirmier">Infirmier(ère) à domicile</option>
-          <option value="garde-jour">Garde-malade de jour</option>
-          <option value="garde-nuit">Garde-malade de nuit</option>
-          <option value="garde-24h">Garde-malade 24h/24h</option>
-        </select>
+      <div className="mb-6">
+        <div className="space-y-2">
+          <label htmlFor="service" className="text-sm font-medium text-mylli-dark/80">Service qui vous intéresse</label>
+          <select 
+            id="service"
+            name="service" 
+            value={formData.service}
+            onChange={handleChange}
+            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <option value="">Service qui vous intéresse (optionnel)</option>
+            <option value="aide-soignant">Aide-soignant(e) à domicile</option>
+            <option value="infirmier">Infirmier(ère) à domicile</option>
+            <option value="garde-jour">Garde-malade de jour</option>
+            <option value="garde-nuit">Garde-malade de nuit</option>
+            <option value="garde-24h">Garde-malade 24h/24h</option>
+          </select>
+        </div>
       </div>
       
-      <div className="mb-4">
-        <textarea 
-          name="message" 
-          value={formData.message}
-          onChange={handleChange}
-          placeholder="Votre message" 
-          rows={5} 
-          className="input-field resize-none w-full"
-          required
-        ></textarea>
+      <div className="mb-6">
+        <div className="space-y-2">
+          <label htmlFor="message" className="text-sm font-medium text-mylli-dark/80">Votre message</label>
+          <Textarea
+            id="message"
+            name="message" 
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Décrivez votre demande en détail..." 
+            rows={5} 
+            className="resize-none rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+            required
+          />
+        </div>
       </div>
       
-      <Button type="submit" className="btn-accent w-full md:w-auto" disabled={isSubmitting}>
-        {isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+      <Button 
+        type="submit" 
+        className="bg-gradient-to-r from-mylli-primary to-mylli-accent hover:from-mylli-primary/90 hover:to-mylli-accent/90 text-white rounded-xl py-6 px-8 transition-all duration-300 flex items-center justify-center gap-3 h-auto" 
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? 'Envoi en cours...' : 'Envoyer votre message'}
+        {!isSubmitting && <Send className="h-5 w-5" />}
       </Button>
     </form>
   );
