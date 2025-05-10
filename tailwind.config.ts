@@ -63,19 +63,24 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Mylli Services custom color scheme
+				// Mylli Services updated color scheme
 				mylli: {
-					primary: '#3B82F6', // Blue for trust and professionalism
-					secondary: '#34D399', // Green for care and health
-					accent: '#F97316', // Orange for warmth and calls-to-action
-					light: '#F0F9FF', // Light blue background
-					dark: '#1E40AF', // Dark blue for text and headers
-					gray: '#64748B', // Neutral gray for text
+					primary: '#8B5CF6', // Purple for uniqueness and care
+					'primary-dark': '#7C3AED', // Darker purple for hover states
+					secondary: '#3B82F6', // Blue for trust and reliability
+					accent: '#F59E0B', // Vibrant orange for warmth and energy
+					light: '#EEF2FF', // Light purple for backgrounds
+					dark: '#4C1D95', // Deep purple for text and emphasis
+					gray: '#64748B', // Neutral gray for body text
+					tertiary: '#EC4899', // Pink for highlights and accents
+					quaternary: '#10B981', // Green for success indicators
+					surface: '#FFFFFF', // Surface color
+					'surface-hover': '#F9FAFB', // Hover state for surface
 				}
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
+				sans: ['Quicksand', 'sans-serif'],
+				serif: ['Montserrat', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -155,6 +160,18 @@ export default {
 					'0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
 					'50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
 					'100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' }
+				},
+				'bounce-subtle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'border-flow': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'100%': { backgroundPosition: '100% 50%' }
 				}
 			},
 			animation: {
@@ -173,21 +190,25 @@ export default {
 				'rotate-slow': 'rotate-slow 12s linear infinite',
 				'text-gradient': 'text-gradient 2s linear infinite',
 				'wave': 'wave 1.5s infinite',
-				'blob': 'blob 8s ease-in-out infinite'
+				'blob': 'blob 8s ease-in-out infinite',
+				'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+				'spin-slow': 'spin-slow 15s linear infinite',
+				'border-flow': 'border-flow 3s linear infinite'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(221, 100%, 92%, 1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(199, 100%, 56%, 1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(211, 98%, 80%, 1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(337, 100%, 83%, 0.4) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.5) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.5) 0px, transparent 50%)',
+				'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(262, 83%, 90%, 1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(220, 91%, 95%, 1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(262, 83%, 95%, 1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(339, 100%, 95%, 0.4) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(29, 100%, 95%, 0.5) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(262, 100%, 90%, 1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343, 100%, 95%, 0.5) 0px, transparent 50%)',
 			},
 			boxShadow: {
 				'soft': '0 4px 15px rgba(0, 0, 0, 0.05)',
 				'card': '0 10px 30px rgba(0, 0, 0, 0.08)',
 				'hover': '0 20px 40px rgba(0, 0, 0, 0.12)',
 				'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
-				'neon': '0 0 5px rgba(59, 130, 246, 0.5), 0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.15)',
-				'3d': '0 10px 0 rgba(0, 0, 0, 0.2)'
+				'neon': '0 0 5px rgba(139, 92, 246, 0.5), 0 0 15px rgba(139, 92, 246, 0.3), 0 0 30px rgba(139, 92, 246, 0.15)',
+				'3d': '0 10px 0 rgba(0, 0, 0, 0.2)',
+				'inner-glow': 'inset 0 0 15px rgba(139, 92, 246, 0.15)'
 			},
 			transitionProperty: {
 				'height': 'height',

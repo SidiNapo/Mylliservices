@@ -1,6 +1,8 @@
+
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle } from 'lucide-react';
+import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from '@/components/common/SectionHeading';
 import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
@@ -13,6 +15,7 @@ const HomePage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
+  const [hoverCard, setHoverCard] = useState(-1);
 
   // For mouse parallax effect
   const [mousePosition, setMousePosition] = useState({
@@ -93,17 +96,17 @@ const HomePage = () => {
   const services = [{
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-    icon: <User size={40} strokeWidth={1.5} />,
+    icon: <User size={40} strokeWidth={1.5} className="text-mylli-primary" />,
     link: "/services/aide-soignant"
   }, {
     title: "Infirmier(ère) à domicile",
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-    icon: <Heart size={40} strokeWidth={1.5} />,
+    icon: <Heart size={40} strokeWidth={1.5} className="text-mylli-primary" />,
     link: "/services/infirmier"
   }, {
     title: "Services de garde-malade",
     description: "Présence continue et surveillance pour les personnes fragiles, jour, nuit ou 24h/24.",
-    icon: <Clock size={40} strokeWidth={1.5} />,
+    icon: <Clock size={40} strokeWidth={1.5} className="text-mylli-primary" />,
     link: "/services/garde-malade"
   }];
 
@@ -140,14 +143,34 @@ const HomePage = () => {
     name: "Sophia B.",
     title: "52 ans"
   }];
+
+  // Features section data
+  const features = [
+    {
+      icon: <Shield className="text-mylli-primary h-12 w-12" />,
+      title: "Sécurité & Confiance",
+      description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité"
+    },
+    {
+      icon: <Star className="text-mylli-accent h-12 w-12" />,
+      title: "Qualité de service",
+      description: "Accompagnement personnalisé et suivi régulier de votre satisfaction"
+    },
+    {
+      icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
+      title: "Disponibilité 24/7",
+      description: "Une équipe disponible jour et nuit pour répondre à vos besoins"
+    }
+  ];
+
   return (
-    <div>
-      {/* Hero Section - With Modern Image Background */}
-      <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
+    <div className="overflow-hidden">
+      {/* Hero Section - With Modern Image Background and updated color scheme */}
+      <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
         {/* Modern layered background with images */}
         <div className="absolute inset-0 z-0">
-          {/* Gradient overlay - updated to use a more joyful gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/80 via-mylli-accent/60 to-mylli-dark/80 z-10"></div>
+          {/* Gradient overlay - vibrant gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/80 via-mylli-primary/60 to-mylli-dark/70 z-10"></div>
           
           {/* Modern image gallery */}
           <div className="absolute inset-0 overflow-hidden">
@@ -159,21 +182,21 @@ const HomePage = () => {
                 <img 
                   src={img} 
                   alt="Professional care services" 
-                  className="absolute w-full h-full object-cover object-center filter brightness-[0.7]"
+                  className="absolute w-full h-full object-cover object-center filter brightness-[0.75]"
                 />
               </div>
             ))}
           </div>
           
-          {/* Geometric patterns for modern look - updated colors */}
+          {/* Geometric patterns for modern look - vibrant colors */}
           <div className="absolute inset-0 z-20 pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FEC6A1] opacity-20 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-[#E5DEFF] opacity-20 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-[#FEF7CD] opacity-20 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-mylli-primary opacity-30 blur-3xl animate-pulse-soft"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-tertiary opacity-20 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-accent opacity-20 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
           </div>
           
-          {/* Elegant grid overlay for modern touch - updated to use more cheerful colors */}
-          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNmZmM3YTUxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjRkZEREUyMTAiIHN0cm9rZS1vcGFjaXR5PSIuNyIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjRkVGN0NEMTAiLz48L2c+PC9zdmc+')]"></div>
+          {/* Elegant grid overlay for modern touch */}
+          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiM4YjVjZjYxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjRUM0ODk5MTAiIHN0cm9rZS1vcGFjaXR5PSIuNyIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjRjU5RTBCMTAiLz48L2c+PC9zdmc+')]"></div>
         </div>
         
         {/* Main content */}
@@ -189,26 +212,26 @@ const HomePage = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
                 <span className="block relative overflow-hidden">
-                  <span className="block transform transition-transform animate-fade-in">NOUS SOMMES LÀ</span>
+                  <span className="block transform transition-transform animate-fade-in text-white">NOUS SOMMES LÀ</span>
                 </span>
                 <span className="block mt-2 relative overflow-hidden">
-                  <span className="block transform transition-transform animate-fade-in delay-[300ms]">POUR VOUS <span className="relative inline-block animate-wave origin-[70%_70%]">🤝</span></span>
+                  <span className="block transform transition-transform animate-fade-in delay-[300ms] text-white">POUR VOUS <span className="relative inline-block animate-wave origin-[70%_70%]">🤝</span></span>
                 </span>
-                <span className="block mt-2 bg-gradient-to-r from-mylli-accent via-mylli-primary to-mylli-secondary bg-clip-text text-transparent animate-text-gradient bg-[length:200%]">
+                <span className="block mt-2 text-gradient animate-text-gradient bg-[length:200%]">
                   AIDER!
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed">
+              <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed text-white">
                 Depuis <span className="text-mylli-accent font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
               </p>
               
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 lg:justify-start animate-fade-in delay-[900ms]">
-                <Button asChild className="relative group overflow-hidden rounded-full px-8 py-6 bg-gradient-to-r from-mylli-accent to-mylli-primary hover:shadow-neon transition-all duration-300">
+                <Button asChild className="relative group overflow-hidden rounded-full px-8 py-6 bg-gradient-to-r from-mylli-primary to-mylli-tertiary hover:shadow-neon transition-all duration-300">
                   <Link to="/services" className="relative z-10 flex items-center text-white font-medium">
                     Découvrir nos services
                     <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-mylli-primary to-mylli-accent blur-sm group-hover:opacity-80 opacity-0 transition-opacity -z-10"></span>
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-mylli-tertiary to-mylli-primary blur-sm group-hover:opacity-80 opacity-0 transition-opacity -z-10"></span>
                   </Link>
                 </Button>
                 <Button variant="outline" asChild className="backdrop-blur-sm bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/40 px-8 py-6 rounded-full shadow-glass">
@@ -220,17 +243,17 @@ const HomePage = () => {
               
               {/* Stats */}
               <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-accent/50 transition-all duration-300">
                   <p className="text-3xl font-bold text-mylli-accent">{isVisible ? '10+' : '0'}</p>
-                  <p className="text-xs">années d'expérience</p>
+                  <p className="text-xs text-white">années d'expérience</p>
                 </div>
-                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
                   <p className="text-3xl font-bold text-mylli-primary">{isVisible ? '500+' : '0'}</p>
-                  <p className="text-xs">clients satisfaits</p>
+                  <p className="text-xs text-white">clients satisfaits</p>
                 </div>
-                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
-                  <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '24/7' : '0'}</p>
-                  <p className="text-xs">disponibilité</p>
+                <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-tertiary/50 transition-all duration-300">
+                  <p className="text-3xl font-bold text-mylli-tertiary">{isVisible ? '24/7' : '0'}</p>
+                  <p className="text-xs text-white">disponibilité</p>
                 </div>
               </div>
             </div>
@@ -238,7 +261,7 @@ const HomePage = () => {
             {/* Right column: Visual Element - Care highlight card */}
             <div className="relative flex justify-center items-center">
               {/* Modern content card with image thumbnails */}
-              <div className="relative max-w-md w-full backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl shadow-glass overflow-hidden">
+              <div className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden animated-border-gradient">
                 {/* Top photo highlight */}
                 <div className="relative h-48 overflow-hidden group">
                   <img 
@@ -246,7 +269,7 @@ const HomePage = () => {
                     alt="Service de soins" 
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/80 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
                     <p className="text-white/90 text-sm">Accompagnement personnalisé à domicile</p>
@@ -279,8 +302,8 @@ const HomePage = () => {
                 </div>
                 
                 {/* Modern decorative elements */}
-                <div className="absolute -top-12 -right-12 w-24 h-24 bg-mylli-accent/30 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-mylli-primary/30 rounded-full blur-xl"></div>
+                <div className="absolute -top-12 -right-12 w-24 h-24 bg-mylli-tertiary/30 rounded-full blur-xl animate-pulse-soft"></div>
+                <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-mylli-primary/30 rounded-full blur-xl animate-pulse-soft"></div>
               </div>
               
               {/* Decorative elements */}
@@ -290,7 +313,7 @@ const HomePage = () => {
           </div>
         </div>
         
-        {/* Bottom wave - updated to use more joyful color */}
+        {/* Bottom wave - updated color */}
         <div className="absolute bottom-0 left-0 w-full">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 text-white">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
@@ -299,17 +322,77 @@ const HomePage = () => {
         
         {/* Mouse scroll indicator */}
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center animate-fade-in delay-[1500ms]">
-          <p className="text-sm opacity-60 mb-2">Découvrir</p>
-          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center">
+          <p className="text-sm text-white/80 mb-2">Découvrir</p>
+          <div className="w-6 h-10 rounded-full border-2 border-white/40 flex justify-center">
             <div className="w-1.5 h-1.5 rounded-full bg-white/80 mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
           </div>
         </div>
       </section>
       
-      {/* About Section */}
-      <section className="section-padding bg-white">
+      {/* New Feature Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-mylli-light">
         <div className="container-custom">
-          <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="center" />
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-mylli-primary/10 text-mylli-primary mb-3">
+              Pourquoi nous choisir
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-mylli-dark">
+              Des services d'<span className="text-gradient">exception</span> pour votre bien-être
+            </h2>
+            <p className="text-mylli-gray">
+              Nous offrons des soins professionnels avec une approche centrée sur la personne pour garantir confort et dignité.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <Card key={index} className={`feature-card border-none shadow-soft ${index === 1 ? "md:mt-8" : ""}`}>
+                <CardContent className="p-8">
+                  <div className="mb-6 relative">
+                    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 blur-sm"></div>
+                    <div className="relative bg-white rounded-full p-3 inline-block">
+                      {feature.icon}
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-mylli-dark">{feature.title}</h3>
+                  <p className="text-mylli-gray">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          {/* Trust indicators */}
+          <div className="mt-16 flex flex-wrap justify-center items-center gap-8">
+            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft">
+              <div className="bg-mylli-primary/10 rounded-full p-3">
+                <Shield className="h-6 w-6 text-mylli-primary" />
+              </div>
+              <p className="ml-3 text-sm font-medium">Personnel qualifié</p>
+            </div>
+            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft">
+              <div className="bg-mylli-tertiary/10 rounded-full p-3">
+                <Heart className="h-6 w-6 text-mylli-tertiary" />
+              </div>
+              <p className="ml-3 text-sm font-medium">Approche humaine</p>
+            </div>
+            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft">
+              <div className="bg-mylli-accent/10 rounded-full p-3">
+                <Star className="h-6 w-6 text-mylli-accent" />
+              </div>
+              <p className="ml-3 text-sm font-medium">Services personnalisés</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* About Section - Updated with gradient */}
+      <section className="section-padding bg-gradient-to-br from-mylli-light to-white">
+        <div className="container-custom">
+          <SectionHeading 
+            title={<>Depuis <span className="text-gradient">10 ans</span> à vos côtés</>} 
+            subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
+            align="center" 
+          />
           
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-lg text-mylli-gray mb-8 animate-fade-in">
@@ -326,17 +409,41 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Services Section */}
-      <section className="section-padding bg-gray-50">
+      {/* Services Section - Updated with card hover effects */}
+      <section className="section-padding bg-mylli-light/50">
         <div className="container-custom">
-          <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." />
+          <SectionHeading 
+            title={<>Nos <span className="text-gradient">Services</span></>} 
+            subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
+          />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {services.map((service, index) => <ServiceCard key={index} title={service.title} description={service.description} icon={service.icon} link={service.link} style="featured" className="animate-fade-in" />)}
+            {services.map((service, index) => (
+              <div key={index} 
+                className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 hover:-translate-y-1 ${
+                  hoverCard === index ? 'shadow-card border-mylli-primary/20 -translate-y-1' : ''
+                }`}
+                onMouseEnter={() => setHoverCard(index)}
+                onMouseLeave={() => setHoverCard(-1)}
+              >
+                <div className="mb-4">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-mylli-dark">{service.title}</h3>
+                <p className="text-mylli-gray mb-4">{service.description}</p>
+                <Link 
+                  to={service.link} 
+                  className="flex items-center text-mylli-primary font-medium group"
+                >
+                  Découvrir 
+                  <ArrowUpRight size={16} className="ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Link>
+              </div>
+            ))}
           </div>
           
           <div className="text-center animate-fade-in">
-            <Button asChild className="btn-primary">
+            <Button asChild className="btn-primary bg-mylli-primary hover:bg-mylli-primary-dark">
               <Link to="/services">
                 Voir tous nos services <ArrowRight size={16} className="ml-2" />
               </Link>
@@ -345,22 +452,38 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* How It Works Section */}
+      {/* How It Works Section - Updated with numbered steps and connecting line */}
       <section className="section-padding bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <SectionHeading title="Notre Fonctionnement" subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." />
+          <SectionHeading 
+            title={<>Notre <span className="text-gradient">Fonctionnement</span></>} 
+            subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
+          />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {howItWorks.map((item, index) => <div key={index} className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card animate-fade-in">
-                <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-4 text-mylli-primary font-bold">
-                  {item.step}
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-mylli-primary via-mylli-accent to-mylli-tertiary hidden md:block"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+              {howItWorks.map((item, index) => (
+                <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
+                  {/* Connection point */}
+                  <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-accent hidden md:block"></div>
+                  
+                  {/* Card */}
+                  <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 animate-fade-in ml-0 md:ml-6">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-accent flex items-center justify-center mb-4 text-white font-bold">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
+                    <p className="text-mylli-gray">{item.description}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
-                <p className="text-mylli-gray">{item.description}</p>
-              </div>)}
+              ))}
+            </div>
           </div>
           
-          <div className="mt-10 text-center animate-fade-in">
+          <div className="mt-16 text-center animate-fade-in">
             <Button asChild variant="outline" className="border-mylli-primary text-mylli-primary hover:bg-mylli-primary hover:text-white">
               <Link to="/fonctionnement">
                 En savoir plus sur notre fonctionnement <ArrowRight size={16} className="ml-2" />
@@ -372,38 +495,93 @@ const HomePage = () => {
         {/* Background decoration */}
         <div className="absolute top-20 right-0 opacity-5">
           <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#3B82F6" d="M40.8,-70.3C52.6,-61.8,61.4,-49.5,67.8,-36.1C74.1,-22.7,77.9,-8.3,76.8,6.1C75.7,20.5,69.8,34.9,60.3,45.2C50.9,55.5,37.9,61.8,24.4,64.8C10.9,67.8,-3,67.5,-17.5,65.3C-32,63.1,-47.1,58.9,-54.4,48.5C-61.8,38.2,-61.3,21.6,-64.3,5.5C-67.4,-10.6,-74.1,-26.3,-71,-39.9C-67.9,-53.5,-55.1,-65,-40.9,-72.9C-26.7,-80.9,-11.1,-85.2,2.5,-89.4C16,-93.7,29,-78.8,40.8,-70.3Z" transform="translate(100 100)" />
+            <path fill="#8B5CF6" d="M40.8,-70.3C52.6,-61.8,61.4,-49.5,67.8,-36.1C74.1,-22.7,77.9,-8.3,76.8,6.1C75.7,20.5,69.8,34.9,60.3,45.2C50.9,55.5,37.9,61.8,24.4,64.8C10.9,67.8,-3,67.5,-17.5,65.3C-32,63.1,-47.1,58.9,-54.4,48.5C-61.8,38.2,-61.3,21.6,-64.3,5.5C-67.4,-10.6,-74.1,-26.3,-71,-39.9C-67.9,-53.5,-55.1,-65,-40.9,-72.9C-26.7,-80.9,-11.1,-85.2,2.5,-89.4C16,-93.7,29,-78.8,40.8,-70.3Z" transform="translate(100 100)" />
           </svg>
         </div>
         
         <div className="absolute bottom-10 left-0 opacity-5">
           <svg width="250" height="250" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="#34D399" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
+            <path fill="#EC4899" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
           </svg>
         </div>
       </section>
       
-      {/* Testimonial Section */}
-      <section className="section-padding bg-mylli-primary/5">
+      {/* Testimonial Section - Updated with modern card design */}
+      <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-tertiary/5">
         <div className="container-custom">
-          <SectionHeading title="Ce que disent nos clients" subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." />
+          <SectionHeading 
+            title={<>Ce que <span className="text-gradient">disent</span> nos clients</>} 
+            subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." 
+          />
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => <TestimonialCard key={index} quote={testimonial.quote} name={testimonial.name} title={testimonial.title} style="modern" className="animate-fade-in" />)}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-soft relative overflow-hidden group hover:shadow-card transition-all duration-300"
+              >
+                {/* Quote icon */}
+                <div className="absolute -top-4 -left-4 text-8xl text-mylli-primary/5 group-hover:text-mylli-primary/10 transition-colors duration-300">
+                  "
+                </div>
+                
+                <div className="relative z-10">
+                  <div className="mb-4">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={16} className="text-mylli-accent" fill="#F59E0B" />
+                      ))}
+                    </div>
+                  </div>
+                  <p className="italic text-mylli-gray mb-6">"{testimonial.quote}"</p>
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-tertiary text-white flex items-center justify-center font-medium">
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-bold text-mylli-dark">{testimonial.name}</p>
+                      <p className="text-sm text-mylli-gray">{testimonial.title}</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative corner */}
+                <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-mylli-primary/20 to-transparent"></div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Trust banner */}
+          <div className="mt-16 bg-white rounded-xl p-6 shadow-soft">
+            <div className="flex flex-col md:flex-row items-center justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-mylli-dark mb-2">Rejoignez nos clients satisfaits</h3>
+                <p className="text-mylli-gray">Une équipe dévouée à votre service pour un accompagnement de qualité</p>
+              </div>
+              <Button asChild className="mt-4 md:mt-0 bg-gradient-to-r from-mylli-primary to-mylli-tertiary hover:from-mylli-primary-dark hover:to-mylli-tertiary rounded-full">
+                <Link to="/contact" className="flex items-center">
+                  <Phone size={16} className="mr-2" />
+                  Contactez-nous
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* CTA Contact Section */}
-      <section className="section-padding bg-gradient-to-r from-mylli-dark to-mylli-primary text-white">
+      {/* CTA Contact Section - Updated with gradient background and modern layout */}
+      <section className="section-padding bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-dark text-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="animate-fade-in-right">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Besoin d'un service d'accompagnement à domicile?</h2>
+              <div className="inline-block px-3 py-1 bg-white/10 text-white/90 rounded-full mb-6">
+                Besoin d'aide?
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Un service d'<span className="text-mylli-accent">accompagnement</span> adapté à vos besoins</h2>
               <p className="text-lg opacity-90 mb-8">
                 Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques. Notre équipe est à votre écoute pour vous proposer une solution adaptée à votre situation.
               </p>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-8">
+              <div className="glass-card p-6 mb-8">
                 <h3 className="text-xl font-bold mb-4 flex items-center">
                   <CheckCircle size={24} className="mr-2 text-mylli-accent" />
                   Pourquoi nous choisir?
@@ -433,9 +611,15 @@ const HomePage = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl shadow-card p-8 animate-fade-in-left">
-              <h3 className="text-2xl font-bold mb-6 text-mylli-dark text-center">Demander un devis</h3>
-              <ContactForm simple />
+            <div className="bg-white rounded-2xl shadow-card p-8 animate-fade-in-left relative overflow-hidden">
+              {/* Background glow */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-mylli-primary/20 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mylli-tertiary/20 rounded-full blur-2xl"></div>
+              
+              <div className="relative">
+                <h3 className="text-2xl font-bold mb-6 text-mylli-dark text-center">Demander un devis</h3>
+                <ContactForm simple />
+              </div>
             </div>
           </div>
         </div>
