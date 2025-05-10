@@ -6,17 +6,20 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+  const [activeImage, setActiveImage] = useState(0);
 
   // For mouse parallax effect
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
+  
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const {
       clientX,
@@ -71,6 +74,21 @@ const HomePage = () => {
     }
   }, [isVisible]);
 
+  // Image rotation effect for hero background
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage(prev => (prev + 1) % 3);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Images for the hero background
+  const careImages = [
+    '/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png',
+    '/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png',
+    '/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png'
+  ];
+
   // Sample data for services
   const services = [{
     title: "Aide-soignant(e) à domicile",
@@ -122,14 +140,41 @@ const HomePage = () => {
     name: "Sophia B.",
     title: "52 ans"
   }];
-  return <div>
-      {/* Hero Section - Completely Redesigned */}
+  return (
+    <div>
+      {/* Hero Section - With Modern Image Background */}
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-mesh-gradient opacity-90 z-0"></div>
-        
-        {/* Animated patterns and shapes */}
-        
+        {/* Modern layered background with images */}
+        <div className="absolute inset-0 z-0">
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/90 via-mylli-dark/80 to-mylli-dark/90 z-10"></div>
+          
+          {/* Modern image gallery */}
+          <div className="absolute inset-0 overflow-hidden">
+            {careImages.map((img, index) => (
+              <div 
+                key={index} 
+                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeImage === index ? 'opacity-100' : 'opacity-0'}`}
+              >
+                <img 
+                  src={img} 
+                  alt="Professional care services" 
+                  className="absolute w-full h-full object-cover object-center filter brightness-[0.6]"
+                />
+              </div>
+            ))}
+          </div>
+          
+          {/* Geometric patterns for modern look */}
+          <div className="absolute inset-0 z-20 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-mylli-primary opacity-10 blur-3xl animate-pulse-soft"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-accent opacity-10 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-secondary opacity-10 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+          </div>
+          
+          {/* Elegant grid overlay for modern touch */}
+          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNmZmZmZmYwNSIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjZmZmZmZmMDUiIHN0cm9rZS1vcGFjaXR5PSIuNiIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjZmZmZmZmMDIiLz48L2c+PC9zdmc+')]"></div>
+        </div>
         
         {/* Main content */}
         <div className="container-custom relative z-20">
@@ -190,64 +235,57 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* Right column: Image/Visual */}
+            {/* Right column: Visual Element - Care highlight card */}
             <div className="relative flex justify-center items-center">
-              {/* Main image container with animated border */}
-              <div className="relative w-full aspect-square max-w-lg">
-                <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-30 blur-md"></div>
-                <div className="absolute inset-2 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-50" style={{
-                animationDirection: 'reverse',
-                animationDuration: '15s'
-              }}></div>
-                <div className="absolute inset-3 rounded-full overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark to-mylli-primary opacity-90"></div>
-                  <div className="w-full h-full relative flex items-center justify-center animate-float">
-                    {/* 3D layered illustration */}
-                    <div className="absolute w-3/4 h-3/4 bg-mylli-accent/30 rounded-full blur-lg animate-pulse-soft"></div>
-                    <div className="relative z-20">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
-                    </div>
-                    
-                    {/* Decorative elements */}
-                    <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
-                    animationDelay: '1s'
-                  }}></div>
-                    <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
-                    animationDelay: '2s'
-                  }}></div>
+              {/* Modern content card with image thumbnails */}
+              <div className="relative max-w-md w-full backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl shadow-glass overflow-hidden">
+                {/* Top photo highlight */}
+                <div className="relative h-48 overflow-hidden group">
+                  <img 
+                    src={careImages[activeImage]} 
+                    alt="Service de soins" 
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/80 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
+                    <p className="text-white/90 text-sm">Accompagnement personnalisé à domicile</p>
                   </div>
                 </div>
+                
+                {/* Content section */}
+                <div className="p-6 text-white">
+                  <p className="mb-4 text-sm">
+                    Nos professionnels qualifiés vous accompagnent avec respect et dignité dans votre quotidien, offrant des soins adaptés à vos besoins spécifiques.
+                  </p>
+                  
+                  {/* Image selector - modern touch */}
+                  <div className="flex space-x-2 mb-4">
+                    {careImages.map((_, index) => (
+                      <button 
+                        key={index}
+                        onClick={() => setActiveImage(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${activeImage === index ? 'bg-mylli-accent w-6' : 'bg-white/30'}`}
+                        aria-label={`Image ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                  
+                  <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/20">
+                    <Link to="/services">
+                      En savoir plus
+                    </Link>
+                  </Button>
+                </div>
+                
+                {/* Modern decorative elements */}
+                <div className="absolute -top-12 -right-12 w-24 h-24 bg-mylli-accent/30 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-8 -left-8 w-16 h-16 bg-mylli-primary/30 rounded-full blur-xl"></div>
               </div>
               
-              {/* Floating cards */}
-              <div className="absolute -top-10 -left-10 md:left-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
-              animationDelay: '0.5s',
-              animationDuration: '4s'
-            }}>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center text-mylli-primary mr-3">
-                    <Heart size={18} />
-                  </div>
-                  <p className="text-sm font-medium text-mylli-dark">Soins attentionnés</p>
-                </div>
-              </div>
-              
-              <div className="absolute -bottom-10 -right-10 md:right-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
-              animationDelay: '1.5s',
-              animationDuration: '5s'
-            }}>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center text-mylli-accent mr-3">
-                    <Shield size={18} />
-                  </div>
-                  <p className="text-sm font-medium text-mylli-dark">Protection 24/7</p>
-                </div>
-              </div>
+              {/* Decorative elements */}
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-mylli-primary/10 rounded-full filter blur-3xl animate-pulse-soft"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-mylli-accent/10 rounded-full filter blur-3xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
             </div>
           </div>
         </div>
@@ -402,6 +440,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default HomePage;
