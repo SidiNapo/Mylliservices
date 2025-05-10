@@ -1,9 +1,10 @@
-
 import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ContactForm from '@/components/common/ContactForm';
 import ParallaxSection from '@/components/common/ParallaxSection';
+import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
+import MapInfoCard from '@/components/common/MapInfoCard';
 
 const ContactPage = () => {
   // Opening hours
@@ -239,35 +240,77 @@ const ContactPage = () => {
       </section>
       
       {/* Map Section with Parallax */}
-      <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-        height="auto"
-        className="py-20"
-      >
-        <div className="container-custom">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.1),_transparent_70%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
+        
+        <div className="container-custom relative z-10">
           <SectionHeading 
-            title="Nous trouver"
-            subtitle="Notre bureau est situé au cœur de Casablanca"
+            title="Notre emplacement"
+            subtitle="Venez nous rencontrer au cœur de Casablanca"
             variant="gradient"
-            className="text-white"
           />
           
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white bg-opacity-90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden animate-fade-in">
-              <div className="h-96 bg-mylli-primary/10 flex items-center justify-center">
-                {/* This would be replaced with an actual map in a real implementation */}
-                <div className="text-center p-8">
-                  <MapPin size={80} className="text-mylli-primary mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-mylli-dark mb-3">Mylli Services</h3>
-                  <p className="text-lg text-mylli-gray">
-                    19, rue Masmouda hay Al Hana - Casablanca - 20210
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
+            {/* Info Card */}
+            <div className="lg:col-span-2">
+              <MapInfoCard 
+                address="19, rue Masmouda hay Al Hana, Casablanca - 20210"
+                phone="+212 661 37 74 38"
+                hours={[
+                  { day: "Lundi - Vendredi", hours: "8h30 - 18h30" },
+                  { day: "Samedi", hours: "9h00 - 16h00" },
+                  { day: "Dimanche", hours: "Fermé" }
+                ]}
+                className="h-full transform transition-all duration-500 hover:shadow-2xl"
+              />
+            </div>
+            
+            {/* Google Map */}
+            <div className="lg:col-span-3 h-[550px]">
+              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
+                <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
+                
+                {/* Location pin overlay */}
+                <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-8 h-8 bg-mylli-primary/30 rounded-full animate-ping"></div>
+                    <div className="relative z-10 w-8 h-8 bg-mylli-primary rounded-full flex items-center justify-center">
+                      <MapPin className="h-5 w-5 text-white" />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Company card overlay */}
+                <div className="absolute bottom-6 left-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl p-4 shadow-lg max-w-xs">
+                  <h4 className="text-xl font-bold mb-1 text-mylli-dark">Mylli Services</h4>
+                  <p className="text-mylli-gray text-sm">
+                    19, rue Masmouda hay Al Hana,<br/>Casablanca - 20210
                   </p>
                 </div>
               </div>
             </div>
           </div>
+          
+          {/* Additional information cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-primary">
+              <h4 className="font-bold mb-2 text-mylli-dark">Transport en commun</h4>
+              <p className="text-mylli-gray">Facilement accessible par les lignes de tramway et bus à proximité</p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-secondary">
+              <h4 className="font-bold mb-2 text-mylli-dark">Stationnement</h4>
+              <p className="text-mylli-gray">Parking gratuit disponible pour nos clients</p>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-accent">
+              <h4 className="font-bold mb-2 text-mylli-dark">Accessibilité</h4>
+              <p className="text-mylli-gray">Nos locaux sont entièrement accessibles aux personnes à mobilité réduite</p>
+            </div>
+          </div>
         </div>
-      </ParallaxSection>
+      </section>
     </div>
   );
 };
