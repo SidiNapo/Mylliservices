@@ -20,7 +20,6 @@ const PageBanner = ({
   variant = 'default'
 }: PageBannerProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
@@ -32,17 +31,11 @@ const PageBanner = ({
       setScrollPosition(window.scrollY);
     };
     
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-    
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
     
     return () => {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
@@ -79,15 +72,7 @@ const PageBanner = ({
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/80 to-mylli-dark/90"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-mylli-dark/5 to-mylli-dark/20"></div>
-            {/* Dynamic light effect that follows mouse */}
-            <div 
-              className="absolute w-[40vw] h-[40vw] rounded-full radial-pulse opacity-20 pointer-events-none"
-              style={{ 
-                background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)',
-                left: `calc(${mousePosition.x}px - 20vw)`, 
-                top: `calc(${mousePosition.y}px - 20vw)` 
-              }}
-            ></div>
+            {/* Removed the mouse-following light effect */}
           </>
         );
       case 'particles':
@@ -95,7 +80,7 @@ const PageBanner = ({
           <>
             <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark to-mylli-primary opacity-95"></div>
             
-            {/* Animated particles */}
+            {/* Static particles instead of animated ones */}
             <div className="absolute inset-0 overflow-hidden">
               {Array.from({ length: 20 }).map((_, i) => (
                 <div 
@@ -106,25 +91,17 @@ const PageBanner = ({
                     height: `${Math.random() * 10 + 5}px`,
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
-                    animation: `float ${Math.random() * 10 + 15}s linear infinite`,
                     opacity: Math.random() * 0.7 + 0.3,
-                    transform: `translateY(${scrollPosition * (i % 3 + 1) * 0.1}px)`
                   }}
                 ></div>
               ))}
             </div>
             
-            {/* Geometric shapes */}
+            {/* Static geometric shapes */}
             <div className="absolute inset-0">
               <div className="absolute top-[10%] left-[10%] w-40 h-40 border border-white/10 rounded-full"></div>
               <div className="absolute bottom-[15%] right-[15%] w-60 h-60 border border-white/10 rounded-full"></div>
               <div className="absolute top-[30%] right-[20%] w-20 h-20 border border-white/10 transform rotate-45"></div>
-            </div>
-            
-            {/* Light beams - removing the background effects here */}
-            <div className="absolute inset-0">
-              {/* Removing the background gradient effect that was here */}
-              {/* Removing the second background gradient effect that was here */}
             </div>
           </>
         );
@@ -140,16 +117,14 @@ const PageBanner = ({
       {/* Background */}
       {renderBackground()}
       
-      {/* Decorative Elements */}
+      {/* Decorative Elements - simplified and made static */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
-        <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-white/20 transform transition-transform duration-1000 ease-in-out" 
-             style={{ transform: `rotate(${scrollPosition * 0.05}deg)` }}></div>
-        <div className="absolute bottom-10 right-10 w-20 h-20 border-b-2 border-r-2 border-white/20 transform transition-transform duration-1000 ease-in-out"
-             style={{ transform: `rotate(${-scrollPosition * 0.05}deg)` }}></div>
+        <div className="absolute top-10 left-10 w-20 h-20 border-t-2 border-l-2 border-white/20"></div>
+        <div className="absolute bottom-10 right-10 w-20 h-20 border-b-2 border-r-2 border-white/20"></div>
         <div className="absolute top-1/2 left-5 w-32 h-32 bg-mylli-accent/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-mylli-primary/10 rounded-full blur-3xl"></div>
         
-        {/* Dynamic elements */}
+        {/* Static decorative wave */}
         <div className="absolute w-full h-32 bottom-0 left-0">
           <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none" style={{ height: '40%' }}>
             <path 
@@ -170,9 +145,9 @@ const PageBanner = ({
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80 relative">
             {title}
-            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-mylli-accent/80 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 mx-auto w-1/3"></span>
+            <span className="absolute -bottom-2 left-0 right-0 h-1 bg-mylli-accent/80 mx-auto w-1/3"></span>
           </span>
-          <div className="h-1.5 w-24 bg-mylli-accent rounded-full mx-auto mt-6 opacity-80 animate-pulse-soft"></div>
+          <div className="h-1.5 w-24 bg-mylli-accent rounded-full mx-auto mt-6 opacity-80"></div>
         </h1>
         
         {subtitle && (
@@ -198,10 +173,10 @@ const PageBanner = ({
         </div>
       </div>
       
-      {/* Mouse scroll indicator for larger screens */}
+      {/* Mouse scroll indicator for larger screens - removed hover animation */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block">
         <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center">
-          <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
+          <div className="w-1.5 h-3 bg-white/70 rounded-full mt-2"></div>
         </div>
       </div>
     </div>
