@@ -13,6 +13,7 @@ interface ParallaxSectionProps {
   overlayGradient?: string;
   glassEffect?: boolean;
   pattern?: 'dots' | 'lines' | 'grid' | 'noise' | 'none';
+  mapLayout?: boolean;
 }
 
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
@@ -26,7 +27,8 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   overlayColor = 'black',
   overlayGradient,
   glassEffect = false,
-  pattern = 'none'
+  pattern = 'none',
+  mapLayout = false
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   
@@ -124,8 +126,18 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         <div className="absolute inset-0 backdrop-blur-sm bg-white/5 pointer-events-none"></div>
       )}
       
+      {/* Map layout for locations display */}
+      {mapLayout && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute w-full h-full bg-mylli-primary/5 animate-pulse-soft" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute w-1/2 h-1/2 top-1/4 left-1/4 rounded-full border-2 border-mylli-primary/20 animate-pulse-soft" style={{ animationDuration: '6s', animationDelay: '1s' }}></div>
+          <div className="absolute w-3/4 h-3/4 top-1/8 left-1/8 rounded-full border border-mylli-secondary/10 animate-pulse-soft" style={{ animationDuration: '8s', animationDelay: '2s' }}></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_30%,_rgba(0,119,192,0.05)_70%)]"></div>
+        </div>
+      )}
+      
       {/* Content container */}
-      <div className="relative z-10 h-full">
+      <div className={`relative z-10 h-full ${mapLayout ? 'flex items-center justify-center' : ''}`}>
         {children}
       </div>
     </div>

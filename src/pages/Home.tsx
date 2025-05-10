@@ -6,6 +6,7 @@ import SectionHeading from '@/components/common/SectionHeading';
 import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
+import ServiceLocations from '@/components/common/ServiceLocations';
 import { useEffect, useRef, useState } from 'react';
 
 const HomePage = () => {
@@ -152,6 +153,28 @@ const HomePage = () => {
     title: "Disponibilité 24/7",
     description: "Une équipe disponible jour et nuit pour répondre à vos besoins"
   }];
+  
+  // Sample locations data for the new component
+  const serviceLocations = [
+    {
+      city: "Casablanca",
+      areas: ["Maarif", "Anfa", "Bourgogne", "Gauthier", "Racine", "Californie", "Ain Diab", "Oasis"],
+      highlight: true
+    },
+    {
+      city: "Mohammedia",
+      areas: ["Centre-ville", "Les Crêtes", "El Alia", "Hay Hassani"]
+    },
+    {
+      city: "Bouskoura",
+      areas: ["Centre", "Ville Verte", "Quartier résidentiel"]
+    },
+    {
+      city: "Dar Bouazza",
+      areas: ["Tamaris", "Les Jardins", "Plage"]
+    }
+  ];
+
   return <div className="overflow-hidden">
       {/* Hero Section - With Updated Color Scheme based on logo */}
       <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
@@ -407,6 +430,13 @@ const HomePage = () => {
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-mylli-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
       </section>
+      
+      {/* Service Locations Section - New modern section */}
+      <ServiceLocations 
+        locations={serviceLocations}
+        title="Nos Zones d'Intervention" 
+        subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert."
+      />
       
       {/* Services Section - Updated with color scheme and better card design */}
       <section className="section-padding bg-mylli-light/50 relative overflow-hidden">
