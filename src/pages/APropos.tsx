@@ -1,10 +1,10 @@
-
 import { Link } from 'react-router-dom';
-import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users, Calendar } from 'lucide-react';
+import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users, Calendar, Building, Landmark, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ParallaxSection from '@/components/common/ParallaxSection';
+import ServiceLocations from '@/components/common/ServiceLocations';
 
 const AProposPage = () => {
   // Timeline data
@@ -57,6 +57,25 @@ const AProposPage = () => {
     {
       title: "Un suivi individualisé",
       description: "Votre conseiller personnel assure un suivi régulier pour garantir votre satisfaction et ajuster nos services si nécessaire."
+    }
+  ];
+  
+  // Location data
+  const locations = [
+    {
+      city: "Casablanca",
+      areas: ["Ain Diab", "Anfa", "Maarif", "Bourgogne", "Hay Hassani", "Sidi Maarouf", "California", "Centre-ville"],
+      highlight: true
+    },
+    {
+      city: "Mohammedia",
+      areas: ["Centre-ville", "El Alia", "Les Crêtes"],
+      highlight: false
+    },
+    {
+      city: "Rabat",
+      areas: ["Agdal", "Hassan", "Hay Riad"],
+      highlight: false
     }
   ];
   
@@ -116,10 +135,9 @@ const AProposPage = () => {
       
       {/* Mission Section with Parallax - Updated with modern design */}
       <ParallaxSection 
-        backgroundImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05"
+        backgroundGradient="linear-gradient(135deg, rgba(0,70,122,0.85) 0%, rgba(0,119,192,0.75) 100%)"
         height="auto"
         className="py-24"
-        overlayGradient="linear-gradient(135deg, rgba(0,70,122,0.85) 0%, rgba(0,119,192,0.75) 100%)"
         pattern="grid"
       >
         <div className="container-custom">
@@ -183,83 +201,15 @@ const AProposPage = () => {
         </div>
       </section>
       
-      {/* Coverage Area with Parallax - Updated with modern design */}
-      <ParallaxSection
-        backgroundGradient="linear-gradient(135deg, rgba(0,119,192,0.9) 0%, rgba(0,153,232,0.8) 100%)"
-        height="auto"
-        className="py-24"
-        glassEffect={true}
-        pattern="dots"
-      >
-        <div className="container-custom">
-          <SectionHeading 
-            title="Notre Zone d'Intervention"
-            subtitle="Nous intervenons dans toute la région de Casablanca et ses environs"
-            variant="underline"
-            className="text-white"
-            highlightColor="white"
-          />
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden animate-fade-in border border-white/30">
-              <div className="h-80 bg-mylli-primary/10 flex items-center justify-center">
-                {/* This would be replaced with an actual map in a real implementation */}
-                <div className="text-center p-8">
-                  <MapPin size={80} className="text-mylli-primary mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-mylli-dark mb-3">Casablanca et environs</h3>
-                  <p className="text-lg text-mylli-gray">
-                    Carte interactive à intégrer ici pour montrer notre zone de couverture
-                  </p>
-                </div>
-              </div>
-              
-              <div className="p-8 bg-white">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark">Secteurs couverts</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-8">
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Ain Diab</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Anfa</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Maarif</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Bourgogne</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Hay Hassani</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Sidi Maarouf</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">California</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Centre-ville</span>
-                  </div>
-                  <div className="flex items-center group">
-                    <div className="w-2 h-2 rounded-full bg-mylli-secondary mr-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-mylli-gray group-hover:text-mylli-dark transition-colors duration-300">Et plus...</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ParallaxSection>
+      {/* REDESIGNED: Coverage Area with ServiceLocations component */}
+      <ServiceLocations 
+        title="Notre Zone d'Intervention"
+        subtitle="Nous intervenons principalement dans la région de Casablanca et ses environs, ainsi que dans d'autres villes du Maroc"
+        locations={locations}
+        className="py-20"
+      />
       
-      {/* Completely Redesigned Social Responsibility Section with modern interactive design */}
+      {/* Social Responsibility Section with modern interactive design */}
       <section className="py-24 relative overflow-hidden">
         {/* Background with animated gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark via-mylli-primary to-mylli-quaternary opacity-95 z-0"></div>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MapPin, Heart, Phone } from 'lucide-react';
+import { MapPin, Heart, Phone, Building, Landmark, Check } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import SectionHeading from './SectionHeading';
 import { Button } from '../ui/button';
@@ -25,7 +25,8 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
   locations,
   className = ''
 }) => {
-  const [activeLocation, setActiveLocation] = useState<number | null>(null);
+  const [activeLocation, setActiveLocation] = useState<number | null>(0); // Default to first location
+  const [hoveredArea, setHoveredArea] = useState<string | null>(null);
 
   return (
     <ParallaxSection 
@@ -47,42 +48,48 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
         />
         
         <div className="relative mt-12 max-w-6xl mx-auto">
-          {/* Map-like visual background */}
+          {/* Enhanced Map-like visual background */}
           <div className="absolute inset-0 -z-10">
             <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-mylli-primary/5 animate-pulse-soft"></div>
             <div className="absolute bottom-1/3 right-1/4 w-24 h-24 rounded-full bg-mylli-secondary/5 animate-pulse-soft"></div>
+            <div className="absolute top-1/2 left-1/2 w-40 h-40 rounded-full border border-mylli-quaternary/10 animate-spin-slow" style={{animationDuration: '60s'}}></div>
+            <div className="absolute bottom-1/4 right-1/3 w-16 h-16 rounded-full bg-mylli-secondary/5 animate-float"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Map visualization */}
-            <div className="md:col-span-1 flex flex-col space-y-4 order-2 md:order-1">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left: Map visualization with location cards */}
+            <div className="lg:col-span-1 order-2 lg:order-1 space-y-4">
+              <h3 className="text-xl font-bold text-mylli-primary mb-4 flex items-center">
+                <Building className="mr-2" size={20} /> Nos villes d'intervention
+              </h3>
+              
               {locations.map((location, index) => (
                 <div 
                   key={index}
-                  className={`p-4 rounded-xl transition-all duration-300 cursor-pointer relative group overflow-hidden ${
+                  className={`p-5 rounded-xl transition-all duration-300 cursor-pointer relative group overflow-hidden border ${
                     activeLocation === index 
-                      ? 'bg-gradient-to-r from-mylli-primary/10 to-mylli-quaternary/10 shadow-md' 
-                      : 'bg-white/80 hover:bg-white shadow-soft'
+                      ? 'bg-gradient-to-r from-mylli-primary/10 to-mylli-quaternary/10 border-mylli-primary/30 shadow-lg transform -translate-y-1' 
+                      : 'bg-white/80 hover:bg-white border-gray-100 hover:border-mylli-primary/20 shadow-soft'
                   }`}
                   onClick={() => setActiveLocation(activeLocation === index ? null : index)}
                 >
                   {/* Highlight indicator */}
                   {location.highlight && (
-                    <div className="absolute top-0 right-0 bg-mylli-secondary text-white text-xs py-1 px-2 rounded-bl-lg">
-                      Principal
+                    <div className="absolute top-0 right-0 bg-mylli-secondary text-white text-xs font-medium py-1 px-3 rounded-bl-lg flex items-center">
+                      <Check size={12} className="mr-1" /> Principal
                     </div>
                   )}
                   
                   <div className="flex items-center">
-                    <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       activeLocation === index 
                         ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary text-white' 
                         : 'bg-mylli-light text-mylli-primary'
                     }`}>
-                      <MapPin size={18} />
+                      <Landmark size={20} />
                     </div>
-                    <div className="ml-3">
-                      <h3 className={`font-bold transition-colors ${
+                    <div className="ml-4">
+                      <h3 className={`font-bold text-lg transition-colors ${
                         activeLocation === index ? 'text-mylli-primary' : 'text-mylli-dark'
                       }`}>
                         {location.city}
@@ -91,68 +98,120 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
                         {location.areas.length} {location.areas.length > 1 ? 'quartiers' : 'quartier'} couvert{location.areas.length > 1 ? 's' : ''}
                       </p>
                     </div>
+                    <div className="ml-auto">
+                      <div className={`transition-transform duration-300 ${activeLocation === index ? 'rotate-180' : ''}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-gray">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                   
-                  {/* Expanded details */}
-                  <div className={`mt-3 pt-3 border-t border-gray-100 transition-all duration-300 ${
-                    activeLocation === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                  {/* Expanded details with improved visual design */}
+                  <div className={`mt-4 transition-all duration-500 ${
+                    activeLocation === index ? 'max-h-96 opacity-100 visible' : 'max-h-0 opacity-0 invisible overflow-hidden'
                   }`}>
-                    <ul className="space-y-2">
-                      {location.areas.map((area, areaIndex) => (
-                        <li key={areaIndex} className="flex items-center text-sm text-mylli-gray">
-                          <span className="w-1.5 h-1.5 rounded-full bg-mylli-primary mr-2"></span>
-                          {area}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="pt-4 border-t border-mylli-primary/10">
+                      <h4 className="text-sm font-medium text-mylli-gray mb-3 flex items-center">
+                        <MapPin size={14} className="mr-1 text-mylli-secondary" /> Quartiers desservis:
+                      </h4>
+                      <div className="grid grid-cols-2 gap-2">
+                        {location.areas.map((area, areaIndex) => (
+                          <div 
+                            key={areaIndex} 
+                            className={`px-3 py-2 rounded-lg text-sm transition-colors duration-200 ${
+                              hoveredArea === `${index}-${areaIndex}` 
+                                ? 'bg-mylli-secondary text-white' 
+                                : 'bg-mylli-light/70 text-mylli-gray hover:bg-mylli-light'
+                            }`}
+                            onMouseEnter={() => setHoveredArea(`${index}-${areaIndex}`)}
+                            onMouseLeave={() => setHoveredArea(null)}
+                          >
+                            {area}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
             
-            {/* Information card */}
-            <div className="md:col-span-2 order-1 md:order-2">
-              <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-soft border border-gray-100">
-                <div className="flex flex-col h-full">
-                  <h3 className="text-2xl font-bold text-mylli-dark mb-4">Service à domicile <span className="text-mylli-secondary">professionnel</span></h3>
-                  
-                  <div className="flex-1">
-                    <p className="text-mylli-gray mb-6">
-                      Notre équipe de professionnels qualifiés intervient à votre domicile dans toute la région de Casablanca pour vous apporter des soins de qualité et un accompagnement personnalisé.
-                    </p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                      <div className="flex items-start p-4 bg-mylli-light rounded-lg">
-                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-mylli-primary shadow-sm">
-                          <MapPin size={18} />
-                        </div>
-                        <div className="ml-3">
-                          <h4 className="font-medium text-mylli-dark">Couverture étendue</h4>
-                          <p className="text-sm text-mylli-gray">Casablanca et périphérie</p>
-                        </div>
+            {/* Right: Enhanced information card with visual elements */}
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 md:p-8 shadow-xl border border-mylli-primary/5 relative overflow-hidden">
+                {/* Background decoration elements */}
+                <div className="absolute -right-20 -bottom-20 w-64 h-64 rounded-full bg-mylli-light/30 blur-xl"></div>
+                <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-mylli-secondary/5 blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex flex-col h-full">
+                    <div className="inline-block mb-6">
+                      <div className="bg-mylli-light px-4 py-2 rounded-full text-mylli-primary text-sm font-medium flex items-center">
+                        <MapPin size={16} className="mr-2" /> Service de proximité
                       </div>
+                    </div>
+                    
+                    <h3 className="text-2xl md:text-3xl font-bold text-mylli-dark mb-4">
+                      Aide et soins à domicile <span className="text-mylli-secondary">près de chez vous</span>
+                    </h3>
+                    
+                    <div className="flex-1">
+                      <p className="text-mylli-gray mb-8 text-lg">
+                        Notre équipe de professionnels qualifiés intervient dans toute la région de Casablanca et certaines villes avoisinantes pour vous apporter des soins de qualité et un accompagnement personnalisé, au plus près de votre domicile.
+                      </p>
                       
-                      <div className="flex items-start p-4 bg-mylli-light rounded-lg">
-                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-mylli-secondary shadow-sm">
-                          <Heart size={18} />
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                        <div className="bg-gradient-to-br from-mylli-light to-white p-6 rounded-xl border border-mylli-primary/10 hover:shadow-md transition-shadow">
+                          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-mylli-primary shadow-sm mb-4 border border-mylli-primary/10">
+                            <MapPin size={22} />
+                          </div>
+                          <h4 className="font-medium text-lg text-mylli-dark mb-1">Couverture étendue</h4>
+                          <p className="text-mylli-gray">Nos services sont disponibles dans toute la région de Casablanca et villes environnantes.</p>
                         </div>
-                        <div className="ml-3">
-                          <h4 className="font-medium text-mylli-dark">Service de proximité</h4>
-                          <p className="text-sm text-mylli-gray">Accompagnement personnalisé</p>
+                        
+                        <div className="bg-gradient-to-br from-mylli-light to-white p-6 rounded-xl border border-mylli-primary/10 hover:shadow-md transition-shadow">
+                          <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-mylli-secondary shadow-sm mb-4 border border-mylli-secondary/10">
+                            <Heart size={22} />
+                          </div>
+                          <h4 className="font-medium text-lg text-mylli-dark mb-1">Soins personnalisés</h4>
+                          <p className="text-mylli-gray">Des soins adaptés à vos besoins spécifiques, dans le confort de votre domicile.</p>
                         </div>
                       </div>
                     </div>
+                    
+                    <div className="flex flex-col sm:flex-row items-center gap-5 bg-mylli-primary/5 p-4 rounded-xl">
+                      <Button asChild className="w-full sm:w-auto bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary/90 hover:to-mylli-quaternary/90 text-white rounded-full shadow-md">
+                        <Link to="/contact" className="flex items-center justify-center px-6 py-5">
+                          <Phone size={18} className="mr-2" />
+                          Discuter de votre zone
+                        </Link>
+                      </Button>
+                      <p className="text-sm text-mylli-gray">Vous n'êtes pas sûr si nous desservons votre quartier ? Contactez-nous pour vérifier votre éligibilité.</p>
+                    </div>
                   </div>
-                  
-                  <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
-                    <Button asChild className="w-full sm:w-auto bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white rounded-full">
-                      <Link to="/contact" className="flex items-center justify-center">
-                        <Phone size={16} className="mr-2" />
-                        Nous contacter
-                      </Link>
-                    </Button>
-                    <p className="text-sm text-mylli-gray">Vous avez des questions sur notre zone d'intervention ? N'hésitez pas à nous contacter.</p>
+                </div>
+              </div>
+              
+              {/* New: Key benefits of our local service */}
+              <div className="grid grid-cols-3 gap-4 mt-6">
+                <div className="bg-white/80 p-4 rounded-xl border border-mylli-primary/5 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-light flex items-center justify-center mb-3">
+                    <Clock size={18} className="text-mylli-primary" />
                   </div>
+                  <h4 className="font-medium text-sm text-mylli-dark">Intervention rapide</h4>
+                </div>
+                <div className="bg-white/80 p-4 rounded-xl border border-mylli-primary/5 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-light flex items-center justify-center mb-3">
+                    <Users size={18} className="text-mylli-primary" />
+                  </div>
+                  <h4 className="font-medium text-sm text-mylli-dark">Équipe locale</h4>
+                </div>
+                <div className="bg-white/80 p-4 rounded-xl border border-mylli-primary/5 flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-light flex items-center justify-center mb-3">
+                    <Shield size={18} className="text-mylli-primary" />
+                  </div>
+                  <h4 className="font-medium text-sm text-mylli-dark">Service garanti</h4>
                 </div>
               </div>
             </div>
