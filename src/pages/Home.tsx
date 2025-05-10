@@ -146,8 +146,8 @@ const HomePage = () => {
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
         {/* Modern layered background with images */}
         <div className="absolute inset-0 z-0">
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/90 via-mylli-dark/80 to-mylli-dark/90 z-10"></div>
+          {/* Gradient overlay - updated to use a more joyful gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/80 via-mylli-accent/60 to-mylli-dark/80 z-10"></div>
           
           {/* Modern image gallery */}
           <div className="absolute inset-0 overflow-hidden">
@@ -159,21 +159,21 @@ const HomePage = () => {
                 <img 
                   src={img} 
                   alt="Professional care services" 
-                  className="absolute w-full h-full object-cover object-center filter brightness-[0.6]"
+                  className="absolute w-full h-full object-cover object-center filter brightness-[0.7]"
                 />
               </div>
             ))}
           </div>
           
-          {/* Geometric patterns for modern look */}
+          {/* Geometric patterns for modern look - updated colors */}
           <div className="absolute inset-0 z-20 pointer-events-none">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-mylli-primary opacity-10 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-accent opacity-10 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-secondary opacity-10 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#FEC6A1] opacity-20 blur-3xl animate-pulse-soft"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-[#E5DEFF] opacity-20 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-[#FEF7CD] opacity-20 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
           </div>
           
-          {/* Elegant grid overlay for modern touch */}
-          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNmZmZmZmYwNSIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjZmZmZmZmMDUiIHN0cm9rZS1vcGFjaXR5PSIuNiIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjZmZmZmZmMDIiLz48L2c+PC9zdmc+')]"></div>
+          {/* Elegant grid overlay for modern touch - updated to use more cheerful colors */}
+          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNmZmM3YTUxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjRkZEREUyMTAiIHN0cm9rZS1vcGFjaXR5PSIuNyIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjRkVGN0NEMTAiLz48L2c+PC9zdmc+')]"></div>
         </div>
         
         {/* Main content */}
@@ -290,7 +290,7 @@ const HomePage = () => {
           </div>
         </div>
         
-        {/* Bottom wave */}
+        {/* Bottom wave - updated to use more joyful color */}
         <div className="absolute bottom-0 left-0 w-full">
           <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 text-white">
             <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
