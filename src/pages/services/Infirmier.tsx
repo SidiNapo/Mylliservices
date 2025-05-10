@@ -5,7 +5,7 @@ import {
   Clock, 
   File, 
   Phone, 
-  FileMedical, 
+  Clipboard, 
   Syringe, 
   Hospital, 
   Calendar,
@@ -44,7 +44,7 @@ const InfirmierPage = () => {
     {
       title: "Exécuter une ordonnance médicale",
       description: "Administration de traitements, préparation et administration d'injections, surveillance des effets secondaires.",
-      icon: <FileMedical size={36} className="text-mylli-primary" />,
+      icon: <Clipboard size={36} className="text-mylli-primary" />,
     },
     {
       title: "Poser et surveiller les sondes",
@@ -71,16 +71,16 @@ const InfirmierPage = () => {
   // Testimonials
   const testimonials = [
     {
-      content: "Après mon opération de la hanche, j'étais inquiète de rentrer chez moi. L'infirmière de Mylli Services m'a rassurée dès sa première visite. Ses soins professionnels et sa présence chaleureuse ont grandement contribué à ma récupération rapide.",
-      author: "Mme Bennani, 72 ans",
-      role: "Casablanca",
-      avatar: "/placeholder.svg",
+      quote: "Après mon opération de la hanche, j'étais inquiète de rentrer chez moi. L'infirmière de Mylli Services m'a rassurée dès sa première visite. Ses soins professionnels et sa présence chaleureuse ont grandement contribué à ma récupération rapide.",
+      name: "Mme Bennani, 72 ans",
+      title: "Casablanca",
+      image: "/placeholder.svg",
     },
     {
-      content: "Mon père souffre d'un cancer avancé et souhaitait rester à la maison. Les infirmiers de Mylli Services ont été remarquables dans la gestion de sa douleur et des soins complexes. Leur expertise et leur humanité font toute la différence.",
-      author: "Ahmed L.",
-      role: "Fils d'un patient",
-      avatar: "/placeholder.svg",
+      quote: "Mon père souffre d'un cancer avancé et souhaitait rester à la maison. Les infirmiers de Mylli Services ont été remarquables dans la gestion de sa douleur et des soins complexes. Leur expertise et leur humanité font toute la différence.",
+      name: "Ahmed L.",
+      title: "Fils d'un patient",
+      image: "/placeholder.svg",
     },
   ];
 
@@ -263,10 +263,10 @@ const InfirmierPage = () => {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="animate-fade-in">
                 <TestimonialCard 
-                  quote={testimonial.content}
-                  author={testimonial.author}
-                  role={testimonial.role}
-                  image={testimonial.avatar}
+                  quote={testimonial.quote}
+                  name={testimonial.name}
+                  title={testimonial.title}
+                  image={testimonial.image}
                 />
               </div>
             ))}
