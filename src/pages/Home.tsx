@@ -7,7 +7,6 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -21,7 +20,6 @@ const HomePage = () => {
     x: 0,
     y: 0
   });
-  
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const {
       clientX,
@@ -85,11 +83,7 @@ const HomePage = () => {
   }, []);
 
   // Images for the hero background
-  const careImages = [
-    '/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png',
-    '/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png',
-    '/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png'
-  ];
+  const careImages = ['/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png', '/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png', '/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png'];
 
   // Sample data for services
   const services = [{
@@ -144,26 +138,20 @@ const HomePage = () => {
   }];
 
   // Features section data
-  const features = [
-    {
-      icon: <Shield className="text-mylli-primary h-12 w-12" />,
-      title: "Sécurité & Confiance",
-      description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité"
-    },
-    {
-      icon: <Star className="text-mylli-secondary h-12 w-12" />,
-      title: "Qualité de service",
-      description: "Accompagnement personnalisé et suivi régulier de votre satisfaction"
-    },
-    {
-      icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
-      title: "Disponibilité 24/7",
-      description: "Une équipe disponible jour et nuit pour répondre à vos besoins"
-    }
-  ];
-
-  return (
-    <div className="overflow-hidden">
+  const features = [{
+    icon: <Shield className="text-mylli-primary h-12 w-12" />,
+    title: "Sécurité & Confiance",
+    description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité"
+  }, {
+    icon: <Star className="text-mylli-secondary h-12 w-12" />,
+    title: "Qualité de service",
+    description: "Accompagnement personnalisé et suivi régulier de votre satisfaction"
+  }, {
+    icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
+    title: "Disponibilité 24/7",
+    description: "Une équipe disponible jour et nuit pour répondre à vos besoins"
+  }];
+  return <div className="overflow-hidden">
       {/* Hero Section - With Updated Color Scheme based on logo */}
       <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
         {/* Modern layered background with images */}
@@ -173,25 +161,20 @@ const HomePage = () => {
           
           {/* Modern image gallery */}
           <div className="absolute inset-0 overflow-hidden">
-            {careImages.map((img, index) => (
-              <div 
-                key={index} 
-                className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeImage === index ? 'opacity-100' : 'opacity-0'}`}
-              >
-                <img 
-                  src={img} 
-                  alt="Professional care services" 
-                  className="absolute w-full h-full object-cover object-center filter brightness-[0.75]"
-                />
-              </div>
-            ))}
+            {careImages.map((img, index) => <div key={index} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeImage === index ? 'opacity-100' : 'opacity-0'}`}>
+                <img src={img} alt="Professional care services" className="absolute w-full h-full object-cover object-center filter brightness-[0.75]" />
+              </div>)}
           </div>
           
           {/* Geometric patterns for modern look - logo colors */}
           <div className="absolute inset-0 z-20 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-mylli-primary opacity-30 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-secondary opacity-20 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-quaternary opacity-20 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-secondary opacity-20 blur-3xl animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-quaternary opacity-20 blur-2xl animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
           </div>
           
           {/* Elegant grid overlay for modern touch */}
@@ -247,7 +230,7 @@ const HomePage = () => {
                   <p className="text-xs text-white">années d'expérience</p>
                 </div>
                 <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
-                  <p className="text-3xl font-bold text-mylli-primary">{isVisible ? '500+' : '0'}</p>
+                  <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '500+' : '0'}</p>
                   <p className="text-xs text-white">clients satisfaits</p>
                 </div>
                 <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
@@ -267,21 +250,13 @@ const HomePage = () => {
                 {/* Logo display */}
                 <div className="absolute top-4 right-4 z-30 bg-white/90 p-2 rounded-full shadow-md">
                   <div className="w-12 h-12 relative">
-                    <img 
-                      src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" 
-                      alt="Mylli Services Logo" 
-                      className="w-full h-full object-contain"
-                    />
+                    <img src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" alt="Mylli Services Logo" className="w-full h-full object-contain" />
                   </div>
                 </div>
                 
                 {/* Top photo highlight */}
                 <div className="relative h-48 overflow-hidden group">
-                  <img 
-                    src={careImages[activeImage]} 
-                    alt="Service de soins" 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                  <img src={careImages[activeImage]} alt="Service de soins" className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
@@ -297,14 +272,7 @@ const HomePage = () => {
                   
                   {/* Image selector - modern touch with logo colors */}
                   <div className="flex space-x-2 mb-4">
-                    {careImages.map((_, index) => (
-                      <button 
-                        key={index}
-                        onClick={() => setActiveImage(index)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${activeImage === index ? 'bg-mylli-secondary w-6' : 'bg-white/30'}`}
-                        aria-label={`Image ${index + 1}`}
-                      />
-                    ))}
+                    {careImages.map((_, index) => <button key={index} onClick={() => setActiveImage(index)} className={`w-2 h-2 rounded-full transition-all duration-300 ${activeImage === index ? 'bg-mylli-secondary w-6' : 'bg-white/30'}`} aria-label={`Image ${index + 1}`} />)}
                   </div>
                   
                   <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
@@ -341,16 +309,11 @@ const HomePage = () => {
             <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-mylli-primary/10 text-mylli-primary mb-3">
               Pourquoi nous choisir
             </span>
-            <SectionHeading 
-              title="Des services d'exception pour votre bien-être" 
-              variant="split"
-              highlightText="exception"
-            />
+            <SectionHeading title="Des services d'exception pour votre bien-être" variant="split" highlightText="exception" />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className={`feature-card border-none shadow-soft hover:shadow-md hover:border hover:border-mylli-primary/30 ${index === 1 ? "md:mt-8" : ""}`}>
+            {features.map((feature, index) => <Card key={index} className={`feature-card border-none shadow-soft hover:shadow-md hover:border hover:border-mylli-primary/30 ${index === 1 ? "md:mt-8" : ""}`}>
                 <CardContent className="p-8">
                   <div className="mb-6 relative">
                     <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 blur-sm"></div>
@@ -361,8 +324,7 @@ const HomePage = () => {
                   <h3 className="text-xl font-bold mb-2 text-mylli-dark">{feature.title}</h3>
                   <p className="text-mylli-gray">{feature.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
           {/* Trust indicators */}
@@ -397,11 +359,7 @@ const HomePage = () => {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
                 <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" 
-                    alt="Mylli Services Logo" 
-                    className="w-full h-auto max-h-64 object-contain mx-auto mb-6"
-                  />
+                  <img src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" alt="Mylli Services Logo" className="w-full h-auto max-h-64 object-contain mx-auto mb-6" />
                   <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
                     <div className="flex items-center bg-mylli-light p-3 rounded-lg">
                       <span className="text-mylli-primary text-4xl font-bold">10</span>
@@ -417,13 +375,7 @@ const HomePage = () => {
             </div>
             
             <div>
-              <SectionHeading 
-                title="Depuis 10 ans à vos côtés" 
-                subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
-                align="left" 
-                variant="modern"
-                highlightColor="mylli-primary"
-              />
+              <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="modern" highlightColor="mylli-primary" />
               
               <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
                 <p className="mb-4">
@@ -453,21 +405,10 @@ const HomePage = () => {
       {/* Services Section - Updated with color scheme and better card design */}
       <section className="section-padding bg-mylli-light/50 relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Nos Services" 
-            subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile."
-            variant="gradient" 
-          />
+          <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="gradient" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {services.map((service, index) => (
-              <div key={index} 
-                className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${
-                  hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''
-                }`}
-                onMouseEnter={() => setHoverCard(index)}
-                onMouseLeave={() => setHoverCard(-1)}
-              >
+            {services.map((service, index) => <div key={index} className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''}`} onMouseEnter={() => setHoverCard(index)} onMouseLeave={() => setHoverCard(-1)}>
                 <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary"></div>
                 <div className="pl-4">
                   <div className="mb-4">
@@ -475,16 +416,12 @@ const HomePage = () => {
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-mylli-dark">{service.title}</h3>
                   <p className="text-mylli-gray mb-4">{service.description}</p>
-                  <Link 
-                    to={service.link} 
-                    className="flex items-center text-mylli-primary font-medium group"
-                  >
+                  <Link to={service.link} className="flex items-center text-mylli-primary font-medium group">
                     Découvrir 
                     <ArrowUpRight size={16} className="ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Link>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           <div className="text-center animate-fade-in">
@@ -504,20 +441,14 @@ const HomePage = () => {
       {/* How It Works Section - Updated with better visual connection */}
       <section className="section-padding bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Notre Fonctionnement" 
-            subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
-            variant="split"
-            highlightText="Fonctionnement"
-          />
+          <SectionHeading title="Notre Fonctionnement" subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." variant="split" highlightText="Fonctionnement" />
           
           <div className="relative">
             {/* Connecting line */}
             <div className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-mylli-primary via-mylli-secondary to-mylli-quaternary hidden md:block"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-              {howItWorks.map((item, index) => (
-                <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
+              {howItWorks.map((item, index) => <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
                   {/* Connection point */}
                   <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary hidden md:block"></div>
                   
@@ -529,8 +460,7 @@ const HomePage = () => {
                     <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
                     <p className="text-mylli-gray max-w-[80%]">{item.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
           
@@ -560,18 +490,10 @@ const HomePage = () => {
       {/* Testimonial Section - Updated with new card style */}
       <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light">
         <div className="container-custom">
-          <SectionHeading 
-            title="Ce que disent nos clients" 
-            subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté."
-            variant="gradient" 
-          />
+          <SectionHeading title="Ce que disent nos clients" subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." variant="gradient" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl p-6 shadow-soft relative overflow-hidden group hover:shadow-md transition-all duration-300"
-              >
+            {testimonials.map((testimonial, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-soft relative overflow-hidden group hover:shadow-md transition-all duration-300">
                 {/* Banner top */}
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary"></div>
                 
@@ -583,9 +505,7 @@ const HomePage = () => {
                 <div className="relative z-10">
                   <div className="mb-4">
                     <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />
-                      ))}
+                      {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />)}
                     </div>
                   </div>
                   <p className="italic text-mylli-gray mb-6">"{testimonial.quote}"</p>
@@ -602,8 +522,7 @@ const HomePage = () => {
                 
                 {/* Decorative corner */}
                 <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-mylli-primary/20 to-transparent"></div>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* Trust banner */}
@@ -679,8 +598,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default HomePage;
