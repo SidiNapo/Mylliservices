@@ -6,7 +6,6 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -18,7 +17,6 @@ const HomePage = () => {
     x: 0,
     y: 0
   });
-  
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const {
       clientX,
@@ -125,55 +123,21 @@ const HomePage = () => {
     title: "52 ans"
   }];
   return <div>
-      {/* Hero Section - Enhanced with real imagery */}
+      {/* Hero Section - Completely Redesigned */}
       <section ref={heroRef} className="relative min-h-[90vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
-        {/* Enhanced background with images */}
-        <div className="absolute inset-0 bg-gradient-to-b from-mylli-primary/10 to-white z-0 overflow-hidden">
-          {/* Image gallery with overlay */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute top-0 left-0 w-full h-full grid grid-cols-3 gap-1 opacity-20">
-              {/* First image - conversation */}
-              <div className="relative overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/30 to-transparent z-10"></div>
-                <img 
-                  src="/lovable-uploads/459873fb-292e-4c13-8ac1-a828592a9198.png" 
-                  alt="Soins attentifs" 
-                  className="object-cover h-full w-full transform scale-110"
-                />
-              </div>
-              {/* Second image - caretaker */}
-              <div className="relative overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-mylli-accent/20 to-transparent z-10"></div>
-                <img 
-                  src="/lovable-uploads/90512189-65ef-4854-be61-e5861230dbb5.png" 
-                  alt="Accompagnement" 
-                  className="object-cover h-full w-full"
-                />
-              </div>
-              {/* Third image - medical care */}
-              <div className="relative overflow-hidden h-full">
-                <div className="absolute inset-0 bg-gradient-to-l from-mylli-primary/30 to-transparent z-10"></div>
-                <img 
-                  src="/lovable-uploads/ec7a76da-a99d-471b-b3d1-0b791a37bd56.png" 
-                  alt="Soins médicaux" 
-                  className="object-cover h-full w-full transform scale-110"
-                />
-              </div>
-            </div>
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-mylli-primary/10 to-white z-20"></div>
-            {/* Animated patterns */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.8),transparent_30%)] z-30"></div>
-          </div>
-        </div>
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-mesh-gradient opacity-90 z-0"></div>
+        
+        {/* Animated patterns and shapes */}
+        
         
         {/* Main content */}
         <div className="container-custom relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left column: Text content */}
-            <div className="text-center lg:text-left backdrop-blur-sm bg-white/30 p-8 rounded-3xl shadow-glass">
+            <div className="text-center lg:text-left">
               <div className="inline-block relative mb-6">
-                <span className="text-sm font-medium px-4 py-2 rounded-full bg-white/40 backdrop-blur-sm border border-white/20 shadow-glass">
+                <span className="text-sm font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glass">
                   <span className="animate-pulse text-mylli-accent">★</span> Depuis 2014
                 </span>
               </div>
@@ -190,7 +154,7 @@ const HomePage = () => {
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed text-mylli-dark">
+              <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed">
                 Depuis <span className="text-mylli-accent font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
               </p>
               
@@ -202,7 +166,7 @@ const HomePage = () => {
                     <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-mylli-primary to-mylli-accent blur-sm group-hover:opacity-80 opacity-0 transition-opacity -z-10"></span>
                   </Link>
                 </Button>
-                <Button variant="outline" asChild className="backdrop-blur-sm bg-white/30 hover:bg-white/40 text-mylli-dark border-white/40 hover:border-white/60 px-8 py-6 rounded-full shadow-glass">
+                <Button variant="outline" asChild className="backdrop-blur-sm bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/40 px-8 py-6 rounded-full shadow-glass">
                   <Link to="/contact">
                     Contactez-nous
                   </Link>
@@ -211,62 +175,77 @@ const HomePage = () => {
               
               {/* Stats */}
               <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                <div className="text-center p-3 backdrop-blur-sm bg-white/40 rounded-xl border border-white/30 shadow-glass">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
                   <p className="text-3xl font-bold text-mylli-accent">{isVisible ? '10+' : '0'}</p>
-                  <p className="text-xs text-mylli-dark">années d'expérience</p>
+                  <p className="text-xs">années d'expérience</p>
                 </div>
-                <div className="text-center p-3 backdrop-blur-sm bg-white/40 rounded-xl border border-white/30 shadow-glass">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
                   <p className="text-3xl font-bold text-mylli-primary">{isVisible ? '500+' : '0'}</p>
-                  <p className="text-xs text-mylli-dark">clients satisfaits</p>
+                  <p className="text-xs">clients satisfaits</p>
                 </div>
-                <div className="text-center p-3 backdrop-blur-sm bg-white/40 rounded-xl border border-white/30 shadow-glass">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
                   <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '24/7' : '0'}</p>
-                  <p className="text-xs text-mylli-dark">disponibilité</p>
+                  <p className="text-xs">disponibilité</p>
                 </div>
               </div>
             </div>
             
-            {/* Right column - removed illustration and replaced with elegant callout */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="bg-white/60 backdrop-blur-md p-10 rounded-3xl shadow-card relative overflow-hidden border border-white/40 max-w-lg">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br from-mylli-accent/30 to-mylli-primary/30 rounded-full blur-xl"></div>
-                <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-gradient-to-tr from-mylli-secondary/30 to-mylli-primary/30 rounded-full blur-xl"></div>
-                
-                <h3 className="text-2xl font-bold text-mylli-dark mb-4 relative z-10">Notre mission</h3>
-                <p className="text-mylli-dark mb-6 relative z-10">
-                  Chez Mylli Services, notre priorité est de permettre aux personnes en perte d'autonomie de vivre dignement dans le confort de leur domicile, entourées de professionnels bienveillants et qualifiés.
-                </p>
-                
-                <div className="space-y-4 relative z-10">
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-mylli-primary/20 flex items-center justify-center mr-4">
-                      <CheckCircle size={24} className="text-mylli-primary"/>
+            {/* Right column: Image/Visual */}
+            <div className="relative flex justify-center items-center">
+              {/* Main image container with animated border */}
+              <div className="relative w-full aspect-square max-w-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-30 blur-md"></div>
+                <div className="absolute inset-2 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-50" style={{
+                animationDirection: 'reverse',
+                animationDuration: '15s'
+              }}></div>
+                <div className="absolute inset-3 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark to-mylli-primary opacity-90"></div>
+                  <div className="w-full h-full relative flex items-center justify-center animate-float">
+                    {/* 3D layered illustration */}
+                    <div className="absolute w-3/4 h-3/4 bg-mylli-accent/30 rounded-full blur-lg animate-pulse-soft"></div>
+                    <div className="relative z-20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-mylli-dark">Soins personnalisés</h4>
-                      <p className="text-sm text-mylli-gray">Adaptés à chaque situation</p>
-                    </div>
+                    
+                    {/* Decorative elements */}
+                    <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
+                    animationDelay: '1s'
+                  }}></div>
+                    <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{
+                    animationDelay: '2s'
+                  }}></div>
                   </div>
-                  
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-mylli-accent/20 flex items-center justify-center mr-4">
-                      <CheckCircle size={24} className="text-mylli-accent"/>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-mylli-dark">Personnel qualifié</h4>
-                      <p className="text-sm text-mylli-gray">Formé et expérimenté</p>
-                    </div>
+                </div>
+              </div>
+              
+              {/* Floating cards */}
+              <div className="absolute -top-10 -left-10 md:left-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
+              animationDelay: '0.5s',
+              animationDuration: '4s'
+            }}>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center text-mylli-primary mr-3">
+                    <Heart size={18} />
                   </div>
-                  
-                  <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-mylli-secondary/20 flex items-center justify-center mr-4">
-                      <CheckCircle size={24} className="text-mylli-secondary"/>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-mylli-dark">Disponibilité constante</h4>
-                      <p className="text-sm text-mylli-gray">Service 24h/24 et 7j/7</p>
-                    </div>
+                  <p className="text-sm font-medium text-mylli-dark">Soins attentionnés</p>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-10 -right-10 md:right-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{
+              animationDelay: '1.5s',
+              animationDuration: '5s'
+            }}>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center text-mylli-accent mr-3">
+                    <Shield size={18} />
                   </div>
+                  <p className="text-sm font-medium text-mylli-dark">Protection 24/7</p>
                 </div>
               </div>
             </div>
@@ -425,5 +404,4 @@ const HomePage = () => {
       </section>
     </div>;
 };
-
 export default HomePage;
