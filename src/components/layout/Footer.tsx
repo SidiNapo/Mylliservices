@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
 
@@ -9,16 +8,14 @@ const Footer = () => {
     <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section */}
+          {/* About Section with Updated Logo */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-mylli-primary flex items-center justify-center">
-                <span className="text-white font-serif font-bold text-xl">M</span>
+            <Link to="/" className="flex items-center space-x-2 mb-4">
+              <img src="/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png" alt="Mylli Services Logo" className="w-10 h-10" />
+              <div className="font-serif font-bold text-xl">
+                <span className="text-red-500">Mylli</span> <span className="text-mylli-primary">Services</span>
               </div>
-              <div className="font-serif font-bold text-xl text-mylli-dark">
-                Mylli <span className="text-mylli-primary">Services</span>
-              </div>
-            </div>
+            </Link>
             <p className="text-mylli-gray mb-6">
               Depuis 2014, accompagnement à domicile des personnes fragilisées avec dévouement et professionnalisme.
             </p>

@@ -1,10 +1,11 @@
-import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ContactForm from '@/components/common/ContactForm';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
+import { Card, CardContent } from "@/components/ui/card";
 
 const ContactPage = () => {
   // Opening hours
@@ -37,7 +38,7 @@ const ContactPage = () => {
         subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!"
       />
       
-      {/* Contact Info Section - Redesigned with gradient cards */}
+      {/* Contact Info Section */}
       <section className="py-20 relative bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
@@ -137,41 +138,219 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Contact Form Section with Parallax */}
-      <ParallaxSection 
-        backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%)"
-        height="auto"
-        overlayOpacity={0.1}
-        className="py-20"
-      >
-        <div className="container-custom">
+      {/* Contact Form Section with Parallax - REDESIGNED */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-indigo-50">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-mylli-primary/10 to-mylli-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-mylli-accent/10 to-mylli-secondary/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+        
+        <div className="container-custom relative z-10">
           <SectionHeading 
             title="Prenons contact"
-            subtitle="Nous sommes à votre écoute pour répondre à toutes vos questions"
-            variant="modern"
-            className="text-white"
-            highlightColor="white"
+            subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins"
+            variant="gradient"
+            className="mb-16"
           />
           
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white bg-opacity-95 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 animate-fade-in">
-              <h3 className="text-2xl font-bold mb-8 text-mylli-dark">Envoyez-nous un message</h3>
-              <ContactForm />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
+            {/* Left side: Contact Information */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-blue-100/50 backdrop-blur-sm">
+                <h3 className="text-2xl font-bold mb-6 text-mylli-dark relative inline-block">
+                  Comment pouvons-nous vous aider?
+                  <div className="absolute -bottom-1 left-0 right-0 h-2 bg-mylli-primary/20"></div>
+                </h3>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-primary-dark flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
+                        <Phone className="h-5 w-5 text-white" />
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-semibold text-mylli-dark">Appelez-nous</h4>
+                      <a href="tel:+212661377438" className="text-mylli-primary hover:text-mylli-primary-dark transition-colors">
+                        +212 661 37 74 38
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
+                        <Mail className="h-5 w-5 text-white" />
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-semibold text-mylli-dark">Envoyez-nous un email</h4>
+                      <a href="mailto:info@mylliservices.com" className="text-mylli-secondary hover:text-mylli-accent transition-colors">
+                        info@mylliservices.com
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-accent to-mylli-dark flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
+                        <MapPin className="h-5 w-5 text-white" />
+                      </div>
+                    </div>
+                    <div className="ml-4">
+                      <h4 className="text-lg font-semibold text-mylli-dark">Notre adresse</h4>
+                      <p className="text-mylli-gray">
+                        19, rue Masmouda hay Al Hana<br />Casablanca - 20210
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-8 pt-6 border-t border-blue-100">
+                  <h4 className="text-lg font-semibold text-mylli-dark mb-4">Suivez-nous</h4>
+                  <div className="flex space-x-4">
+                    <a href="https://facebook.com" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-primary hover:text-white transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-primary group-hover:text-white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-secondary hover:text-white transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-secondary"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://twitter.com" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-accent hover:text-white transition-all duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-accent"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
               
-              <div className="mt-8 pt-6 border-t border-gray-100">
-                <div className="flex items-start">
-                  <AlertCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                  <p className="text-mylli-gray">
-                    Pour les demandes urgentes, nous vous recommandons de nous contacter directement par téléphone au <a href="tel:+212661377438" className="text-mylli-primary font-medium hover:underline">+212 661 37 74 38</a>.
-                  </p>
+              <Card className="border-0 shadow-lg overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark text-white p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
+                        <Clock className="h-5 w-5 text-white" />
+                      </div>
+                      <h4 className="text-xl font-bold">Horaires d'ouverture</h4>
+                    </div>
+                    <div className="space-y-2">
+                      {openingHours.map((item, index) => (
+                        <div key={index} className="flex justify-between items-center">
+                          <span className="text-white/80">{item.day}</span>
+                          <span className="font-medium">{item.hours}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-br from-mylli-light to-white p-5">
+                    <div className="flex items-center text-mylli-primary">
+                      <AlertCircle className="h-5 w-5 mr-2" />
+                      <p className="text-sm font-medium">Service d'urgence disponible 24h/24</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            {/* Right side: Contact Form */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+                <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark p-6 flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                    <MessageSquare className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white">Envoyez-nous un message</h3>
+                </div>
+                
+                <div className="p-8">
+                  <div className="flex flex-col space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
+                          <User className="h-5 w-5" />
+                        </div>
+                        <input 
+                          type="text" 
+                          placeholder="Votre nom" 
+                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
+                          required 
+                        />
+                      </div>
+                      <div className="relative">
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
+                          <Mail className="h-5 w-5" />
+                        </div>
+                        <input 
+                          type="email" 
+                          placeholder="Votre email" 
+                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
+                          required 
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="relative">
+                        <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
+                          <Phone className="h-5 w-5" />
+                        </div>
+                        <input 
+                          type="tel" 
+                          placeholder="Votre téléphone" 
+                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
+                          required 
+                        />
+                      </div>
+                      <select 
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
+                        required
+                      >
+                        <option value="">Objet de votre demande</option>
+                        <option value="information">Demande d'information</option>
+                        <option value="devis">Demande de devis</option>
+                        <option value="urgence">Demande urgente</option>
+                        <option value="autre">Autre</option>
+                      </select>
+                    </div>
+                    
+                    <select 
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
+                    >
+                      <option value="">Service qui vous intéresse (optionnel)</option>
+                      <option value="aide-soignant">Aide-soignant(e) à domicile</option>
+                      <option value="infirmier">Infirmier(ère) à domicile</option>
+                      <option value="garde-jour">Garde-malade de jour</option>
+                      <option value="garde-nuit">Garde-malade de nuit</option>
+                      <option value="garde-24h">Garde-malade 24h/24h</option>
+                    </select>
+                    
+                    <div className="relative">
+                      <textarea 
+                        placeholder="Votre message" 
+                        rows={5} 
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 resize-none"
+                        required
+                      ></textarea>
+                    </div>
+                    
+                    <button 
+                      type="submit" 
+                      className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] group"
+                    >
+                      <span>Envoyer votre message</span>
+                      <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                    
+                    <p className="text-sm text-center text-mylli-gray mt-4">
+                      Nous vous répondrons dans les 24 heures ouvrables.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
       
-      {/* Recall Request - Modern design */}
+      {/* Recall Request Section */}
       <section className="py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
@@ -239,7 +418,7 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Map Section with Parallax */}
+      {/* Map Section */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.1),_transparent_70%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
