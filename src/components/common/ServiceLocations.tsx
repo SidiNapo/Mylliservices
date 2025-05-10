@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { MapPin, Heart, Phone, Building, Landmark, Check } from 'lucide-react';
+import { MapPin, Heart, Phone, Building, Landmark, Check, Clock, Users, Shield } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import SectionHeading from './SectionHeading';
 import { Button } from '../ui/button';
