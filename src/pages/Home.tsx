@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -196,7 +195,7 @@ const HomePage = () => {
           </div>
           
           {/* Elegant grid overlay for modern touch */}
-          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiMwMDc3QzAxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyeiIgc3Ryb2tlPSIjRTAyRTMxMTAiIHN0cm9rZS1vcGFjaXR5PSIuNyIvPjxwYXRoIGQ9Ik0xMiAwaDEydjEySDB2NjBoNjBWMzZoMTJWMEgxMnptMTYgMTZoMjB2MjBIMjhWMTZ6IiBmaWxsPSIjMDA5OUU4MTAiLz48L2c+PC9zdmc+')]"></div>
+          <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiMwMDc3QzAxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyem0xMi0yNGgtMTJWNmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyIiBmaWxsPSIjMDA5OUU4MTAiLz48L2c+PC9zdmc+')]"></div>
         </div>
         
         {/* Main content */}
@@ -308,7 +307,7 @@ const HomePage = () => {
                     ))}
                   </div>
                   
-                  <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/20">
+                  <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
                     <Link to="/services">
                       En savoir plus
                     </Link>
