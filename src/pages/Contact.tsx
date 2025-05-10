@@ -1,4 +1,3 @@
-
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -7,7 +6,6 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
-
 const ContactPage = () => {
   // Opening hours
   const openingHours = [{
@@ -149,30 +147,18 @@ const ContactPage = () => {
         
         {/* Floating Dots */}
         <div className="absolute inset-0 z-0">
-          {[...Array(10)].map((_, i) => (
-            <div 
-              key={i} 
-              className={`absolute rounded-full bg-mylli-primary/10 animate-pulse-soft`}
-              style={{
-                width: `${Math.random() * 20 + 5}px`,
-                height: `${Math.random() * 20 + 5}px`,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 5 + 3}s`
-              }}
-            ></div>
-          ))}
+          {[...Array(10)].map((_, i) => <div key={i} className={`absolute rounded-full bg-mylli-primary/10 animate-pulse-soft`} style={{
+          width: `${Math.random() * 20 + 5}px`,
+          height: `${Math.random() * 20 + 5}px`,
+          top: `${Math.random() * 100}%`,
+          left: `${Math.random() * 100}%`,
+          animationDelay: `${Math.random() * 5}s`,
+          animationDuration: `${Math.random() * 5 + 3}s`
+        }}></div>)}
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Prenons contact" 
-            subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" 
-            variant="split"
-            highlightText="contact" 
-            className="mb-16" 
-          />
+          <SectionHeading title="Prenons contact" subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" variant="split" highlightText="contact" className="mb-16" />
           
           {/* Centered Contact Form */}
           <div className="max-w-3xl mx-auto">
@@ -202,35 +188,11 @@ const ContactPage = () => {
             
             {/* Additional Contact Indicators */}
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-primary/10 shadow-lg shadow-mylli-primary/5 transform transition-all hover:scale-[1.02] duration-300">
-                <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-5 w-5 text-mylli-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-mylli-gray font-medium">Email</p>
-                  <a href="mailto:info@mylliservices.com" className="text-mylli-primary font-bold hover:underline">info@mylliservices.com</a>
-                </div>
-              </div>
               
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-accent/10 shadow-lg shadow-mylli-accent/5 transform transition-all hover:scale-[1.02] duration-300">
-                <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="h-5 w-5 text-mylli-accent" />
-                </div>
-                <div>
-                  <p className="text-sm text-mylli-gray font-medium">Téléphone</p>
-                  <a href="tel:+212661377438" className="text-mylli-accent font-bold hover:underline">+212 661 37 74 38</a>
-                </div>
-              </div>
               
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 flex items-center space-x-3 border border-mylli-secondary/10 shadow-lg shadow-mylli-secondary/5 transform transition-all hover:scale-[1.02] duration-300">
-                <div className="w-10 h-10 rounded-full bg-mylli-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-mylli-secondary" />
-                </div>
-                <div>
-                  <p className="text-sm text-mylli-gray font-medium">Notre adresse</p>
-                  <p className="text-mylli-secondary font-bold">19, rue Masmouda hay Al Hana</p>
-                </div>
-              </div>
+              
+              
+              
             </div>
           </div>
         </div>
