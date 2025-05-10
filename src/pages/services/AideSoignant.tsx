@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Heart, User, Clock, Shield, CheckCircle, Star } from 'lucide-react';
+import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
