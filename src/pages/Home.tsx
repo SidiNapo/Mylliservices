@@ -6,8 +6,60 @@ import SectionHeading from '@/components/common/SectionHeading';
 import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
+import { useEffect, useRef, useState } from 'react';
 
 const HomePage = () => {
+  // For the animated counter effect
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+  
+  // For mouse parallax effect
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = (clientX - left) / width - 0.5;
+    const y = (clientY - top) / height - 0.5;
+    setMousePosition({ x, y });
+  };
+  
+  // For animated counter
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+      }
+    }, { threshold: 0.1 });
+    
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+    
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current);
+      }
+    };
+  }, []);
+  
+  // Animate count when section is visible
+  useEffect(() => {
+    if (isVisible) {
+      const interval = setInterval(() => {
+        setCount(prevCount => {
+          if (prevCount < 10) {
+            return prevCount + 1;
+          }
+          clearInterval(interval);
+          return prevCount;
+        });
+      }, 200);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isVisible]);
+
   // Sample data for services
   const services = [
     {
@@ -75,75 +127,185 @@ const HomePage = () => {
   
   return (
     <div>
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white relative overflow-hidden">
-        <div className="container-custom relative z-10 flex flex-col lg:flex-row items-center">
-          {/* Content */}
-          <div className="lg:w-1/2 mb-10 lg:mb-0 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              NOUS SOMMES LÀ <br />POUR VOUS AIDER!
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-8 animate-fade-in">
-              Depuis 2014, aide à domicile des personnes <br className="hidden md:block" />en perte d'autonomie
-            </p>
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start animate-fade-in">
-              <Button asChild className="btn-accent">
-                <Link to="/services">Découvrir nos services</Link>
-              </Button>
-              <Button variant="outline" asChild className="bg-transparent border-white hover:bg-white/10">
-                <Link to="/contact">Contactez-nous</Link>
-              </Button>
-            </div>
-          </div>
+      {/* Hero Section - Completely Redesigned */}
+      <section 
+        ref={heroRef}
+        className="relative min-h-[90vh] flex items-center overflow-hidden"
+        onMouseMove={handleMouseMove}
+      >
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-mesh-gradient opacity-90 z-0"></div>
+        
+        {/* Animated patterns and shapes */}
+        <div className="absolute inset-0 z-10 overflow-hidden">
+          {/* Floating circles */}
+          {Array.from({ length: 20 }).map((_, i) => (
+            <div 
+              key={i}
+              className="absolute rounded-full mix-blend-overlay opacity-20"
+              style={{
+                width: `${Math.random() * 300 + 50}px`,
+                height: `${Math.random() * 300 + 50}px`,
+                left: `${Math.random() * 100}vw`,
+                top: `${Math.random() * 100}vh`,
+                background: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.3)`,
+                animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+                animationDelay: `${Math.random() * 5}s`,
+                transform: `translateX(${mousePosition.x * -20}px) translateY(${mousePosition.y * -20}px)`
+              }}
+            ></div>
+          ))}
           
-          {/* Image */}
-          <div className="lg:w-1/2 flex justify-center lg:justify-end">
-            <div className="relative animate-float">
-              <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center p-3">
-                <div className="w-full h-full rounded-full bg-gradient-to-br from-white/20 to-transparent border border-white/30 overflow-hidden">
-                  {/* Placeholder for actual image */}
-                  <div className="w-full h-full bg-mylli-primary/40 flex items-center justify-center text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                      <circle cx="9" cy="7" r="4"></circle>
-                      <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                      <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+          {/* Geometric shapes with parallax effect */}
+          <div 
+            className="absolute w-64 h-64 border-2 border-white/10 rounded-full top-1/4 right-1/4 animate-rotate-slow"
+            style={{ transform: `translateX(${mousePosition.x * 30}px) translateY(${mousePosition.y * 30}px)` }}
+          ></div>
+          <div 
+            className="absolute w-96 h-96 border border-white/20 rounded-full bottom-1/3 left-1/3 animate-rotate-slow"
+            style={{ transform: `translateX(${mousePosition.x * -40}px) translateY(${mousePosition.y * -40}px)` }}
+          ></div>
+          <div 
+            className="absolute w-40 h-40 border border-mylli-accent/30 transform rotate-45 top-1/3 right-1/4"
+            style={{ transform: `rotate(45deg) translateX(${mousePosition.x * 20}px) translateY(${mousePosition.y * 20}px)` }}
+          ></div>
+          
+          {/* Blob shapes */}
+          <div 
+            className="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-br from-mylli-accent/20 to-transparent rounded-full blur-3xl animate-blob"
+            style={{ transform: `translateX(${mousePosition.x * -30}px) translateY(${mousePosition.y * -30}px)` }}
+          ></div>
+          <div 
+            className="absolute -bottom-40 -left-20 w-80 h-80 bg-gradient-to-tr from-mylli-primary/30 to-transparent rounded-full blur-3xl animate-blob animation-delay-2000"
+            style={{ transform: `translateX(${mousePosition.x * 25}px) translateY(${mousePosition.y * 25}px)` }}
+          ></div>
+          <div 
+            className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-br from-mylli-secondary/20 to-transparent rounded-full blur-3xl animate-blob animation-delay-4000"
+            style={{ transform: `translateX(${mousePosition.x * -15}px) translateY(${mousePosition.y * -15}px)` }}
+          ></div>
+        </div>
+        
+        {/* Main content */}
+        <div className="container-custom relative z-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left column: Text content */}
+            <div className="text-center lg:text-left">
+              <div className="inline-block relative mb-6">
+                <span className="text-sm font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glass">
+                  <span className="animate-pulse text-mylli-accent">★</span> Depuis 2014
+                </span>
+              </div>
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
+                <span className="block relative overflow-hidden">
+                  <span className="block transform transition-transform animate-fade-in">NOUS SOMMES LÀ</span>
+                </span>
+                <span className="block mt-2 relative overflow-hidden">
+                  <span className="block transform transition-transform animate-fade-in delay-[300ms]">POUR VOUS <span className="relative inline-block animate-wave origin-[70%_70%]">🤝</span></span>
+                </span>
+                <span className="block mt-2 bg-gradient-to-r from-mylli-accent via-mylli-primary to-mylli-secondary bg-clip-text text-transparent animate-text-gradient bg-[length:200%]">
+                  AIDER!
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed">
+                Depuis <span className="text-mylli-accent font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
+              </p>
+              
+              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 lg:justify-start animate-fade-in delay-[900ms]">
+                <Button asChild className="relative group overflow-hidden rounded-full px-8 py-6 bg-gradient-to-r from-mylli-accent to-mylli-primary hover:shadow-neon transition-all duration-300">
+                  <Link to="/services" className="relative z-10 flex items-center text-white font-medium">
+                    Découvrir nos services
+                    <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-mylli-primary to-mylli-accent blur-sm group-hover:opacity-80 opacity-0 transition-opacity -z-10"></span>
+                  </Link>
+                </Button>
+                <Button variant="outline" asChild className="backdrop-blur-sm bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/40 px-8 py-6 rounded-full shadow-glass">
+                  <Link to="/contact">
+                    Contactez-nous
+                  </Link>
+                </Button>
+              </div>
+              
+              {/* Stats */}
+              <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
+                  <p className="text-3xl font-bold text-mylli-accent">{isVisible ? '10+' : '0'}</p>
+                  <p className="text-xs">années d'expérience</p>
+                </div>
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
+                  <p className="text-3xl font-bold text-mylli-primary">{isVisible ? '500+' : '0'}</p>
+                  <p className="text-xs">clients satisfaits</p>
+                </div>
+                <div className="text-center p-3 backdrop-blur-sm bg-white/5 rounded-xl border border-white/10">
+                  <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '24/7' : '0'}</p>
+                  <p className="text-xs">disponibilité</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right column: Image/Visual */}
+            <div className="relative flex justify-center items-center">
+              {/* Main image container with animated border */}
+              <div className="relative w-full aspect-square max-w-lg">
+                <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-30 blur-md"></div>
+                <div className="absolute inset-2 bg-gradient-to-r from-mylli-primary via-mylli-accent to-mylli-secondary rounded-full animate-rotate-slow opacity-50" style={{ animationDirection: 'reverse', animationDuration: '15s' }}></div>
+                <div className="absolute inset-3 rounded-full overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-dark to-mylli-primary opacity-90"></div>
+                  <div className="w-full h-full relative flex items-center justify-center animate-float">
+                    {/* 3D layered illustration */}
+                    <div className="absolute w-3/4 h-3/4 bg-mylli-accent/30 rounded-full blur-lg animate-pulse-soft"></div>
+                    <div className="relative z-20">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="280" height="280" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </div>
+                    
+                    {/* Decorative elements */}
+                    <div className="absolute top-1/4 right-1/4 w-16 h-16 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{ animationDelay: '1s' }}></div>
+                    <div className="absolute bottom-1/4 left-1/4 w-12 h-12 bg-white/10 rounded-full backdrop-blur-md animate-float" style={{ animationDelay: '2s' }}></div>
                   </div>
                 </div>
               </div>
               
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-mylli-accent/80 animate-pulse-soft"></div>
-              <div className="absolute -bottom-2 -left-6 w-16 h-16 rounded-full bg-mylli-secondary/80 animate-pulse-soft"></div>
+              {/* Floating cards */}
+              <div className="absolute -top-10 -left-10 md:left-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{ animationDelay: '0.5s', animationDuration: '4s' }}>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center text-mylli-primary mr-3">
+                    <Heart size={18} />
+                  </div>
+                  <p className="text-sm font-medium text-mylli-dark">Soins attentionnés</p>
+                </div>
+              </div>
+              
+              <div className="absolute -bottom-10 -right-10 md:right-0 bg-white rounded-xl shadow-glass backdrop-blur-md p-4 max-w-[200px] animate-float" style={{ animationDelay: '1.5s', animationDuration: '5s' }}>
+                <div className="flex items-center">
+                  <div className="w-10 h-10 rounded-full bg-mylli-accent/10 flex items-center justify-center text-mylli-accent mr-3">
+                    <Shield size={18} />
+                  </div>
+                  <p className="text-sm font-medium text-mylli-dark">Protection 24/7</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         
-        {/* Background elements */}
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
-          <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clipPath="url(#clip0_1_2)">
-              <path d="M184.5 -9.5C95.1 8.7 31.5 85.8 20.5 176.5C6.1 296.4 124.5 379.5 244.5 371.5C364.5 363.5 446.5 236.5 392.5 130.5C356.9 62.3 274.3 -27.8 184.5 -9.5Z" fill="white"/>
-            </g>
-            <defs>
-              <clipPath id="clip0_1_2">
-                <rect width="400" height="400" fill="white"/>
-              </clipPath>
-            </defs>
+        {/* Bottom wave */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 text-white">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
           </svg>
         </div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-full opacity-10">
-          <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clipPath="url(#clip0_1_3)">
-              <path d="M215.5 409.5C304.9 391.3 368.5 314.2 379.5 223.5C393.9 103.6 275.5 20.5 155.5 28.5C35.5 36.5 -46.5 163.5 7.5 269.5C43.1 337.7 125.7 427.8 215.5 409.5Z" fill="white"/>
-            </g>
-            <defs>
-              <clipPath id="clip0_1_3">
-                <rect width="400" height="400" fill="white"/>
-              </clipPath>
-            </defs>
-          </svg>
+        
+        {/* Mouse scroll indicator */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center animate-fade-in delay-[1500ms]">
+          <p className="text-sm opacity-60 mb-2">Découvrir</p>
+          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center">
+            <div className="w-1.5 h-1.5 rounded-full bg-white/80 mt-2 animate-[float_1.5s_ease-in-out_infinite]"></div>
+          </div>
         </div>
       </section>
       

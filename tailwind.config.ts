@@ -136,6 +136,25 @@ export default {
 				'rotate-slow': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
+				},
+				'text-gradient': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'100%': { backgroundPosition: '100% 50%' }
+				},
+				'wave': {
+					'0%': { transform: 'rotate(0deg)' },
+					'10%': { transform: 'rotate(14deg)' },
+					'20%': { transform: 'rotate(-8deg)' },
+					'30%': { transform: 'rotate(14deg)' },
+					'40%': { transform: 'rotate(-4deg)' },
+					'50%': { transform: 'rotate(10deg)' },
+					'60%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(0deg)' }
+				},
+				'blob': {
+					'0%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' },
+					'50%': { borderRadius: '30% 60% 70% 40%/50% 60% 30% 60%' },
+					'100%': { borderRadius: '60% 40% 30% 70%/60% 30% 70% 40%' }
 				}
 			},
 			animation: {
@@ -151,17 +170,24 @@ export default {
 				'background-pan': 'background-pan 20s linear infinite',
 				'shimmer': 'shimmer 2s infinite linear',
 				'radial-pulse': 'radial-pulse 4s ease-in-out infinite',
-				'rotate-slow': 'rotate-slow 12s linear infinite'
+				'rotate-slow': 'rotate-slow 12s linear infinite',
+				'text-gradient': 'text-gradient 2s linear infinite',
+				'wave': 'wave 1.5s infinite',
+				'blob': 'blob 8s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+				'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(221, 100%, 92%, 1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(199, 100%, 56%, 1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(211, 98%, 80%, 1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(337, 100%, 83%, 0.4) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.5) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.5) 0px, transparent 50%)',
 			},
 			boxShadow: {
 				'soft': '0 4px 15px rgba(0, 0, 0, 0.05)',
 				'card': '0 10px 30px rgba(0, 0, 0, 0.08)',
 				'hover': '0 20px 40px rgba(0, 0, 0, 0.12)',
+				'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+				'neon': '0 0 5px rgba(59, 130, 246, 0.5), 0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.15)',
+				'3d': '0 10px 0 rgba(0, 0, 0, 0.2)'
 			},
 			transitionProperty: {
 				'height': 'height',
