@@ -24,10 +24,10 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   
   const cardStyles = {
-    default: `card-service flex flex-col ${className}`,
-    modern: `card-service flex flex-col relative overflow-hidden group ${className}`,
-    minimal: `p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors ${className}`,
-    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-6 transition-all duration-300 border border-mylli-primary/20 ${className}`
+    default: `card-service flex flex-col h-full ${className}`,
+    modern: `card-service flex flex-col h-full relative overflow-hidden group ${className}`,
+    minimal: `p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors h-full ${className}`,
+    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-6 transition-all duration-300 border border-mylli-primary/20 h-full ${className}`
   };
   
   if (style === 'modern') {
@@ -48,7 +48,7 @@ const ServiceCard = ({
           <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
           <Link 
             to={link} 
-            className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300"
+            className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto"
           >
             En savoir plus <ArrowRight size={16} className="ml-1" />
           </Link>
@@ -60,14 +60,14 @@ const ServiceCard = ({
   if (style === 'minimal') {
     return (
       <div className={cardStyles[style]}>
-        <div className="flex items-start">
+        <div className="flex items-start h-full">
           {icon && <div className="text-mylli-primary mr-4">{icon}</div>}
-          <div>
+          <div className="flex flex-col h-full">
             <h3 className="text-lg font-bold mb-2 text-mylli-dark">{title}</h3>
-            <p className="text-mylli-gray mb-3">{description}</p>
+            <p className="text-mylli-gray mb-3 flex-grow">{description}</p>
             <Link 
               to={link} 
-              className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors"
+              className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
             >
               En savoir plus <ArrowRight size={16} className="ml-1" />
             </Link>
@@ -86,7 +86,7 @@ const ServiceCard = ({
           <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
           <Link 
             to={link} 
-            className="btn-primary text-center w-full"
+            className="btn-primary text-center w-full mt-auto"
           >
             En savoir plus
           </Link>
@@ -103,7 +103,7 @@ const ServiceCard = ({
       <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
       <Link 
         to={link} 
-        className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors"
+        className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
       >
         En savoir plus <ArrowRight size={16} className="ml-1" />
       </Link>
