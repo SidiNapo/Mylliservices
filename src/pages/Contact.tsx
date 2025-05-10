@@ -6,37 +6,32 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
-
 const ContactPage = () => {
   // Opening hours
-  const openingHours = [
-    { day: "Lundi - Vendredi", hours: "8h30 - 18h30" },
-    { day: "Samedi", hours: "9h00 - 16h00" },
-    { day: "Dimanche", hours: "Fermé (Urgences uniquement)" }
-  ];
-  
-  // FAQ items
-  const faqs = [
-    {
-      question: "Quel est le délai de réponse après un premier contact?",
-      answer: "Nous nous engageons à vous répondre dans les 24 heures ouvrables suivant votre demande. Pour les cas urgents, nous mettons tout en œuvre pour vous recontacter dans les plus brefs délais."
-    },
-    {
-      question: "Quels documents sont nécessaires pour débuter une intervention?",
-      answer: "Pour mettre en place nos services, nous aurons besoin d'une pièce d'identité, d'informations médicales pertinentes (ordonnances, rapports médicaux récents), et éventuellement d'une attestation d'assurance si applicable."
-    },
-    {
-      question: "Quelles sont les modalités de paiement?",
-      answer: "Nous acceptons plusieurs modes de paiement : virement bancaire, chèque ou espèces. Les factures sont émises mensuellement, et nous proposons également des formules d'abonnement avec tarifs préférentiels."
-    }
-  ];
+  const openingHours = [{
+    day: "Lundi - Vendredi",
+    hours: "8h30 - 18h30"
+  }, {
+    day: "Samedi",
+    hours: "9h00 - 16h00"
+  }, {
+    day: "Dimanche",
+    hours: "Fermé (Urgences uniquement)"
+  }];
 
-  return (
-    <div>
-      <PageBanner 
-        title="Contactez-nous" 
-        subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!"
-      />
+  // FAQ items
+  const faqs = [{
+    question: "Quel est le délai de réponse après un premier contact?",
+    answer: "Nous nous engageons à vous répondre dans les 24 heures ouvrables suivant votre demande. Pour les cas urgents, nous mettons tout en œuvre pour vous recontacter dans les plus brefs délais."
+  }, {
+    question: "Quels documents sont nécessaires pour débuter une intervention?",
+    answer: "Pour mettre en place nos services, nous aurons besoin d'une pièce d'identité, d'informations médicales pertinentes (ordonnances, rapports médicaux récents), et éventuellement d'une attestation d'assurance si applicable."
+  }, {
+    question: "Quelles sont les modalités de paiement?",
+    answer: "Nous acceptons plusieurs modes de paiement : virement bancaire, chèque ou espèces. Les factures sont émises mensuellement, et nous proposons également des formules d'abonnement avec tarifs préférentiels."
+  }];
+  return <div>
+      <PageBanner title="Contactez-nous" subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!" />
       
       {/* Contact Info Section */}
       <section className="py-20 relative bg-gradient-to-b from-white to-gray-50">
@@ -101,12 +96,7 @@ const ContactPage = () => {
               <p className="text-lg mb-6">
                 Contactez-nous directement par WhatsApp pour une réponse rapide à vos questions.
               </p>
-              <a 
-                href="https://wa.me/212661377438" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-green-600 font-medium text-lg transition-all duration-300 hover:bg-green-50 hover:scale-105"
-              >
+              <a href="https://wa.me/212661377438" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-green-600 font-medium text-lg transition-all duration-300 hover:bg-green-50 hover:scale-105">
                 Contacter par WhatsApp
               </a>
             </div>
@@ -120,12 +110,10 @@ const ContactPage = () => {
                 <h3 className="text-2xl font-bold text-mylli-dark">Heures d'ouverture</h3>
               </div>
               <div className="space-y-4">
-                {openingHours.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
+                {openingHours.map((item, index) => <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
                     <span className="text-lg text-mylli-dark font-medium">{item.day}</span>
                     <span className="text-lg font-bold text-mylli-primary">{item.hours}</span>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               <div className="mt-6 flex items-start p-4 bg-mylli-primary/5 rounded-lg">
                 <AlertCircle size={20} className="text-mylli-accent mt-0.5 mr-3 flex-shrink-0" />
@@ -145,107 +133,18 @@ const ContactPage = () => {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-mylli-accent/10 to-mylli-secondary/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl"></div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Prenons contact"
-            subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins"
-            variant="gradient"
-            className="mb-16"
-          />
+          <SectionHeading title="Prenons contact" subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" variant="gradient" className="mb-16" />
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
             {/* Left side: Contact Information */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl p-8 border border-blue-100/50 backdrop-blur-sm">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark relative inline-block">
-                  Comment pouvons-nous vous aider?
-                  <div className="absolute -bottom-1 left-0 right-0 h-2 bg-mylli-primary/20"></div>
-                </h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-primary-dark flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
-                        <Phone className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h4 className="text-lg font-semibold text-mylli-dark">Appelez-nous</h4>
-                      <a href="tel:+212661377438" className="text-mylli-primary hover:text-mylli-primary-dark transition-colors">
-                        +212 661 37 74 38
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
-                        <Mail className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h4 className="text-lg font-semibold text-mylli-dark">Envoyez-nous un email</h4>
-                      <a href="mailto:info@mylliservices.com" className="text-mylli-secondary hover:text-mylli-accent transition-colors">
-                        info@mylliservices.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-accent to-mylli-dark flex items-center justify-center shadow-md transform transition-transform duration-300 hover:scale-110">
-                        <MapPin className="h-5 w-5 text-white" />
-                      </div>
-                    </div>
-                    <div className="ml-4">
-                      <h4 className="text-lg font-semibold text-mylli-dark">Notre adresse</h4>
-                      <p className="text-mylli-gray">
-                        19, rue Masmouda hay Al Hana<br />Casablanca - 20210
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 pt-6 border-t border-blue-100">
-                  <h4 className="text-lg font-semibold text-mylli-dark mb-4">Suivez-nous</h4>
-                  <div className="flex space-x-4">
-                    <a href="https://facebook.com" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-primary hover:text-white transition-all duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-primary group-hover:text-white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="https://instagram.com" aria-label="Instagram" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-secondary hover:text-white transition-all duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-secondary"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
-                    <a href="https://twitter.com" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:bg-mylli-accent hover:text-white transition-all duration-300">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-accent"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              
               
               <Card className="border-0 shadow-lg overflow-hidden">
                 <CardContent className="p-0">
-                  <div className="bg-gradient-to-r from-mylli-primary to-mylli-dark text-white p-6">
-                    <div className="flex items-center mb-4">
-                      <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-3">
-                        <Clock className="h-5 w-5 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold">Horaires d'ouverture</h4>
-                    </div>
-                    <div className="space-y-2">
-                      {openingHours.map((item, index) => (
-                        <div key={index} className="flex justify-between items-center">
-                          <span className="text-white/80">{item.day}</span>
-                          <span className="font-medium">{item.hours}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                   
-                  <div className="bg-gradient-to-br from-mylli-light to-white p-5">
-                    <div className="flex items-center text-mylli-primary">
-                      <AlertCircle className="h-5 w-5 mr-2" />
-                      <p className="text-sm font-medium">Service d'urgence disponible 24h/24</p>
-                    </div>
-                  </div>
+                  
+                  
                 </CardContent>
               </Card>
             </div>
@@ -267,23 +166,13 @@ const ContactPage = () => {
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
                           <User className="h-5 w-5" />
                         </div>
-                        <input 
-                          type="text" 
-                          placeholder="Votre nom" 
-                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                          required 
-                        />
+                        <input type="text" placeholder="Votre nom" className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
                       </div>
                       <div className="relative">
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
                           <Mail className="h-5 w-5" />
                         </div>
-                        <input 
-                          type="email" 
-                          placeholder="Votre email" 
-                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                          required 
-                        />
+                        <input type="email" placeholder="Votre email" className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
                       </div>
                     </div>
                     
@@ -292,17 +181,9 @@ const ContactPage = () => {
                         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-mylli-primary">
                           <Phone className="h-5 w-5" />
                         </div>
-                        <input 
-                          type="tel" 
-                          placeholder="Votre téléphone" 
-                          className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                          required 
-                        />
+                        <input type="tel" placeholder="Votre téléphone" className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
                       </div>
-                      <select 
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                        required
-                      >
+                      <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required>
                         <option value="">Objet de votre demande</option>
                         <option value="information">Demande d'information</option>
                         <option value="devis">Demande de devis</option>
@@ -311,9 +192,7 @@ const ContactPage = () => {
                       </select>
                     </div>
                     
-                    <select 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                    >
+                    <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300">
                       <option value="">Service qui vous intéresse (optionnel)</option>
                       <option value="aide-soignant">Aide-soignant(e) à domicile</option>
                       <option value="infirmier">Infirmier(ère) à domicile</option>
@@ -323,18 +202,10 @@ const ContactPage = () => {
                     </select>
                     
                     <div className="relative">
-                      <textarea 
-                        placeholder="Votre message" 
-                        rows={5} 
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 resize-none"
-                        required
-                      ></textarea>
+                      <textarea placeholder="Votre message" rows={5} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 resize-none" required></textarea>
                     </div>
                     
-                    <button 
-                      type="submit" 
-                      className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] group"
-                    >
+                    <button type="submit" className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] group">
                       <span>Envoyer votre message</span>
                       <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </button>
@@ -363,20 +234,10 @@ const ContactPage = () => {
                 </p>
                 <form className="space-y-6">
                   <div>
-                    <input 
-                      type="text" 
-                      placeholder="Votre nom" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                      required 
-                    />
+                    <input type="text" placeholder="Votre nom" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
                   </div>
                   <div>
-                    <input 
-                      type="tel" 
-                      placeholder="Votre téléphone" 
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300"
-                      required 
-                    />
+                    <input type="tel" placeholder="Votre téléphone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
                   </div>
                   <div>
                     <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required>
@@ -388,10 +249,7 @@ const ContactPage = () => {
                     </select>
                   </div>
                   <div>
-                    <button 
-                      type="submit" 
-                      className="w-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]"
-                    >
+                    <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
                       Demander un rappel
                     </button>
                   </div>
@@ -402,15 +260,10 @@ const ContactPage = () => {
               <div>
                 <h3 className="text-2xl font-bold mb-8 text-mylli-dark">Questions fréquentes</h3>
                 <div className="space-y-6">
-                  {faqs.map((faq, index) => (
-                    <div 
-                      key={index} 
-                      className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-mylli-primary transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl"
-                    >
+                  {faqs.map((faq, index) => <div key={index} className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-mylli-primary transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl">
                       <h4 className="text-lg font-bold mb-3 text-mylli-dark">{faq.question}</h4>
                       <p className="text-mylli-gray">{faq.answer}</p>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </div>
@@ -424,25 +277,21 @@ const ContactPage = () => {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Notre emplacement"
-            subtitle="Venez nous rencontrer au cœur de Casablanca"
-            variant="gradient"
-          />
+          <SectionHeading title="Notre emplacement" subtitle="Venez nous rencontrer au cœur de Casablanca" variant="gradient" />
           
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
             {/* Info Card */}
             <div className="lg:col-span-2">
-              <MapInfoCard 
-                address="19, rue Masmouda hay Al Hana, Casablanca - 20210"
-                phone="+212 661 37 74 38"
-                hours={[
-                  { day: "Lundi - Vendredi", hours: "8h30 - 18h30" },
-                  { day: "Samedi", hours: "9h00 - 16h00" },
-                  { day: "Dimanche", hours: "Fermé" }
-                ]}
-                className="h-full transform transition-all duration-500 hover:shadow-2xl"
-              />
+              <MapInfoCard address="19, rue Masmouda hay Al Hana, Casablanca - 20210" phone="+212 661 37 74 38" hours={[{
+              day: "Lundi - Vendredi",
+              hours: "8h30 - 18h30"
+            }, {
+              day: "Samedi",
+              hours: "9h00 - 16h00"
+            }, {
+              day: "Dimanche",
+              hours: "Fermé"
+            }]} className="h-full transform transition-all duration-500 hover:shadow-2xl" />
             </div>
             
             {/* Google Map */}
@@ -464,7 +313,7 @@ const ContactPage = () => {
                 <div className="absolute bottom-6 left-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl p-4 shadow-lg max-w-xs">
                   <h4 className="text-xl font-bold mb-1 text-mylli-dark">Mylli Services</h4>
                   <p className="text-mylli-gray text-sm">
-                    19, rue Masmouda hay Al Hana,<br/>Casablanca - 20210
+                    19, rue Masmouda hay Al Hana,<br />Casablanca - 20210
                   </p>
                 </div>
               </div>
@@ -490,8 +339,6 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ContactPage;
