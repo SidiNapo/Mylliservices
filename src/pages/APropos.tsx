@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users } from 'lucide-react';
+import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users, Calendar } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
