@@ -7,8 +7,9 @@ interface SectionHeadingProps {
   align?: 'left' | 'center' | 'right';
   className?: string;
   children?: ReactNode;
-  variant?: 'default' | 'modern' | 'gradient' | 'underline';
+  variant?: 'default' | 'modern' | 'gradient' | 'underline' | 'split';
   highlightColor?: string;
+  highlightText?: string;
 }
 
 const SectionHeading = ({ 
@@ -18,7 +19,8 @@ const SectionHeading = ({
   className = '', 
   children,
   variant = 'default',
-  highlightColor = 'mylli-primary'
+  highlightColor = 'mylli-primary',
+  highlightText
 }: SectionHeadingProps) => {
   const alignmentClasses = {
     left: 'text-left',
@@ -37,7 +39,7 @@ const SectionHeading = ({
         );
       case 'gradient':
         return (
-          <h2 className="mb-3 text-3xl md:text-4xl font-bold bg-gradient-to-r from-mylli-primary to-mylli-accent bg-clip-text text-transparent">
+          <h2 className="mb-3 text-3xl md:text-4xl font-bold bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
             {title}
           </h2>
         );
@@ -46,6 +48,22 @@ const SectionHeading = ({
           <h2 className="relative inline-block mb-3 text-3xl md:text-4xl font-bold">
             {title}
             <div className={`absolute -bottom-1 left-0 right-0 h-3 w-full bg-${highlightColor}/20 -z-10`}></div>
+          </h2>
+        );
+      case 'split':
+        if (!highlightText) {
+          return <h2 className="section-title animate-fade-in">{title}</h2>;
+        }
+        
+        // Find the highlight text within the title and wrap it in a span
+        const parts = title.split(highlightText);
+        if (parts.length < 2) return <h2 className="section-title animate-fade-in">{title}</h2>;
+        
+        return (
+          <h2 className="section-title animate-fade-in">
+            {parts[0]}
+            <span className="text-mylli-secondary">{highlightText}</span>
+            {parts[1]}
           </h2>
         );
       default:

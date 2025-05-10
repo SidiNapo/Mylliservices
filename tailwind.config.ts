@@ -63,17 +63,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Mylli Services updated color scheme
+				// Mylli Services updated color scheme to match the logo
 				mylli: {
-					primary: '#8B5CF6', // Purple for uniqueness and care
-					'primary-dark': '#7C3AED', // Darker purple for hover states
-					secondary: '#3B82F6', // Blue for trust and reliability
-					accent: '#F59E0B', // Vibrant orange for warmth and energy
-					light: '#EEF2FF', // Light purple for backgrounds
-					dark: '#4C1D95', // Deep purple for text and emphasis
+					primary: '#0077C0', // Main blue from logo
+					'primary-dark': '#005e9c', // Darker blue for hover states
+					secondary: '#E02E31', // Red from logo
+					accent: '#0099E8', // Lighter blue for accents
+					light: '#E6F3FC', // Light blue for backgrounds
+					dark: '#00467A', // Deep blue for text and emphasis
 					gray: '#64748B', // Neutral gray for body text
-					tertiary: '#EC4899', // Pink for highlights and accents
-					quaternary: '#10B981', // Green for success indicators
+					tertiary: '#FF6B6D', // Lighter red for highlights
+					quaternary: '#0CAAFF', // Bright blue for indicators
 					surface: '#FFFFFF', // Surface color
 					'surface-hover': '#F9FAFB', // Hover state for surface
 				}
