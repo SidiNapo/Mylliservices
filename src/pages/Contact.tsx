@@ -5,7 +5,8 @@ import ContactForm from '@/components/common/ContactForm';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
-import { Card, CardContent } from '@/components/ui/card';
+import Card from '@/components/common/Card';
+import CardContent from '@/components/common/CardContent';
 
 const ContactPage = () => {
   // Opening hours
