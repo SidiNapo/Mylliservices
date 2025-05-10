@@ -12,6 +12,7 @@ import EquipePage from "./pages/Equipe";
 import AProposPage from "./pages/APropos";
 import ContactPage from "./pages/Contact";
 import AideSoignantPage from "./pages/services/AideSoignant";
+import InfirmierPage from "./pages/services/Infirmier";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
           <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
           <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
+          <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
           <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
           <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
           <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />

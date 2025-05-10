@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";

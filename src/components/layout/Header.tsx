@@ -51,11 +51,9 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-full bg-mylli-primary flex items-center justify-center">
-            <span className="text-white font-serif font-bold text-xl">M</span>
-          </div>
-          <div className="font-serif font-bold text-xl text-mylli-dark">
-            Mylli <span className="text-mylli-primary">Services</span>
+          <img src="/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png" alt="Mylli Services Logo" className="w-12 h-12" />
+          <div className="font-serif font-bold text-xl">
+            <span className="text-red-500">Mylli</span> <span className="text-mylli-primary">Services</span>
           </div>
         </Link>
         
