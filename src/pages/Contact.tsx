@@ -6,6 +6,7 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
+
 const ContactPage = () => {
   // Opening hours
   const openingHours = [{
@@ -89,7 +90,7 @@ const ContactPage = () => {
             <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-white p-8 shadow-lg transform transition-all duration-500 hover:shadow-2xl">
               <div className="flex items-center mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 mr-4">
-                  <path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.3-.8-1.8-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-4-1.2-9 2.7-11.5S15.7 3.7 18.1 7.7c2.4 4 1.2 9-2.7 11.5" />
+                  <path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-4-1.2-9 2.7-11.5S15.7 3.7 18.1 7.7c2.4 4 1.2 9-2.7 11.5" />
                 </svg>
                 <h3 className="text-2xl font-bold">WhatsApp</h3>
               </div>
@@ -198,26 +199,94 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Recall Request Section */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Recall Form */}
-              <div className="bg-gradient-to-br from-mylli-light to-white rounded-3xl p-8 shadow-xl border border-mylli-primary/10">
-                <h3 className="text-2xl font-bold mb-4 text-mylli-dark">Demande de rappel</h3>
-                <p className="text-mylli-gray mb-8">
+      {/* Recall Request Section - REDESIGNED */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-mylli-light via-white to-blue-50">
+        {/* Modern Background Elements */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-mylli-primary/5 rounded-full translate-x-1/3 -translate-y-1/2 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-mylli-secondary/5 rounded-full -translate-x-1/3 translate-y-1/2 blur-3xl"></div>
+          
+          {/* Animated Dot Pattern */}
+          <div className="absolute inset-0 opacity-20">
+            {[...Array(20)].map((_, i) => (
+              <div 
+                key={i} 
+                className="absolute rounded-full bg-gradient-to-r from-mylli-primary to-mylli-accent"
+                style={{
+                  width: `${Math.random() * 8 + 4}px`,
+                  height: `${Math.random() * 8 + 4}px`,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animation: `pulse-soft ${Math.random() * 5 + 3}s infinite ease-in-out`,
+                  animationDelay: `${Math.random() * 3}s`
+                }}
+              ></div>
+            ))}
+          </div>
+          
+          {/* Abstract Curved Lines */}
+          <svg className="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,50 Q25,30 50,50 T100,50" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
+            <path d="M0,60 Q25,40 50,60 T100,60" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
+            <path d="M0,70 Q25,50 50,70 T100,70" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
+            <defs>
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#0077C0" />
+                <stop offset="100%" stopColor="#0099E8" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        
+        <div className="container-custom relative z-10 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Recall Form - Modernized */}
+            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transform transition-all duration-500 hover:shadow-[0_30px_70px_-15px_rgba(0,119,192,0.2)] border border-mylli-primary/10 relative overflow-hidden group">
+              {/* Highlight Accent */}
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-mylli-primary via-mylli-accent to-mylli-primary"></div>
+              
+              {/* Background Pattern */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-mylli-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              <div className="relative">
+                <div className="flex items-center mb-2">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mylli-primary to-mylli-accent flex items-center justify-center p-3 shadow-lg mr-4">
+                    <Phone className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-mylli-dark">Demande de rappel</h3>
+                </div>
+                
+                <p className="text-mylli-gray mb-8 pl-16">
                   Laissez-nous votre numéro et nous vous contacterons rapidement à un moment qui vous convient.
                 </p>
+                
                 <form className="space-y-6">
-                  <div>
-                    <input type="text" placeholder="Votre nom" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+                    <input 
+                      type="text" 
+                      placeholder="Votre nom" 
+                      className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white"
+                      required 
+                    />
                   </div>
-                  <div>
-                    <input type="tel" placeholder="Votre téléphone" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required />
+                  
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+                    <input 
+                      type="tel" 
+                      placeholder="Votre téléphone" 
+                      className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white" 
+                      required 
+                    />
                   </div>
-                  <div>
-                    <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300" required>
+                  
+                  <div className="relative group">
+                    <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+                    <select 
+                      className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white" 
+                      required
+                    >
                       <option value="">Moment préféré pour être rappelé</option>
                       <option value="matin">Matin (9h - 12h)</option>
                       <option value="midi">Midi (12h - 14h)</option>
@@ -225,23 +294,61 @@ const ContactPage = () => {
                       <option value="soir">Soir (17h - 19h)</option>
                     </select>
                   </div>
+                  
                   <div>
-                    <button type="submit" className="w-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]">
-                      Demander un rappel
+                    <button 
+                      type="submit" 
+                      className="w-full relative overflow-hidden px-6 py-4 bg-gradient-to-r from-mylli-primary to-mylli-accent text-white font-medium rounded-xl transition-all duration-500 hover:shadow-lg hover:from-mylli-primary hover:to-mylli-primary group"
+                    >
+                      <span className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                      <span className="relative flex items-center justify-center gap-2">
+                        <Phone className="h-4 w-4" />
+                        Demander un rappel
+                      </span>
                     </button>
                   </div>
                 </form>
               </div>
-              
-              {/* FAQ */}
-              <div>
-                <h3 className="text-2xl font-bold mb-8 text-mylli-dark">Questions fréquentes</h3>
-                <div className="space-y-6">
-                  {faqs.map((faq, index) => <div key={index} className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-mylli-primary transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl">
-                      <h4 className="text-lg font-bold mb-3 text-mylli-dark">{faq.question}</h4>
-                      <p className="text-mylli-gray">{faq.answer}</p>
-                    </div>)}
+            </div>
+            
+            {/* FAQ - Modernized */}
+            <div>
+              <div className="flex items-center mb-8">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mylli-secondary to-mylli-tertiary flex items-center justify-center p-3 shadow-lg mr-4">
+                  <MessageSquare className="h-6 w-6 text-white" />
                 </div>
+                <h3 className="text-2xl font-bold text-mylli-dark">Questions fréquentes</h3>
+              </div>
+              
+              <div className="space-y-6">
+                {faqs.map((faq, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-mylli-accent transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden group"
+                  >
+                    {/* Corner Accent */}
+                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-bl-3xl"></div>
+                    
+                    <h4 className="text-lg font-bold mb-3 text-mylli-dark">{faq.question}</h4>
+                    <p className="text-mylli-gray relative z-10">{faq.answer}</p>
+                    
+                    {/* Icon Watermark */}
+                    <div className="absolute bottom-2 right-2 text-mylli-accent/5 transform transition-all duration-300 group-hover:scale-110">
+                      <MessageSquare className="h-12 w-12" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Additional Help Link */}
+              <div className="mt-8 text-center lg:text-right">
+                <a 
+                  href="#" 
+                  className="inline-flex items-center text-mylli-primary hover:text-mylli-accent transition-colors duration-300 group"
+                >
+                  <span className="mr-2">Plus de questions-réponses</span>
+                  <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
+                </a>
               </div>
             </div>
           </div>
