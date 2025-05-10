@@ -119,6 +119,14 @@ export default {
 				'parallax-scroll': {
 					'0%': { transform: 'translateY(0)' },
 					'100%': { transform: 'translateY(-50%)' }
+				},
+				'background-pan': {
+					'0%': { backgroundPosition: '0% 0%' },
+					'100%': { backgroundPosition: '100% 100%' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
 				}
 			},
 			animation: {
@@ -131,6 +139,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
 				'parallax-scroll': 'parallax-scroll 20s linear infinite',
+				'background-pan': 'background-pan 20s linear infinite',
+				'shimmer': 'shimmer 2s infinite linear'
 			},
 			backgroundImage: {
 				'hero-pattern': "url('/images/hero-pattern.svg')",

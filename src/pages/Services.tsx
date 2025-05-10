@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle } from 'lucide-react';
+import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -52,6 +52,7 @@ const ServicesPage = () => {
       <PageBanner 
         title="Nos Services" 
         subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile."
+        variant="modern"
       />
       
       {/* Introduction */}
