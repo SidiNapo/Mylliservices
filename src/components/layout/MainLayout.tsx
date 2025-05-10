@@ -19,8 +19,11 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     });
   }, [location.pathname]);
 
+  // Only apply special styling to the home page
+  const isHomePage = location.pathname === '/' || location.pathname === '/home';
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
       <Header />
       <main className="flex-grow pt-16">
         {children}

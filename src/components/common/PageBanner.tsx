@@ -57,8 +57,7 @@ const PageBanner = ({
           <>
             <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/80 to-mylli-dark/90"></div>
             <div className="absolute inset-0 opacity-30">
-              <div className="absolute w-full h-full bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22%3E%3Cpath fill=%22%23ffffff%22 d=%22M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z%22 opacity=%22.05%22/%3E%3C/svg%3E')]
-                bg-[length:40px] animate-[background-pan_20s_linear_infinite]"></div>
+              <div className="absolute w-full h-full bg-[length:40px] animate-[background-pan_20s_linear_infinite]"></div>
             </div>
           </>
         );
@@ -78,12 +77,7 @@ const PageBanner = ({
       case 'glassmorphism':
         return (
           <>
-            <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}
-            >
-              <div className="absolute inset-0 bg-mylli-primary/10 backdrop-blur-md"></div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/80 to-mylli-dark/90"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-mylli-dark/5 to-mylli-dark/20"></div>
             {/* Dynamic light effect that follows mouse */}
             <div 
@@ -94,8 +88,6 @@ const PageBanner = ({
                 top: `calc(${mousePosition.y}px - 20vw)` 
               }}
             ></div>
-            {/* Mesh grid overlay */}
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwdjEwMGgxMDBWMEgwem0xMDAgOTlIMVYxaDk5djk4eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvc3ZnPg==')] bg-[length:30px]"></div>
           </>
         );
       case 'particles':
@@ -138,12 +130,7 @@ const PageBanner = ({
         );
       default:
         return (
-          <div 
-            className={`absolute inset-0 bg-cover bg-center bg-no-repeat`}
-            style={{ backgroundImage: bgImage ? `url(${bgImage})` : 'none' }}
-          >
-            <div className={`absolute inset-0 ${bgImage ? 'bg-mylli-dark/70' : 'bg-gradient-to-r from-mylli-primary/90 to-mylli-dark/90'}`}></div>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/90 to-mylli-dark/90"></div>
         );
     }
   };
