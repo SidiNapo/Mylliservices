@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -389,7 +388,7 @@ const HomePage = () => {
       <section className="section-padding bg-gradient-to-br from-mylli-light to-white">
         <div className="container-custom">
           <SectionHeading 
-            title={<>Depuis <span className="text-gradient">10 ans</span> à vos côtés</>} 
+            title="Depuis 10 ans à vos côtés" 
             subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
             align="center" 
           />
@@ -409,11 +408,11 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Services Section - Updated with card hover effects */}
+      {/* Services Section */}
       <section className="section-padding bg-mylli-light/50">
         <div className="container-custom">
           <SectionHeading 
-            title={<>Nos <span className="text-gradient">Services</span></>} 
+            title="Nos Services" 
             subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
           />
           
@@ -452,11 +451,11 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* How It Works Section - Updated with numbered steps and connecting line */}
+      {/* How It Works Section */}
       <section className="section-padding bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
           <SectionHeading 
-            title={<>Notre <span className="text-gradient">Fonctionnement</span></>} 
+            title="Notre Fonctionnement" 
             subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
           />
           
@@ -506,11 +505,11 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Testimonial Section - Updated with modern card design */}
+      {/* Testimonial Section */}
       <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-tertiary/5">
         <div className="container-custom">
           <SectionHeading 
-            title={<>Ce que <span className="text-gradient">disent</span> nos clients</>} 
+            title="Ce que disent nos clients" 
             subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." 
           />
           
@@ -569,7 +568,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* CTA Contact Section - Updated with gradient background and modern layout */}
+      {/* CTA Contact Section */}
       <section className="section-padding bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-dark text-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
