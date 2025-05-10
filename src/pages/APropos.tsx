@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { CheckCircle, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -114,17 +113,19 @@ const AProposPage = () => {
         </div>
       </section>
       
-      {/* Mission Section with Parallax */}
+      {/* Mission Section with Parallax - Updated with modern design */}
       <ParallaxSection 
         backgroundImage="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05"
         height="auto"
         className="py-24"
+        overlayGradient="linear-gradient(135deg, rgba(0,70,122,0.85) 0%, rgba(0,119,192,0.75) 100%)"
+        pattern="grid"
       >
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white animate-fade-in">Notre Mission</h2>
             
-            <div className="bg-white bg-opacity-90 backdrop-blur-xl rounded-3xl shadow-2xl p-10 mb-12 transform transition-all duration-500 hover:shadow-2xl animate-fade-in">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-10 mb-12 transform transition-all duration-500 hover:shadow-2xl animate-fade-in border border-mylli-primary/10">
               <p className="text-2xl italic text-mylli-dark mb-8">
                 "Permettre aux personnes en perte d'autonomie de rester chez elles dans les meilleures conditions possibles, avec dignité et confort."
               </p>
@@ -181,11 +182,13 @@ const AProposPage = () => {
         </div>
       </section>
       
-      {/* Coverage Area with Parallax */}
+      {/* Coverage Area with Parallax - Updated with modern design */}
       <ParallaxSection
-        backgroundGradient="linear-gradient(135deg, rgba(52, 211, 153, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%)"
+        backgroundGradient="linear-gradient(135deg, rgba(0,119,192,0.9) 0%, rgba(0,153,232,0.8) 100%)"
         height="auto"
         className="py-24"
+        glassEffect={true}
+        pattern="dots"
       >
         <div className="container-custom">
           <SectionHeading 
@@ -197,7 +200,7 @@ const AProposPage = () => {
           />
           
           <div className="max-w-5xl mx-auto">
-            <div className="bg-white bg-opacity-95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden animate-fade-in">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden animate-fade-in border border-white/30">
               <div className="h-80 bg-mylli-primary/10 flex items-center justify-center">
                 {/* This would be replaced with an actual map in a real implementation */}
                 <div className="text-center p-8">
@@ -255,11 +258,16 @@ const AProposPage = () => {
         </div>
       </ParallaxSection>
       
-      {/* Social Responsibility - Modern design */}
-      <section className="py-24 bg-gradient-to-r from-mylli-dark to-mylli-primary">
+      {/* Social Responsibility - Updated with modern design */}
+      <ParallaxSection 
+        backgroundGradient="linear-gradient(135deg, rgba(0,70,122,0.95) 0%, rgba(0,119,192,0.9) 50%, rgba(224,46,49,0.8) 100%)"
+        height="auto"
+        className="py-24"
+        pattern="noise"
+      >
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-lg">
               <SectionHeading 
                 title="Notre Responsabilité Sociale"
                 subtitle="Au-delà des soins, un engagement pour une société plus inclusive"
@@ -273,7 +281,7 @@ const AProposPage = () => {
                   Mylli Services s'engage à promouvoir l'accessibilité aux soins de qualité pour tous. Nous participons activement à des initiatives communautaires et soutenons des associations locales qui œuvrent pour améliorer la vie des personnes âgées ou en situation de handicap.
                 </p>
                 <p className="text-xl mb-10 text-white/90">
-                  Chaque année, nous consacrons une partie de nos ressources à des actions de sensibilisation aux problématiques du vieillissement et de la dépendance, ainsi qu'à la formation de jeunes professionnels de santé.
+                  Chaque année, nous consacrons une partie de nos ressources à des actions de sensibilisation aux problématiques du vieillissement et de la d��pendance, ainsi qu'à la formation de jeunes professionnels de santé.
                 </p>
                 <Button asChild className="bg-white hover:bg-white/90 text-mylli-primary font-medium px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]">
                   <Link to="/contact">
@@ -284,7 +292,7 @@ const AProposPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </ParallaxSection>
     </div>
   );
 };
