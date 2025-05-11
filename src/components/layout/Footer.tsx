@@ -20,15 +20,13 @@ const Footer = () => {
               Depuis 2014, accompagnement à domicile des personnes fragilisées avec dévouement et professionnalisme.
             </p>
             <div className="flex space-x-3">
-              <a href="https://facebook.com" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+              <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
-              <a href="https://instagram.com" aria-label="Instagram" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+              <a href="https://www.instagram.com/mylliservices" aria-label="Instagram" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Instagram size={18} className="text-mylli-primary" />
               </a>
-              <a href="https://twitter.com" aria-label="Twitter" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
-                <Twitter size={18} className="text-mylli-primary" />
-              </a>
+             
             </div>
           </div>
           
