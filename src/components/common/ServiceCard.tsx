@@ -1,7 +1,8 @@
 
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import ServiceDetailDialog from './ServiceDetailDialog';
 
 interface ServiceCardProps {
   title: string;
@@ -12,6 +13,7 @@ interface ServiceCardProps {
   className?: string;
   style?: 'default' | 'modern' | 'minimal' | 'featured' | 'glass' | '3d';
   color?: string;
+  detailedDescription?: string;
 }
 
 const ServiceCard = ({ 
@@ -22,8 +24,10 @@ const ServiceCard = ({
   link,
   className = '', 
   style = 'default',
-  color = 'primary'
+  color = 'primary',
+  detailedDescription
 }: ServiceCardProps) => {
+  const [dialogOpen, setDialogOpen] = useState(false);
   
   const colorClasses = {
     primary: 'from-mylli-primary to-mylli-quaternary',
@@ -40,6 +44,12 @@ const ServiceCard = ({
     glass: `backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass p-6 transition-all duration-300 hover:shadow-lg h-full group ${className}`,
     '3d': `relative bg-white rounded-2xl shadow-soft p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg h-full group overflow-hidden ${className}`
   };
+
+  const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
+    if (!detailedDescription) return; // Only proceed if we have detailed content
+    e.preventDefault();
+    setDialogOpen(true);
+  };
   
   if (style === 'glass') {
     return (
@@ -49,13 +59,24 @@ const ServiceCard = ({
           {icon && <div className="text-mylli-primary mb-5 transform transition-transform duration-300 group-hover:scale-110">{icon}</div>}
           <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
           <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
-          <Link 
-            to={link} 
+          <button 
+            onClick={handleEnSavoirPlusClick} 
             className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white transform transition-all duration-300 group-hover:scale-105 shadow-sm"
           >
             En savoir plus <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </button>
         </div>
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
       </div>
     );
   }
@@ -78,16 +99,28 @@ const ServiceCard = ({
           )}
           <h3 className="text-xl font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1">{title}</h3>
           <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
-          <Link 
-            to={link} 
+          <button 
+            onClick={handleEnSavoirPlusClick} 
             className="flex items-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2"
           >
             En savoir plus <ArrowRight size={16} className="ml-1 transform transition-all duration-300 group-hover:translate-x-1" />
-          </Link>
+          </button>
           
           {/* Decorative corner element */}
           <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl"></div>
         </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
       </div>
     );
   }
@@ -108,13 +141,25 @@ const ServiceCard = ({
           {!image && icon && <div className="text-mylli-primary mb-4">{icon}</div>}
           <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
           <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
-          <Link 
-            to={link} 
+          <button 
+            onClick={handleEnSavoirPlusClick} 
             className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto"
           >
             En savoir plus <ArrowRight size={16} className="ml-1" />
-          </Link>
+          </button>
         </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
       </div>
     );
   }
@@ -127,14 +172,26 @@ const ServiceCard = ({
           <div className="flex flex-col h-full">
             <h3 className="text-lg font-bold mb-2 text-mylli-dark">{title}</h3>
             <p className="text-mylli-gray mb-3 flex-grow">{description}</p>
-            <Link 
-              to={link} 
+            <button 
+              onClick={handleEnSavoirPlusClick} 
               className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
             >
               En savoir plus <ArrowRight size={16} className="ml-1" />
-            </Link>
+            </button>
           </div>
         </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
       </div>
     );
   }
@@ -146,13 +203,25 @@ const ServiceCard = ({
           {icon && <div className="text-mylli-primary mb-4 text-4xl">{icon}</div>}
           <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
           <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
-          <Link 
-            to={link} 
+          <button 
+            onClick={handleEnSavoirPlusClick}
             className="btn-primary text-center w-full mt-auto"
           >
             En savoir plus
-          </Link>
+          </button>
         </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
       </div>
     );
   }
@@ -163,12 +232,24 @@ const ServiceCard = ({
       {icon && <div className="text-mylli-primary mb-4">{icon}</div>}
       <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
       <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
-      <Link 
-        to={link} 
+      <button 
+        onClick={handleEnSavoirPlusClick}
         className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
       >
         En savoir plus <ArrowRight size={16} className="ml-1" />
-      </Link>
+      </button>
+      
+      {detailedDescription && (
+        <ServiceDetailDialog 
+          isOpen={dialogOpen}
+          onClose={() => setDialogOpen(false)}
+          title={title}
+          description={detailedDescription || description}
+          icon={icon}
+          color={color}
+          link={link}
+        />
+      )}
     </div>
   );
 };

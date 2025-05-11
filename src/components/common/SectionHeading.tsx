@@ -74,8 +74,9 @@ const SectionHeading = ({
         if (animatedParts.length < 2) return <h2 className="section-title">{title}</h2>;
         return <h2 className="section-title mb-3 text-3xl md:text-4xl font-bold">
             {animatedParts[0]}
-            <span className="animate-text-gradient bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-[length:200%] bg-clip-text text-transparent animated-border-gradient">
+            <span className="animate-text-gradient bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-[length:200%] bg-clip-text text-transparent animated-border-gradient relative">
               {highlightText}
+              <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent animate-pulse-soft"></span>
             </span>
             {animatedParts[1]}
           </h2>;
