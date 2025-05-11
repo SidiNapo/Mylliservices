@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-gray-50 pt-16 pb-8">
+  return <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section with Updated Logo */}
@@ -19,7 +16,7 @@ const Footer = () => {
             <p className="text-mylli-gray mb-6">
               Depuis 2014, accompagnement à domicile des personnes fragilisées avec dévouement et professionnalisme.
             </p>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 mx-[80px]">
               <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
@@ -79,13 +76,11 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-mylli-gray text-sm">&copy; {currentYear} Mylli Services. Tous droits réservés.</p>
           <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
-            <a href="#" className="text-mylli-gray hover:text-mylli-primary transition-colors">Politique de confidentialité</a>
-            <a href="#" className="text-mylli-gray hover:text-mylli-primary transition-colors">Conditions d'utilisation</a>
+            
+            
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
