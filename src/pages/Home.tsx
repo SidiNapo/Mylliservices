@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone } from 'lucide-react';
+import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from '@/components/common/SectionHeading';
@@ -124,19 +124,28 @@ const HomePage = () => {
     description: "Nous effectuons un suivi régulier pour garantir votre satisfaction."
   }];
 
-  // Sample data for testimonials
+  // Sample data for testimonials with expanded information
   const testimonials = [{
     quote: "Grâce à Mylli Services, ma mère peut rester à son domicile en toute sécurité. Un personnel attentionné et très professionnel.",
     name: "Nadia M.",
-    title: "58 ans"
+    title: "58 ans",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Casablanca"
   }, {
     quote: "La garde de nuit a changé notre quotidien. Notre père est bien entouré et nous pouvons enfin dormir tranquilles.",
     name: "Karim L.",
-    title: "45 ans"
+    title: "45 ans",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Mohammedia"
   }, {
     quote: "L'infirmière qui s'occupe de ma tante est d'une gentillesse et d'un professionnalisme remarquables.",
     name: "Sophia B.",
-    title: "52 ans"
+    title: "52 ans",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Casablanca"
   }];
 
   // Features section data
@@ -523,59 +532,145 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Testimonial Section - Updated with new card style */}
-      <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light">
-        <div className="container-custom">
-          <SectionHeading title="Ce que disent nos clients" subtitle="La confiance et la satisfaction de nos clients sont notre plus grande fierté." variant="gradient" />
+      {/* Testimonial Section - Modernized with unique design */}
+      <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden">
+        {/* Background decoration elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-secondary/10 to-mylli-primary/5 blur-3xl"></div>
+          <div className="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-primary/5 blur-3xl"></div>
           
+          {/* Decorative patterns */}
+          <div className="absolute top-40 left-10 w-20 h-20 border-2 border-mylli-secondary/20 rounded-lg rotate-12"></div>
+          <div className="absolute bottom-32 right-16 w-16 h-16 border-2 border-mylli-quaternary/20 rounded-full"></div>
+          <div className="absolute top-1/4 right-1/4 w-8 h-8 bg-mylli-primary/20 rounded-full blur-sm animate-pulse"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <span className="inline-block text-sm font-medium px-4 py-2 rounded-full bg-white shadow-soft border border-mylli-primary/10 mb-4">
+              Témoignages de confiance
+            </span>
+            <SectionHeading 
+              title="Ce que disent nos clients" 
+              subtitle="Découvrez les expériences de nos clients satisfaits qui nous font confiance pour prendre soin de leurs proches."
+              variant="gradient" 
+            />
+          </div>
+
+          {/* Modern testimonial cards with 3D effect and interactive features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => <div key={index} className="bg-white rounded-xl p-6 shadow-soft relative overflow-hidden group hover:shadow-md transition-all duration-300">
-                {/* Banner top */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary"></div>
-                
-                {/* Quote icon */}
-                <div className="absolute -top-4 -left-4 text-8xl text-mylli-primary/5 group-hover:text-mylli-primary/10 transition-colors duration-300">
-                  "
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={index} 
+                className="group relative transform transition-all duration-500 hover:-translate-y-2"
+                style={{animationDelay: `${index * 150}ms`}}
+              >
+                {/* Card with glass effect and modern design */}
+                <div className="h-full rounded-2xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]">
+                  {/* Colorful top accent bar */}
+                  <div className="h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary"></div>
+                  
+                  {/* Card content */}
+                  <div className="p-8 relative">
+                    {/* Quote icon with modern style */}
+                    <div className="absolute top-6 right-6 text-6xl font-serif text-mylli-quaternary/10 group-hover:text-mylli-secondary/20 transition-all duration-500">
+                      "
+                    </div>
+                    
+                    {/* Star rating */}
+                    <div className="flex mb-6">
+                      <div className="p-1 bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 rounded-lg">
+                        <div className="flex gap-1 p-1">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Testimonial quote with modern styling */}
+                    <blockquote>
+                      <p className="text-mylli-gray italic mb-6 relative z-10">
+                        <span className="relative">
+                          {testimonial.quote}
+                          <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-mylli-quaternary/40 to-transparent"></span>
+                        </span>
+                      </p>
+                    </blockquote>
+                    
+                    {/* Author info with modern layout */}
+                    <div className="flex items-center mt-6">
+                      <div className="relative">
+                        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-quaternary blur-sm opacity-70"></div>
+                        <div className="relative w-14 h-14 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-quaternary text-white flex items-center justify-center font-bold text-xl">
+                          {testimonial.name.charAt(0)}
+                        </div>
+                      </div>
+                      
+                      <div className="ml-4">
+                        <h4 className="font-bold text-mylli-dark">{testimonial.name}</h4>
+                        <div className="flex items-center text-sm text-mylli-gray">
+                          <p>{testimonial.title}</p>
+                          <span className="mx-2">•</span>
+                          <p>{testimonial.location}</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Decorative corner accent */}
+                    <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-mylli-primary/5 to-transparent"></div>
+                  </div>
                 </div>
                 
-                <div className="relative z-10">
-                  <div className="mb-4">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />)}
-                    </div>
-                  </div>
-                  <p className="italic text-mylli-gray mb-6">"{testimonial.quote}"</p>
-                  <div className="flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-quaternary text-white flex items-center justify-center font-medium">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div className="ml-3">
-                      <p className="font-bold text-mylli-dark">{testimonial.name}</p>
-                      <p className="text-sm text-mylli-gray">{testimonial.title}</p>
-                    </div>
+                {/* Interactive floating elements that appear on hover */}
+                <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 scale-0 group-hover:scale-100 transition-all duration-500 origin-left">
+                  <div className="bg-white rounded-full shadow-lg p-2 flex flex-col gap-2">
+                    <button className="rounded-full bg-mylli-light p-2 text-mylli-dark hover:bg-mylli-primary/10 transition-colors">
+                      <Heart size={14} className="text-mylli-secondary" />
+                    </button>
+                    <button className="rounded-full bg-mylli-light p-2 text-mylli-dark hover:bg-mylli-primary/10 transition-colors">
+                      <Share size={14} className="text-mylli-primary" />
+                    </button>
                   </div>
                 </div>
-                
-                {/* Decorative corner */}
-                <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-mylli-primary/20 to-transparent"></div>
-              </div>)}
+              </div>
+            ))}
           </div>
           
-          {/* Trust banner */}
-          <div className="mt-16 bg-white rounded-xl p-6 shadow-soft border border-mylli-primary/10">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div>
-                <h3 className="text-xl font-bold text-mylli-dark mb-2">Rejoignez nos clients satisfaits</h3>
-                <p className="text-mylli-gray">Une équipe dévouée à votre service pour un accompagnement de qualité</p>
+          {/* Interactive call-to-action card */}
+          <div className="mt-16 bg-white rounded-2xl p-8 shadow-xl border border-mylli-primary/10 transform transition-all hover:shadow-2xl hover:border-mylli-primary/20 overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="max-w-lg">
+                <h3 className="text-2xl font-bold text-mylli-dark mb-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">Rejoignez nos clients satisfaits</h3>
+                <p className="text-mylli-gray">Découvrez comment notre équipe dévouée peut vous accompagner avec des soins professionnels adaptés à vos besoins.</p>
               </div>
-              <Button asChild className="mt-4 md:mt-0 bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary-dark hover:to-mylli-quaternary rounded-full">
-                <Link to="/contact" className="flex items-center">
-                  <Phone size={16} className="mr-2" />
-                  Contactez-nous
-                </Link>
-              </Button>
+              
+              <div className="flex gap-3">
+                <Button asChild variant="outline" className="rounded-full border-mylli-primary/30 hover:bg-mylli-primary/5">
+                  <Link to="/temoignages" className="flex items-center gap-2">
+                    <Star size={16} className="text-mylli-secondary" />
+                    Plus de témoignages
+                  </Link>
+                </Button>
+                
+                <Button asChild className="rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary hover:to-mylli-primary-dark shadow-soft hover:shadow-lg">
+                  <Link to="/contact" className="flex items-center gap-2">
+                    <Phone size={16} />
+                    Contactez-nous
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
+        </div>
+        
+        {/* Modern wave divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 text-white">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
+          </svg>
         </div>
       </section>
       
