@@ -6,6 +6,7 @@ import { Send } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useFormSubmit } from '@/hooks/use-form-submit';
+import { Label } from "@/components/ui/label";
 
 interface ContactFormProps {
   simple?: boolean;
@@ -74,44 +75,60 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
     return (
       <form onSubmit={handleSubmit} className={`${className}`}>
         <div className="grid grid-cols-1 gap-4">
-          <Input
-            type="text" 
-            name="name" 
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Votre nom" 
-            required 
-            className="focus:border-mylli-primary"
-          />
+          <div className="space-y-2">
+            <Label htmlFor="simple-name" className="text-mylli-dark font-medium">Votre nom</Label>
+            <Input
+              id="simple-name"
+              type="text" 
+              name="name" 
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Votre nom" 
+              required 
+              className="text-mylli-dark bg-white border-gray-200 focus:border-mylli-primary focus-visible:ring-mylli-primary"
+            />
+          </div>
           
-          <Input
-            type="tel" 
-            name="phone" 
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Votre téléphone" 
-            required 
-            className="focus:border-mylli-primary"
-          />
+          <div className="space-y-2">
+            <Label htmlFor="simple-phone" className="text-mylli-dark font-medium">Votre téléphone</Label>
+            <Input
+              id="simple-phone"
+              type="tel" 
+              name="phone" 
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Votre téléphone" 
+              required 
+              className="text-mylli-dark bg-white border-gray-200 focus:border-mylli-primary focus-visible:ring-mylli-primary"
+            />
+          </div>
           
-          <Input
-            type="email" 
-            name="email" 
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Votre email" 
-            required 
-            className="focus:border-mylli-primary"
-          />
+          <div className="space-y-2">
+            <Label htmlFor="simple-email" className="text-mylli-dark font-medium">Votre email</Label>
+            <Input
+              id="simple-email"
+              type="email" 
+              name="email" 
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Votre email" 
+              required 
+              className="text-mylli-dark bg-white border-gray-200 focus:border-mylli-primary focus-visible:ring-mylli-primary"
+            />
+          </div>
           
-          <Textarea
-            name="message" 
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Votre message" 
-            rows={3} 
-            className="resize-none focus:border-mylli-primary"
-          />
+          <div className="space-y-2">
+            <Label htmlFor="simple-message" className="text-mylli-dark font-medium">Votre message</Label>
+            <Textarea
+              id="simple-message"
+              name="message" 
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Votre message" 
+              rows={3} 
+              className="resize-none text-mylli-dark bg-white border-gray-200 focus:border-mylli-primary focus-visible:ring-mylli-primary"
+            />
+          </div>
           
           <Button 
             type="submit" 
@@ -130,7 +147,7 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
     <form onSubmit={handleSubmit} className={`${className}`}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="space-y-2">
-          <label htmlFor="name" className="text-sm font-medium text-mylli-dark/80">Votre nom</label>
+          <label htmlFor="name" className="text-sm font-medium text-mylli-dark">Votre nom</label>
           <Input
             id="name"
             type="text" 
@@ -139,12 +156,12 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
             onChange={handleChange}
             placeholder="Entrez votre nom complet" 
             required 
-            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary text-mylli-dark bg-white"
           />
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="email" className="text-sm font-medium text-mylli-dark/80">Votre email</label>
+          <label htmlFor="email" className="text-sm font-medium text-mylli-dark">Votre email</label>
           <Input
             id="email"
             type="email" 
@@ -153,14 +170,14 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
             onChange={handleChange}
             placeholder="Entrez votre adresse email" 
             required 
-            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary text-mylli-dark bg-white"
           />
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="space-y-2">
-          <label htmlFor="phone" className="text-sm font-medium text-mylli-dark/80">Votre téléphone</label>
+          <label htmlFor="phone" className="text-sm font-medium text-mylli-dark">Votre téléphone</label>
           <Input
             id="phone"
             type="tel" 
@@ -169,18 +186,18 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
             onChange={handleChange}
             placeholder="Entrez votre numéro de téléphone" 
             required 
-            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+            className="rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary text-mylli-dark bg-white"
           />
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="subject" className="text-sm font-medium text-mylli-dark/80">Objet de votre demande</label>
+          <label htmlFor="subject" className="text-sm font-medium text-mylli-dark">Objet de votre demande</label>
           <select 
             id="subject"
             name="subject" 
             value={formData.subject}
             onChange={handleChange}
-            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-white px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-mylli-dark"
             required
           >
             <option value="">Sélectionnez un objet</option>
@@ -194,13 +211,13 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
       
       <div className="mb-6">
         <div className="space-y-2">
-          <label htmlFor="service" className="text-sm font-medium text-mylli-dark/80">Service qui vous intéresse</label>
+          <label htmlFor="service" className="text-sm font-medium text-mylli-dark">Service qui vous intéresse</label>
           <select 
             id="service"
             name="service" 
             value={formData.service}
             onChange={handleChange}
-            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-xl h-10 w-full border border-mylli-gray/20 bg-white px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mylli-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 text-mylli-dark"
           >
             <option value="">Service qui vous intéresse (optionnel)</option>
             <option value="aide-soignant">Aide-soignant(e) à domicile</option>
@@ -214,7 +231,7 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
       
       <div className="mb-6">
         <div className="space-y-2">
-          <label htmlFor="message" className="text-sm font-medium text-mylli-dark/80">Votre message</label>
+          <label htmlFor="message" className="text-sm font-medium text-mylli-dark">Votre message</label>
           <Textarea
             id="message"
             name="message" 
@@ -222,7 +239,7 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
             onChange={handleChange}
             placeholder="Décrivez votre demande en détail..." 
             rows={5} 
-            className="resize-none rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary"
+            className="resize-none rounded-xl border-mylli-gray/20 focus-visible:ring-mylli-primary text-mylli-dark bg-white"
             required
           />
         </div>

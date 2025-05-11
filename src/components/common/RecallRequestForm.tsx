@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Phone } from 'lucide-react';
 import { useFormSubmit } from '@/hooks/use-form-submit';
+import { Label } from '@/components/ui/label';
 
 const RecallRequestForm = () => {
   const [formData, setFormData] = useState({
@@ -53,47 +54,59 @@ const RecallRequestForm = () => {
   
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
-        <input 
-          type="text" 
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Votre nom" 
-          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white"
-          required 
-        />
+      <div className="space-y-2">
+        <Label htmlFor="name" className="text-mylli-dark font-medium">Votre nom</Label>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+          <input 
+            id="name"
+            type="text" 
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Votre nom" 
+            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white text-mylli-dark"
+            required 
+          />
+        </div>
       </div>
       
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
-        <input 
-          type="tel" 
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="Votre téléphone" 
-          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white" 
-          required 
-        />
+      <div className="space-y-2">
+        <Label htmlFor="phone" className="text-mylli-dark font-medium">Votre téléphone</Label>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+          <input 
+            id="phone"
+            type="tel" 
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Votre téléphone" 
+            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white text-mylli-dark" 
+            required 
+          />
+        </div>
       </div>
       
-      <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
-        <select 
-          name="preferredTime"
-          value={formData.preferredTime}
-          onChange={handleChange}
-          className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white" 
-          required
-        >
-          <option value="">Moment préféré pour être rappelé</option>
-          <option value="matin">Matin (9h - 12h)</option>
-          <option value="midi">Midi (12h - 14h)</option>
-          <option value="apres-midi">Après-midi (14h - 17h)</option>
-          <option value="soir">Soir (17h - 19h)</option>
-        </select>
+      <div className="space-y-2">
+        <Label htmlFor="preferredTime" className="text-mylli-dark font-medium">Moment préféré pour être rappelé</Label>
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 rounded-lg opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 -z-10"></div>
+          <select 
+            id="preferredTime"
+            name="preferredTime"
+            value={formData.preferredTime}
+            onChange={handleChange}
+            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:border-mylli-primary focus:ring focus:ring-mylli-primary/20 transition-all duration-300 bg-white text-mylli-dark" 
+            required
+          >
+            <option value="">Sélectionnez un moment</option>
+            <option value="matin">Matin (9h - 12h)</option>
+            <option value="midi">Midi (12h - 14h)</option>
+            <option value="apres-midi">Après-midi (14h - 17h)</option>
+            <option value="soir">Soir (17h - 19h)</option>
+          </select>
+        </div>
       </div>
       
       <div>
