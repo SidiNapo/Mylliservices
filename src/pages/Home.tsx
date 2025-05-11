@@ -433,10 +433,10 @@ const HomePage = () => {
           
           {/* Interactive call-to-action */}
           <div className="mt-16 text-center">
-            <a href="#services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
+            <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
               <span className="mr-2">Découvrir nos services</span>
               <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </div>
         
@@ -562,7 +562,7 @@ const HomePage = () => {
                   <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary hidden md:block"></div>
                   
                   {/* Card */}
-                  <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 animate-fade-in ml-0 md:ml-6 relative overflow-hidden">
+                  <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden">
                     <div className="absolute top-0 right-0 h-20 w-20 bg-mylli-light rounded-bl-3xl flex items-start justify-end p-2">
                       <span className="text-mylli-primary font-bold text-xl">{item.step}</span>
                     </div>
