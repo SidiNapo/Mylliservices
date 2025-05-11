@@ -6,6 +6,25 @@ export const initEmailJS = () => {
   emailjs.init("VChJY9kfgMI7KuKLf"); // Your EmailJS User ID
 };
 
+// Helper function to ensure all values are properly formatted strings
+const formatValue = (value: any): string => {
+  if (value === null || value === undefined) {
+    return '';
+  }
+  
+  // Handle objects and arrays by converting to JSON string
+  if (typeof value === 'object') {
+    try {
+      return JSON.stringify(value);
+    } catch (e) {
+      return String(value);
+    }
+  }
+  
+  // Convert everything else to string
+  return String(value);
+};
+
 // Function to send email from any form
 export const sendFormDataToEmail = async (
   formData: Record<string, any>, 
@@ -18,18 +37,19 @@ export const sendFormDataToEmail = async (
     const formattedDate = now.toLocaleDateString('fr-FR');
     const formattedTime = now.toLocaleTimeString('fr-FR');
     
-    // Prepare the data for sending - ensure all fields are properly stringified
-    const templateParams = {
-      form_name: formName,
+    // Create a clean template params object with proper string conversion
+    const templateParams: Record<string, string> = {
+      form_name: formatValue(formName),
       system_date: formattedDate,
       system_time: formattedTime,
-      // Include all form fields with proper string conversion
-      ...Object.entries(formData).reduce((acc, [key, value]) => {
-        // Convert any non-string values to strings to prevent variable corruption
-        acc[key] = value === null || value === undefined ? '' : String(value);
-        return acc;
-      }, {} as Record<string, string>)
     };
+    
+    // Process each form field to ensure it's a properly formatted string
+    Object.entries(formData).forEach(([key, value]) => {
+      templateParams[key] = formatValue(value);
+    });
+    
+    console.log('Sending email with params:', templateParams);
     
     // Send the email using EmailJS
     const response = await emailjs.send(
@@ -38,6 +58,7 @@ export const sendFormDataToEmail = async (
       templateParams
     );
     
+    console.log('Email sent successfully:', response);
     return { success: true, response };
   } catch (error) {
     console.error("Failed to send email:", error);

@@ -1,6 +1,7 @@
+
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { Send } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -43,15 +44,17 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Process form data to ensure values are properly formatted
+    // Explicitly convert each field to a string to avoid template corruption
     const processedData = {
-      name: formData.name.trim() || "Non spécifié",
-      email: formData.email.trim() || "Non spécifié",
-      phone: formData.phone.trim() || "Non spécifié",
-      subject: formData.subject || "Non spécifié",
-      service: formData.service || "Non spécifié",
-      message: formData.message.trim() || "Non spécifié",
+      name: String(formData.name || "Non spécifié"),
+      email: String(formData.email || "Non spécifié"),
+      phone: String(formData.phone || "Non spécifié"),
+      subject: String(formData.subject || "Non spécifié"),
+      service: String(formData.service || "Non spécifié"),
+      message: String(formData.message || "Non spécifié"),
     };
+    
+    console.log('Submitting contact form:', processedData);
     
     await submitForm(
       processedData, 

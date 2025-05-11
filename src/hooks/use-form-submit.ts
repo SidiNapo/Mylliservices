@@ -29,15 +29,20 @@ export const useFormSubmit = () => {
     setIsSubmitting(true);
     
     try {
-      // Sanitize form data to ensure no undefined or null values
-      const sanitizedFormData = Object.entries(formData).reduce((acc, [key, value]) => {
-        // Only include defined values, convert everything to strings
-        if (value !== undefined && value !== null) {
-          acc[key] = String(value);
+      // Deep clean the form data to ensure all values are properly sanitized
+      const sanitizedFormData: Record<string, string> = {};
+      
+      // Process each field individually
+      Object.entries(formData).forEach(([key, value]) => {
+        // Skip undefined values entirely
+        if (value !== undefined) {
+          // Convert null to empty string, otherwise ensure it's a string
+          sanitizedFormData[key] = value === null ? '' : String(value);
         }
-        return acc;
-      }, {} as Record<string, string>);
+      });
 
+      console.log('Submitting form with data:', sanitizedFormData);
+      
       const result = await sendFormDataToEmail(
         sanitizedFormData,
         options.formName,
@@ -55,6 +60,7 @@ export const useFormSubmit = () => {
         }
         return true;
       } else {
+        console.error('Email submission failed:', result.error);
         toast({
           title: options.errorMessage?.title || "Erreur",
           description: options.errorMessage?.description || "Une erreur est survenue lors de l'envoi du formulaire.",
@@ -63,6 +69,7 @@ export const useFormSubmit = () => {
         return false;
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: options.errorMessage?.title || "Erreur",
         description: options.errorMessage?.description || "Une erreur est survenue lors de l'envoi du formulaire.",
