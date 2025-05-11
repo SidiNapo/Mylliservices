@@ -19,3 +19,11 @@ export type ArticleCategory = {
   value: string;
   count: number;
 }
+
+// Social sharing functionality types
+export interface ShareData {
+  url: string;
+  title: string;
+  text?: string;
+  image?: string;
+}

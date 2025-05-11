@@ -1,11 +1,12 @@
-
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getArticleBySlug, getRelatedArticles } from '@/data/articles';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, BookOpen, ArrowRight } from 'lucide-react';
+import { Calendar, BookOpen, ArrowRight, Facebook, Twitter, Instagram, Share, Linkedin } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import { ShareData } from '@/types/article';
+import { toast } from 'sonner';
 
 const ArticleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -24,6 +25,46 @@ const ArticleDetail = () => {
   const formatDate = (dateString: string) => {
     const date = parseISO(dateString);
     return format(date, 'dd MMMM yyyy', { locale: fr });
+  };
+  
+  const handleShare = (platform: 'facebook' | 'twitter' | 'linkedin' | 'whatsapp' | 'native') => {
+    if (!article) return;
+    
+    const shareData: ShareData = {
+      url: window.location.href,
+      title: article.title,
+      text: article.excerpt,
+      image: article.imageSrc
+    };
+    
+    switch (platform) {
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`, '_blank', 'width=600,height=400');
+        break;
+      case 'twitter':
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.title)}&url=${encodeURIComponent(shareData.url)}`, '_blank', 'width=600,height=400');
+        break;
+      case 'linkedin':
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareData.url)}`, '_blank', 'width=600,height=400');
+        break;
+      case 'whatsapp':
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareData.title} - ${shareData.url}`)}`, '_blank');
+        break;
+      case 'native':
+        if (navigator.share) {
+          navigator.share({
+            title: shareData.title,
+            text: shareData.text,
+            url: shareData.url
+          })
+          .then(() => toast.success('Contenu partagé avec succès'))
+          .catch(() => toast.error('Le partage a été annulé ou n\'a pas pu être effectué'));
+        } else {
+          // Fallback for browsers that don't support native sharing
+          toast.info('Utilisez les boutons de partage pour les réseaux sociaux');
+        }
+        break;
+    }
   };
   
   if (!article) return null;
@@ -93,18 +134,46 @@ const ArticleDetail = () => {
             {/* Share Article */}
             <div className="mt-12 pt-8 border-t">
               <h3 className="text-xl font-bold text-mylli-dark mb-4">Partager cet article</h3>
-              <div className="flex gap-3">
-                <button className="w-10 h-10 rounded-full bg-[#3b5998] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  f
+              <div className="flex flex-wrap gap-3">
+                <button 
+                  onClick={() => handleShare('facebook')}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b5998] text-white hover:bg-[#3b5998]/90 transition-colors"
+                  aria-label="Partager sur Facebook"
+                >
+                  <Facebook size={18} />
+                  <span className="hidden sm:inline">Facebook</span>
                 </button>
-                <button className="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  t
+                <button 
+                  onClick={() => handleShare('twitter')}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1DA1F2] text-white hover:bg-[#1DA1F2]/90 transition-colors"
+                  aria-label="Partager sur Twitter"
+                >
+                  <Twitter size={18} />
+                  <span className="hidden sm:inline">Twitter</span>
                 </button>
-                <button className="w-10 h-10 rounded-full bg-[#0077B5] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  in
+                <button 
+                  onClick={() => handleShare('linkedin')}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#0077B5] text-white hover:bg-[#0077B5]/90 transition-colors"
+                  aria-label="Partager sur LinkedIn"
+                >
+                  <Linkedin size={18} />
+                  <span className="hidden sm:inline">LinkedIn</span>
                 </button>
-                <button className="w-10 h-10 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  w
+                <button 
+                  onClick={() => handleShare('whatsapp')}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366] text-white hover:bg-[#25D366]/90 transition-colors"
+                  aria-label="Partager sur WhatsApp"
+                >
+                  <Instagram size={18} />
+                  <span className="hidden sm:inline">WhatsApp</span>
+                </button>
+                <button 
+                  onClick={() => handleShare('native')}
+                  className="flex items-center gap-2 px-4 py-2 rounded-full bg-mylli-primary text-white hover:bg-mylli-primary-dark transition-colors"
+                  aria-label="Plus d'options de partage"
+                >
+                  <Share size={18} />
+                  <span className="hidden sm:inline">Partager</span>
                 </button>
               </div>
             </div>
