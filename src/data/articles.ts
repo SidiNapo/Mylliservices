@@ -1,4 +1,3 @@
-
 import { Article } from '@/types/article';
 
 export const articles: Article[] = [
@@ -205,6 +204,257 @@ export const articles: Article[] = [
     publishedDate: "2024-01-10",
     readTime: 7,
     author: "Dr. Thomas Blanc"
+  },
+  {
+    id: '4',
+    title: "Diabète chez les personnes âgées: symptômes et gestion au quotidien",
+    slug: "diabete-personnes-agees-symptomes-gestion",
+    excerpt: "Le diabète chez les seniors présente des défis spécifiques. Découvrez comment reconnaître les signes et gérer cette maladie chronique au quotidien.",
+    content: `
+      <h2>Le diabète chez les personnes âgées: une maladie aux multiples facettes</h2>
+      <p>Le diabète est une maladie chronique qui touche particulièrement les personnes âgées, avec une prévalence qui augmente avec l'âge. Chez les plus de 65 ans, près d'un quart de la population est concernée, ce qui en fait un véritable enjeu de santé publique.</p>
+      
+      <h2>Types de diabète et particularités chez les seniors</h2>
+      <p>Les personnes âgées peuvent être touchées par les deux principaux types de diabète:</p>
+      <ul>
+        <li><strong>Diabète de type 1</strong>: Bien que généralement diagnostiqué plus tôt dans la vie, certains cas peuvent apparaître à un âge avancé.</li>
+        <li><strong>Diabète de type 2</strong>: C'est la forme la plus fréquente chez les seniors, souvent liée au surpoids, à la sédentarité et aux changements métaboliques liés à l'âge.</li>
+      </ul>
+      
+      <h2>Symptômes particuliers chez les personnes âgées</h2>
+      <p>Le diabète peut se manifester différemment chez les seniors, avec des symptômes parfois atypiques:</p>
+      <ul>
+        <li>Fatigue inexpliquée et persistante</li>
+        <li>Infections récurrentes, notamment urinaires ou cutanées</li>
+        <li>Cicatrisation lente des plaies</li>
+        <li>Troubles visuels progressifs</li>
+        <li>Déshydratation</li>
+        <li>Confusion mentale ou troubles cognitifs soudains</li>
+      </ul>
+      <p>Il est important de noter que la sensation de soif, symptôme classique du diabète, peut être diminuée chez les personnes âgées, rendant le diagnostic plus difficile.</p>
+      
+      <h2>Complications spécifiques</h2>
+      <p>Les complications du diabète sont particulièrement préoccupantes chez les seniors:</p>
+      <ul>
+        <li><strong>Hypoglycémies</strong>: Plus fréquentes et dangereuses car souvent non ressenties</li>
+        <li><strong>Risques cardiovasculaires</strong>: Infarctus, AVC</li>
+        <li><strong>Neuropathies</strong>: Douleurs, perte de sensibilité pouvant favoriser les chutes</li>
+        <li><strong>Néphropathie</strong>: Insuffisance rénale</li>
+        <li><strong>Rétinopathie</strong>: Troubles visuels pouvant aller jusqu'à la cécité</li>
+      </ul>
+      
+      <h2>Gestion quotidienne adaptée</h2>
+      <p>La prise en charge du diabète chez les seniors doit être personnalisée:</p>
+      <ul>
+        <li><strong>Objectifs glycémiques moins stricts</strong>: Pour éviter les hypoglycémies</li>
+        <li><strong>Alimentation équilibrée</strong>: Sans restrictions excessives pour maintenir un bon état nutritionnel</li>
+        <li><strong>Activité physique adaptée</strong>: Marche, natation douce, tai-chi</li>
+        <li><strong>Suivi médical régulier</strong>: Au moins tous les 3 mois</li>
+        <li><strong>Éducation thérapeutique</strong>: Adaptée aux capacités cognitives</li>
+      </ul>
+      
+      <h2>Traitements spécifiques</h2>
+      <p>Certains traitements sont à privilégier ou à éviter chez les seniors:</p>
+      <ul>
+        <li><strong>Metformine</strong>: Généralement bien tolérée mais attention à la fonction rénale</li>
+        <li><strong>Insuline</strong>: Parfois nécessaire, avec un apprentissage adapté</li>
+        <li><strong>Sulfamides</strong>: À utiliser avec précaution (risque d'hypoglycémie)</li>
+        <li><strong>Nouvelles classes thérapeutiques</strong>: Inhibiteurs DPP-4, analogues GLP-1, inhibiteurs SGLT-2, à discuter selon les cas</li>
+      </ul>
+      
+      <h2>Comment Mylli Services accompagne les seniors diabétiques</h2>
+      <p>Notre équipe spécialisée propose:</p>
+      <ul>
+        <li>Aide à la surveillance glycémique</li>
+        <li>Accompagnement nutritionnel</li>
+        <li>Rappel de prise des médicaments</li>
+        <li>Surveillance des pieds (prévention du pied diabétique)</li>
+        <li>Coordination avec les professionnels de santé</li>
+      </ul>
+      
+      <p>La bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+    imageAlt: "Mesure de glycémie chez une personne âgée",
+    category: "Maladies chroniques",
+    publishedDate: "2024-02-05",
+    readTime: 9,
+    author: "Dr. Antoine Dupuis"
+  },
+  {
+    id: '5',
+    title: "AVC: reconnaître les signes et agir rapidement",
+    slug: "avc-reconnaitre-signes-agir-rapidement",
+    excerpt: "L'accident vasculaire cérébral (AVC) est une urgence médicale qui nécessite une intervention rapide. Apprenez à reconnaître les signes et à réagir efficacement.",
+    content: `
+      <h2>Qu'est-ce qu'un AVC?</h2>
+      <p>Un accident vasculaire cérébral (AVC) survient lorsque la circulation sanguine vers le cerveau est interrompue, soit par un caillot (AVC ischémique, 80% des cas), soit par une rupture d'un vaisseau sanguin (AVC hémorragique, 20% des cas). Dans les deux cas, les cellules cérébrales privées d'oxygène commencent à mourir rapidement, d'où l'importance d'une prise en charge immédiate.</p>
+      
+      <h2>Les facteurs de risque</h2>
+      <p>Certaines personnes sont plus à risque de subir un AVC:</p>
+      <ul>
+        <li>Personnes de plus de 65 ans</li>
+        <li>Hypertension artérielle</li>
+        <li>Diabète</li>
+        <li>Tabagisme</li>
+        <li>Hypercholestérolémie</li>
+        <li>Fibrillation auriculaire</li>
+        <li>Antécédents familiaux d'AVC</li>
+        <li>Obésité et sédentarité</li>
+        <li>Apnée du sommeil</li>
+      </ul>
+      
+      <h2>Reconnaître les signes d'AVC: la méthode FAST</h2>
+      <p>Pour identifier rapidement un AVC, retenez l'acronyme FAST (Face, Arms, Speech, Time):</p>
+      <ul>
+        <li><strong>F (Face/Visage)</strong>: Demandez à la personne de sourire. Un côté du visage est-il affaissé?</li>
+        <li><strong>A (Arms/Bras)</strong>: Demandez à la personne de lever les deux bras. Un bras descend-il involontairement?</li>
+        <li><strong>S (Speech/Parole)</strong>: La personne a-t-elle des difficultés à parler ou à comprendre? Sa parole est-elle embrouillée?</li>
+        <li><strong>T (Time/Temps)</strong>: Si vous observez un de ces signes, appelez immédiatement les secours (15, 112 ou 114).</li>
+      </ul>
+      
+      <p>D'autres symptômes peuvent également signaler un AVC:</p>
+      <ul>
+        <li>Trouble soudain de l'équilibre ou de la coordination</li>
+        <li>Maux de tête intenses et inhabituels</li>
+        <li>Trouble brutal de la vision d'un œil ou des deux yeux</li>
+        <li>Engourdissement soudain du visage, d'un bras ou d'une jambe</li>
+      </ul>
+      
+      <h2>Agir face à un AVC: chaque minute compte</h2>
+      <p>En cas de suspicion d'AVC:</p>
+      <ul>
+        <li><strong>Appelez immédiatement le 15 (SAMU)</strong> en précisant que vous suspectez un AVC</li>
+        <li>Notez l'heure d'apparition des premiers symptômes (crucial pour le traitement)</li>
+        <li>Allongez la personne sur le côté, en position latérale de sécurité</li>
+        <li>Desserrez ses vêtements, surtout au niveau du cou</li>
+        <li>Ne donnez rien à manger ni à boire</li>
+        <li>Ne donnez aucun médicament</li>
+        <li>Restez avec la personne et rassurez-la jusqu'à l'arrivée des secours</li>
+      </ul>
+      
+      <h2>Traitements d'urgence</h2>
+      <p>Plus le traitement est administré rapidement, plus les chances de récupération sont grandes:</p>
+      <ul>
+        <li><strong>Pour l'AVC ischémique</strong>: Thrombolyse (dissolution du caillot) si pratiquée dans les 4h30, thrombectomie mécanique (retrait du caillot) si possible dans les 6 heures</li>
+        <li><strong>Pour l'AVC hémorragique</strong>: Contrôle de la pression artérielle, parfois intervention chirurgicale</li>
+      </ul>
+      
+      <h2>Séquelles et rééducation</h2>
+      <p>Les séquelles d'un AVC dépendent de la zone cérébrale touchée et du délai de prise en charge:</p>
+      <ul>
+        <li>Troubles moteurs (hémiplégie, hémiparésie)</li>
+        <li>Troubles du langage (aphasie)</li>
+        <li>Troubles de la déglutition (dysphagie)</li>
+        <li>Troubles cognitifs</li>
+        <li>Troubles visuels</li>
+        <li>Troubles de l'humeur (dépression post-AVC)</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services après un AVC</h2>
+      <p>Notre équipe spécialisée propose un accompagnement personnalisé:</p>
+      <ul>
+        <li>Aide aux gestes quotidiens</li>
+        <li>Accompagnement aux séances de rééducation</li>
+        <li>Adaptation du domicile pour prévenir les chutes</li>
+        <li>Soutien psychologique pour le patient et ses proches</li>
+        <li>Coordination avec les professionnels de santé</li>
+      </ul>
+      
+      <p>Face à un AVC, chaque minute compte. Savoir reconnaître les signes et agir rapidement peut sauver une vie et limiter les séquelles. N'hésitez pas à nous contacter pour toute question sur l'accompagnement post-AVC.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1579154204601-01588f351e67",
+    imageAlt: "Neurologue expliquant une image cérébrale",
+    category: "Urgences médicales",
+    publishedDate: "2023-10-29",
+    readTime: 7,
+    author: "Dr. Marie Lefèvre"
+  },
+  {
+    id: '6',
+    title: "Parkinson: vivre avec la maladie et préserver l'autonomie",
+    slug: "parkinson-vivre-avec-maladie-preserver-autonomie",
+    excerpt: "La maladie de Parkinson affecte progressivement la mobilité et l'autonomie. Découvrez les stratégies pour mieux vivre avec cette pathologie au quotidien.",
+    content: `
+      <h2>Comprendre la maladie de Parkinson</h2>
+      <p>La maladie de Parkinson est une affection neurodégénérative chronique qui touche principalement les personnes de plus de 60 ans. Elle est causée par la destruction progressive des neurones produisant la dopamine, un neurotransmetteur essentiel au contrôle des mouvements. Cette maladie évolue lentement et affecte chaque personne différemment.</p>
+      
+      <h2>Les symptômes caractéristiques</h2>
+      <p>La maladie de Parkinson se manifeste par une triade de symptômes moteurs:</p>
+      <ul>
+        <li><strong>Le tremblement de repos</strong>: Généralement asymétrique, touchant d'abord les mains ou les pieds</li>
+        <li><strong>La rigidité musculaire</strong>: Sensation de raideur dans les membres</li>
+        <li><strong>L'akinésie/bradykinésie</strong>: Difficulté à initier les mouvements et lenteur d'exécution</li>
+      </ul>
+      
+      <p>D'autres symptômes peuvent également apparaître:</p>
+      <ul>
+        <li><strong>Troubles de la posture et de l'équilibre</strong>: Position voûtée, démarche à petits pas</li>
+        <li><strong>Troubles non moteurs</strong>: Dépression, anxiété, troubles du sommeil, constipation, hypotension, troubles cognitifs</li>
+        <li><strong>Modifications de l'écriture</strong>: Micrographie (écriture qui devient de plus en plus petite)</li>
+        <li><strong>Troubles de la parole</strong>: Voix faible, monotone</li>
+        <li><strong>Visage figé</strong>: Réduction des expressions faciales (hypomimie)</li>
+      </ul>
+      
+      <h2>Traitements médicamenteux</h2>
+      <p>Bien qu'il n'existe pas encore de traitement curatif, plusieurs options permettent de contrôler les symptômes:</p>
+      <ul>
+        <li><strong>Lévodopa</strong>: Le traitement de référence, transformée en dopamine dans le cerveau</li>
+        <li><strong>Agonistes dopaminergiques</strong>: Stimulent directement les récepteurs à la dopamine</li>
+        <li><strong>Inhibiteurs de la MAO-B et de la COMT</strong>: Ralentissent la dégradation de la dopamine</li>
+        <li><strong>Anticholinergiques</strong>: Pour réduire les tremblements</li>
+        <li><strong>Amantadine</strong>: Pour les mouvements anormaux induits par la lévodopa</li>
+      </ul>
+      
+      <p>Dans certains cas, la stimulation cérébrale profonde peut être proposée lorsque les médicaments ne suffisent plus à contrôler les symptômes.</p>
+      
+      <h2>Préserver l'autonomie au quotidien</h2>
+      <p>Plusieurs stratégies peuvent aider à maintenir une meilleure qualité de vie:</p>
+      <ul>
+        <li><strong>Activité physique régulière</strong>: Marche, natation, tai-chi, yoga, danse</li>
+        <li><strong>Kinésithérapie</strong>: Exercices spécifiques pour maintenir la souplesse et l'équilibre</li>
+        <li><strong>Orthophonie</strong>: Pour préserver la parole et la déglutition</li>
+        <li><strong>Ergothérapie</strong>: Adaptation du domicile et apprentissage de techniques facilitant les gestes quotidiens</li>
+        <li><strong>Soutien psychologique</strong>: Pour faire face à l'impact émotionnel de la maladie</li>
+      </ul>
+      
+      <h2>Aménagements du domicile</h2>
+      <p>Quelques modifications simples peuvent sécuriser l'environnement:</p>
+      <ul>
+        <li>Installation de barres d'appui dans la salle de bain et les toilettes</li>
+        <li>Retrait des tapis et obstacles au sol</li>
+        <li>Amélioration de l'éclairage</li>
+        <li>Ustensiles adaptés dans la cuisine (couverts à manche épais, tasses avec grande anse)</li>
+        <li>Chaises plus hautes avec accoudoirs</li>
+      </ul>
+      
+      <h2>Alimentation et hydratation</h2>
+      <p>Une alimentation adaptée est importante:</p>
+      <ul>
+        <li>Repas fractionnés en cas de fatigue</li>
+        <li>Aliments riches en fibres pour lutter contre la constipation</li>
+        <li>Hydratation suffisante (1,5L d'eau par jour minimum)</li>
+        <li>Attention aux interactions entre protéines et lévodopa (espacement recommandé)</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services</h2>
+      <p>Notre équipe spécialisée propose:</p>
+      <ul>
+        <li>Aide aux activités quotidiennes (toilette, habillage, repas)</li>
+        <li>Accompagnement aux rendez-vous médicaux</li>
+        <li>Stimulation cognitive et physique adaptée</li>
+        <li>Soutien aux aidants familiaux</li>
+        <li>Mise en place d'un environnement sécurisé</li>
+      </ul>
+      
+      <p>Vivre avec la maladie de Parkinson représente un défi, mais avec un accompagnement adapté et des stratégies appropriées, il est possible de maintenir une bonne qualité de vie pendant de nombreuses années. N'hésitez pas à nous contacter pour mettre en place un plan d'accompagnement personnalisé.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1597764690523-15bea4c581c9",
+    imageAlt: "Personne âgée en séance de physiothérapie",
+    category: "Maladies neurodégénératives",
+    publishedDate: "2023-12-18",
+    readTime: 8,
+    author: "Dr. Philippe Renard"
   }
 ];
 
@@ -216,4 +466,19 @@ export const getRelatedArticles = (currentSlug: string, limit = 3): Article[] =>
   return articles
     .filter(article => article.slug !== currentSlug)
     .slice(0, limit);
+};
+
+// Helper function to get all available categories
+export const getCategories = (): { name: string; value: string; count: number }[] => {
+  const categoriesMap = articles.reduce((acc, article) => {
+    const category = article.category;
+    acc[category] = (acc[category] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  return Object.entries(categoriesMap).map(([category, count]) => ({
+    name: category,
+    value: category.toLowerCase().replace(/\s+/g, '-'),
+    count
+  }));
 };

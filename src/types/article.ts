@@ -12,3 +12,10 @@ export interface Article {
   readTime: number;
   author: string;
 }
+
+// We'll add a helper type to work with article categories
+export type ArticleCategory = {
+  name: string;
+  value: string;
+  count: number;
+}
