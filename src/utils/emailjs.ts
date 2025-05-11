@@ -11,7 +11,7 @@ export const initEmailJS = () => {
 export const sendFormDataToEmail = async (
   formData: Record<string, any>, 
   formName: string,
-  templateId: string = "template_default" // Replace with your default template ID
+  templateId: string = "template_azw35j3" // Replace with your default template ID
 ) => {
   try {
     // Prepare the data for sending
