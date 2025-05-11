@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   align?: 'left' | 'center' | 'right';
   className?: string;
   children?: ReactNode;
-  variant?: 'default' | 'modern' | 'gradient' | 'underline' | 'split';
+  variant?: 'default' | 'modern' | 'gradient' | 'underline' | 'split' | 'outlined' | 'animated';
   highlightColor?: string;
   highlightText?: string;
 }
@@ -53,6 +53,31 @@ const SectionHeading = ({
             {parts[0]}
             <span className="bg-gradient-to-r from-mylli-accent to-mylli-primary bg-clip-text text-transparent">{highlightText}</span>
             {parts[1]}
+          </h2>;
+      case 'outlined':
+        return <h2 className="mb-3 text-3xl md:text-4xl font-bold">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-mylli-primary to-mylli-secondary 
+                  relative after:absolute after:inset-0 after:bg-transparent after:border-2 after:border-mylli-primary/30 
+                  after:rounded-lg after:-z-10 after:translate-x-2 after:translate-y-2">
+              {title}
+            </span>
+          </h2>;
+      case 'animated':
+        if (!highlightText) {
+          return <h2 className="mb-3 text-3xl md:text-4xl font-bold relative overflow-hidden">
+              <span className="animate-text-gradient bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-[length:200%] bg-clip-text text-transparent">
+                {title}
+              </span>
+            </h2>;
+        }
+        const animatedParts = title.split(highlightText);
+        if (animatedParts.length < 2) return <h2 className="section-title">{title}</h2>;
+        return <h2 className="section-title mb-3 text-3xl md:text-4xl font-bold">
+            {animatedParts[0]}
+            <span className="animate-text-gradient bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-[length:200%] bg-clip-text text-transparent animated-border-gradient">
+              {highlightText}
+            </span>
+            {animatedParts[1]}
           </h2>;
       default:
         return <h2 className="section-title animate-fade-in">{title}</h2>;

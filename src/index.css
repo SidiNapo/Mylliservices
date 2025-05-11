@@ -170,4 +170,142 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-mylli-primary to-mylli-secondary;
   }
+
+  /* New 3D Effects */
+  .card-3d {
+    @apply relative transition-all duration-500 transform perspective-1000;
+  }
+
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+  }
+
+  .shadow-hover {
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.07), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-glass {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-neon {
+    box-shadow: 0 0 15px rgba(0, 119, 192, 0.6), 0 0 30px rgba(0, 119, 192, 0.4), 0 0 45px rgba(0, 119, 192, 0.2);
+  }
+
+  /* New Animation Utilities */
+  .animate-text-gradient {
+    background-size: 200%;
+    animation: text-gradient 3s linear infinite;
+  }
+
+  @keyframes text-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .animate-wave {
+    animation: wave 2s ease-in-out infinite;
+  }
+
+  @keyframes wave {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(15deg);
+    }
+    75% {
+      transform: rotate(-10deg);
+    }
+  }
+
+  /* Feature highlight effects */
+  .feature-highlight {
+    @apply relative overflow-hidden rounded-2xl;
+  }
+
+  .feature-highlight::before {
+    content: '';
+    @apply absolute -inset-2 bg-gradient-to-br from-mylli-primary/30 to-mylli-secondary/30 rounded-2xl blur-xl opacity-0 transition-opacity duration-500;
+    z-index: -1;
+  }
+
+  .feature-highlight:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Glow effect on hover */
+  .hover-glow {
+    @apply relative transition-all duration-300;
+  }
+
+  .hover-glow::after {
+    content: '';
+    @apply absolute inset-0 rounded-xl bg-gradient-to-r from-mylli-primary/40 to-mylli-secondary/40 opacity-0 blur-xl transition-opacity duration-300;
+    z-index: -1;
+  }
+
+  .hover-glow:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Floating elements */
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Fancy border with clip path */
+  .fancy-border {
+    @apply relative;
+    clip-path: polygon(
+      0% 5%,
+      5% 0%,
+      95% 0%,
+      100% 5%,
+      100% 95%,
+      95% 100%,
+      5% 100%,
+      0% 95%
+    );
+  }
 }

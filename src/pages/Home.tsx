@@ -148,19 +148,22 @@ const HomePage = () => {
     location: "Casablanca"
   }];
 
-  // Features section data
+  // Features section data with updated details
   const features = [{
     icon: <Shield className="text-mylli-primary h-12 w-12" />,
     title: "Sécurité & Confiance",
-    description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité"
+    description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité et sérénité.",
+    color: "primary"
   }, {
     icon: <Star className="text-mylli-secondary h-12 w-12" />,
     title: "Qualité de service",
-    description: "Accompagnement personnalisé et suivi régulier de votre satisfaction"
+    description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
+    color: "secondary" 
   }, {
     icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
     title: "Disponibilité 24/7",
-    description: "Une équipe disponible jour et nuit pour répondre à vos besoins"
+    description: "Notre équipe est disponible jour et nuit pour répondre à tous vos besoins d'urgence.",
+    color: "accent"
   }];
   
   // Sample locations data for the new component
@@ -335,52 +338,109 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* Feature Section - redesigned with logo colors */}
-      <section className="py-16 bg-gradient-to-b from-white to-mylli-light">
-        <div className="container-custom">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-block text-sm font-medium px-3 py-1 rounded-full bg-mylli-primary/10 text-mylli-primary mb-3">
-              Pourquoi nous choisir
-            </span>
-            <SectionHeading title="Des services d'exception pour votre bien-être" variant="split" highlightText="exception" />
+      {/* Feature Section - COMPLETELY REDESIGNED with modern effects */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-mylli-secondary/5 to-transparent rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+          
+          {/* Geometric patterns */}
+          <div className="absolute left-10 top-1/4 w-16 h-16 border border-mylli-primary/20 rounded-full"></div>
+          <div className="absolute right-20 bottom-1/4 w-24 h-24 border-2 border-mylli-secondary/10 rounded-lg rotate-12"></div>
+          <div className="absolute left-1/2 top-1/2 w-32 h-32 border border-mylli-quaternary/10 rounded-xl -rotate-12 transform -translate-x-1/2 -translate-y-1/2"></div>
+          
+          {/* Animated dots */}
+          <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse-soft"></div>
+          <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+        </div>
+      
+        <div className="container-custom relative z-10">
+          <div className="max-w-2xl mx-auto mb-16">
+            <div className="flex justify-center">
+              <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 text-mylli-dark text-sm font-medium mb-4">
+                <span className="w-3 h-3 rounded-full bg-mylli-primary mr-2 animate-pulse-soft"></span>
+                Pourquoi nous choisir
+              </span>
+            </div>
+            
+            <SectionHeading 
+              title="Des services d'exception pour votre bien-être" 
+              variant="animated" 
+              highlightText="exception"
+              className="text-center"
+            />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => <Card key={index} className={`feature-card border-none shadow-soft hover:shadow-md hover:border hover:border-mylli-primary/30 ${index === 1 ? "md:mt-8" : ""}`}>
-                <CardContent className="p-8">
-                  <div className="mb-6 relative">
-                    <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 blur-sm"></div>
-                    <div className="relative bg-white rounded-full p-3 inline-block shadow-sm">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-mylli-dark">{feature.title}</h3>
-                  <p className="text-mylli-gray">{feature.description}</p>
-                </CardContent>
-              </Card>)}
+          {/* Redesigned feature cards with modern 3D effects */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
+            {features.map((feature, index) => (
+              <div 
+                key={index} 
+                className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`}
+                style={{animationDelay: `${index * 200}ms`}}
+              >
+                <ServiceCard
+                  title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                  link="#"
+                  style="3d"
+                  color={feature.color}
+                  className="h-full"
+                />
+              </div>
+            ))}
           </div>
           
-          {/* Trust indicators */}
-          <div className="mt-16 flex flex-wrap justify-center items-center gap-8">
-            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft border-l-4 border-mylli-primary">
-              <div className="bg-mylli-primary/10 rounded-full p-3">
-                <Shield className="h-6 w-6 text-mylli-primary" />
+          {/* New interactive trust indicators */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-primary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+              <div className="bg-mylli-primary/10 rounded-full p-3 mr-4">
+                <Shield className="h-5 w-5 text-mylli-primary" />
               </div>
-              <p className="ml-3 text-sm font-medium">Personnel qualifié</p>
+              <div>
+                <h4 className="font-bold text-mylli-dark mb-1">Personnel qualifié</h4>
+                <p className="text-sm text-mylli-gray">Nos intervenants sont soigneusement sélectionnés et formés</p>
+              </div>
             </div>
-            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft border-l-4 border-mylli-secondary">
-              <div className="bg-mylli-secondary/10 rounded-full p-3">
-                <Heart className="h-6 w-6 text-mylli-secondary" />
+            
+            <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-secondary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+              <div className="bg-mylli-secondary/10 rounded-full p-3 mr-4">
+                <Heart className="h-5 w-5 text-mylli-secondary" />
               </div>
-              <p className="ml-3 text-sm font-medium">Approche humaine</p>
+              <div>
+                <h4 className="font-bold text-mylli-dark mb-1">Approche humaine</h4>
+                <p className="text-sm text-mylli-gray">Nous plaçons l'humain au cœur de notre démarche</p>
+              </div>
             </div>
-            <div className="flex items-center bg-white rounded-lg p-4 shadow-soft border-l-4 border-mylli-quaternary">
-              <div className="bg-mylli-quaternary/10 rounded-full p-3">
-                <Star className="h-6 w-6 text-mylli-quaternary" />
+            
+            <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-quaternary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+              <div className="bg-mylli-quaternary/10 rounded-full p-3 mr-4">
+                <Star className="h-5 w-5 text-mylli-quaternary" />
               </div>
-              <p className="ml-3 text-sm font-medium">Services personnalisés</p>
+              <div>
+                <h4 className="font-bold text-mylli-dark mb-1">Services personnalisés</h4>
+                <p className="text-sm text-mylli-gray">Des solutions adaptées à vos besoins spécifiques</p>
+              </div>
             </div>
           </div>
+          
+          {/* Interactive call-to-action */}
+          <div className="mt-16 text-center">
+            <a href="#services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
+              <span className="mr-2">Découvrir nos services</span>
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+        
+        {/* Modern wave divider at bottom */}
+        <div className="absolute bottom-0 left-0 w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 text-white">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
+          </svg>
         </div>
       </section>
       
