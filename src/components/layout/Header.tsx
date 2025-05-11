@@ -32,7 +32,8 @@ const Header = () => {
     { name: 'Nos Services', path: '/services' },
     { name: 'Notre Fonctionnement', path: '/fonctionnement' },
     { name: 'Notre Équipe', path: '/equipe' },
-    { name: 'À Propos', path: '/apropos' }
+    { name: 'À Propos', path: '/apropos' },
+    { name: 'Articles', path: '/articles' } // Added Articles link here
     // Removed the Contact entry from the array
   ];
 
