@@ -4,7 +4,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Send } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sendFormDataToEmail } from '@/utils/emailjs';
+import { useFormSubmit } from '@/hooks/use-form-submit';
 
 interface ContactFormProps {
   simple?: boolean;
@@ -13,7 +13,6 @@ interface ContactFormProps {
 
 const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -23,50 +22,49 @@ const ContactForm = ({ simple = false, className = '' }: ContactFormProps) => {
     message: ''
   });
   
+  const { submitForm, isSubmitting } = useFormSubmit();
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
+  const resetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      service: '',
+      message: ''
+    });
+  };
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     
-    try {
-      // Send email using EmailJS
-      const result = await sendFormDataToEmail(formData, "Contact Form");
-      
-      if (result.success) {
-        toast({
-          title: "Demande envoyée",
-          description: "Nous vous contacterons dans les plus brefs délais.",
-        });
-        
-        // Reset form after successful submission
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        toast({
-          title: "Erreur",
-          description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
-          variant: "destructive",
-        });
-      }
-    } catch (error) {
-      toast({
-        title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Process form data to ensure values are properly formatted
+    const processedData = {
+      name: formData.name.trim() || "Non spécifié",
+      email: formData.email.trim() || "Non spécifié",
+      phone: formData.phone.trim() || "Non spécifié",
+      subject: formData.subject || "Non spécifié",
+      service: formData.service || "Non spécifié",
+      message: formData.message.trim() || "Non spécifié",
+    };
+    
+    await submitForm(
+      processedData, 
+      {
+        formName: "Formulaire de contact",
+        resetForm: true,
+        successMessage: {
+          title: "Message envoyé",
+          description: "Nous vous contacterons dans les plus brefs délais."
+        }
+      },
+      resetForm
+    );
   };
   
   if (simple) {

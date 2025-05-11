@@ -24,7 +24,12 @@ const queryClient = new QueryClient();
 const App = () => {
   // Initialize EmailJS when the app loads
   useEffect(() => {
-    initEmailJS();
+    try {
+      initEmailJS();
+      console.log("EmailJS initialized successfully");
+    } catch (error) {
+      console.error("Failed to initialize EmailJS:", error);
+    }
   }, []);
 
   return (

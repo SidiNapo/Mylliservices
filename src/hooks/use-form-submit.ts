@@ -27,9 +27,19 @@ export const useFormSubmit = () => {
     onReset?: () => void
   ) => {
     setIsSubmitting(true);
+    
     try {
+      // Sanitize form data to ensure no undefined or null values
+      const sanitizedFormData = Object.entries(formData).reduce((acc, [key, value]) => {
+        // Only include defined values, convert everything to strings
+        if (value !== undefined && value !== null) {
+          acc[key] = String(value);
+        }
+        return acc;
+      }, {} as Record<string, string>);
+
       const result = await sendFormDataToEmail(
-        formData,
+        sanitizedFormData,
         options.formName,
         options.templateId
       );

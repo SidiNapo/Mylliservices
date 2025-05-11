@@ -28,8 +28,15 @@ const RecallRequestForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Ensure all fields are strings and not empty
+    const processedData = {
+      name: formData.name.trim() || "Non spécifié",
+      phone: formData.phone.trim() || "Non spécifié",
+      preferredTime: formData.preferredTime || "Non spécifié",
+    };
+    
     await submitForm(
-      formData, 
+      processedData, 
       {
         formName: "Demande de rappel",
         resetForm: true,
