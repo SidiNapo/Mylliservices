@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 // Initialize EmailJS with your user ID
 // You'll need to replace this with your actual EmailJS User ID from your account
 export const initEmailJS = () => {
-  emailjs.init("YOUR_EMAILJS_USER_ID"); // Replace with your actual EmailJS User ID
+  emailjs.init("VChJY9kfgMI7KuKLf"); // Replace with your actual EmailJS User ID
 };
 
 // Function to send email from any form
@@ -22,7 +22,7 @@ export const sendFormDataToEmail = async (
     
     // Send the email using EmailJS
     const response = await emailjs.send(
-      "service_default", // Replace with your EmailJS service ID
+      "service_x5plzgd", // Replace with your EmailJS service ID
       templateId,
       templateParams
     );
