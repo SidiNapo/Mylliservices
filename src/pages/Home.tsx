@@ -738,7 +738,7 @@ const HomePage = () => {
         </div>
       </section>
       
-      {/* CTA Contact Section - Updated with logo colors */}
+      {/* CTA Contact Section - Updated with logo colors and black text for better visibility */}
       <section className="section-padding bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-dark text-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
