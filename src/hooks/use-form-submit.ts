@@ -29,19 +29,29 @@ export const useFormSubmit = () => {
     setIsSubmitting(true);
     
     try {
-      // Deep clean the form data to ensure all values are properly sanitized
+      // Ensure all form data is properly stringified
       const sanitizedFormData: Record<string, string> = {};
       
-      // Process each field individually
-      Object.entries(formData).forEach(([key, value]) => {
-        // Skip undefined values entirely
-        if (value !== undefined) {
-          // Convert null to empty string, otherwise ensure it's a string
-          sanitizedFormData[key] = value === null ? '' : String(value);
+      // Explicitly process and sanitize each form field
+      Object.keys(formData).forEach(key => {
+        const value = formData[key];
+        
+        // Handle each data type explicitly
+        if (value === null || value === undefined) {
+          sanitizedFormData[key] = '';
+        } else if (typeof value === 'object') {
+          try {
+            sanitizedFormData[key] = JSON.stringify(value);
+          } catch {
+            sanitizedFormData[key] = '[Object]';
+          }
+        } else {
+          // Convert everything else to string
+          sanitizedFormData[key] = String(value);
         }
       });
 
-      console.log('Submitting form with data:', sanitizedFormData);
+      console.log('Submitting with sanitized data:', sanitizedFormData);
       
       const result = await sendFormDataToEmail(
         sanitizedFormData,

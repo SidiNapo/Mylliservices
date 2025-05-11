@@ -6,25 +6,6 @@ export const initEmailJS = () => {
   emailjs.init("VChJY9kfgMI7KuKLf"); // Your EmailJS User ID
 };
 
-// Helper function to ensure all values are properly formatted strings
-const formatValue = (value: any): string => {
-  if (value === null || value === undefined) {
-    return '';
-  }
-  
-  // Handle objects and arrays by converting to JSON string
-  if (typeof value === 'object') {
-    try {
-      return JSON.stringify(value);
-    } catch (e) {
-      return String(value);
-    }
-  }
-  
-  // Convert everything else to string
-  return String(value);
-};
-
 // Function to send email from any form
 export const sendFormDataToEmail = async (
   formData: Record<string, any>, 
@@ -34,19 +15,30 @@ export const sendFormDataToEmail = async (
   try {
     // Format the date and time
     const now = new Date();
-    const formattedDate = now.toLocaleDateString('fr-FR');
-    const formattedTime = now.toLocaleTimeString('fr-FR');
+    const formattedDate = now.toLocaleDateString();
+    const formattedTime = now.toLocaleTimeString();
     
-    // Create a clean template params object with proper string conversion
+    // Create a basic template params object with required fields
     const templateParams: Record<string, string> = {
-      form_name: formatValue(formName),
+      form_name: String(formName || ''),
       system_date: formattedDate,
-      system_time: formattedTime,
+      system_time: formattedTime
     };
     
-    // Process each form field to ensure it's a properly formatted string
+    // Process each form field to ensure valid string values
     Object.entries(formData).forEach(([key, value]) => {
-      templateParams[key] = formatValue(value);
+      // Simple conversion to string, handling null, undefined, and objects
+      if (value === null || value === undefined) {
+        templateParams[key] = '';
+      } else if (typeof value === 'object') {
+        try {
+          templateParams[key] = JSON.stringify(value);
+        } catch {
+          templateParams[key] = '[Object]';
+        }
+      } else {
+        templateParams[key] = String(value);
+      }
     });
     
     console.log('Sending email with params:', templateParams);

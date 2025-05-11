@@ -28,17 +28,17 @@ const RecallRequestForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Make sure each field is a proper string with default values
-    const processedData = {
-      name: String(formData.name || "Non spécifié"),
-      phone: String(formData.phone || "Non spécifié"),
-      preferredTime: String(formData.preferredTime || "Non spécifié"),
+    // Explicitly convert each field to string to avoid any issues
+    const submissionData = {
+      name: String(formData.name || ''),
+      phone: String(formData.phone || ''),
+      preferredTime: String(formData.preferredTime || ''),
     };
     
-    console.log('Submitting recall request:', processedData);
+    console.log('Recall request submission data:', submissionData);
     
     await submitForm(
-      processedData, 
+      submissionData, 
       {
         formName: "Demande de rappel",
         resetForm: true,
