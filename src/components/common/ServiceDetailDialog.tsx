@@ -1,10 +1,8 @@
-
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 interface ServiceDetailDialogProps {
   isOpen: boolean;
   onClose: () => void;
@@ -14,7 +12,6 @@ interface ServiceDetailDialogProps {
   color?: string;
   link?: string;
 }
-
 const ServiceDetailDialog = ({
   isOpen,
   onClose,
@@ -22,7 +19,7 @@ const ServiceDetailDialog = ({
   description,
   icon,
   color = "primary",
-  link,
+  link
 }: ServiceDetailDialogProps) => {
   const colorClasses = {
     primary: "from-mylli-primary to-mylli-quaternary",
@@ -30,9 +27,7 @@ const ServiceDetailDialog = ({
     accent: "from-mylli-accent to-mylli-quaternary",
     mixed: "from-mylli-primary via-mylli-secondary to-mylli-quaternary"
   };
-  
-  return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+  return <Dialog open={isOpen} onOpenChange={open => !open && onClose()}>
       <DialogContent className="sm:max-w-lg">
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-mylli-primary/20 rounded-full filter blur-3xl"></div>
         <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-mylli-secondary/20 rounded-full filter blur-3xl"></div>
@@ -47,9 +42,7 @@ const ServiceDetailDialog = ({
         
         <div className="relative z-10 py-4">
           <DialogDescription className="text-base leading-relaxed mb-6">
-            {description.split('\n').map((paragraph, i) => (
-              <p key={i} className="mb-4">{paragraph}</p>
-            ))}
+            {description.split('\n').map((paragraph, i) => <p key={i} className="mb-4">{paragraph}</p>)}
           </DialogDescription>
           
           {/* Additional content specific to service type */}
@@ -73,20 +66,13 @@ const ServiceDetailDialog = ({
             </div>
           </div>
           
-          {link && (
-            <div className="mt-6">
+          {link && <div className="mt-6">
               <Button asChild className={`w-full bg-gradient-to-r ${colorClasses[color as keyof typeof colorClasses]} hover:shadow-lg group`}>
-                <Link to={link} className="flex items-center justify-center">
-                  Découvrir ce service
-                  <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                </Link>
+                
               </Button>
-            </div>
-          )}
+            </div>}
         </div>
       </DialogContent>
-    </Dialog>
-  );
+    </Dialog>;
 };
-
 export default ServiceDetailDialog;
