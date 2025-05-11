@@ -29,7 +29,7 @@ const ARTICLES_PER_PAGE = 6;
 const ArticlesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   
   const categories = getCategories();
   
@@ -39,7 +39,7 @@ const ArticlesPage = () => {
       article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     
-    const matchesCategory = selectedCategory === '' || 
+    const matchesCategory = selectedCategory === 'all' || 
       article.category.toLowerCase() === selectedCategory.toLowerCase();
     
     return matchesSearch && matchesCategory;
@@ -106,7 +106,7 @@ const ArticlesPage = () => {
                   </div>
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">Toutes les catégories</SelectItem>
+                  <SelectItem value="all">Toutes les catégories</SelectItem>
                   {categories.map((category) => (
                     <SelectItem key={category.value} value={category.value}>
                       {category.name} ({category.count})
@@ -120,9 +120,9 @@ const ArticlesPage = () => {
           {/* Categories Tags */}
           <div className="flex flex-wrap justify-center gap-2 mt-6">
             <button 
-              onClick={() => handleCategoryChange('')}
+              onClick={() => handleCategoryChange('all')}
               className={`px-3 py-1 text-xs md:text-sm rounded-full transition-colors ${
-                selectedCategory === '' 
+                selectedCategory === 'all' 
                   ? 'bg-mylli-primary text-white' 
                   : 'bg-gray-100 text-mylli-gray hover:bg-gray-200'
               }`}
@@ -202,7 +202,7 @@ const ArticlesPage = () => {
             <button 
               onClick={() => {
                 setSearchQuery('');
-                setSelectedCategory('');
+                setSelectedCategory('all');
               }}
               className="btn-secondary"
             >
