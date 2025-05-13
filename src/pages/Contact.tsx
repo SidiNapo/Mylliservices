@@ -7,7 +7,6 @@ import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
 import RecallRequestForm from '@/components/common/RecallRequestForm';
-
 const ContactPage = () => {
   // Opening hours
   const openingHours = [{
@@ -159,45 +158,7 @@ const ContactPage = () => {
         }}></div>)}
         </div>
         
-        <div className="container-custom relative z-10">
-          <SectionHeading title="Prenons contact" subtitle="Nous sommes impatients de vous connaître et de répondre à vos besoins" variant="split" highlightText="contact" className="mb-16" />
-          
-          {/* Centered Contact Form */}
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(0,119,192,0.25)] border border-mylli-primary/5">
-              {/* Header with Modern Gradient */}
-              <div className="bg-gradient-to-r from-mylli-primary to-mylli-accent p-8 relative overflow-hidden">
-                {/* Abstract Shapes */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl"></div>
-                <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-                
-                <div className="relative flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
-                    <MessageSquare className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">Envoyez-nous un message</h3>
-                </div>
-                <p className="text-white/90 text-lg relative ml-16">
-                  Notre équipe est disponible pour répondre à toutes vos questions
-                </p>
-              </div>
-              
-              {/* Form with Enhanced Styling */}
-              <div className="p-8 md:p-10">
-                <ContactForm className="space-y-6" />
-              </div>
-            </div>
-            
-            {/* Additional Contact Indicators */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-              
-              
-              
-              
-              
-            </div>
-          </div>
-        </div>
+        
       </section>
       
       {/* Recall Request Section - REDESIGNED */}
@@ -209,61 +170,24 @@ const ContactPage = () => {
           
           {/* Animated Dot Pattern */}
           <div className="absolute inset-0 opacity-20">
-            {[...Array(20)].map((_, i) => (
-              <div 
-                key={i} 
-                className="absolute rounded-full bg-gradient-to-r from-mylli-primary to-mylli-accent"
-                style={{
-                  width: `${Math.random() * 8 + 4}px`,
-                  height: `${Math.random() * 8 + 4}px`,
-                  top: `${Math.random() * 100}%`,
-                  left: `${Math.random() * 100}%`,
-                  animation: `pulse-soft ${Math.random() * 5 + 3}s infinite ease-in-out`,
-                  animationDelay: `${Math.random() * 3}s`
-                }}
-              ></div>
-            ))}
+            {[...Array(20)].map((_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-r from-mylli-primary to-mylli-accent" style={{
+            width: `${Math.random() * 8 + 4}px`,
+            height: `${Math.random() * 8 + 4}px`,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animation: `pulse-soft ${Math.random() * 5 + 3}s infinite ease-in-out`,
+            animationDelay: `${Math.random() * 3}s`
+          }}></div>)}
           </div>
           
           {/* Abstract Curved Lines */}
-          <svg className="absolute top-0 left-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,50 Q25,30 50,50 T100,50" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
-            <path d="M0,60 Q25,40 50,60 T100,60" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
-            <path d="M0,70 Q25,50 50,70 T100,70" stroke="url(#gradient1)" strokeWidth="0.5" fill="none" />
-            <defs>
-              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0077C0" />
-                <stop offset="100%" stopColor="#0099E8" />
-              </linearGradient>
-            </defs>
-          </svg>
+          
         </div>
         
         <div className="container-custom relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Recall Form - Modernized */}
-            <div className="bg-white rounded-3xl p-8 md:p-10 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] transform transition-all duration-500 hover:shadow-[0_30px_70px_-15px_rgba(0,119,192,0.2)] border border-mylli-primary/10 relative overflow-hidden group">
-              {/* Highlight Accent */}
-              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-mylli-primary via-mylli-accent to-mylli-primary"></div>
-              
-              {/* Background Pattern */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-mylli-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2 opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative">
-                <div className="flex items-center mb-2">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mylli-primary to-mylli-accent flex items-center justify-center p-3 shadow-lg mr-4">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-mylli-dark">Demande de rappel</h3>
-                </div>
-                
-                <p className="text-mylli-gray mb-8 pl-16">
-                  Laissez-nous votre numéro et nous vous contacterons rapidement à un moment qui vous convient.
-                </p>
-                
-                <RecallRequestForm />
-              </div>
-            </div>
+            
             
             {/* FAQ - Modernized */}
             <div>
@@ -275,11 +199,7 @@ const ContactPage = () => {
               </div>
               
               <div className="space-y-6">
-                {faqs.map((faq, index) => (
-                  <div 
-                    key={index} 
-                    className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-mylli-accent transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden group"
-                  >
+                {faqs.map((faq, index) => <div key={index} className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-mylli-accent transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden group">
                     {/* Corner Accent */}
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-bl-3xl"></div>
                     
@@ -290,16 +210,12 @@ const ContactPage = () => {
                     <div className="absolute bottom-2 right-2 text-mylli-accent/5 transform transition-all duration-300 group-hover:scale-110">
                       <MessageSquare className="h-12 w-12" />
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               
               {/* Additional Help Link */}
               <div className="mt-8 text-center lg:text-right">
-                <a 
-                  href="#" 
-                  className="inline-flex items-center text-mylli-primary hover:text-mylli-accent transition-colors duration-300 group"
-                >
+                <a href="#" className="inline-flex items-center text-mylli-primary hover:text-mylli-accent transition-colors duration-300 group">
                   <span className="mr-2">Plus de questions-réponses</span>
                   <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </a>
@@ -379,5 +295,4 @@ const ContactPage = () => {
       </section>
     </div>;
 };
-
 export default ContactPage;
