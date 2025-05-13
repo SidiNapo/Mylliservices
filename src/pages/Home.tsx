@@ -8,7 +8,6 @@ import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import ServiceLocations from '@/components/common/ServiceLocations';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -168,28 +167,22 @@ const HomePage = () => {
     color: "accent",
     detailedDescription: "La maladie et les besoins de soins ne respectent pas les horaires de bureau. C'est pourquoi nous offrons un service disponible 24 heures sur 24, 7 jours sur 7.\n\nQue vous ayez besoin d'assistance pendant la nuit, les week-ends ou les jours fériés, notre équipe est toujours prête à intervenir. Notre système de permanence téléphonique vous garantit un contact immédiat avec un professionnel qualifié qui pourra vous conseiller ou organiser rapidement une intervention à votre domicile.\n\nNous proposons également des services de garde-malade de jour, de nuit ou en continu 24h/24, adaptés aux besoins spécifiques de chaque situation. Cette disponibilité constante apporte une tranquillité d'esprit inestimable aux patients comme à leurs proches."
   }];
-  
-  // Sample locations data for the new component
-  const serviceLocations = [
-    {
-      city: "Casablanca",
-      areas: ["Maarif", "Anfa", "Bourgogne", "Gauthier", "Racine", "Californie", "Ain Diab", "Oasis"],
-      highlight: true
-    },
-    {
-      city: "Mohammedia",
-      areas: ["Centre-ville", "Les Crêtes", "El Alia", "Hay Hassani"]
-    },
-    {
-      city: "Bouskoura",
-      areas: ["Centre", "Ville Verte", "Quartier résidentiel"]
-    },
-    {
-      city: "Dar Bouazza",
-      areas: ["Tamaris", "Les Jardins", "Plage"]
-    }
-  ];
 
+  // Sample locations data for the new component
+  const serviceLocations = [{
+    city: "Casablanca",
+    areas: ["Maarif", "Anfa", "Bourgogne", "Gauthier", "Racine", "Californie", "Ain Diab", "Oasis"],
+    highlight: true
+  }, {
+    city: "Mohammedia",
+    areas: ["Centre-ville", "Les Crêtes", "El Alia", "Hay Hassani"]
+  }, {
+    city: "Bouskoura",
+    areas: ["Centre", "Ville Verte", "Quartier résidentiel"]
+  }, {
+    city: "Dar Bouazza",
+    areas: ["Tamaris", "Les Jardins", "Plage"]
+  }];
   return <div className="overflow-hidden">
       {/* Hero Section - With Updated Color Scheme based on logo */}
       <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove}>
@@ -355,8 +348,12 @@ const HomePage = () => {
           
           {/* Animated dots */}
           <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse-soft"></div>
-          <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{
+          animationDelay: '1s'
+        }}></div>
+          <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
       
         <div className="container-custom relative z-10">
@@ -368,34 +365,16 @@ const HomePage = () => {
               </span>
             </div>
             
-            <SectionHeading 
-              title="Des services d'exception pour votre bien-être" 
-              variant="animated" 
-              highlightText="exception"
-              className="text-center"
-            />
+            <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" />
           </div>
           
           {/* Redesigned feature cards with modern 3D effects */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
-            {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`}
-                style={{animationDelay: `${index * 200}ms`}}
-              >
-                <ServiceCard
-                  title={feature.title}
-                  description={feature.description}
-                  detailedDescription={feature.detailedDescription}
-                  icon={feature.icon}
-                  link="#"
-                  style="3d"
-                  color={feature.color}
-                  className="h-full"
-                />
-              </div>
-            ))}
+            {features.map((feature, index) => <div key={index} className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} style={{
+            animationDelay: `${index * 200}ms`
+          }}>
+                <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
+              </div>)}
           </div>
           
           {/* New interactive trust indicators */}
@@ -472,12 +451,7 @@ const HomePage = () => {
             </div>
             
             <div>
-              <SectionHeading 
-                title="Depuis 10 ans à vos côtés" 
-                subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
-                align="left" 
-                variant="gradient" 
-              />
+              <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="gradient" />
               
               <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
                 <p className="mb-4">
@@ -505,11 +479,7 @@ const HomePage = () => {
       </section>
       
       {/* Service Locations Section - New modern section */}
-      <ServiceLocations 
-        locations={serviceLocations}
-        title="Nos Zones d'Intervention" 
-        subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert."
-      />
+      <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
       
       {/* Services Section - Updated with color scheme and better card design */}
       <section className="section-padding bg-mylli-light/50 relative overflow-hidden">
@@ -614,21 +584,14 @@ const HomePage = () => {
             <span className="inline-block text-sm font-medium px-4 py-2 rounded-full bg-white shadow-soft border border-mylli-primary/10 mb-4">
               Témoignages de confiance
             </span>
-            <SectionHeading 
-              title="Ce que disent nos clients" 
-              subtitle="Découvrez les expériences de nos clients satisfaits qui nous font confiance pour prendre soin de leurs proches."
-              variant="gradient" 
-            />
+            <SectionHeading title="Ce que disent nos clients" subtitle="Découvrez les expériences de nos clients satisfaits qui nous font confiance pour prendre soin de leurs proches." variant="gradient" />
           </div>
 
           {/* Modern testimonial cards with 3D effect and interactive features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="group relative transform transition-all duration-500 hover:-translate-y-2"
-                style={{animationDelay: `${index * 150}ms`}}
-              >
+            {testimonials.map((testimonial, index) => <div key={index} className="group relative transform transition-all duration-500 hover:-translate-y-2" style={{
+            animationDelay: `${index * 150}ms`
+          }}>
                 {/* Card with glass effect and modern design */}
                 <div className="h-full rounded-2xl overflow-hidden bg-white shadow-xl hover:shadow-2xl transition-all duration-500 transform group-hover:scale-[1.02]">
                   {/* Colorful top accent bar */}
@@ -645,9 +608,7 @@ const HomePage = () => {
                     <div className="flex mb-6">
                       <div className="p-1 bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 rounded-lg">
                         <div className="flex gap-1 p-1">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />
-                          ))}
+                          {[...Array(testimonial.rating)].map((_, i) => <Star key={i} size={16} className="text-mylli-secondary" fill="#E02E31" />)}
                         </div>
                       </div>
                     </div>
@@ -697,8 +658,7 @@ const HomePage = () => {
                     </button>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* Interactive call-to-action card */}
@@ -780,16 +740,7 @@ const HomePage = () => {
               </div>
             </div>
             
-            <div className="bg-white rounded-2xl shadow-card p-8 animate-fade-in-left relative overflow-hidden">
-              {/* Background glow */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-mylli-primary/20 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-mylli-secondary/20 rounded-full blur-2xl"></div>
-              
-              <div className="relative">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark text-center">Demander un devis</h3>
-                <ContactForm simple />
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
