@@ -27,7 +27,7 @@ const LanguageSwitcher: React.FC = () => {
           <span className="hidden sm:inline">{languages.find(l => l.code === language)?.name || 'Langue'}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align={isRTL ? "start" : "end"} dir={isRTL ? "rtl" : "ltr"}>
+      <DropdownMenuContent align={isRTL ? "start" : "end"} className={isRTL ? "rtl" : ""}>
         {languages.map((lang) => (
           <DropdownMenuItem 
             key={lang.code}
