@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import LanguageSwitcher from '../common/LanguageSwitcher';
 import { useLanguage } from '@/context/LanguageContext';
+import BrandName from '../common/BrandName';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,10 +60,8 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-          <img src="/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png" alt="Mylli Services Logo" className="w-12 h-12" />
-          <div className="font-serif font-bold text-xl">
-            <span className="text-red-500">Mylli</span> <span className="text-mylli-primary">Services</span>
-          </div>
+          <img src="/lovable-uploads/c2fc9be5-1f88-4ea6-b024-37652a5a671e.png" alt="Mylli Services Logo" className="w-12 h-12" />
+          <BrandName size="lg" />
         </Link>
         
         {/* Desktop Navigation */}

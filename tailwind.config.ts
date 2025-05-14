@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -76,11 +75,14 @@ export default {
 					quaternary: '#0CAAFF', // Bright blue for indicators
 					surface: '#FFFFFF', // Surface color
 					'surface-hover': '#F9FAFB', // Hover state for surface
+					'y-color': '#029edd', // New color for 'y' in Mylli
+					'brand-red': '#ff0707', // New red color for other letters in Mylli
 				}
 			},
 			fontFamily: {
 				sans: ['Quicksand', 'sans-serif'],
 				serif: ['Montserrat', 'serif'],
+				gliker: ['Roboto', 'sans-serif'], // Using Roboto Bold as a substitute for Gliker Bold
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
