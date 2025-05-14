@@ -22,7 +22,7 @@ const Footer = () => {
             <p className="text-mylli-gray mb-6">
               {t('footer.about')}
             </p>
-            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-3 mx-[80px]`}>
+            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-3 ${isRTL ? 'mr-[80px]' : 'mx-[80px]'}`}>
               <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
           
           {/* Links */}
-          <div>
+          <div className={isRTL ? 'rtl' : ''}>
             <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.links')}</h4>
             <ul className="space-y-2">
               <li><Link to="/" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.home')}</Link></li>
@@ -47,7 +47,7 @@ const Footer = () => {
           </div>
           
           {/* Services */}
-          <div>
+          <div className={isRTL ? 'rtl' : ''}>
             <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.services')}</h4>
             <ul className="space-y-2">
               <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.caregiver')}</Link></li>
@@ -59,19 +59,19 @@ const Footer = () => {
           </div>
           
           {/* Contact */}
-          <div>
+          <div className={isRTL ? 'rtl' : ''}>
             <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.contact')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
+                <MapPin size={20} className={`text-mylli-primary mt-1 ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
                 <span className="text-mylli-gray">19, rue Masmouda hay Al Hana - Casablanca - 20210</span>
               </li>
               <li className="flex items-center">
-                <Phone size={20} className="text-mylli-primary mr-3 flex-shrink-0" />
+                <Phone size={20} className={`text-mylli-primary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
                 <a href="tel:+212661377438" className="text-mylli-gray hover:text-mylli-primary transition-colors">+212 661 37 74 38</a>
               </li>
               <li className="flex items-center">
-                <Mail size={20} className="text-mylli-primary mr-3 flex-shrink-0" />
+                <Mail size={20} className={`text-mylli-primary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
                 <a href="mailto:info@mylliservices.com" className="text-mylli-gray hover:text-mylli-primary transition-colors">info@mylliservices.com</a>
               </li>
             </ul>

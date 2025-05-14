@@ -8,7 +8,7 @@ export type Language = 'fr' | 'en' | 'ar';
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
+  t: (key: string, params?: Record<string, string | number>) => string;
   isRTL: boolean;
 };
 
@@ -66,10 +66,24 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     }
   }, [language, isRTL]);
 
-  // Translation function
-  const t = (key: string): string => {
-    if (!translations[language]) return key;
-    return translations[language][key] || key;
+  // Translation function with parameter support
+  const t = (key: string, params?: Record<string, string | number>): string => {
+    if (!translations[language] || !translations[language][key]) {
+      console.warn(`Missing translation for key: ${key} in language: ${language}`);
+      return key;
+    }
+    
+    let translation = translations[language][key];
+    
+    // Replace parameters in translation if provided
+    if (params) {
+      Object.entries(params).forEach(([paramKey, paramValue]) => {
+        const regex = new RegExp(`{${paramKey}}`, 'g');
+        translation = translation.replace(regex, String(paramValue));
+      });
+    }
+    
+    return translation;
   };
 
   return (

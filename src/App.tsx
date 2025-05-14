@@ -19,6 +19,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
 import { LanguageProvider } from "./context/LanguageContext";
+import "./styles/global.css"; // Import global CSS for RTL support
 
 const queryClient = new QueryClient();
 
