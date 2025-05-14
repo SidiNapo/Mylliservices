@@ -29,9 +29,6 @@ const App: React.FC = () => {
     try {
       initEmailJS();
       console.log("EmailJS initialized successfully");
-      
-      // Set document title with the styled Mylli Services name (text only version for title)
-      document.title = "Mylli Services - Accompagnement à domicile depuis 2014";
     } catch (error) {
       console.error("Failed to initialize EmailJS:", error);
     }
