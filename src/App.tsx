@@ -18,6 +18,7 @@ import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import { initEmailJS } from "./utils/emailjs";
+import { LanguageProvider } from "./context/LanguageContext";
 
 const queryClient = new QueryClient();
 
@@ -34,26 +35,28 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-            <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
-            <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
-            <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
-            <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
-            <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
-            <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
-            <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
-            <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
-            <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+              <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
+              <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
+              <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
+              <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
+              <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
+              <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
+              <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
+              <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
+              <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 };

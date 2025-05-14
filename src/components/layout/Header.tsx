@@ -3,11 +3,14 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from '../common/LanguageSwitcher';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -28,13 +31,12 @@ const Header = () => {
   const closeMenu = () => setIsOpen(false);
   
   const navLinks = [
-    { name: 'Accueil', path: '/' },
-    { name: 'Nos Services', path: '/services' },
-    { name: 'Notre Fonctionnement', path: '/fonctionnement' },
-    { name: 'Notre Équipe', path: '/equipe' },
-    { name: 'À Propos', path: '/apropos' },
-    { name: 'Articles', path: '/articles' } // Added Articles link here
-    // Removed the Contact entry from the array
+    { name: t('nav.home'), path: '/' },
+    { name: t('nav.services'), path: '/services' },
+    { name: t('nav.functioning'), path: '/fonctionnement' },
+    { name: t('nav.team'), path: '/equipe' },
+    { name: t('nav.about'), path: '/apropos' },
+    { name: t('nav.articles'), path: '/articles' }
   ];
 
   const isActiveLink = (path: string) => {
@@ -72,23 +74,27 @@ const Header = () => {
           ))}
         </nav>
         
-        {/* Contact Button */}
-        <div className="hidden md:block">
+        {/* Contact Button and Language Switcher */}
+        <div className="hidden md:flex items-center space-x-2">
+          <LanguageSwitcher />
           <Button asChild className="btn-accent">
             <Link to="/contact">
-              Contactez-nous
+              {t('nav.contact')}
             </Link>
           </Button>
         </div>
         
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-mylli-dark focus:outline-none"
-          onClick={toggleMenu}
-          aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center space-x-2">
+          <LanguageSwitcher />
+          <button 
+            className="text-mylli-dark focus:outline-none"
+            onClick={toggleMenu}
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Menu */}
@@ -107,7 +113,7 @@ const Header = () => {
             ))}
             <Button asChild className="btn-accent w-full">
               <Link to="/contact" onClick={closeMenu}>
-                Contactez-nous
+                {t('nav.contact')}
               </Link>
             </Button>
           </div>

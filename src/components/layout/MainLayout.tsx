@@ -3,6 +3,7 @@ import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -10,6 +11,7 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   const location = useLocation();
+  const { isRTL } = useLanguage();
   
   // Scroll to top when route changes
   useEffect(() => {
@@ -23,7 +25,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
 
   return (
-    <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
+    <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''} ${isRTL ? 'rtl' : 'ltr'}`}>
       <Header />
       <main className="flex-grow pt-16">
         {children}
