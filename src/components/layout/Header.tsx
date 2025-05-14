@@ -10,7 +10,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +61,7 @@ const Header = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-1">
+        <nav className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-1`}>
           {navLinks.map(link => (
             <Link 
               key={link.path} 
@@ -75,7 +75,7 @@ const Header = () => {
         </nav>
         
         {/* Contact Button and Language Switcher */}
-        <div className="hidden md:flex items-center space-x-2">
+        <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
           <LanguageSwitcher />
           <Button asChild className="btn-accent">
             <Link to="/contact">
@@ -85,7 +85,7 @@ const Header = () => {
         </div>
         
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-2">
+        <div className={`md:hidden flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
           <LanguageSwitcher />
           <button 
             className="text-mylli-dark focus:outline-none"

@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const LanguageSwitcher: React.FC = () => {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, isRTL } = useLanguage();
 
   const languages: { code: Language; name: string }[] = [
     { code: 'fr', name: t('language.french') },
@@ -22,12 +22,12 @@ const LanguageSwitcher: React.FC = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+        <Button variant="ghost" size="sm" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} gap-2`}>
           <Globe size={18} />
           <span className="hidden sm:inline">{languages.find(l => l.code === language)?.name || 'Langue'}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align={isRTL ? "start" : "end"} dir={isRTL ? "rtl" : "ltr"}>
         {languages.map((lang) => (
           <DropdownMenuItem 
             key={lang.code}

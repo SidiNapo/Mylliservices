@@ -41,8 +41,11 @@ translations.ar = arTranslations;
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   // Get saved language from localStorage or use default
   const getSavedLanguage = (): Language => {
-    const savedLanguage = localStorage.getItem('language');
-    return (savedLanguage as Language) || 'fr';
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('language');
+      return (savedLanguage as Language) || 'fr';
+    }
+    return 'fr'; // Default language
   };
 
   const [language, setLanguage] = useState<Language>(getSavedLanguage());

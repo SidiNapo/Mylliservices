@@ -1,62 +1,66 @@
 
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-gray-50 pt-16 pb-8">
+  const { t, isRTL } = useLanguage();
+  
+  return (
+    <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section with Updated Logo */}
           <div>
-            <Link to="/" className="flex items-center space-x-2 mb-4">
+            <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2 mb-4`}>
               <img src="/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png" alt="Mylli Services Logo" className="w-10 h-10" />
               <div className="font-serif font-bold text-xl">
                 <span className="text-red-500">Mylli</span> <span className="text-mylli-primary">Services</span>
               </div>
             </Link>
             <p className="text-mylli-gray mb-6">
-              Depuis 2014, accompagnement à domicile des personnes fragilisées avec dévouement et professionnalisme.
+              {t('footer.about')}
             </p>
-            <div className="flex space-x-3 mx-[80px]">
+            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-3 mx-[80px]`}>
               <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
               <a href="https://www.instagram.com/mylliservices" aria-label="Instagram" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Instagram size={18} className="text-mylli-primary" />
               </a>
-             
             </div>
           </div>
           
           {/* Links */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">Liens Rapides</h4>
+            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.links')}</h4>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-mylli-gray hover:text-mylli-primary transition-colors">Accueil</Link></li>
-              <li><Link to="/services" className="text-mylli-gray hover:text-mylli-primary transition-colors">Nos Services</Link></li>
-              <li><Link to="/fonctionnement" className="text-mylli-gray hover:text-mylli-primary transition-colors">Notre Fonctionnement</Link></li>
-              <li><Link to="/equipe" className="text-mylli-gray hover:text-mylli-primary transition-colors">Notre Équipe</Link></li>
-              <li><Link to="/apropos" className="text-mylli-gray hover:text-mylli-primary transition-colors">À Propos</Link></li>
-              <li><Link to="/articles" className="text-mylli-gray hover:text-mylli-primary transition-colors">Articles</Link></li>
-              <li><Link to="/contact" className="text-mylli-gray hover:text-mylli-primary transition-colors">Contact</Link></li>
+              <li><Link to="/" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.home')}</Link></li>
+              <li><Link to="/services" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.services')}</Link></li>
+              <li><Link to="/fonctionnement" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.functioning')}</Link></li>
+              <li><Link to="/equipe" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.team')}</Link></li>
+              <li><Link to="/apropos" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.about')}</Link></li>
+              <li><Link to="/articles" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.articles')}</Link></li>
+              <li><Link to="/contact" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('nav.contact')}</Link></li>
             </ul>
           </div>
           
           {/* Services */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">Nos Services</h4>
+            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.services')}</h4>
             <ul className="space-y-2">
-              <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">Aide-soignant(e) à domicile</Link></li>
-              <li><Link to="/services/infirmier" className="text-mylli-gray hover:text-mylli-primary transition-colors">Infirmier(ère) à domicile</Link></li>
-              <li><Link to="/services/garde-malade-jour" className="text-mylli-gray hover:text-mylli-primary transition-colors">Garde-malade de jour</Link></li>
-              <li><Link to="/services/garde-malade-nuit" className="text-mylli-gray hover:text-mylli-primary transition-colors">Garde-malade de nuit</Link></li>
-              <li><Link to="/services/garde-malade-24h" className="text-mylli-gray hover:text-mylli-primary transition-colors">Garde-malade 24h/24h</Link></li>
+              <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.caregiver')}</Link></li>
+              <li><Link to="/services/infirmier" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.nurse')}</Link></li>
+              <li><Link to="/services/garde-malade-jour" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.day')}</Link></li>
+              <li><Link to="/services/garde-malade-nuit" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.night')}</Link></li>
+              <li><Link to="/services/garde-malade-24h" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.24h')}</Link></li>
             </ul>
           </div>
           
           {/* Contact */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">Contactez-nous</h4>
+            <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">{t('footer.contact')}</h4>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
@@ -76,13 +80,13 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-mylli-gray text-sm">&copy; {currentYear} Mylli Services. Tous droits réservés.</p>
+          <p className="text-mylli-gray text-sm">&copy; {currentYear} Mylli Services. {t('footer.rights')}</p>
           <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
-            
-            
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;

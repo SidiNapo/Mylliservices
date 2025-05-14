@@ -20,12 +20,32 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       behavior: 'smooth'
     });
   }, [location.pathname]);
+  
+  // Apply RTL styling
+  useEffect(() => {
+    // Set RTL direction for the whole document
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    
+    // Apply RTL CSS variables
+    if (isRTL) {
+      document.documentElement.classList.add('rtl-layout');
+    } else {
+      document.documentElement.classList.remove('rtl-layout');
+    }
+    
+    // Apply RTL class to body for additional styling if needed
+    if (isRTL) {
+      document.body.classList.add('rtl');
+    } else {
+      document.body.classList.remove('rtl');
+    }
+  }, [isRTL]);
 
   // Only apply special styling to the home page
   const isHomePage = location.pathname === '/' || location.pathname === '/home';
 
   return (
-    <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''} ${isRTL ? 'rtl' : 'ltr'}`}>
+    <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
       <Header />
       <main className="flex-grow pt-16">
         {children}
