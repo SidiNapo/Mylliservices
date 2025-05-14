@@ -39,6 +39,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     } else {
       document.body.classList.remove('rtl');
     }
+
+    // Add console log for debugging
+    console.log(`Language direction set to: ${isRTL ? 'RTL' : 'LTR'}`);
   }, [isRTL]);
 
   // Only apply special styling to the home page
