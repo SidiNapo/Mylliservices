@@ -1,4 +1,5 @@
 
+import React, { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,13 +17,12 @@ import InfirmierPage from "./pages/services/Infirmier";
 import ArticlesPage from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
-import { useEffect } from "react";
 import { initEmailJS } from "./utils/emailjs";
 import { LanguageProvider } from "./context/LanguageContext";
 
 const queryClient = new QueryClient();
 
-const App = () => {
+const App: React.FC = () => {
   // Initialize EmailJS when the app loads
   useEffect(() => {
     try {
