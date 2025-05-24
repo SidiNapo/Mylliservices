@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
 
 const Footer = () => {
@@ -14,10 +15,8 @@ const Footer = () => {
           {/* About Section with Updated Logo */}
           <div>
             <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2 mb-4`}>
-              <img src="/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png" alt="Mylli Services Logo" className="w-10 h-10" />
-              <div className="font-serif font-bold text-xl">
-                <span className="text-red-500">Mylli</span> <span className="text-mylli-primary">Services</span>
-              </div>
+              <img src="/lovable-uploads/ded65620-decd-481e-af15-8a646459626b.png" alt="Mylli Services Logo" className="w-10 h-10" />
+              <BrandName />
             </Link>
             <p className="text-mylli-gray mb-6">
               {t('footer.about')}
@@ -80,7 +79,7 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-mylli-gray text-sm">&copy; {currentYear} Mylli Services. {t('footer.rights')}</p>
+          <p className="text-mylli-gray text-sm">&copy; {currentYear} <BrandName size="sm" />. {t('footer.rights')}</p>
           <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
           </div>
         </div>

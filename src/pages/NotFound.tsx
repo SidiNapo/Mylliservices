@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
+import BrandName from "@/components/common/BrandName";
 import { useLanguage } from "@/context/LanguageContext";
 
 const NotFound = () => {
@@ -32,6 +33,9 @@ const NotFound = () => {
             {t('notFound.button')}
           </Link>
         </Button>
+        <div className="mt-8">
+          <BrandName size="lg" />
+        </div>
       </div>
     </div>
   );
