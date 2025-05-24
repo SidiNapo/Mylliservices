@@ -1,28 +1,15 @@
 
-import React from 'react';
+import React from "react";
 
-interface BrandNameProps {
-  className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-}
-
-const BrandName: React.FC<BrandNameProps> = ({ className = '', size = 'md' }) => {
-  const sizeClasses = {
-    sm: 'text-sm',
-    md: 'text-xl',
-    lg: 'text-2xl',
-    xl: 'text-3xl'
-  };
-
+/**
+ * Always renders "Mylli Services" in Gliker Bold,
+ * with the single letter "y" in red (#ff0707)
+ * and all other letters in blue (#029edd).
+ */
+export default function BrandName() {
   return (
-    <span className={`brand-name ${sizeClasses[size]} ${className}`}>
-      <span className="mylli-m">M</span>
-      <span className="mylli-y">y</span>
-      <span className="mylli-lli">lli</span>
-      <span> </span>
-      <span className="services">Services</span>
+    <span className="font-gliker-bold whitespace-nowrap text-[#029edd]">
+      M<span className="text-[#ff0707]">y</span>lli Services
     </span>
   );
-};
-
-export default BrandName;
+}
