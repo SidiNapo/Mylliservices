@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const {
@@ -78,11 +79,12 @@ const Footer = () => {
         
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-mylli-gray text-sm">&copy; {currentYear} <BrandName size="sm" />. {t('footer.rights')}</p>
+          <p className="text-mylli-gray text-sm">&copy; {currentYear} <BrandName />. {t('footer.rights')}</p>
           <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
           </div>
         </div>
       </div>
     </footer>;
 };
+
 export default Footer;

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import LanguageSwitcher from '../common/LanguageSwitcher';
 import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -61,7 +62,7 @@ const Header = () => {
         {/* Logo */}
         <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
           <img alt="Mylli Services Logo" className="w-12 h-12" src="/lovable-uploads/8cb50a5a-ea46-4772-8942-ebf7172e3790.png" />
-          <BrandName size="lg" />
+          <BrandName />
         </Link>
         
         {/* Desktop Navigation */}
@@ -105,4 +106,5 @@ const Header = () => {
         </div>}
     </header>;
 };
+
 export default Header;
