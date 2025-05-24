@@ -1,21 +1,20 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const { t, isRTL } = useLanguage();
-  
-  return (
-    <footer className="bg-gray-50 pt-16 pb-8">
+  const {
+    t,
+    isRTL
+  } = useLanguage();
+  return <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section with Updated Logo */}
           <div>
             <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2 mb-4`}>
-              <img src="/lovable-uploads/Logo Mylli Services.png" alt="Mylli Services Logo" className="w-10 h-10" />
+              <img alt="Mylli Services Logo" className="w-10 h-10" src="/lovable-uploads/5de6ff35-cb9d-4b50-b207-1ba6bd3bd5e0.png" />
               <BrandName />
             </Link>
             <p className="text-mylli-gray mb-6">
@@ -84,8 +83,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
