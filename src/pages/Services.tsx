@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ServiceCard from '@/components/common/ServiceCard';
+import BrandName from '@/components/common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
 
 const ServicesPage = () => {
