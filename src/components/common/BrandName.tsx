@@ -8,7 +8,7 @@ import React from "react";
  */
 export default function BrandName() {
   return (
-    <strong className="font-gliker-bold whitespace-nowrap text-[#029edd]">
+    <strong className="font-gliker-bold font-black whitespace-nowrap text-[#029edd]">
       M<span className="text-[#ff0707]">y</span>lli Services
     </strong>
   );
