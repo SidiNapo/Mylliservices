@@ -33,19 +33,19 @@ const ServicesPage = () => {
   const gardeMaladeServices = [
     {
       title: t('footer.service.day'),
-      description: "Présence attentive et aide aux activités quotidiennes pendant la journée.",
+      description: t('services.gardemalade.desc'),
       icon: <Clock size={24} className="text-mylli-primary" />,
       link: "/services/garde-malade-jour",
     },
     {
       title: t('footer.service.night'),
-      description: "Surveillance nocturne et assistance pour un sommeil serein et sécurisé.",
+      description: t('services.gardemalade.desc'),
       icon: <Clock size={24} className="text-mylli-primary" />,
       link: "/services/garde-malade-nuit",
     },
     {
       title: t('footer.service.24h'),
-      description: "Présence continue avec relève d'équipe pour une assistance permanente.",
+      description: t('services.gardemalade.desc'),
       icon: <Clock size={24} className="text-mylli-primary" />,
       link: "/services/garde-malade-24h",
     }
@@ -101,7 +101,7 @@ const ServicesPage = () => {
         <div className="container-custom">
           <SectionHeading 
             title={t('services.gardemalade.title')}
-            subtitle="Une présence rassurante adaptée à vos besoins"
+            subtitle={t('services.gardemalade.desc')}
             align={isRTL ? "right" : "left"}
             className="max-w-2xl"
           />
@@ -117,10 +117,10 @@ const ServicesPage = () => {
                 <div className="bg-white rounded-lg p-4 border border-mylli-primary/20">
                   <h4 className="text-lg font-semibold text-mylli-dark mb-3 flex items-center">
                     <AlertCircle size={18} className="text-mylli-primary mr-2" />
-                    À savoir
+                    {t('common.learnMore')}
                   </h4>
                   <p className="text-sm text-mylli-gray">
-                    Tous nos gardes-malades sont formés aux premiers secours et possèdent une expérience significative dans l'accompagnement de personnes dépendantes. Nous assurons également une coordination permanente avec le personnel médical et les proches.
+                    {t('services.gardemalade.desc')}
                   </p>
                 </div>
               </div>
@@ -145,55 +145,6 @@ const ServicesPage = () => {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Exécution d'ordonnance médicale */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image placeholder */}
-            <div className={`animate-fade-in-right order-2 ${isRTL ? 'lg:order-2' : 'lg:order-1'}`}>
-              <div className="rounded-2xl overflow-hidden shadow-card border border-gray-100">
-                <div className="bg-mylli-primary/10 h-72 flex items-center justify-center">
-                  <div className="bg-white rounded-full p-4 shadow-md">
-                    <Heart size={64} className="text-mylli-primary" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Content */}
-            <div className={`animate-fade-in-left order-1 ${isRTL ? 'lg:order-1' : 'lg:order-2'}`}>
-              <h2 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6">Exécution d'ordonnance médicale</h2>
-              <p className="text-mylli-gray mb-6">
-                Nos professionnels de santé assurent le suivi rigoureux des prescriptions médicales. Ce service comprend l'administration correcte des médicaments, le suivi des traitements, les injections, pansements et autres soins prescrits par le médecin.
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center">
-                  <CheckCircle size={20} className={`text-mylli-secondary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
-                  <span>Administration de médicaments selon les prescriptions</span>
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle size={20} className={`text-mylli-secondary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
-                  <span>Surveillance des effets secondaires et interactions médicamenteuses</span>
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle size={20} className={`text-mylli-secondary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
-                  <span>Communication régulière avec le médecin traitant</span>
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle size={20} className={`text-mylli-secondary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
-                  <span>Tenue d'un dossier médical précis et à jour</span>
-                </li>
-              </ul>
-              <Button asChild className="btn-primary">
-                <Link to="/services/infirmier">
-                  En savoir plus sur nos services infirmiers
-                </Link>
-              </Button>
             </div>
           </div>
         </div>

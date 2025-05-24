@@ -19,12 +19,12 @@ import ArticleDetail from "./pages/ArticleDetail";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
 import { LanguageProvider } from "./context/LanguageContext";
-import "./styles/global.css"; // Import global CSS for RTL support
+import "./styles/global.css";
+import "./i18n/config"; // Initialize i18n
 
 const queryClient = new QueryClient();
 
 const App: React.FC = () => {
-  // Initialize EmailJS when the app loads
   useEffect(() => {
     try {
       initEmailJS();
@@ -52,7 +52,6 @@ const App: React.FC = () => {
               <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
               <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
               <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
             </Routes>
           </BrowserRouter>

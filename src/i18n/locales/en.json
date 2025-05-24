@@ -1,0 +1,203 @@
+
+{
+  "brand": {
+    "name": "Mylli Services",
+    "tagline": "Quality home care and assistance"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Our Services",
+    "functioning": "How We Work",
+    "team": "Our Team",
+    "about": "About Us",
+    "articles": "Articles",
+    "contact": "Contact"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "discover": "Discover",
+    "contactUs": "Contact us",
+    "readMore": "Read more",
+    "seeAll": "See all",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "share": "Share",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address"
+  },
+  "home": {
+    "hero": {
+      "title": "WE ARE HERE TO HELP YOU!",
+      "subtitle": "For 10 years, home care for people with loss of autonomy",
+      "since": "Since 2014",
+      "cta": {
+        "discover": "Discover our services",
+        "contact": "Contact us"
+      }
+    },
+    "stats": {
+      "experience": "years of experience",
+      "clients": "satisfied clients",
+      "availability": "availability"
+    },
+    "services": {
+      "title": "Care Services",
+      "subtitle": "Professional Care",
+      "heading": "Personalized home care",
+      "description": "Our qualified professionals accompany you with respect and dignity in your daily life.",
+      "cta": "Discover our services"
+    },
+    "why": {
+      "title": "Why Choose Us",
+      "subtitle": "Exceptional services for your well-being",
+      "security": {
+        "title": "Safety & Trust",
+        "description": "Qualified and verified staff for safe and peaceful care."
+      },
+      "quality": {
+        "title": "Quality Service",
+        "description": "Personalized support and regular follow-up."
+      },
+      "availability": {
+        "title": "24/7 Availability",
+        "description": "Our team is available day and night."
+      }
+    },
+    "experience": {
+      "years": "years of experience",
+      "service": "available service",
+      "title": "By your side for 10 years",
+      "description": "Mylli Services has been supporting you since 2014 with constant commitment.",
+      "cta": "Learn more about us"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Professional care adapted to your needs",
+    "intro": "Discover our complete range of home care services.",
+    "main": {
+      "title": "Main Services",
+      "subtitle": "Our essential services"
+    },
+    "caregiver": {
+      "title": "Home caregiver",
+      "desc": "Preserving autonomy while accomplishing daily life activities."
+    },
+    "nurse": {
+      "title": "Home nurse",
+      "desc": "Medical care at home as an alternative to hospitalization."
+    },
+    "gardemalade": {
+      "title": "Care attendant services",
+      "desc": "Continuous presence and monitoring for vulnerable people."
+    },
+    "cta": {
+      "title": "Need help?",
+      "subtitle": "Contact us to discuss your needs",
+      "contact": "Contact us",
+      "functioning": "How it works"
+    }
+  },
+  "functioning": {
+    "title": "How We Work",
+    "subtitle": "Personalized support in 4 simple steps",
+    "step1": {
+      "title": "Home visit",
+      "description": "Our advisor takes time to meet you at your home."
+    },
+    "step2": {
+      "title": "Personalized proposal",
+      "description": "We develop a custom quote adapted to your situation."
+    },
+    "step3": {
+      "title": "Introduction of your caregiver",
+      "description": "We introduce you to the caregiver selected according to your criteria."
+    },
+    "step4": {
+      "title": "Satisfaction follow-up",
+      "description": "We conduct regular follow-ups to ensure quality."
+    },
+    "cta": {
+      "title": "Ready to start?",
+      "subtitle": "Schedule an appointment for a first meeting without commitment.",
+      "button": "Schedule appointment"
+    }
+  },
+  "articles": {
+    "title": "Our Health Articles",
+    "subtitle": "Reliable and updated information on health and aging",
+    "search": "Search for an article...",
+    "categories": "All categories",
+    "readTime": "min read",
+    "publishedOn": "Published on",
+    "noResults": {
+      "title": "No articles found",
+      "description": "Try with other keywords or categories",
+      "button": "See all articles"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "WE ARE HERE TO HELP YOU!",
+    "phone": {
+      "title": "Phone",
+      "description": "Available 7 days a week for emergencies"
+    },
+    "email": {
+      "title": "Email",
+      "description": "Response within 24 business hours"
+    },
+    "address": {
+      "title": "Address",
+      "street": "19, rue Masmouda hay Al Hana",
+      "city": "Casablanca - 20210"
+    },
+    "hours": {
+      "title": "Opening hours",
+      "weekdays": "Monday - Friday",
+      "weekdaysTime": "8:30 AM - 6:30 PM",
+      "saturday": "Saturday",
+      "saturdayTime": "9:00 AM - 4:00 PM",
+      "sunday": "Sunday",
+      "sundayTime": "Closed (Emergencies only)"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "Contact us directly via WhatsApp for a quick response.",
+      "button": "Contact via WhatsApp"
+    }
+  },
+  "footer": {
+    "about": "Mylli Services has been supporting you since 2014 with quality home care.",
+    "links": "Useful Links",
+    "services": "Our Services",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "service": {
+      "caregiver": "Caregiver",
+      "nurse": "Nurse",
+      "day": "Day care attendant",
+      "night": "Night care attendant",
+      "24h": "24h care attendant"
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for does not exist.",
+    "button": "Back to home"
+  },
+  "language": {
+    "french": "Français",
+    "english": "English",
+    "arabic": "العربية"
+  }
+}

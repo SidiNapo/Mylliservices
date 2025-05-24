@@ -1,30 +1,43 @@
+
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const {
-    t,
-    isRTL
-  } = useLanguage();
-  return <footer className="bg-gray-50 pt-16 pb-8">
+  const { t, isRTL } = useLanguage();
+
+  return (
+    <footer className="bg-gray-50 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* About Section with Updated Logo */}
+          {/* About Section */}
           <div>
             <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2 mb-4`}>
-              <img alt="Mylli Services Logo" className="w-10 h-10" src="/lovable-uploads/5de6ff35-cb9d-4b50-b207-1ba6bd3bd5e0.png" />
+              <img 
+                alt="Mylli Services Logo" 
+                className="w-10 h-10" 
+                src="/lovable-uploads/Logo-Mylli-Services.png" 
+              />
               <BrandName />
             </Link>
             <p className="text-mylli-gray mb-6">
               {t('footer.about')}
             </p>
-            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-3 ${isRTL ? 'mr-[80px]' : 'mx-[80px]'}`}>
-              <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+              <a 
+                href="https://web.facebook.com/mylliservices" 
+                aria-label="Facebook" 
+                className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors"
+              >
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
-              <a href="https://www.instagram.com/mylliservices" aria-label="Instagram" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+              <a 
+                href="https://www.instagram.com/mylliservices" 
+                aria-label="Instagram" 
+                className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors"
+              >
                 <Instagram size={18} className="text-mylli-primary" />
               </a>
             </div>
@@ -62,7 +75,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className={`text-mylli-primary mt-1 ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
-                <span className="text-mylli-gray">19, rue Masmouda hay Al Hana - Casablanca - 20210</span>
+                <span className="text-mylli-gray">{t('contact.address.street')}, {t('contact.address.city')}</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className={`text-mylli-primary ${isRTL ? 'ml-3' : 'mr-3'} flex-shrink-0`} />
@@ -79,10 +92,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-mylli-gray text-sm">&copy; {currentYear} <BrandName size="sm" />. {t('footer.rights')}</p>
-          <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
-          </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
