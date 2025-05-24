@@ -435,7 +435,7 @@ const HomePage = () => {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
                 <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                  <img src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" alt="Mylli Services Logo" className="w-full h-auto max-h-64 object-contain mx-auto mb-6" />
+                  <img alt="Mylli Services Logo" className="w-full h-auto max-h-64 object-contain mx-auto mb-6" src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" />
                   <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
                     <div className="flex items-center bg-mylli-light p-3 rounded-lg">
                       <span className="text-mylli-primary text-4xl font-bold">10</span>
