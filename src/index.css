@@ -47,6 +47,15 @@
     --sidebar-ring: 201 100% 35%;
   }
 
+  /* Load Gliker Bold font */
+  @font-face {
+    font-family: 'Gliker Bold';
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
   * {
     @apply border-border;
   }
@@ -63,16 +72,24 @@
     @apply font-serif font-bold tracking-tight;
   }
 
-  /* Brand Name Global Styling */
+  /* Brand Name Global Styling with Gliker Bold and specific colors */
   .brand-name {
-    font-family: 'Roboto', 'Gliker Bold', sans-serif;
-    font-weight: 900;
+    font-family: 'Gliker Bold', 'Inter', sans-serif;
+    font-weight: 700;
     white-space: nowrap;
     display: inline-block;
   }
   
-  .brand-name .mylli {
+  .brand-name .mylli-m {
+    color: #029edd;
+  }
+  
+  .brand-name .mylli-y {
     color: #ff0707;
+  }
+  
+  .brand-name .mylli-lli {
+    color: #029edd;
   }
   
   .brand-name .services {

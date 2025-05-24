@@ -16,7 +16,11 @@ const BrandName: React.FC<BrandNameProps> = ({ className = '', size = 'md' }) =>
 
   return (
     <span className={`brand-name ${sizeClasses[size]} ${className}`}>
-      <span className="mylli">Mylli</span> <span className="services">Services</span>
+      <span className="mylli-m">M</span>
+      <span className="mylli-y">y</span>
+      <span className="mylli-lli">lli</span>
+      <span> </span>
+      <span className="services">Services</span>
     </span>
   );
 };

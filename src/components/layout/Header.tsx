@@ -60,7 +60,7 @@ const Header = () => {
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-          <img src="/lovable-uploads/ded65620-decd-481e-af15-8a646459626b.png" alt="Mylli Services Logo" className="w-12 h-12" />
+          <img src="/lovable-uploads/Logo Mylli Services.png" alt="Mylli Services Logo" className="w-12 h-12" />
           <BrandName size="lg" />
         </Link>
         

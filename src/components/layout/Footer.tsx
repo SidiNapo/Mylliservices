@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import BrandName from '../common/BrandName';
@@ -15,7 +14,7 @@ const Footer = () => {
           {/* About Section with Updated Logo */}
           <div>
             <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2 mb-4`}>
-              <img src="/lovable-uploads/ded65620-decd-481e-af15-8a646459626b.png" alt="Mylli Services Logo" className="w-10 h-10" />
+              <img src="/lovable-uploads/Logo Mylli Services.png" alt="Mylli Services Logo" className="w-10 h-10" />
               <BrandName />
             </Link>
             <p className="text-mylli-gray mb-6">
