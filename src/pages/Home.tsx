@@ -280,11 +280,7 @@ const HomePage = () => {
               {/* Modern content card with image thumbnails */}
               <div className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
                 {/* Logo display */}
-                <div className="absolute top-4 right-4 z-30 bg-white/90 p-2 rounded-full shadow-md">
-                  <div className="w-12 h-12 relative">
-                    <img src="/lovable-uploads/1c035456-39b2-452e-8fb0-71bcc202e7d1.png" alt="Mylli Services Logo" className="w-full h-full object-contain" />
-                  </div>
-                </div>
+                
                 
                 {/* Top photo highlight */}
                 <div className="relative h-48 overflow-hidden group">
