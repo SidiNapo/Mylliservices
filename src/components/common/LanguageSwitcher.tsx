@@ -24,15 +24,15 @@ const LanguageSwitcher: React.FC = () => {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} gap-2`}>
           <Globe size={18} />
-          <span className="hidden sm:inline">{languages.find(l => l.code === language)?.name || 'Language'}</span>
+          <span className="hidden sm:inline">{languages.find(l => l.code === language)?.name || 'Langue'}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align={isRTL ? "start" : "end"} className={`${isRTL ? "rtl" : ""} bg-white border shadow-lg z-50`}>
+      <DropdownMenuContent align={isRTL ? "start" : "end"} className={isRTL ? "rtl" : ""}>
         {languages.map((lang) => (
           <DropdownMenuItem 
             key={lang.code}
             onClick={() => setLanguage(lang.code)}
-            className={`${language === lang.code ? 'bg-mylli-primary/10 font-medium' : ''} cursor-pointer hover:bg-gray-100`}
+            className={`${language === lang.code ? 'bg-mylli-primary/10 font-medium' : ''} cursor-pointer`}
           >
             {lang.name}
           </DropdownMenuItem>

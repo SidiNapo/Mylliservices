@@ -1,30 +1,26 @@
 
 import React from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 interface BrandNameProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const BrandName: React.FC<BrandNameProps> = ({ size = 'md', className = '' }) => {
-  const { t } = useLanguage();
-  
+const BrandName: React.FC<BrandNameProps> = ({ className = '', size = 'md' }) => {
   const sizeClasses = {
     sm: 'text-sm',
-    md: 'text-lg',
-    lg: 'text-xl',
-    xl: 'text-2xl'
+    md: 'text-xl',
+    lg: 'text-2xl',
+    xl: 'text-3xl'
   };
 
-  // Get the brand name from translations
-  const brandName = t('brand.name');
-  
   return (
     <span className={`brand-name ${sizeClasses[size]} ${className}`}>
-      <span className="mylli">Myll</span>
-      <span className="y-letter">y</span>
-      <span className="services"> Services</span>
+      <span className="mylli-m">M</span>
+      <span className="mylli-y">y</span>
+      <span className="mylli-lli">lli</span>
+      <span> </span>
+      <span className="services">Services</span>
     </span>
   );
 };
