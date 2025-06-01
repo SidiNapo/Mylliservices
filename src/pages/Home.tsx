@@ -695,51 +695,7 @@ const HomePage = () => {
       </section>
       
       {/* CTA Contact Section - Updated with logo colors and black text for better visibility */}
-      <section className="section-padding bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-dark text-white">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="animate-fade-in-right">
-              <div className="inline-block px-3 py-1 bg-white/10 text-white/90 rounded-full mb-6">
-                Besoin d'aide?
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Un service d'<span className="text-mylli-secondary">accompagnement</span> adapté à vos besoins</h2>
-              <p className="text-lg opacity-90 mb-8">
-                Contactez-nous dès aujourd'hui pour discuter de vos besoins spécifiques. Notre équipe est à votre écoute pour vous proposer une solution adaptée à votre situation.
-              </p>
-              <div className="glass-card p-6 mb-8">
-                <h3 className="text-xl font-bold mb-4 flex items-center">
-                  <CheckCircle size={24} className="mr-2 text-mylli-secondary" />
-                  Pourquoi nous choisir?
-                </h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <Shield size={20} className="mr-3 mt-1 text-mylli-secondary" />
-                    <span>Plus de 10 ans d'expérience spécifique</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Shield size={20} className="mr-3 mt-1 text-mylli-secondary" />
-                    <span>Intervenants sélectionnés pour leurs qualités humaines</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Shield size={20} className="mr-3 mt-1 text-mylli-secondary" />
-                    <span>Suivi personnalisé de chaque patient</span>
-                  </li>
-                  <li className="flex items-start">
-                    <Shield size={20} className="mr-3 mt-1 text-mylli-secondary" />
-                    <span>Disponibilité et réactivité à toute demande</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="flex items-center">
-                <HomeIcon size={20} className="mr-2 text-mylli-secondary" />
-                <span>19, rue Masmouda hay Al Hana - Casablanca</span>
-              </div>
-            </div>
-            
-            
-          </div>
-        </div>
-      </section>
+      
     </div>;
 };
 export default HomePage;
