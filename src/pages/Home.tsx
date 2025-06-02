@@ -398,277 +398,289 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* Feature Section - Lazy load */}
+        {/* Feature Section - Lazy load with improved spacing */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'features')}>
-          {/* Decorative background elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-mylli-secondary/5 to-transparent rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-            
-            {/* Geometric patterns */}
-            <div className="absolute left-10 top-1/4 w-16 h-16 border border-mylli-primary/20 rounded-full"></div>
-            <div className="absolute right-20 bottom-1/4 w-24 h-24 border-2 border-mylli-secondary/10 rounded-lg rotate-12"></div>
-            <div className="absolute left-1/2 top-1/2 w-32 h-32 border border-mylli-quaternary/10 rounded-xl -rotate-12 transform -translate-x-1/2 -translate-y-1/2"></div>
-            
-            {/* Animated dots */}
-            <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse-soft"></div>
-            <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{
-            animationDelay: '1s'
-          }}></div>
-            <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{
-            animationDelay: '2s'
-          }}></div>
-          </div>
+          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+            {/* Decorative background elements */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-mylli-secondary/5 to-transparent rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
+              
+              {/* Geometric patterns */}
+              <div className="absolute left-10 top-1/4 w-16 h-16 border border-mylli-primary/20 rounded-full"></div>
+              <div className="absolute right-20 bottom-1/4 w-24 h-24 border-2 border-mylli-secondary/10 rounded-lg rotate-12"></div>
+              <div className="absolute left-1/2 top-1/2 w-32 h-32 border border-mylli-quaternary/10 rounded-xl -rotate-12 transform -translate-x-1/2 -translate-y-1/2"></div>
+              
+              {/* Animated dots */}
+              <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse-soft"></div>
+              <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{
+              animationDelay: '1s'
+            }}></div>
+              <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{
+              animationDelay: '2s'
+            }}></div>
+            </div>
         
-          <div className="container-custom relative z-10">
-            <header className="max-w-2xl mx-auto mb-16">
-              {/* Section heading */}
-              <SectionHeading 
-                title="Des services d'exception pour votre bien-être" 
-                variant="animated" 
-                highlightText="exception" 
-                className="text-center" 
-                id="features-heading"
-              />
-            </header>
-            
-            {/* Redesigned feature cards with modern 3D effects */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
-              {features.map((feature, index) => <div key={index} className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} style={{
-              animationDelay: `${index * 200}ms`
-            }}>
+            <div className="container-custom relative z-10">
+              <header className="max-w-2xl mx-auto mb-20">
+                {/* Section heading */}
+                <SectionHeading 
+                  title="Des services d'exception pour votre bien-être" 
+                  variant="animated" 
+                  highlightText="exception" 
+                  className="text-center" 
+                  id="features-heading"
+                />
+              </header>
+              
+              {/* Redesigned feature cards with modern 3D effects */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
+                {features.map((feature, index) => <div key={index} className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} style={{
+                animationDelay: `${index * 200}ms`
+              }}>
                   <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
                 </div>)}
-            </div>
-            
-            {/* New interactive trust indicators */}
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-primary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-primary/10 rounded-full p-3 mr-4">
-                  <Shield className="h-5 w-5 text-mylli-primary" />
+              </div>
+              
+              {/* New interactive trust indicators */}
+              <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-primary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+                  <div className="bg-mylli-primary/10 rounded-full p-3 mr-4">
+                    <Shield className="h-5 w-5 text-mylli-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-mylli-dark mb-1">Personnel qualifié</h4>
+                    <p className="text-sm text-mylli-gray">Nos intervenants sont soigneusement sélectionnés et formés</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Personnel qualifié</h4>
-                  <p className="text-sm text-mylli-gray">Nos intervenants sont soigneusement sélectionnés et formés</p>
+                
+                <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-secondary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+                  <div className="bg-mylli-secondary/10 rounded-full p-3 mr-4">
+                    <Heart className="h-5 w-5 text-mylli-secondary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-mylli-dark mb-1">Approche humaine</h4>
+                    <p className="text-sm text-mylli-gray">Nous plaçons l'humain au cœur de notre démarche</p>
+                  </div>
+                </div>
+                
+                <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-quaternary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
+                  <div className="bg-mylli-quaternary/10 rounded-full p-3 mr-4">
+                    <Star className="h-5 w-5 text-mylli-quaternary" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-mylli-dark mb-1">Services personnalisés</h4>
+                    <p className="text-sm text-mylli-gray">Des solutions adaptées à vos besoins spécifiques</p>
+                  </div>
                 </div>
               </div>
               
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-secondary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-secondary/10 rounded-full p-3 mr-4">
-                  <Heart className="h-5 w-5 text-mylli-secondary" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Approche humaine</h4>
-                  <p className="text-sm text-mylli-gray">Nous plaçons l'humain au cœur de notre démarche</p>
-                </div>
-              </div>
-              
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-quaternary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-quaternary/10 rounded-full p-3 mr-4">
-                  <Star className="h-5 w-5 text-mylli-quaternary" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Services personnalisés</h4>
-                  <p className="text-sm text-mylli-gray">Des solutions adaptées à vos besoins spécifiques</p>
-                </div>
+              {/* Interactive call-to-action */}
+              <div className="mt-16 text-center">
+                <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
+                  <span className="mr-2">Découvrir nos services</span>
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </div>
             </div>
             
-            {/* Interactive call-to-action */}
-            <div className="mt-16 text-center">
-              <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
-                <span className="mr-2">Découvrir nos services</span>
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+            {/* Modern wave divider at bottom */}
+            <div className="absolute bottom-0 left-0 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 text-white">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
+              </svg>
             </div>
-          </div>
-          
-          {/* Modern wave divider at bottom */}
-          <div className="absolute bottom-0 left-0 w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 text-white">
-              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
-            </svg>
           </div>
         </LazySection>
         
-        {/* About Section - Lazy load */}
+        {/* About Section - Lazy load with improved spacing and updated content */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'about')}>
-          <div className="container-custom relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <aside>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
-                  <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                    <OptimizedImage
-                      src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png"
-                      alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014"
-                      width={400}
-                      height={256}
-                      className="w-full h-auto max-h-64 object-contain mx-auto mb-6"
-                    />
-                    <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-primary text-4xl font-bold">10</span>
-                        <span className="ml-2 text-mylli-dark">années<br />d'expérience</span>
-                      </div>
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-secondary text-4xl font-bold">24/7</span>
-                        <span className="ml-2 text-mylli-dark">service<br />disponible</span>
+          <div className="section-padding bg-white relative py-24 md:py-32">
+            <div className="container-custom relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <aside>
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
+                    <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
+                      <OptimizedImage
+                        src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png"
+                        alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014"
+                        width={400}
+                        height={256}
+                        className="w-full h-auto max-h-64 object-contain mx-auto mb-6"
+                      />
+                      <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
+                        <div className="flex items-center bg-mylli-light p-3 rounded-lg">
+                          <span className="text-mylli-primary text-4xl font-bold">10+</span>
+                          <span className="ml-2 text-mylli-dark">années<br />d'expérience</span>
+                        </div>
+                        <div className="flex items-center bg-mylli-light p-3 rounded-lg">
+                          <span className="text-mylli-secondary text-4xl font-bold">24/7</span>
+                          <span className="ml-2 text-mylli-dark">service<br />disponible</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </aside>
-              
-              <article>
-                <header>
-                  <SectionHeading 
-                    title="Depuis 10 ans à vos côtés" 
-                    subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
-                    align="left" 
-                    variant="gradient"
-                    id="about-heading"
-                  />
-                </header>
+                </aside>
                 
-                <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
-                  <p className="mb-4">
-                    Notre équipe de professionnels qualifiés offre une approche humaine et personnalisée adaptée aux besoins spécifiques de chaque patient.
-                  </p>
-                  <p>
-                    Grâce à notre expérience et notre dévouement, nous permettons aux personnes en perte d'autonomie de rester chez elles dans les meilleures conditions possibles.
-                  </p>
-                </div>
-                
-                <div className="animate-fade-in flex">
-                  <Button asChild className="relative group overflow-hidden rounded-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:shadow-neon transition-all duration-300">
-                    <Link to="/apropos" className="relative z-10 flex items-center text-white font-medium">
-                      En savoir plus sur nous <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </div>
-              </article>
-            </div>
-          </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-mylli-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
-        </LazySection>
-        
-        {/* Services Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
-          <div className="container-custom relative z-10">
-            <header>
-              <SectionHeading 
-                title="Nos Services" 
-                subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
-                variant="gradient"
-                id="services-heading"
-              />
-            </header>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''}`}
-                  onMouseEnter={() => setHoverCard(index)}
-                  onMouseLeave={() => setHoverCard(-1)}
-                  onClick={() => handleServiceClick(service.title)}
-                >
-                  <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
-                  <p className="text-mylli-gray mb-6">{service.description}</p>
-                  <Link to={service.link} className="inline-flex items-center text-mylli-primary font-medium hover:text-mylli-primary-dark transition-colors">
-                    En savoir plus <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary to-mylli-quaternary transform transition-transform duration-300 ${hoverCard === index ? 'scale-x-100' : 'scale-x-0'}`}></div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="text-center animate-fade-in">
-              <Button asChild className="btn-primary bg-mylli-primary hover:bg-mylli-primary-dark">
-                <Link to="/services">
-                  Voir tous nos services <ArrowRight size={16} className="ml-2" />
-                </Link>
-              </Button>
-            </div>
-          </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-mylli-primary/5 blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
-        </LazySection>
-        
-        {/* How It Works Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'how_it_works')}>
-          <div className="container-custom relative z-10">
-            <header>
-              <SectionHeading 
-                title="Notre Fonctionnement" 
-                subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
-                variant="split" 
-                highlightText="Fonctionnement"
-                id="how-it-works-heading"
-              />
-            </header>
-            
-            <div className="relative">
-              {/* Connecting line */}
-              <div className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-mylli-primary via-mylli-secondary to-mylli-quaternary hidden md:block"></div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                {howItWorks.map((item, index) => <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
-                    {/* Connection point */}
-                    <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary hidden md:block"></div>
-                    
-                    {/* Card */}
-                    <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 h-20 w-20 bg-mylli-light rounded-bl-3xl flex items-start justify-end p-2">
-                        <span className="text-mylli-primary font-bold text-xl">{item.step}</span>
-                      </div>
-                      <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
-                      <p className="text-mylli-gray max-w-[80%]">{item.description}</p>
-                    </div>
-                  </div>)}
+                <article>
+                  <header>
+                    <SectionHeading 
+                      title="Plus de 10 ans d'expérience au service de la dignité humaine" 
+                      variant="gradient"
+                      align="left"
+                      id="about-heading"
+                    />
+                  </header>
+                  
+                  <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed space-y-4">
+                    <p>
+                      Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain.
+                    </p>
+                    <p>
+                      Cette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral et relationnel.
+                    </p>
+                    <p>
+                      Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de haute qualité, toujours empreint de respect et de bienveillance.
+                    </p>
+                  </div>
+                  
+                  <div className="animate-fade-in flex">
+                    <Button asChild className="relative group overflow-hidden rounded-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:shadow-neon transition-all duration-300">
+                      <Link to="/apropos" className="relative z-10 flex items-center text-white font-medium">
+                        En savoir plus sur nous <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </Button>
+                  </div>
+                </article>
               </div>
             </div>
             
-            <div className="mt-16 text-center animate-fade-in">
-              <Button asChild variant="outline" className="border-mylli-primary text-mylli-primary hover:bg-mylli-primary hover:text-white">
-                <Link to="/fonctionnement">
-                  En savoir plus sur notre fonctionnement <ArrowRight size={16} className="ml-2" />
-                </Link>
-              </Button>
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-mylli-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
+          </div>
+        </LazySection>
+        
+        {/* Services Section - Lazy load with improved spacing */}
+        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
+          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+            <div className="container-custom relative z-10">
+              <header>
+                <SectionHeading 
+                  title="Nos Services" 
+                  subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
+                  variant="gradient"
+                  id="services-heading"
+                />
+              </header>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                {services.map((service, index) => (
+                  <div 
+                    key={index} 
+                    className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''}`}
+                    onMouseEnter={() => setHoverCard(index)}
+                    onMouseLeave={() => setHoverCard(-1)}
+                    onClick={() => handleServiceClick(service.title)}
+                  >
+                    <div className="mb-4">{service.icon}</div>
+                    <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
+                    <p className="text-mylli-gray mb-6">{service.description}</p>
+                    <Link to={service.link} className="inline-flex items-center text-mylli-primary font-medium hover:text-mylli-primary-dark transition-colors">
+                      En savoir plus <ArrowRight size={16} className="ml-1" />
+                    </Link>
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary to-mylli-quaternary transform transition-transform duration-300 ${hoverCard === index ? 'scale-x-100' : 'scale-x-0'}`}></div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="text-center animate-fade-in">
+                <Button asChild className="btn-primary bg-mylli-primary hover:bg-mylli-primary-dark">
+                  <Link to="/services">
+                    Voir tous nos services <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-mylli-primary/5 blur-3xl"></div>
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
+          </div>
+        </LazySection>
+        
+        {/* How It Works Section - Lazy load with improved spacing */}
+        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'how_it_works')}>
+          <div className="section-padding bg-white relative py-24 md:py-32">
+            <div className="container-custom relative z-10">
+              <header>
+                <SectionHeading 
+                  title="Notre Fonctionnement" 
+                  subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
+                  variant="split" 
+                  highlightText="Fonctionnement"
+                  id="how-it-works-heading"
+                />
+              </header>
+              
+              <div className="relative">
+                {/* Connecting line */}
+                <div className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-mylli-primary via-mylli-secondary to-mylli-quaternary hidden md:block"></div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                  {howItWorks.map((item, index) => <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
+                      {/* Connection point */}
+                      <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary hidden md:block"></div>
+                      
+                      {/* Card */}
+                      <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 h-20 w-20 bg-mylli-light rounded-bl-3xl flex items-start justify-end p-2">
+                          <span className="text-mylli-primary font-bold text-xl">{item.step}</span>
+                        </div>
+                        <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
+                        <p className="text-mylli-gray max-w-[80%]">{item.description}</p>
+                      </div>
+                    </div>)}
+                </div>
+              </div>
+              
+              <div className="mt-16 text-center animate-fade-in">
+                <Button asChild variant="outline" className="border-mylli-primary text-mylli-primary hover:bg-mylli-primary hover:text-white">
+                  <Link to="/fonctionnement">
+                    En savoir plus sur notre fonctionnement <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Background decoration */}
+            <div className="absolute top-20 right-0 opacity-5">
+              <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#0077C0" d="M40.8,-70.3C52.6,-61.8,61.4,-49.5,67.8,-36.1C74.1,-22.7,77.9,-8.3,76.8,6.1C75.7,20.5,69.8,34.9,60.3,45.2C50.9,55.5,37.9,61.8,24.4,64.8C10.9,67.8,-3,67.5,-17.5,65.3C-32,63.1,-47.1,58.9,-54.4,48.5C-61.8,38.2,-61.3,21.6,-64.3,5.5C-67.4,-10.6,-74.1,-26.3,-71,-39.9C-67.9,-53.5,-55.1,-65,-40.9,-72.9C-26.7,-80.9,-11.1,-85.2,2.5,-89.4C16,-93.7,29,-78.8,40.8,-70.3Z" transform="translate(100 100)" />
+              </svg>
+            </div>
+            
+            <div className="absolute bottom-10 left-0 opacity-5">
+              <svg width="250" height="250" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
+              </svg>
             </div>
           </div>
-          
-          {/* Background decoration */}
-          <div className="absolute top-20 right-0 opacity-5">
-            <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#0077C0" d="M40.8,-70.3C52.6,-61.8,61.4,-49.5,67.8,-36.1C74.1,-22.7,77.9,-8.3,76.8,6.1C75.7,20.5,69.8,34.9,60.3,45.2C50.9,55.5,37.9,61.8,24.4,64.8C10.9,67.8,-3,67.5,-17.5,65.3C-32,63.1,-47.1,58.9,-54.4,48.5C-61.8,38.2,-61.3,21.6,-64.3,5.5C-67.4,-10.6,-74.1,-26.3,-71,-39.9C-67.9,-53.5,-55.1,-65,-40.9,-72.9C-26.7,-80.9,-11.1,-85.2,2.5,-89.4C16,-93.7,29,-78.8,40.8,-70.3Z" transform="translate(100 100)" />
-            </svg>
-          </div>
-          
-          <div className="absolute bottom-10 left-0 opacity-5">
-            <svg width="250" height="250" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
-            </svg>
-          </div>
         </LazySection>
         
-        {/* Service Locations Section - Lazy load */}
+        {/* Service Locations Section - Lazy load with improved spacing */}
         <LazySection>
-          <ServiceLocations 
-            locations={serviceLocations} 
-            title="Nos Zones d'Intervention" 
-            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
-          />
+          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+            <ServiceLocations 
+              locations={serviceLocations} 
+              title="Nos Zones d'Intervention" 
+              subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
+            />
+          </div>
         </LazySection>
         
-        {/* Testimonial Section - Lazy load */}
+        {/* Testimonial Section - Lazy load with improved spacing */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'testimonials')}>
           {/* Background decoration elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -682,7 +694,7 @@ const HomePage = () => {
           </div>
 
           <div className="container-custom relative z-10">
-            <header className="max-w-2xl mx-auto text-center mb-12">
+            <header className="max-w-2xl mx-auto text-center mb-16">
               {/* Section heading */}
               <SectionHeading 
                 title="Ce que disent nos clients" 
