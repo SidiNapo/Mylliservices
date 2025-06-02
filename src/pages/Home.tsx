@@ -214,39 +214,11 @@ const HomePage = () => {
     trackEvent('cta_click', 'conversion', ctaName);
   };
 
-  // Function to scroll to testimonials section
-  const scrollToTestimonials = () => {
-    const testimonialsSection = document.getElementById('testimonials-heading');
-    if (testimonialsSection) {
-      testimonialsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Function to scroll to features section and open the Disponibilité 24/7 details
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById('features-heading');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-      // After scrolling, we need to trigger the expansion of the Disponibilité 24/7 feature
-      // This will simulate clicking on the "En savoir plus" button for that specific feature
-      setTimeout(() => {
-        // Find and click the third feature card's "En savoir plus" button (Disponibilité 24/7 is the third one)
-        const featureCards = document.querySelectorAll('.feature-highlight');
-        if (featureCards[2]) {
-          const button = featureCards[2].querySelector('button');
-          if (button) {
-            button.click();
-          }
-        }
-      }, 1000); // Wait for scroll to complete
-    }
-  };
-
   return (
     <>
       <SEOHead
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014"
-        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie."
+        description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
         keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
         canonicalUrl="/"
         structuredData={combinedSchema}
@@ -307,29 +279,20 @@ const HomePage = () => {
                   </p>
                 </header>
                 
-                {/* Stats - Now with interactive links */}
+                {/* Stats */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <Link 
-                    to="/apropos" 
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
-                  </Link>
-                  <button 
-                    onClick={scrollToTestimonials}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
                     <p className="text-xs text-white">interventions</p>
-                  </button>
-                  <button 
-                    onClick={scrollToFeatures}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
                     <p className="text-xs text-white">disponibilité</p>
-                  </button>
+                  </div>
                 </div>
               </div>
               
@@ -556,6 +519,15 @@ const HomePage = () => {
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
         </LazySection>
         
+        {/* Service Locations Section - Lazy load */}
+        <LazySection>
+          <ServiceLocations 
+            locations={serviceLocations} 
+            title="Nos Zones d'Intervention" 
+            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
+          />
+        </LazySection>
+        
         {/* Services Section - Lazy load */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
           <div className="container-custom relative z-10">
@@ -577,13 +549,7 @@ const HomePage = () => {
                   onMouseLeave={() => setHoverCard(-1)}
                   onClick={() => handleServiceClick(service.title)}
                 >
-                  <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
-                  <p className="text-mylli-gray mb-6">{service.description}</p>
-                  <Link to={service.link} className="inline-flex items-center text-mylli-primary font-medium hover:text-mylli-primary-dark transition-colors">
-                    En savoir plus <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary to-mylli-quaternary transform transition-transform duration-300 ${hoverCard === index ? 'scale-x-100' : 'scale-x-0'}`}></div>
+                  {/* ... keep existing code (service card content) */}
                 </div>
               ))}
             </div>
@@ -657,15 +623,6 @@ const HomePage = () => {
               <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
             </svg>
           </div>
-        </LazySection>
-        
-        {/* Service Locations Section - Lazy load */}
-        <LazySection>
-          <ServiceLocations 
-            locations={serviceLocations} 
-            title="Nos Zones d'Intervention" 
-            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
-          />
         </LazySection>
         
         {/* Testimonial Section - Lazy load */}
