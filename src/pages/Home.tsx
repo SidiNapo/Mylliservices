@@ -214,11 +214,27 @@ const HomePage = () => {
     trackEvent('cta_click', 'conversion', ctaName);
   };
 
+  // Function to scroll to testimonials section
+  const scrollToTestimonials = () => {
+    const testimonialsSection = document.getElementById('testimonials-heading');
+    if (testimonialsSection) {
+      testimonialsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Function to scroll to features section
+  const scrollToFeatures = () => {
+    const featuresSection = document.getElementById('features-heading');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <SEOHead
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014"
-        description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
+        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie."
         keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
         canonicalUrl="/"
         structuredData={combinedSchema}
@@ -275,24 +291,33 @@ const HomePage = () => {
                   </h1>
                   
                   <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed text-white">
-                    Depuis <span className="text-mylli-secondary font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
+                    Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
                 </header>
                 
-                {/* Stats */}
+                {/* Stats - Now with interactive links */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '10+' : '0'}</p>
+                  <Link 
+                    to="/apropos" 
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  >
+                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
-                  </div>
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '500+' : '0'}</p>
-                    <p className="text-xs text-white">clients satisfaits</p>
-                  </div>
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
+                  </Link>
+                  <button 
+                    onClick={scrollToTestimonials}
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  >
+                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
+                    <p className="text-xs text-white">interventions</p>
+                  </button>
+                  <button 
+                    onClick={scrollToFeatures}
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                  >
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
                     <p className="text-xs text-white">disponibilité</p>
-                  </div>
+                  </button>
                 </div>
               </div>
               
@@ -549,7 +574,13 @@ const HomePage = () => {
                   onMouseLeave={() => setHoverCard(-1)}
                   onClick={() => handleServiceClick(service.title)}
                 >
-                  {/* ... keep existing code (service card content) */}
+                  <div className="mb-4">{service.icon}</div>
+                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
+                  <p className="text-mylli-gray mb-6">{service.description}</p>
+                  <Link to={service.link} className="inline-flex items-center text-mylli-primary font-medium hover:text-mylli-primary-dark transition-colors">
+                    En savoir plus <ArrowRight size={16} className="ml-1" />
+                  </Link>
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary to-mylli-quaternary transform transition-transform duration-300 ${hoverCard === index ? 'scale-x-100' : 'scale-x-0'}`}></div>
                 </div>
               ))}
             </div>
