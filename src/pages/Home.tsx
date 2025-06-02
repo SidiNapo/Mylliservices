@@ -219,9 +219,7 @@ const HomePage = () => {
             {/* Left column: Text content */}
             <div className="text-center lg:text-left">
               <div className="inline-block relative mb-6">
-                <span className="text-sm font-medium px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-glass">
-                  <span className="animate-pulse text-mylli-secondary">★</span> Depuis 2014
-                </span>
+                
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
