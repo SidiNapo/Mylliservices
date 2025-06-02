@@ -205,6 +205,22 @@ const HomePage = () => {
     }
   };
 
+  // Function to trigger the availability feature expansion
+  const triggerAvailabilityFeature = () => {
+    // Find the availability feature card and trigger its expansion
+    const availabilityCard = document.querySelector('[data-feature="availability"]');
+    if (availabilityCard) {
+      const button = availabilityCard.querySelector('button[data-state]');
+      if (button) {
+        (button as HTMLButtonElement).click();
+        // Scroll to the feature after a short delay to ensure expansion
+        setTimeout(() => {
+          scrollToSection('availability-feature');
+        }, 100);
+      }
+    }
+  };
+
   return <>
       <SEOHead 
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
@@ -281,7 +297,7 @@ const HomePage = () => {
                     <p className="text-xs text-white">Interventions</p>
                   </button>
                   <button 
-                    onClick={() => scrollToSection('availability-feature')}
+                    onClick={triggerAvailabilityFeature}
                     className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
                   >
                     <p className="text-3xl font-bold text-mylli-quaternary group-hover:text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
@@ -374,13 +390,14 @@ const HomePage = () => {
               <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" id="features-heading" />
             </header>
             
-            {/* Redesigned feature cards with modern 3D effects - Updated with id for 24/7 availability */}
+            {/* Redesigned feature cards with modern 3D effects - Updated with data attributes */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
               {features.map((feature, index) => <div 
                 key={index} 
                 className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} 
                 style={{ animationDelay: `${index * 200}ms` }}
                 id={index === 2 ? 'availability-feature' : undefined}
+                data-feature={index === 2 ? 'availability' : undefined}
               >
                   <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
                 </div>)}
