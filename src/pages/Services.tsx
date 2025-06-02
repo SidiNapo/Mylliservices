@@ -6,10 +6,15 @@ import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ServiceCard from '@/components/common/ServiceCard';
 import BrandName from '@/components/common/BrandName';
+import SEOHead from '@/components/seo/SEOHead';
 import { useLanguage } from '@/context/LanguageContext';
+import { generateServicePageStructuredData } from '@/utils/structuredData';
 
 const ServicesPage = () => {
   const { t, isRTL } = useLanguage();
+  
+  // Generate structured data for services
+  const structuredData = generateServicePageStructuredData();
   
   // Main services
   const mainServices = [
@@ -53,6 +58,14 @@ const ServicesPage = () => {
   
   return (
     <div>
+      <SEOHead
+        title="Nos Services - Aide à domicile professionnelle | Mylli Services"
+        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs."
+        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca"
+        canonicalUrl="/services"
+        structuredData={structuredData}
+      />
+      
       <PageBanner 
         title={t('services.title')}
         subtitle={t('services.subtitle')}

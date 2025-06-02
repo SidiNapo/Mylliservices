@@ -135,12 +135,12 @@
   }
   
   .nav-link {
-    @apply relative text-gray-700 hover:text-mylli-primary transition-colors duration-300 px-4 py-2;
+    @apply relative text-gray-700 hover:text-mylli-primary transition-colors duration-300 px-4 py-2 font-medium;
   }
   
   .nav-link::after {
     content: '';
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-mylli-primary transition-all duration-300;
+    @apply absolute left-1/2 bottom-0 w-0 h-0.5 bg-mylli-primary transition-all duration-300 transform -translate-x-1/2;
   }
   
   .nav-link:hover::after {
@@ -148,7 +148,7 @@
   }
   
   .active-nav-link {
-    @apply text-mylli-primary;
+    @apply text-mylli-primary font-semibold;
   }
   
   .active-nav-link::after {
@@ -206,7 +206,8 @@
 
   /* New 3D Effects */
   .card-3d {
-    @apply relative transition-all duration-500 transform perspective-1000;
+    @apply relative transition-all duration-500 transform;
+    perspective: 1000px;
   }
 
   .card-3d:hover {
