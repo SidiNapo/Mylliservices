@@ -556,15 +556,6 @@ const HomePage = () => {
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
         </LazySection>
         
-        {/* Service Locations Section - Lazy load */}
-        <LazySection>
-          <ServiceLocations 
-            locations={serviceLocations} 
-            title="Nos Zones d'Intervention" 
-            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
-          />
-        </LazySection>
-        
         {/* Services Section - Lazy load */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
           <div className="container-custom relative z-10">
@@ -666,6 +657,15 @@ const HomePage = () => {
               <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
             </svg>
           </div>
+        </LazySection>
+        
+        {/* Service Locations Section - Lazy load */}
+        <LazySection>
+          <ServiceLocations 
+            locations={serviceLocations} 
+            title="Nos Zones d'Intervention" 
+            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
+          />
         </LazySection>
         
         {/* Testimonial Section - Lazy load */}
