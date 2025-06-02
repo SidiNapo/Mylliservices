@@ -1,298 +1,244 @@
-import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
-import PageBanner from '@/components/common/PageBanner';
-import SectionHeading from '@/components/common/SectionHeading';
+import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '@/components/common/ContactForm';
-import ParallaxSection from '@/components/common/ParallaxSection';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
-import MapInfoCard from '@/components/common/MapInfoCard';
-import { Card, CardContent } from "@/components/ui/card";
-import RecallRequestForm from '@/components/common/RecallRequestForm';
-const ContactPage = () => {
-  // Opening hours
-  const openingHours = [{
-    day: "Lundi - Vendredi",
-    hours: "8h30 - 18h30"
-  }, {
-    day: "Samedi",
-    hours: "9h00 - 16h00"
-  }, {
-    day: "Dimanche",
-    hours: "Fermé (Urgences uniquement)"
-  }];
+import SectionHeading from '@/components/common/SectionHeading';
+import SEOHead from '@/components/seo/SEOHead';
+import OptimizedImage from '@/components/seo/OptimizedImage';
+import { generateLocalBusinessSchema } from '@/utils/structuredData';
 
-  // FAQ items
-  const faqs = [{
-    question: "Quel est le délai de réponse après un premier contact?",
-    answer: "Nous nous engageons à vous répondre dans les 24 heures ouvrables suivant votre demande. Pour les cas urgents, nous mettons tout en œuvre pour vous recontacter dans les plus brefs délais."
-  }, {
-    question: "Quels documents sont nécessaires pour débuter une intervention?",
-    answer: "Pour mettre en place nos services, nous aurons besoin d'une pièce d'identité, d'informations médicales pertinentes (ordonnances, rapports médicaux récents), et éventuellement d'une attestation d'assurance si applicable."
-  }, {
-    question: "Quelles sont les modalités de paiement?",
-    answer: "Nous acceptons plusieurs modes de paiement : virement bancaire, chèque ou espèces. Les factures sont émises mensuellement, et nous proposons également des formules d'abonnement avec tarifs préférentiels."
-  }];
-  return <div>
-      <PageBanner title="Contactez-nous" subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!" />
-      
-      {/* Contact Info Section */}
-      <section className="py-20 relative bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-            {/* Phone */}
-            <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-2xl shadow-xl p-8 text-center transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary text-white flex items-center justify-center mx-auto mb-6">
-                <Phone size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-mylli-dark">Téléphone</h3>
-              <a href="tel:+212661377438" className="text-mylli-primary font-medium text-lg hover:underline">
-                +212 661 37 74 38
-              </a>
-              <p className="text-mylli-gray mt-3">
-                Disponible 7j/7 pour les urgences
-              </p>
-            </div>
-            
-            {/* Email */}
-            <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-2xl shadow-xl p-8 text-center transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent text-white flex items-center justify-center mx-auto mb-6">
-                <Mail size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-mylli-dark">Email</h3>
-              <a href="mailto:info@mylliservices.com" className="text-mylli-primary font-medium text-lg hover:underline">
-                info@mylliservices.com
-              </a>
-              <p className="text-mylli-gray mt-3">
-                Réponse sous 24h ouvrées
-              </p>
-            </div>
-            
-            {/* Address */}
-            <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-2xl shadow-xl p-8 text-center transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-mylli-accent to-mylli-dark text-white flex items-center justify-center mx-auto mb-6">
-                <MapPin size={32} className="text-white" />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-mylli-dark">Adresse</h3>
-              <p className="text-mylli-gray text-lg">
-                19, rue Masmouda hay Al Hana<br />
-                Casablanca - 20210
-              </p>
-              <p className="text-mylli-gray mt-3">
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-mylli-primary hover:underline">
-                  Voir sur Google Maps
-                </a>
-              </p>
-            </div>
-          </div>
-          
-          {/* WhatsApp and Hours - Redesigned with modern cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {/* WhatsApp */}
-            <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-white p-8 shadow-lg transform transition-all duration-500 hover:shadow-2xl">
-              <div className="flex items-center mb-6">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 mr-4">
-                  <path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-4-1.2-9 2.7-11.5S15.7 3.7 18.1 7.7c2.4 4 1.2 9-2.7 11.5" />
-                </svg>
-                <h3 className="text-2xl font-bold">WhatsApp</h3>
-              </div>
-              <p className="text-lg mb-6">
-                Contactez-nous directement par WhatsApp pour une réponse rapide à vos questions.
-              </p>
-              <a href="https://wa.me/212661377438" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-green-600 font-medium text-lg transition-all duration-300 hover:bg-green-50 hover:scale-105">
-                Contacter par WhatsApp
-              </a>
-            </div>
-            
-            {/* Opening Hours */}
-            <div className="bg-gradient-to-br from-mylli-light to-white rounded-2xl p-8 shadow-lg border border-mylli-primary/10">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-4">
-                  <Clock size={28} className="text-mylli-primary" />
-                </div>
-                <h3 className="text-2xl font-bold text-mylli-dark">Heures d'ouverture</h3>
-              </div>
-              <div className="space-y-4">
-                {openingHours.map((item, index) => <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
-                    <span className="text-lg text-mylli-dark font-medium">{item.day}</span>
-                    <span className="text-lg font-bold text-mylli-primary">{item.hours}</span>
-                  </div>)}
-              </div>
-              <div className="mt-6 flex items-start p-4 bg-mylli-primary/5 rounded-lg">
-                <AlertCircle size={20} className="text-mylli-accent mt-0.5 mr-3 flex-shrink-0" />
-                <p className="text-mylli-gray">
-                  Services d'intervention disponibles 24h/24 et 7j/7 selon vos besoins.
+const ContactPage = () => {
+  const contactInfo = [
+    {
+      icon: <Phone className="h-6 w-6" />,
+      title: "Téléphone",
+      details: "+212 661 377 438",
+      link: "tel:+212661377438",
+      description: "Appelez-nous pour une consultation immédiate"
+    },
+    {
+      icon: <Mail className="h-6 w-6" />,
+      title: "Email",
+      details: "info@mylliservices.com",
+      link: "mailto:info@mylliservices.com",
+      description: "Écrivez-nous pour toute question"
+    },
+    {
+      icon: <MapPin className="h-6 w-6" />,
+      title: "Adresse",
+      details: "19, rue Masmouda hay Al Hana, Casablanca 20210",
+      link: "https://maps.google.com/?q=19+rue+Masmouda+hay+Al+Hana+Casablanca",
+      description: "Visitez notre bureau principal"
+    },
+    {
+      icon: <Clock className="h-6 w-6" />,
+      title: "Horaires",
+      details: "24h/24 - 7j/7",
+      description: "Service disponible en permanence"
+    }
+  ];
+
+  const emergencyContact = {
+    title: "Urgences 24h/24",
+    phone: "+212 661 377 438",
+    description: "Pour toute urgence médicale ou besoin immédiat d'assistance"
+  };
+
+  // SEO structured data
+  const localBusinessSchema = generateLocalBusinessSchema();
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Mylli Services",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+212661377438",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "Arabic"],
+        "hoursAvailable": "Mo-Su 00:00-23:59"
+      }
+    }
+  };
+
+  const combinedSchema = {
+    "@context": "https://schema.org",
+    "@graph": [localBusinessSchema, contactSchema]
+  };
+
+  return (
+    <>
+      <SEOHead
+        title="Contact - Mylli Services | Aide à Domicile Casablanca | +212 661 377 438"
+        description="Contactez Mylli Services pour vos besoins d'aide à domicile à Casablanca. Devis gratuit, service 24h/24. Téléphone : +212 661 377 438"
+        keywords="contact Mylli Services, aide domicile Casablanca, devis gratuit, urgence 24h/24, téléphone +212661377438"
+        canonicalUrl="/contact"
+        structuredData={combinedSchema}
+      />
+
+      <div className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative py-20 bg-gradient-to-br from-mylli-primary/10 to-mylli-light overflow-hidden">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <header>
+                <h1 className="text-4xl md:text-5xl font-bold text-mylli-dark mb-6">
+                  Contactez-nous
+                </h1>
+                <p className="text-xl text-mylli-gray mb-8 leading-relaxed">
+                  Notre équipe est disponible 24h/24 pour répondre à vos questions et vous accompagner dans vos démarches.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Contact Form Section with Parallax - REDESIGNED */}
-      <section className="py-24 relative overflow-hidden">
-        {/* Modern Background with Overlapping Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-mylli-light via-white to-blue-50 z-0"></div>
-        
-        {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-[40%] h-[40%] bg-gradient-to-r from-mylli-primary/10 to-mylli-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl z-0"></div>
-        <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-gradient-to-l from-mylli-secondary/10 to-mylli-accent/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl z-0"></div>
-        
-        {/* Animated Wave Patterns */}
-        <div className="absolute inset-0 opacity-10 z-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute top-1/3 left-0 w-full opacity-20">
-            <path fill="#0099FF" fillOpacity="1" d="M0,160L40,149.3C80,139,160,117,240,128C320,139,400,181,480,181.3C560,181,640,139,720,133.3C800,128,880,160,960,186.7C1040,213,1120,235,1200,213.3C1280,192,1360,128,1400,96L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 left-0 w-full opacity-20">
-            <path fill="#E02E31" fillOpacity="1" d="M0,64L40,80C80,96,160,128,240,138.7C320,149,400,139,480,149.3C560,160,640,192,720,176C800,160,880,96,960,74.7C1040,53,1120,75,1200,101.3C1280,128,1360,160,1400,176L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-          </svg>
-        </div>
-        
-        {/* Floating Dots */}
-        <div className="absolute inset-0 z-0">
-          {[...Array(10)].map((_, i) => <div key={i} className={`absolute rounded-full bg-mylli-primary/10 animate-pulse-soft`} style={{
-          width: `${Math.random() * 20 + 5}px`,
-          height: `${Math.random() * 20 + 5}px`,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${Math.random() * 5 + 3}s`
-        }}></div>)}
-        </div>
-        
-        
-      </section>
-      
-      {/* Recall Request Section - REDESIGNED */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-mylli-light via-white to-blue-50">
-        {/* Modern Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-mylli-primary/5 rounded-full translate-x-1/3 -translate-y-1/2 blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-mylli-secondary/5 rounded-full -translate-x-1/3 translate-y-1/2 blur-3xl"></div>
-          
-          {/* Animated Dot Pattern */}
-          <div className="absolute inset-0 opacity-20">
-            {[...Array(20)].map((_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-r from-mylli-primary to-mylli-accent" style={{
-            width: `${Math.random() * 8 + 4}px`,
-            height: `${Math.random() * 8 + 4}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animation: `pulse-soft ${Math.random() * 5 + 3}s infinite ease-in-out`,
-            animationDelay: `${Math.random() * 3}s`
-          }}></div>)}
-          </div>
-          
-          {/* Abstract Curved Lines */}
-          
-        </div>
-        
-        <div className="container-custom relative z-10 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Recall Form - Modernized */}
-            
-            
-            {/* FAQ - Modernized */}
-            <div>
-              <div className="flex items-center mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mylli-secondary to-mylli-tertiary flex items-center justify-center p-3 shadow-lg mr-4">
-                  <MessageSquare className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-mylli-dark">Questions fréquentes</h3>
-              </div>
-              
-              <div className="space-y-6">
-                {faqs.map((faq, index) => <div key={index} className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-mylli-accent transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden group">
-                    {/* Corner Accent */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-bl-3xl"></div>
-                    
-                    <h4 className="text-lg font-bold mb-3 text-mylli-dark">{faq.question}</h4>
-                    <p className="text-mylli-gray relative z-10">{faq.answer}</p>
-                    
-                    {/* Icon Watermark */}
-                    <div className="absolute bottom-2 right-2 text-mylli-accent/5 transform transition-all duration-300 group-hover:scale-110">
-                      <MessageSquare className="h-12 w-12" />
-                    </div>
-                  </div>)}
-              </div>
-              
-              {/* Additional Help Link */}
-              <div className="mt-8 text-center lg:text-right">
-                <a href="#" className="inline-flex items-center text-mylli-primary hover:text-mylli-accent transition-colors duration-300 group">
-                  <span className="mr-2">Plus de questions-réponses</span>
-                  <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Map Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.1),_transparent_70%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
-        
-        <div className="container-custom relative z-10">
-          <SectionHeading title="Notre emplacement" subtitle="Venez nous rencontrer au cœur de Casablanca" variant="gradient" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-            {/* Info Card */}
-            <div className="lg:col-span-2">
-              <MapInfoCard address="19, rue Masmouda hay Al Hana, Casablanca - 20210" phone="+212 661 37 74 38" hours={[{
-              day: "Lundi - Vendredi",
-              hours: "8h30 - 18h30"
-            }, {
-              day: "Samedi",
-              hours: "9h00 - 16h00"
-            }, {
-              day: "Dimanche",
-              hours: "Fermé"
-            }]} className="h-full transform transition-all duration-500 hover:shadow-2xl" />
-            </div>
-            
-            {/* Google Map */}
-            <div className="lg:col-span-3 h-[550px]">
-              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
-                <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
                 
-                {/* Location pin overlay */}
-                <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg">
-                  <div className="relative flex items-center justify-center">
-                    <div className="absolute w-8 h-8 bg-mylli-primary/30 rounded-full animate-ping"></div>
-                    <div className="relative z-10 w-8 h-8 bg-mylli-primary rounded-full flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-white" />
-                    </div>
+                {/* Emergency Contact Highlight */}
+                <div className="bg-mylli-primary/10 border-l-4 border-mylli-primary p-4 rounded-r-lg mb-6">
+                  <div className="flex items-center mb-2">
+                    <MessageCircle className="h-5 w-5 text-mylli-primary mr-2" />
+                    <h3 className="font-bold text-mylli-dark">{emergencyContact.title}</h3>
                   </div>
+                  <p className="text-sm text-mylli-gray mb-2">{emergencyContact.description}</p>
+                  <a 
+                    href={`tel:${emergencyContact.phone}`}
+                    className="text-mylli-primary font-bold text-lg hover:underline"
+                  >
+                    {emergencyContact.phone}
+                  </a>
                 </div>
-                
-                {/* Company card overlay */}
-                <div className="absolute bottom-6 left-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl p-4 shadow-lg max-w-xs">
-                  <h4 className="text-xl font-bold mb-1 text-mylli-dark">Mylli Services</h4>
-                  <p className="text-mylli-gray text-sm">
-                    19, rue Masmouda hay Al Hana,<br />Casablanca - 20210
+              </header>
+              
+              <aside className="relative">
+                <OptimizedImage
+                  src="/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png"
+                  alt="Équipe Mylli Services disponible pour vous aider"
+                  width={600}
+                  height={400}
+                  className="rounded-2xl shadow-lg"
+                  priority={true}
+                />
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Information */}
+        <section className="py-20 bg-white" aria-labelledby="contact-info-heading">
+          <div className="container-custom">
+            <header>
+              <SectionHeading
+                title="Nos Coordonnées"
+                subtitle="Plusieurs moyens de nous joindre selon vos préférences"
+                variant="gradient"
+                id="contact-info-heading"
+              />
+            </header>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {contactInfo.map((info, index) => (
+                <article key={index} className="bg-white rounded-xl p-6 shadow-soft border border-gray-100 hover:shadow-card hover:border-mylli-primary/20 transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-mylli-primary mb-4">{info.icon}</div>
+                  <h3 className="font-bold text-mylli-dark mb-2">{info.title}</h3>
+                  <div className="text-mylli-gray mb-2">
+                    {info.link ? (
+                      <a 
+                        href={info.link}
+                        className="hover:text-mylli-primary transition-colors"
+                        target={info.link.startsWith('http') ? '_blank' : undefined}
+                        rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      >
+                        {info.details}
+                      </a>
+                    ) : (
+                      info.details
+                    )}
+                  </div>
+                  <p className="text-sm text-mylli-gray">{info.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form and Map */}
+        <section className="py-20 bg-mylli-light/30" aria-labelledby="contact-form-heading">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <div>
+                <header className="mb-8">
+                  <h2 id="contact-form-heading" className="text-3xl font-bold text-mylli-dark mb-4">
+                    Demandez votre devis gratuit
+                  </h2>
+                  <p className="text-mylli-gray">
+                    Remplissez ce formulaire et nous vous recontacterons dans les plus brefs délais pour établir un devis personnalisé.
                   </p>
+                </header>
+                <ContactForm />
+              </div>
+
+              {/* Map */}
+              <div>
+                <header className="mb-8">
+                  <h2 className="text-3xl font-bold text-mylli-dark mb-4">
+                    Notre Localisation
+                  </h2>
+                  <p className="text-mylli-gray">
+                    Retrouvez-nous à notre bureau principal à Casablanca pour un rendez-vous personnalisé.
+                  </p>
+                </header>
+                <div className="bg-white rounded-xl shadow-soft overflow-hidden">
+                  <GoogleMapEmbed 
+                    address="19, rue Masmouda hay Al Hana, Casablanca 20210"
+                  />
                 </div>
               </div>
             </div>
           </div>
-          
-          {/* Additional information cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-primary">
-              <h4 className="font-bold mb-2 text-mylli-dark">Transport en commun</h4>
-              <p className="text-mylli-gray">Facilement accessible par les lignes de tramway et bus à proximité</p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-secondary">
-              <h4 className="font-bold mb-2 text-mylli-dark">Stationnement</h4>
-              <p className="text-mylli-gray">Parking gratuit disponible pour nos clients</p>
-            </div>
-            
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-accent">
-              <h4 className="font-bold mb-2 text-mylli-dark">Accessibilité</h4>
-              <p className="text-mylli-gray">Nos locaux sont entièrement accessibles aux personnes à mobilité réduite</p>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-white" aria-labelledby="faq-heading">
+          <div className="container-custom">
+            <header>
+              <SectionHeading
+                title="Questions Fréquentes"
+                subtitle="Trouvez rapidement les réponses à vos questions"
+                variant="split"
+                highlightText="Questions"
+                id="faq-heading"
+              />
+            </header>
+
+            <div className="max-w-3xl mx-auto space-y-6">
+              {[
+                {
+                  question: "Combien coûtent vos services ?",
+                  answer: "Nos tarifs varient selon le type de service et la durée d'intervention. Nous proposons un devis gratuit personnalisé après évaluation de vos besoins."
+                },
+                {
+                  question: "Vos intervenants sont-ils qualifiés ?",
+                  answer: "Oui, tous nos intervenants sont diplômés et possèdent les qualifications requises. Ils sont également régulièrement formés aux nouvelles pratiques."
+                },
+                {
+                  question: "Intervenez-vous en urgence ?",
+                  answer: "Nous proposons un service d'urgence 24h/24 et 7j/7. N'hésitez pas à nous appeler pour toute situation urgente."
+                },
+                {
+                  question: "Dans quelles zones intervenez-vous ?",
+                  answer: "Nous intervenons principalement à Casablanca, Mohammedia, Bouskoura, Dar Bouazza, mais aussi à Marrakech et Rabat."
+                }
+              ].map((faq, index) => (
+                <details key={index} className="bg-white rounded-lg border border-gray-200 p-6 hover:border-mylli-primary/30 transition-colors">
+                  <summary className="font-semibold text-mylli-dark cursor-pointer hover:text-mylli-primary transition-colors">
+                    {faq.question}
+                  </summary>
+                  <p className="mt-3 text-mylli-gray leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-    </div>;
+        </section>
+      </div>
+    </>
+  );
 };
+
 export default ContactPage;
