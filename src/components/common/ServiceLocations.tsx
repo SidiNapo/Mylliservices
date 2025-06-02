@@ -1,6 +1,5 @@
-
-import React from 'react';
-import { MapPin, Heart, Phone, Building, Landmark, Clock, Users, Shield } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Heart, Phone, Building, Landmark, Check, Clock, Users, Shield } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
 import SectionHeading from './SectionHeading';
 import { Button } from '../ui/button';
@@ -25,6 +24,9 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
   locations,
   className = ''
 }) => {
+  const [activeLocation, setActiveLocation] = useState<number | null>(0); // Default to first location
+  const [hoveredArea, setHoveredArea] = useState<string | null>(null);
+
   return (
     <ParallaxSection 
       backgroundGradient="linear-gradient(135deg, #f5f9ff 0%, #e1f0fc 100%)"
@@ -63,19 +65,37 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
               {locations.map((location, index) => (
                 <div 
                   key={index}
-                  className="p-5 rounded-xl bg-white/80 border-gray-100 shadow-soft border transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1"
+                  className={`p-5 rounded-xl transition-all duration-300 cursor-pointer relative group overflow-hidden border ${
+                    activeLocation === index 
+                      ? 'bg-gradient-to-r from-mylli-primary/10 to-mylli-quaternary/10 border-mylli-primary/30 shadow-lg transform -translate-y-1' 
+                      : 'bg-white/80 hover:bg-white border-gray-100 hover:border-mylli-primary/20 shadow-soft'
+                  }`}
+                  onClick={() => setActiveLocation(activeLocation === index ? null : index)}
                 >
                   <div className="flex items-center">
-                    <div className="w-12 h-12 rounded-full bg-mylli-light text-mylli-primary flex items-center justify-center">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
+                      activeLocation === index 
+                        ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary text-white' 
+                        : 'bg-mylli-light text-mylli-primary'
+                    }`}>
                       <Landmark size={20} />
                     </div>
                     <div className="ml-4">
-                      <h3 className="font-bold text-lg text-mylli-dark">
+                      <h3 className={`font-bold text-lg transition-colors ${
+                        activeLocation === index ? 'text-mylli-primary' : 'text-mylli-dark'
+                      }`}>
                         {location.city}
                       </h3>
                       <p className="text-sm text-mylli-gray">
                         Service disponible
                       </p>
+                    </div>
+                    <div className="ml-auto">
+                      <div className={`transition-transform duration-300 ${activeLocation === index ? 'rotate-180' : ''}`}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-gray">
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
