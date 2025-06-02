@@ -227,7 +227,8 @@
 
   /* New 3D Effects */
   .card-3d {
-    @apply relative transition-all duration-500 transform perspective-1000;
+    @apply relative transition-all duration-500 transform;
+    perspective: 1000px;
   }
 
   .card-3d:hover {
