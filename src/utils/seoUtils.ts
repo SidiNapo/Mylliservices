@@ -1,4 +1,3 @@
-
 // SEO utility functions
 
 export const generateSitemap = (routes: string[]) => {
@@ -31,6 +30,78 @@ export const optimizeDescription = (description: string, maxLength = 160) => {
 
 export const generateKeywords = (primary: string[], secondary: string[] = []) => {
   return [...primary, ...secondary].join(', ');
+};
+
+// Image optimization helper
+export const getOptimizedImageUrl = (src: string, width: number, quality = 80) => {
+  // For future integration with image optimization service
+  if (src.startsWith('/lovable-uploads/')) {
+    return `${src}?w=${width}&q=${quality}`;
+  }
+  return src;
+};
+
+// Critical CSS inlining helper
+export const inlineCriticalCSS = () => {
+  const criticalCSS = `
+    /* Critical above-the-fold styles */
+    .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+    .btn-primary { background: #0077C0; color: white; padding: 0.75rem 1.5rem; border-radius: 0.5rem; }
+    .hero-section { min-height: 95vh; display: flex; align-items: center; }
+    @media (max-width: 768px) {
+      .container-custom { padding: 0 0.5rem; }
+      .hero-section { min-height: 80vh; }
+    }
+  `;
+  
+  const style = document.createElement('style');
+  style.textContent = criticalCSS;
+  document.head.appendChild(style);
+};
+
+// Preload next page resources
+export const preloadPageResources = (path: string) => {
+  const routes = {
+    '/services': ['/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png'],
+    '/contact': ['/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png'],
+    '/equipe': ['/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png']
+  };
+  
+  const resources = routes[path as keyof typeof routes];
+  if (resources) {
+    resources.forEach(resource => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.href = resource;
+      link.as = 'image';
+      document.head.appendChild(link);
+    });
+  }
+};
+
+// Service Worker registration for caching
+export const registerServiceWorker = () => {
+  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then((registration) => {
+          console.log('SW registered: ', registration);
+        })
+        .catch((registrationError) => {
+          console.log('SW registration failed: ', registrationError);
+        });
+    });
+  }
+};
+
+// Schema markup validators
+export const validateSchema = (schema: object): boolean => {
+  try {
+    JSON.stringify(schema);
+    return schema.hasOwnProperty('@context') && schema.hasOwnProperty('@type');
+  } catch {
+    return false;
+  }
 };
 
 // Core Web Vitals optimization helpers
