@@ -218,7 +218,7 @@ const HomePage = () => {
     <>
       <SEOHead
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014"
-        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie."
+        description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
         keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
         canonicalUrl="/"
         structuredData={combinedSchema}
@@ -281,34 +281,18 @@ const HomePage = () => {
                 
                 {/* Stats */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <Link 
-                    to="/apropos" 
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 cursor-pointer hover:scale-105"
-                    onClick={() => handleCTAClick('experience_stat')}
-                  >
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
-                  </Link>
-                  <button 
-                    onClick={() => {
-                      handleCTAClick('interventions_stat');
-                      document.getElementById('testimonials-heading')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 cursor-pointer hover:scale-105"
-                  >
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
                     <p className="text-xs text-white">interventions</p>
-                  </button>
-                  <button 
-                    onClick={() => {
-                      handleCTAClick('availability_stat');
-                      document.getElementById('features-heading')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 cursor-pointer hover:scale-105"
-                  >
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
                     <p className="text-xs text-white">disponibilité</p>
-                  </button>
+                  </div>
                 </div>
               </div>
               
