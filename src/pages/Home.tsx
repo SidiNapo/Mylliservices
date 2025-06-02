@@ -28,45 +28,41 @@ const HomePage = () => {
     trackEvent('page_view', 'navigation', 'home');
   }, []);
 
-  // Service locations data
+  // Service locations data - Updated to match Location type
   const serviceLocations = [
     {
-      name: "Casablanca",
-      address: "Tous quartiers de Casablanca",
+      city: "Casablanca",
+      areas: ["Tous quartiers de Casablanca"],
       phone: "+212 5XX-XXX-XXX",
-      email: "casablanca@mylliservices.ma",
-      coordinates: { lat: 33.5731, lng: -7.5898 }
+      email: "casablanca@mylliservices.ma"
     },
     {
-      name: "Rabat",
-      address: "Tous quartiers de Rabat",
+      city: "Rabat",
+      areas: ["Tous quartiers de Rabat"],
       phone: "+212 5XX-XXX-XXX", 
-      email: "rabat@mylliservices.ma",
-      coordinates: { lat: 34.0209, lng: -6.8416 }
+      email: "rabat@mylliservices.ma"
     },
     {
-      name: "Salé",
-      address: "Tous quartiers de Salé",
+      city: "Salé",
+      areas: ["Tous quartiers de Salé"],
       phone: "+212 5XX-XXX-XXX",
-      email: "sale@mylliservices.ma", 
-      coordinates: { lat: 34.0531, lng: -6.7985 }
+      email: "sale@mylliservices.ma"
     },
     {
-      name: "Témara",
-      address: "Tous quartiers de Témara",
+      city: "Témara",
+      areas: ["Tous quartiers de Témara"],
       phone: "+212 5XX-XXX-XXX",
-      email: "temara@mylliservices.ma",
-      coordinates: { lat: 33.9286, lng: -6.9063 }
+      email: "temara@mylliservices.ma"
     }
   ];
 
-  // Main services data
+  // Main services data - Updated with proper icon type
   const mainServices = [
     {
       id: 'aide-soignant',
       title: "Aide-soignant(e) à domicile",
       description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-      icon: Users,
+      icon: <Users className="w-8 h-8" />,
       color: "from-blue-500 to-cyan-500",
       features: ["Aide à la toilette", "Habillage/déshabillage", "Aide aux repas", "Mobilisation"],
       link: "/services/aide-soignant"
@@ -75,7 +71,7 @@ const HomePage = () => {
       id: 'infirmier', 
       title: "Infirmier(ère) à domicile",
       description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-      icon: Heart,
+      icon: <Heart className="w-8 h-8" />,
       color: "from-red-500 to-pink-500", 
       features: ["Soins techniques", "Surveillance médicale", "Administration médicaments", "Suivi post-opératoire"],
       link: "/services/infirmier"
@@ -84,7 +80,7 @@ const HomePage = () => {
       id: 'garde-malade',
       title: "Services de garde-malade",
       description: "Présence continue et surveillance pour les personnes fragiles, jour, nuit ou 24h/24.",
-      icon: Clock,
+      icon: <Clock className="w-8 h-8" />,
       color: "from-green-500 to-emerald-500",
       features: ["Surveillance 24h/24", "Assistance nuit", "Compagnie de jour", "Sécurité permanente"],
       link: "/services"
@@ -324,7 +320,6 @@ const HomePage = () => {
                 <SectionHeading 
                   title="Pourquoi choisir Mylli Services ?"
                   subtitle="Excellence, professionnalisme et bienveillance au cœur de nos services"
-                  centered={true}
                 />
               </header>
 
@@ -396,7 +391,6 @@ const HomePage = () => {
                       src="/lovable-uploads/5de6ff35-cb9d-4b50-b207-1ba6bd3bd5e0.png"
                       alt="Équipe Mylli Services - Professionnels des soins à domicile"
                       className="rounded-3xl shadow-hover w-full h-[500px] object-cover"
-                      loading="lazy"
                     />
                     
                     {/* Floating stats card */}
@@ -483,7 +477,6 @@ const HomePage = () => {
                 <SectionHeading 
                   title="Nos Services"
                   subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile."
-                  centered={true}
                 />
               </header>
 
@@ -526,7 +519,6 @@ const HomePage = () => {
                 <SectionHeading 
                   title="Notre Fonctionnement"
                   subtitle="Un processus simple et efficace pour vous accompagner à chaque étape"
-                  centered={true}
                 />
               </header>
 
@@ -605,28 +597,24 @@ const HomePage = () => {
                 <SectionHeading 
                   title="Témoignages Clients"
                   subtitle="La confiance de nos clients est notre plus belle récompense"
-                  centered={true}
                 />
               </header>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <TestimonialCard
                   name="Fatima Bennani"
-                  role="Fille de patiente"
                   content="Mylli Services a pris soin de ma mère avec une attention remarquable. L'équipe est professionnelle et bienveillante."
                   rating={5}
                   location="Casablanca"
                 />
                 <TestimonialCard
                   name="Ahmed Tazi"
-                  role="Patient"
                   content="Excellent service, personnel qualifié et très à l'écoute. Je recommande vivement leurs services."
                   rating={5}
                   location="Rabat"
                 />
                 <TestimonialCard
                   name="Khadija Alami"
-                  role="Famille de patient"
                   content="Grâce à Mylli Services, mon père a pu rester chez lui dans les meilleures conditions. Merci pour votre dévouement."
                   rating={5}
                   location="Salé"

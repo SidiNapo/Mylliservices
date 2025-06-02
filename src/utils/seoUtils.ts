@@ -1,3 +1,4 @@
+
 // SEO utility functions
 
 export const generateSitemap = (routes: string[]) => {
@@ -30,6 +31,20 @@ export const optimizeDescription = (description: string, maxLength = 160) => {
 
 export const generateKeywords = (primary: string[], secondary: string[] = []) => {
   return [...primary, ...secondary].join(', ');
+};
+
+// Analytics and tracking function
+export const trackEvent = (action: string, category: string, label?: string) => {
+  // Simple event tracking implementation
+  console.log(`Event tracked: ${action} - ${category}${label ? ` - ${label}` : ''}`);
+  
+  // In a real implementation, this would send data to analytics service
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', action, {
+      event_category: category,
+      event_label: label,
+    });
+  }
 };
 
 // Image optimization helper
