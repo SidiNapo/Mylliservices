@@ -1,4 +1,3 @@
-
 import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -7,6 +6,8 @@ import Footer from './Footer';
 import BreadcrumbNav from '../seo/BreadcrumbNav';
 import { useLanguage } from '@/context/LanguageContext';
 import { preloadCriticalResources, measureCoreWebVitals } from '@/utils/seoUtils';
+import PerformanceMonitor from '../seo/PerformanceMonitor';
+import Analytics from '../seo/Analytics';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -58,6 +59,15 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <HelmetProvider>
       <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
+        {/* Performance Monitoring */}
+        <PerformanceMonitor />
+        
+        {/* Analytics - Replace with your actual Google Analytics ID */}
+        <Analytics 
+          gtag="G-XXXXXXXXXX" // Replace with your GA4 measurement ID
+          gsc="your-google-search-console-verification-code" // Replace with your GSC verification code
+        />
+        
         <Header />
         {showBreadcrumbs && <BreadcrumbNav />}
         <main className={`flex-grow ${showBreadcrumbs ? 'pt-16' : 'pt-16'}`} role="main">
