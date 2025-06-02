@@ -767,5 +767,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-</edits_to_apply>
