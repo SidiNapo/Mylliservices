@@ -252,11 +252,11 @@ const HomePage = () => {
         structuredData={combinedSchema}
       />
       
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-full">
         {/* Hero Section - Semantic HTML5 structure */}
         <section 
           ref={heroRef} 
-          className="relative min-h-[95vh] flex items-center overflow-hidden" 
+          className="relative min-h-[95vh] flex items-center overflow-hidden w-full" 
           onMouseMove={handleMouseMove}
           aria-labelledby="hero-heading"
         >

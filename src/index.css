@@ -58,14 +58,23 @@
 
   * {
     @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -95,11 +104,21 @@
   .brand-name .services {
     color: #029edd;
   }
+
+  /* Fix container to prevent side spacing */
+  .container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @layer components {
   .container-custom {
     @apply container mx-auto px-4 md:px-8;
+    width: 100%;
+    max-width: 1400px;
   }
   
   .btn-primary {
@@ -120,6 +139,8 @@
 
   .section-padding {
     @apply py-16 md:py-24;
+    width: 100%;
+    overflow-x: hidden;
   }
   
   .section-title {
@@ -340,5 +361,11 @@
       5% 100%,
       0% 95%
     );
+  }
+
+  /* Fix overflow issues */
+  section {
+    width: 100%;
+    overflow-x: hidden;
   }
 }
