@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -193,28 +192,15 @@ const HomePage = () => {
     city: "Rabat",
     areas: []
   }];
-  
+
   // SEO structured data
   const structuredData = generateHomepageStructuredData();
-
-  return (
-    <>
-      <SEOHead
-        title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014"
-        description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
-        keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
-        canonicalUrl="/"
-        structuredData={structuredData}
-      />
+  return <>
+      <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
       
       <div className="overflow-hidden">
         {/* Hero Section - Semantic HTML5 structure */}
-        <section 
-          ref={heroRef} 
-          className="relative min-h-[95vh] flex items-center overflow-hidden" 
-          onMouseMove={handleMouseMove}
-          aria-labelledby="hero-heading"
-        >
+        <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
           {/* Modern layered background with images */}
           <div className="absolute inset-0 z-0">
             {/* Gradient overlay - updated to logo colors */}
@@ -291,14 +277,7 @@ const HomePage = () => {
                   
                   {/* Top photo highlight */}
                   <div className="relative h-48 overflow-hidden group">
-                    <OptimizedImage
-                      src={careImages[activeImage]}
-                      alt="Services professionnels d'aide et de soins à domicile Mylli Services"
-                      width={400}
-                      height={192}
-                      priority={true}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
+                    <OptimizedImage src={careImages[activeImage]} alt="Services professionnels d'aide et de soins à domicile Mylli Services" width={400} height={192} priority={true} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
@@ -318,9 +297,7 @@ const HomePage = () => {
                     </div>
                     
                     <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
-                      <Link to="/services">
-                        En savoir plus
-                      </Link>
+                      <Link to="/services">Mot du Président</Link>
                     </Button>
                   </div>
                 </article>
@@ -345,10 +322,7 @@ const HomePage = () => {
         </section>
         
         {/* Feature Section - Proper semantic structure */}
-        <section 
-          className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30"
-          aria-labelledby="features-heading"
-        >
+        <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30" aria-labelledby="features-heading">
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
@@ -372,13 +346,7 @@ const HomePage = () => {
           <div className="container-custom relative z-10">
             <header className="max-w-2xl mx-auto mb-16">
               {/* Section heading */}
-              <SectionHeading 
-                title="Des services d'exception pour votre bien-être" 
-                variant="animated" 
-                highlightText="exception" 
-                className="text-center" 
-                id="features-heading"
-              />
+              <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" id="features-heading" />
             </header>
             
             {/* Redesigned feature cards with modern 3D effects */}
@@ -441,23 +409,14 @@ const HomePage = () => {
         </section>
         
         {/* About Section - Semantic article structure */}
-        <section 
-          className="section-padding bg-gradient-to-br from-mylli-light to-white relative overflow-hidden"
-          aria-labelledby="about-heading"
-        >
+        <section className="section-padding bg-gradient-to-br from-mylli-light to-white relative overflow-hidden" aria-labelledby="about-heading">
           <div className="container-custom relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <aside>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
                   <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                    <OptimizedImage
-                      src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png"
-                      alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014"
-                      width={400}
-                      height={256}
-                      className="w-full h-auto max-h-64 object-contain mx-auto mb-6"
-                    />
+                    <OptimizedImage src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" width={400} height={256} className="w-full h-auto max-h-64 object-contain mx-auto mb-6" />
                     <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
                       <div className="flex items-center bg-mylli-light p-3 rounded-lg">
                         <span className="text-mylli-primary text-4xl font-bold">10</span>
@@ -474,13 +433,7 @@ const HomePage = () => {
               
               <article>
                 <header>
-                  <SectionHeading 
-                    title="Depuis 10 ans à vos côtés" 
-                    subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." 
-                    align="left" 
-                    variant="gradient"
-                    id="about-heading"
-                  />
+                  <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="gradient" id="about-heading" />
                 </header>
                 
                 <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
@@ -509,25 +462,13 @@ const HomePage = () => {
         </section>
         
         {/* Service Locations Section - New modern section */}
-        <ServiceLocations 
-          locations={serviceLocations} 
-          title="Nos Zones d'Intervention" 
-          subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
-        />
+        <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
         
         {/* Services Section - Semantic structure */}
-        <section 
-          className="section-padding bg-mylli-light/50 relative overflow-hidden"
-          aria-labelledby="services-heading"
-        >
+        <section className="section-padding bg-mylli-light/50 relative overflow-hidden" aria-labelledby="services-heading">
           <div className="container-custom relative z-10">
             <header>
-              <SectionHeading 
-                title="Nos Services" 
-                subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
-                variant="gradient"
-                id="services-heading"
-              />
+              <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="gradient" id="services-heading" />
             </header>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
@@ -562,19 +503,10 @@ const HomePage = () => {
         </section>
         
         {/* How It Works Section - Updated with better visual connection */}
-        <section 
-          className="section-padding bg-white relative overflow-hidden"
-          aria-labelledby="how-it-works-heading"
-        >
+        <section className="section-padding bg-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
           <div className="container-custom relative z-10">
             <header>
-              <SectionHeading 
-                title="Notre Fonctionnement" 
-                subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." 
-                variant="split" 
-                highlightText="Fonctionnement"
-                id="how-it-works-heading"
-              />
+              <SectionHeading title="Notre Fonctionnement" subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." variant="split" highlightText="Fonctionnement" id="how-it-works-heading" />
             </header>
             
             <div className="relative">
@@ -622,10 +554,7 @@ const HomePage = () => {
         </section>
         
         {/* Testimonial Section - Modernized with unique design */}
-        <section 
-          className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden"
-          aria-labelledby="testimonials-heading"
-        >
+        <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden" aria-labelledby="testimonials-heading">
           {/* Background decoration elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-secondary/10 to-mylli-primary/5 blur-3xl"></div>
@@ -640,12 +569,7 @@ const HomePage = () => {
           <div className="container-custom relative z-10">
             <header className="max-w-2xl mx-auto text-center mb-12">
               {/* Section heading */}
-              <SectionHeading 
-                title="Ce que disent nos clients" 
-                subtitle="Découvrez les expériences de nos clients satisfaits qui nous font confiance pour prendre soin de leurs proches." 
-                variant="gradient"
-                id="testimonials-heading"
-              />
+              <SectionHeading title="Ce que disent nos clients" subtitle="Découvrez les expériences de nos clients satisfaits qui nous font confiance pour prendre soin de leurs proches." variant="gradient" id="testimonials-heading" />
             </header>
 
             {/* Modern testimonial cards with 3D effect and interactive features */}
@@ -761,8 +685,6 @@ const HomePage = () => {
         
         {/* CTA Contact Section - Updated with logo colors and black text for better visibility */}
       </div>
-    </>
-  );
+    </>;
 };
-
 export default HomePage;
