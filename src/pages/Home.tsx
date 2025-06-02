@@ -196,8 +196,23 @@ const HomePage = () => {
 
   // SEO structured data
   const structuredData = generateHomepageStructuredData();
+
+  // Add scroll to section function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return <>
-      <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
+      <SEOHead 
+        title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
+        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." 
+        keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" 
+        canonicalUrl="/" 
+        structuredData={structuredData} 
+      />
       
       <div className="overflow-hidden">
         {/* Hero Section - Semantic HTML5 structure */}
@@ -245,24 +260,33 @@ const HomePage = () => {
                   </h1>
                   
                   <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white">
-                    Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
+                    Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
                 </header>
                 
-                {/* Stats */}
+                {/* Stats - Updated with click handlers */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
+                  <Link 
+                    to="/apropos" 
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                  >
+                    <p className="text-3xl font-bold text-mylli-secondary group-hover:text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
-                  </div>
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
+                  </Link>
+                  <button 
+                    onClick={() => scrollToSection('testimonials-heading')}
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                  >
+                    <p className="text-3xl font-bold text-mylli-quaternary group-hover:text-mylli-primary">{isVisible ? '+4500' : '0'}</p>
                     <p className="text-xs text-white">Interventions</p>
-                  </div>
-                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('availability-feature')}
+                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 hover:scale-105 cursor-pointer group"
+                  >
+                    <p className="text-3xl font-bold text-mylli-quaternary group-hover:text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
                     <p className="text-xs text-white">disponibilité</p>
-                  </div>
+                  </button>
                 </div>
               </div>
               
@@ -322,7 +346,7 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* Feature Section - Proper semantic structure */}
+        {/* Feature Section - Updated with id for 24/7 availability */}
         <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30" aria-labelledby="features-heading">
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -350,11 +374,14 @@ const HomePage = () => {
               <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" id="features-heading" />
             </header>
             
-            {/* Redesigned feature cards with modern 3D effects */}
+            {/* Redesigned feature cards with modern 3D effects - Updated with id for 24/7 availability */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
-              {features.map((feature, index) => <div key={index} className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} style={{
-              animationDelay: `${index * 200}ms`
-            }}>
+              {features.map((feature, index) => <div 
+                key={index} 
+                className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} 
+                style={{ animationDelay: `${index * 200}ms` }}
+                id={index === 2 ? 'availability-feature' : undefined}
+              >
                   <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
                 </div>)}
             </div>
