@@ -60,9 +60,12 @@ const Header = () => {
   return <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-          <img alt="Mylli Services Logo" className="w-12 h-12" src="/lovable-uploads/8cb50a5a-ea46-4772-8942-ebf7172e3790.png" />
-          <BrandName />
+        <Link to="/" className="flex items-center">
+          <img 
+            alt="Mylli Services Logo" 
+            className="h-12 w-auto" 
+            src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
+          />
         </Link>
         
         {/* Desktop Navigation */}

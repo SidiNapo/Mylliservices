@@ -1,8 +1,8 @@
+
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
-import BrandName from "@/components/common/BrandName";
 import { useLanguage } from "@/context/LanguageContext";
 
 const NotFound = () => {
@@ -33,7 +33,11 @@ const NotFound = () => {
           </Link>
         </Button>
         <div className="mt-8">
-          <BrandName />
+          <img 
+            alt="Mylli Services Logo" 
+            className="h-8 w-auto mx-auto" 
+            src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
+          />
         </div>
       </div>
     </div>
