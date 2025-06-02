@@ -19,6 +19,7 @@ const HomePage = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
   const [hoverCard, setHoverCard] = useState(-1);
+  const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
 
   // For mouse parallax effect
   const [mousePosition, setMousePosition] = useState({
@@ -212,19 +213,9 @@ const HomePage = () => {
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
       
-      // After scrolling, find and expand the availability card
+      // After scrolling, expand the availability card (index 2)
       setTimeout(() => {
-        const availabilityCard = document.querySelector('[data-feature="availability"]');
-        if (availabilityCard) {
-          const collapsibleTrigger = availabilityCard.querySelector('[data-state]');
-          if (collapsibleTrigger) {
-            // Check if it's already open
-            const isOpen = collapsibleTrigger.getAttribute('data-state') === 'open';
-            if (!isOpen) {
-              (collapsibleTrigger as HTMLElement).click();
-            }
-          }
-        }
+        setExpandedFeature(2);
       }, 800); // Wait for scroll to complete
     }
   };
@@ -417,6 +408,8 @@ const HomePage = () => {
                     style="3d" 
                     color={feature.color} 
                     className="h-full" 
+                    isExpanded={expandedFeature === index}
+                    onToggle={() => setExpandedFeature(expandedFeature === index ? null : index)}
                   />
                 </div>
               ))}
