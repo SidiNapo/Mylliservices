@@ -11,8 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateOrganizationSchema, generateLocalBusinessSchema } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-import LazySection from '@/components/seo/LazySection';
-import { trackEvent } from '@/components/seo/Analytics';
 
 const HomePage = () => {
   // For the animated counter effect
@@ -205,36 +203,11 @@ const HomePage = () => {
     "@graph": [organizationSchema, localBusinessSchema]
   };
 
-  // Track user interactions
-  const handleServiceClick = (serviceName: string) => {
-    trackEvent('service_click', 'engagement', serviceName);
-  };
-
-  const handleCTAClick = (ctaName: string) => {
-    trackEvent('cta_click', 'conversion', ctaName);
-  };
-
-  // Function to scroll to testimonials section
-  const scrollToTestimonials = () => {
-    const testimonialsSection = document.getElementById('testimonials-heading');
-    if (testimonialsSection) {
-      testimonialsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // Function to scroll to features section
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById('features-heading');
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <>
       <SEOHead
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014"
-        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie."
+        description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
         keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
         canonicalUrl="/"
         structuredData={combinedSchema}
@@ -291,33 +264,24 @@ const HomePage = () => {
                   </h1>
                   
                   <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed text-white">
-                    Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
+                    Depuis <span className="text-mylli-secondary font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
                   </p>
                 </header>
                 
-                {/* Stats - Now with interactive links */}
+                {/* Stats */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <Link 
-                    to="/apropos" 
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
-                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
+                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '10+' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
-                  </Link>
-                  <button 
-                    onClick={scrollToTestimonials}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
-                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
-                    <p className="text-xs text-white">interventions</p>
-                  </button>
-                  <button 
-                    onClick={scrollToFeatures}
-                    className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 transform hover:scale-105 cursor-pointer"
-                  >
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
+                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '500+' : '0'}</p>
+                    <p className="text-xs text-white">clients satisfaits</p>
+                  </div>
+                  <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
                     <p className="text-xs text-white">disponibilité</p>
-                  </button>
+                  </div>
                 </div>
               </div>
               
@@ -386,8 +350,11 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* Feature Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'features')}>
+        {/* Feature Section - Proper semantic structure */}
+        <section 
+          className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30"
+          aria-labelledby="features-heading"
+        >
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
@@ -477,10 +444,13 @@ const HomePage = () => {
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
             </svg>
           </div>
-        </LazySection>
+        </section>
         
-        {/* About Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'about')}>
+        {/* About Section - Semantic article structure */}
+        <section 
+          className="section-padding bg-gradient-to-br from-mylli-light to-white relative overflow-hidden"
+          aria-labelledby="about-heading"
+        >
           <div className="container-custom relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <aside>
@@ -542,19 +512,20 @@ const HomePage = () => {
           {/* Decorative elements */}
           <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-mylli-primary/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
-        </LazySection>
+        </section>
         
-        {/* Service Locations Section - Lazy load */}
-        <LazySection>
-          <ServiceLocations 
-            locations={serviceLocations} 
-            title="Nos Zones d'Intervention" 
-            subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
-          />
-        </LazySection>
+        {/* Service Locations Section - New modern section */}
+        <ServiceLocations 
+          locations={serviceLocations} 
+          title="Nos Zones d'Intervention" 
+          subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
+        />
         
-        {/* Services Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
+        {/* Services Section - Semantic structure */}
+        <section 
+          className="section-padding bg-mylli-light/50 relative overflow-hidden"
+          aria-labelledby="services-heading"
+        >
           <div className="container-custom relative z-10">
             <header>
               <SectionHeading 
@@ -566,23 +537,20 @@ const HomePage = () => {
             </header>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-              {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''}`}
-                  onMouseEnter={() => setHoverCard(index)}
-                  onMouseLeave={() => setHoverCard(-1)}
-                  onClick={() => handleServiceClick(service.title)}
-                >
-                  <div className="mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
-                  <p className="text-mylli-gray mb-6">{service.description}</p>
-                  <Link to={service.link} className="inline-flex items-center text-mylli-primary font-medium hover:text-mylli-primary-dark transition-colors">
-                    En savoir plus <ArrowRight size={16} className="ml-1" />
-                  </Link>
-                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-mylli-primary to-mylli-quaternary transform transition-transform duration-300 ${hoverCard === index ? 'scale-x-100' : 'scale-x-0'}`}></div>
-                </div>
-              ))}
+              {services.map((service, index) => <div key={index} className={`bg-white rounded-xl p-6 shadow-soft border border-transparent transition-all duration-300 hover:shadow-md hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden ${hoverCard === index ? 'shadow-md border-mylli-primary/20 -translate-y-1' : ''}`} onMouseEnter={() => setHoverCard(index)} onMouseLeave={() => setHoverCard(-1)}>
+                  <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary"></div>
+                  <div className="pl-4">
+                    <div className="mb-4">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 text-mylli-dark">{service.title}</h3>
+                    <p className="text-mylli-gray mb-4">{service.description}</p>
+                    <Link to={service.link} className="flex items-center text-mylli-primary font-medium group">
+                      Découvrir 
+                      <ArrowUpRight size={16} className="ml-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </Link>
+                  </div>
+                </div>)}
             </div>
             
             <div className="text-center animate-fade-in">
@@ -597,10 +565,13 @@ const HomePage = () => {
           {/* Decorative elements */}
           <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-mylli-primary/5 blur-3xl"></div>
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
-        </LazySection>
+        </section>
         
-        {/* How It Works Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'how_it_works')}>
+        {/* How It Works Section - Updated with better visual connection */}
+        <section 
+          className="section-padding bg-white relative overflow-hidden"
+          aria-labelledby="how-it-works-heading"
+        >
           <div className="container-custom relative z-10">
             <header>
               <SectionHeading 
@@ -654,10 +625,13 @@ const HomePage = () => {
               <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
             </svg>
           </div>
-        </LazySection>
+        </section>
         
-        {/* Testimonial Section - Lazy load */}
-        <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'testimonials')}>
+        {/* Testimonial Section - Modernized with unique design */}
+        <section 
+          className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden"
+          aria-labelledby="testimonials-heading"
+        >
           {/* Background decoration elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-secondary/10 to-mylli-primary/5 blur-3xl"></div>
@@ -789,7 +763,7 @@ const HomePage = () => {
               <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
             </svg>
           </div>
-        </LazySection>
+        </section>
         
         {/* CTA Contact Section - Updated with logo colors and black text for better visibility */}
       </div>
