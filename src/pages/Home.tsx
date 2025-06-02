@@ -229,13 +229,10 @@ const HomePage = () => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-                <span className="block relative overflow-hidden">
-                  <span className="block transform transition-transform animate-fade-in text-white animate-pulse-glow">NOUS SOMMES LÀ</span>
+                <span className="block text-white animate-pulse-glow">
+                  NOUS SOMMES LÀ
                 </span>
-                <span className="block mt-2 relative overflow-hidden">
-                  
-                </span>
-                <span className="block mt-2 text-white animate-pulse-glow">
+                <span className="block text-white animate-pulse-glow">
                   AIDER!
                 </span>
               </h1>
