@@ -275,19 +275,19 @@ const HomePage = () => {
                   </h1>
                   
                   <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-xl animate-fade-in delay-[600ms] leading-relaxed text-white">
-                    Depuis <span className="text-mylli-secondary font-bold">{count}</span> ans, aide à domicile des personnes en perte d'autonomie
+                    Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
                 </header>
                 
                 {/* Stats */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
                   <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '10+' : '0'}</p>
+                    <p className="text-3xl font-bold text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
                     <p className="text-xs text-white">années d'expérience</p>
                   </div>
                   <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300">
-                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '500+' : '0'}</p>
-                    <p className="text-xs text-white">clients satisfaits</p>
+                    <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '+4500' : '0'}</p>
+                    <p className="text-xs text-white">interventions</p>
                   </div>
                   <div className="text-center p-3 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300">
                     <p className="text-3xl font-bold text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
