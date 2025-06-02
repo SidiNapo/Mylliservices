@@ -9,7 +9,7 @@ import ContactForm from '@/components/common/ContactForm';
 import ServiceLocations from '@/components/common/ServiceLocations';
 import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-import { generateOrganizationSchema, generateLocalBusinessSchema } from '@/utils/structuredData';
+import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
 
 const HomePage = () => {
@@ -195,13 +195,7 @@ const HomePage = () => {
   }];
   
   // SEO structured data
-  const organizationSchema = generateOrganizationSchema();
-  const localBusinessSchema = generateLocalBusinessSchema();
-  
-  const combinedSchema = {
-    "@context": "https://schema.org",
-    "@graph": [organizationSchema, localBusinessSchema]
-  };
+  const structuredData = generateHomepageStructuredData();
 
   return (
     <>
@@ -210,7 +204,7 @@ const HomePage = () => {
         description="Services d'aide et de soins à domicile pour personnes en perte d'autonomie. Aide-soignants, infirmiers, garde-malade 24h/24 à Casablanca, Mohammedia, Marrakech."
         keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech"
         canonicalUrl="/"
-        structuredData={combinedSchema}
+        structuredData={structuredData}
       />
       
       <div className="overflow-hidden">
