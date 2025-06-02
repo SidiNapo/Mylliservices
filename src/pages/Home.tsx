@@ -453,62 +453,6 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* About Section - Semantic article structure */}
-        <section className="section-padding bg-gradient-to-br from-mylli-light to-white relative overflow-hidden" aria-labelledby="about-heading">
-          <div className="container-custom relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <aside>
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
-                  <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                    <OptimizedImage src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" width={400} height={256} className="w-full h-auto max-h-64 object-contain mx-auto mb-6" />
-                    <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-primary text-4xl font-bold">10</span>
-                        <span className="ml-2 text-mylli-dark">années<br />d'expérience</span>
-                      </div>
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-secondary text-4xl font-bold">24/7</span>
-                        <span className="ml-2 text-mylli-dark">service<br />disponible</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </aside>
-              
-              <article>
-                <header>
-                  <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="gradient" id="about-heading" />
-                </header>
-                
-                <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
-                  <p className="mb-4">
-                    Notre équipe de professionnels qualifiés offre une approche humaine et personnalisée adaptée aux besoins spécifiques de chaque patient.
-                  </p>
-                  <p>
-                    Grâce à notre expérience et notre dévouement, nous permettons aux personnes en perte d'autonomie de rester chez elles dans les meilleures conditions possibles.
-                  </p>
-                </div>
-                
-                <div className="animate-fade-in flex">
-                  <Button asChild className="relative group overflow-hidden rounded-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:shadow-neon transition-all duration-300">
-                    <Link to="/apropos" className="relative z-10 flex items-center text-white font-medium">
-                      En savoir plus sur nous <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
-                </div>
-              </article>
-            </div>
-          </div>
-          
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-mylli-primary/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
-        </section>
-        
-        {/* Service Locations Section - New modern section */}
-        <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
-        
         {/* Services Section - Semantic structure */}
         <section className="section-padding bg-mylli-light/50 relative overflow-hidden" aria-labelledby="services-heading">
           <div className="container-custom relative z-10">
