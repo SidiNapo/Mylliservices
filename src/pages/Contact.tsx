@@ -1,4 +1,3 @@
-
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import ContactForm from '@/components/common/ContactForm';
 import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
@@ -186,7 +185,9 @@ const ContactPage = () => {
                   </p>
                 </header>
                 <div className="bg-white rounded-xl shadow-soft overflow-hidden">
-                  <GoogleMapEmbed />
+                  <GoogleMapEmbed 
+                    address="19, rue Masmouda hay Al Hana, Casablanca 20210"
+                  />
                 </div>
               </div>
             </div>

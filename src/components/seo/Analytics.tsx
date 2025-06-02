@@ -2,6 +2,14 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// Extend Window interface to include dataLayer
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
 interface AnalyticsProps {
   gtag?: string;
   gsc?: string;
@@ -31,7 +39,7 @@ const Analytics = ({ gtag, gsc }: AnalyticsProps) => {
       });
 
       // Make gtag available globally
-      (window as any).gtag = gtag;
+      window.gtag = gtag;
     }
 
     // Google Search Console verification
@@ -48,14 +56,14 @@ const Analytics = ({ gtag, gsc }: AnalyticsProps) => {
 
   // Track page views on route changes
   useEffect(() => {
-    if ((window as any).gtag) {
-      (window as any).gtag('config', gtag, {
+    if (window.gtag) {
+      window.gtag('config', gtag, {
         page_path: location.pathname + location.search,
         page_title: document.title
       });
       
       // Custom event for page view
-      (window as any).gtag('event', 'page_view', {
+      window.gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
         page_path: location.pathname + location.search
@@ -74,32 +82,32 @@ const Analytics = ({ gtag, gsc }: AnalyticsProps) => {
       // Track at 25%, 50%, 75%, and 100% scroll depth
       if (scrollPercent >= 25 && scrollDepth < 25) {
         scrollDepth = 25;
-        if ((window as any).gtag) {
-          (window as any).gtag('event', 'scroll', {
+        if (window.gtag) {
+          window.gtag('event', 'scroll', {
             event_category: 'engagement',
             event_label: '25%'
           });
         }
       } else if (scrollPercent >= 50 && scrollDepth < 50) {
         scrollDepth = 50;
-        if ((window as any).gtag) {
-          (window as any).gtag('event', 'scroll', {
+        if (window.gtag) {
+          window.gtag('event', 'scroll', {
             event_category: 'engagement',
             event_label: '50%'
           });
         }
       } else if (scrollPercent >= 75 && scrollDepth < 75) {
         scrollDepth = 75;
-        if ((window as any).gtag) {
-          (window as any).gtag('event', 'scroll', {
+        if (window.gtag) {
+          window.gtag('event', 'scroll', {
             event_category: 'engagement',
             event_label: '75%'
           });
         }
       } else if (scrollPercent >= 100 && scrollDepth < 100) {
         scrollDepth = 100;
-        if ((window as any).gtag) {
-          (window as any).gtag('event', 'scroll', {
+        if (window.gtag) {
+          window.gtag('event', 'scroll', {
             event_category: 'engagement',
             event_label: '100%'
           });
@@ -116,8 +124,8 @@ const Analytics = ({ gtag, gsc }: AnalyticsProps) => {
 
 // Helper function to track custom events
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
-  if ((window as any).gtag) {
-    (window as any).gtag('event', action, {
+  if (window.gtag) {
+    window.gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value
