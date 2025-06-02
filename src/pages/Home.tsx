@@ -229,7 +229,7 @@ const HomePage = () => {
                   <span className="block transform transition-transform animate-fade-in text-white">NOUS SOMMES LÀ</span>
                 </span>
                 <span className="block mt-2 relative overflow-hidden">
-                  <span className="block transform transition-transform animate-fade-in delay-[300ms] text-white">POUR VOUS <span className="relative inline-block animate-wave origin-[70%_70%]">🤝</span></span>
+                  
                 </span>
                 <span className="block mt-2 text-gradient animate-text-gradient bg-[length:200%]">
                   AIDER!
