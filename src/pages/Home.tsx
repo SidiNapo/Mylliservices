@@ -603,21 +603,21 @@ const HomePage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <TestimonialCard
                   name="Fatima Bennani"
-                  content="Mylli Services a pris soin de ma mère avec une attention remarquable. L'équipe est professionnelle et bienveillante."
+                  quote="Mylli Services a pris soin de ma mère avec une attention remarquable. L'équipe est professionnelle et bienveillante."
                   rating={5}
-                  location="Casablanca"
+                  title="Casablanca"
                 />
                 <TestimonialCard
                   name="Ahmed Tazi"
-                  content="Excellent service, personnel qualifié et très à l'écoute. Je recommande vivement leurs services."
+                  quote="Excellent service, personnel qualifié et très à l'écoute. Je recommande vivement leurs services."
                   rating={5}
-                  location="Rabat"
+                  title="Rabat"
                 />
                 <TestimonialCard
                   name="Khadija Alami"
-                  content="Grâce à Mylli Services, mon père a pu rester chez lui dans les meilleures conditions. Merci pour votre dévouement."
+                  quote="Grâce à Mylli Services, mon père a pu rester chez lui dans les meilleures conditions. Merci pour votre dévouement."
                   rating={5}
-                  location="Salé"
+                  title="Salé"
                 />
               </div>
             </div>
