@@ -207,28 +207,30 @@ const HomePage = () => {
 
   // Function to trigger the availability feature expansion
   const triggerAvailabilityFeature = () => {
-    // Find the availability feature card and trigger its expansion
-    const availabilityCard = document.querySelector('[data-feature="availability"]');
-    if (availabilityCard) {
-      const collapsibleTrigger = availabilityCard.querySelector('[data-state]');
-      if (collapsibleTrigger) {
-        // Check if it's already open
-        const isOpen = collapsibleTrigger.getAttribute('data-state') === 'open';
-        if (!isOpen) {
-          (collapsibleTrigger as HTMLElement).click();
+    // Scroll to features section first
+    const featuresSection = document.getElementById('features-heading');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // After scrolling, find and expand the availability card
+      setTimeout(() => {
+        const availabilityCard = document.querySelector('[data-feature="availability"]');
+        if (availabilityCard) {
+          const collapsibleTrigger = availabilityCard.querySelector('[data-state]');
+          if (collapsibleTrigger) {
+            // Check if it's already open
+            const isOpen = collapsibleTrigger.getAttribute('data-state') === 'open';
+            if (!isOpen) {
+              (collapsibleTrigger as HTMLElement).click();
+            }
+          }
         }
-        // Scroll to the feature after a short delay to ensure expansion
-        setTimeout(() => {
-          availabilityCard.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'center'
-          });
-        }, 100);
-      }
+      }, 800); // Wait for scroll to complete
     }
   };
 
-  return <>
+  return (
+    <>
       <SEOHead 
         title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
         description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." 
@@ -287,7 +289,7 @@ const HomePage = () => {
                   </p>
                 </header>
                 
-                {/* Stats - Updated with click handlers */}
+                {/* Stats - Updated with correct click handlers */}
                 <div className="mt-12 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
                   <Link 
                     to="/apropos" 
@@ -399,15 +401,25 @@ const HomePage = () => {
             
             {/* Redesigned feature cards with modern 3D effects */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
-              {features.map((feature, index) => <div 
-                key={index} 
-                className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} 
-                style={{ animationDelay: `${index * 200}ms` }}
-                id={index === 2 ? 'availability-feature' : undefined}
-                data-feature={index === 2 ? 'availability' : undefined}
-              >
-                  <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
-                </div>)}
+              {features.map((feature, index) => (
+                <div 
+                  key={index} 
+                  className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} 
+                  style={{ animationDelay: `${index * 200}ms` }}
+                  data-feature={index === 2 ? 'availability' : undefined}
+                >
+                  <ServiceCard 
+                    title={feature.title} 
+                    description={feature.description} 
+                    detailedDescription={feature.detailedDescription} 
+                    icon={feature.icon} 
+                    link="#" 
+                    style="3d" 
+                    color={feature.color} 
+                    className="h-full" 
+                  />
+                </div>
+              ))}
             </div>
             
             {/* New interactive trust indicators */}
@@ -513,7 +525,7 @@ const HomePage = () => {
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
         </section>
         
-        {/* Services Section - Moved before Service Locations */}
+        {/* Services Section - Now comes before Service Locations */}
         <section className="section-padding bg-mylli-light/50 relative overflow-hidden" aria-labelledby="services-heading">
           <div className="container-custom relative z-10">
             <header>
@@ -551,7 +563,7 @@ const HomePage = () => {
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
         </section>
         
-        {/* How It Works Section - Moved before Service Locations */}
+        {/* How It Works Section - Now comes before Service Locations */}
         <section className="section-padding bg-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
           <div className="container-custom relative z-10">
             <header>
@@ -603,7 +615,11 @@ const HomePage = () => {
         </section>
         
         {/* Service Locations Section - Now comes after Services and How It Works */}
-        <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
+        <ServiceLocations 
+          locations={serviceLocations} 
+          title="Nos Zones d'Intervention" 
+          subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." 
+        />
         
         {/* Testimonial Section */}
         <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden" aria-labelledby="testimonials-heading">
@@ -737,7 +753,8 @@ const HomePage = () => {
         
         {/* CTA Contact Section */}
       </div>
-    </>;
+    </>
+  );
 };
 
 export default HomePage;
