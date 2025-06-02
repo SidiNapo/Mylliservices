@@ -222,11 +222,23 @@ const HomePage = () => {
     }
   };
 
-  // Function to scroll to features section
+  // Function to scroll to features section and open the Disponibilité 24/7 details
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById('features-heading');
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
+      // After scrolling, we need to trigger the expansion of the Disponibilité 24/7 feature
+      // This will simulate clicking on the "En savoir plus" button for that specific feature
+      setTimeout(() => {
+        // Find and click the third feature card's "En savoir plus" button (Disponibilité 24/7 is the third one)
+        const featureCards = document.querySelectorAll('.feature-highlight');
+        if (featureCards[2]) {
+          const button = featureCards[2].querySelector('button');
+          if (button) {
+            button.click();
+          }
+        }
+      }, 1000); // Wait for scroll to complete
     }
   };
 
