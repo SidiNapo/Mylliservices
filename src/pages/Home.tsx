@@ -168,20 +168,26 @@ const HomePage = () => {
     detailedDescription: "La maladie et les besoins de soins ne respectent pas les horaires de bureau. C'est pourquoi nous offrons un service disponible 24 heures sur 24, 7 jours sur 7.\n\nQue vous ayez besoin d'assistance pendant la nuit, les week-ends ou les jours fériés, notre équipe est toujours prête à intervenir. Notre système de permanence téléphonique vous garantit un contact immédiat avec un professionnel qualifié qui pourra vous conseiller ou organiser rapidement une intervention à votre domicile.\n\nNous proposons également des services de garde-malade de jour, de nuit ou en continu 24h/24, adaptés aux besoins spécifiques de chaque situation. Cette disponibilité constante apporte une tranquillité d'esprit inestimable aux patients comme à leurs proches."
   }];
 
-  // Sample locations data for the new component
+  // Sample locations data for the new component - updated without quartiers
   const serviceLocations = [{
     city: "Casablanca",
-    areas: ["Maarif", "Anfa", "Bourgogne", "Gauthier", "Racine", "Californie", "Ain Diab", "Oasis"],
-    highlight: true
+    areas: [],
+    highlight: false
   }, {
     city: "Mohammedia",
-    areas: ["Centre-ville", "Les Crêtes", "El Alia", "Hay Hassani"]
+    areas: []
   }, {
     city: "Bouskoura",
-    areas: ["Centre", "Ville Verte", "Quartier résidentiel"]
+    areas: []
   }, {
     city: "Dar Bouazza",
-    areas: ["Tamaris", "Les Jardins", "Plage"]
+    areas: []
+  }, {
+    city: "Marrakech",
+    areas: []
+  }, {
+    city: "Rabat",
+    areas: []
   }];
   return <div className="overflow-hidden">
       {/* Hero Section - With Updated Color Scheme based on logo */}
@@ -224,12 +230,12 @@ const HomePage = () => {
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
                 <span className="block relative overflow-hidden">
-                  <span className="block transform transition-transform animate-fade-in text-white">NOUS SOMMES LÀ</span>
+                  <span className="block transform transition-transform animate-fade-in text-white animate-pulse-glow">NOUS SOMMES LÀ</span>
                 </span>
                 <span className="block mt-2 relative overflow-hidden">
                   
                 </span>
-                <span className="block mt-2 text-gradient animate-text-gradient bg-[length:200%]">
+                <span className="block mt-2 text-white animate-pulse-glow">
                   AIDER!
                 </span>
               </h1>

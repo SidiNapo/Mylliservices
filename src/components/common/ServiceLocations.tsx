@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { MapPin, Heart, Phone, Building, Landmark, Check, Clock, Users, Shield } from 'lucide-react';
 import ParallaxSection from './ParallaxSection';
@@ -73,13 +72,6 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
                   }`}
                   onClick={() => setActiveLocation(activeLocation === index ? null : index)}
                 >
-                  {/* Highlight indicator */}
-                  {location.highlight && (
-                    <div className="absolute top-0 right-0 bg-mylli-secondary text-white text-xs font-medium py-1 px-3 rounded-bl-lg flex items-center">
-                      <Check size={12} className="mr-1" /> Principal
-                    </div>
-                  )}
-                  
                   <div className="flex items-center">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       activeLocation === index 
@@ -95,7 +87,7 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
                         {location.city}
                       </h3>
                       <p className="text-sm text-mylli-gray">
-                        {location.areas.length} {location.areas.length > 1 ? 'quartiers' : 'quartier'} couvert{location.areas.length > 1 ? 's' : ''}
+                        Service disponible
                       </p>
                     </div>
                     <div className="ml-auto">
@@ -103,33 +95,6 @@ const ServiceLocations: React.FC<ServiceLocationsProps> = ({
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-mylli-gray">
                           <path d="m6 9 6 6 6-6"/>
                         </svg>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Expanded details with improved visual design */}
-                  <div className={`mt-4 transition-all duration-500 ${
-                    activeLocation === index ? 'max-h-96 opacity-100 visible' : 'max-h-0 opacity-0 invisible overflow-hidden'
-                  }`}>
-                    <div className="pt-4 border-t border-mylli-primary/10">
-                      <h4 className="text-sm font-medium text-mylli-gray mb-3 flex items-center">
-                        <MapPin size={14} className="mr-1 text-mylli-secondary" /> Quartiers desservis:
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {location.areas.map((area, areaIndex) => (
-                          <div 
-                            key={areaIndex} 
-                            className={`px-3 py-2 rounded-lg text-sm transition-colors duration-200 ${
-                              hoveredArea === `${index}-${areaIndex}` 
-                                ? 'bg-mylli-secondary text-white' 
-                                : 'bg-mylli-light/70 text-mylli-gray hover:bg-mylli-light'
-                            }`}
-                            onMouseEnter={() => setHoveredArea(`${index}-${areaIndex}`)}
-                            onMouseLeave={() => setHoveredArea(null)}
-                          >
-                            {area}
-                          </div>
-                        ))}
                       </div>
                     </div>
                   </div>
