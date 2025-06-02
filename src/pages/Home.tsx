@@ -400,7 +400,7 @@ const HomePage = () => {
         
         {/* Feature Section - Lazy load with improved spacing */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'features')}>
-          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+          <div className="section-padding bg-gray-50 relative py-32 md:py-40">
             {/* Decorative background elements */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
@@ -495,7 +495,7 @@ const HomePage = () => {
         
         {/* About Section - Lazy load with improved spacing and updated content */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'about')}>
-          <div className="section-padding bg-white relative py-24 md:py-32">
+          <div className="section-padding bg-white relative py-32 md:py-40">
             <div className="container-custom relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <aside>
@@ -564,7 +564,7 @@ const HomePage = () => {
         
         {/* Services Section - Lazy load with improved spacing */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'services')}>
-          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+          <div className="section-padding bg-gray-50 relative py-32 md:py-40">
             <div className="container-custom relative z-10">
               <header>
                 <SectionHeading 
@@ -612,7 +612,7 @@ const HomePage = () => {
         
         {/* How It Works Section - Lazy load with improved spacing */}
         <LazySection onVisible={() => trackEvent('section_view', 'engagement', 'how_it_works')}>
-          <div className="section-padding bg-white relative py-24 md:py-32">
+          <div className="section-padding bg-white relative py-32 md:py-40">
             <div className="container-custom relative z-10">
               <header>
                 <SectionHeading 
@@ -671,7 +671,7 @@ const HomePage = () => {
         
         {/* Service Locations Section - Lazy load with improved spacing */}
         <LazySection>
-          <div className="section-padding bg-gray-50 relative py-24 md:py-32">
+          <div className="section-padding bg-gray-50 relative py-32 md:py-40">
             <ServiceLocations 
               locations={serviceLocations} 
               title="Nos Zones d'Intervention" 
