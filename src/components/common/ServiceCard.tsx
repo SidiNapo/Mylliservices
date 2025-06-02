@@ -1,169 +1,256 @@
-import React, { useState } from 'react';
+
+import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ExternalLink } from 'lucide-react';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ArrowRight } from 'lucide-react';
+import ServiceDetailDialog from './ServiceDetailDialog';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  detailedDescription?: string;
-  icon: React.ReactNode;
+  icon?: ReactNode;
+  image?: string;
   link: string;
-  style?: 'default' | '3d' | 'minimal';
-  color?: 'primary' | 'secondary' | 'accent';
   className?: string;
-  isExpanded?: boolean;
-  onToggle?: () => void;
+  style?: 'default' | 'modern' | 'minimal' | 'featured' | 'glass' | '3d';
+  color?: string;
+  detailedDescription?: string;
 }
 
-const ServiceCard = ({
-  title,
-  description,
-  detailedDescription,
-  icon,
+const ServiceCard = ({ 
+  title, 
+  description, 
+  icon, 
+  image, 
   link,
+  className = '', 
   style = 'default',
   color = 'primary',
-  className = '',
-  isExpanded,
-  onToggle
+  detailedDescription
 }: ServiceCardProps) => {
-  const [internalExpanded, setInternalExpanded] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   
-  // Use external control if provided, otherwise use internal state
-  const expanded = isExpanded !== undefined ? isExpanded : internalExpanded;
-  const handleToggle = onToggle || (() => setInternalExpanded(!internalExpanded));
-
-  const colorVariants = {
-    primary: {
-      gradient: "from-mylli-primary/5 to-mylli-primary/10",
-      border: "border-mylli-primary/20",
-      accent: "bg-mylli-primary",
-      text: "text-mylli-primary"
-    },
-    secondary: {
-      gradient: "from-mylli-secondary/5 to-mylli-secondary/10",
-      border: "border-mylli-secondary/20",
-      accent: "bg-mylli-secondary",
-      text: "text-mylli-secondary"
-    },
-    accent: {
-      gradient: "from-mylli-quaternary/5 to-mylli-quaternary/10",
-      border: "border-mylli-quaternary/20",
-      accent: "bg-mylli-quaternary",
-      text: "text-mylli-quaternary"
-    }
+  const colorClasses = {
+    primary: 'from-mylli-primary to-mylli-quaternary',
+    secondary: 'from-mylli-secondary to-mylli-tertiary',
+    accent: 'from-mylli-accent to-mylli-quaternary',
+    mixed: 'from-mylli-primary via-mylli-secondary to-mylli-quaternary'
+  };
+  
+  const cardStyles = {
+    default: `card-service flex flex-col h-full ${className}`,
+    modern: `card-service flex flex-col h-full relative overflow-hidden group ${className}`,
+    minimal: `p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors h-full ${className}`,
+    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-6 transition-all duration-300 border border-mylli-primary/20 h-full ${className}`,
+    glass: `backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass p-6 transition-all duration-300 hover:shadow-lg h-full group ${className}`,
+    '3d': `relative bg-white rounded-2xl shadow-soft p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg h-full group overflow-hidden ${className}`
   };
 
-  const colorScheme = colorVariants[color];
-
+  const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
+    if (!detailedDescription) return; // Only proceed if we have detailed content
+    e.preventDefault();
+    setDialogOpen(true);
+  };
+  
+  if (style === 'glass') {
+    return (
+      <div className={cardStyles[style]}>
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="relative flex flex-col h-full z-10">
+          {icon && <div className="text-mylli-primary mb-5 transform transition-transform duration-300 group-hover:scale-110">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white transform transition-all duration-300 group-hover:scale-105 shadow-sm"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+          </button>
+        </div>
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
+    );
+  }
+  
   if (style === '3d') {
     return (
-      <Card className={`group relative overflow-hidden border-0 shadow-soft hover:shadow-hover transition-all duration-500 transform hover:-translate-y-2 bg-white ${className}`}>
-        {/* Gradient overlay */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${colorScheme.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+      <div className={cardStyles[style]}>
+        {/* 3D effects with pseudo-elements */}
+        <div className="absolute top-0 left-0 w-full h-full transform -rotate-6 scale-95 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+        <div className="absolute top-0 right-0 w-3 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
         
-        {/* Decorative corner */}
-        <div className={`absolute top-0 right-0 w-20 h-20 ${colorScheme.accent} rounded-bl-3xl opacity-10`}></div>
+        <div className="flex flex-col h-full">
+          {icon && (
+            <div className="mb-5 relative">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                {icon}
+              </div>
+            </div>
+          )}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="flex items-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1 transform transition-all duration-300 group-hover:translate-x-1" />
+          </button>
+          
+          {/* Decorative corner element */}
+          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl"></div>
+        </div>
         
-        <CardContent className="p-8 relative z-10">
-          {/* Icon */}
-          <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-            {icon}
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
+    );
+  }
+  
+  if (style === 'modern') {
+    return (
+      <div className={cardStyles[style]}>
+        {image && (
+          <div className="h-48 mb-6 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+            />
           </div>
-          
-          {/* Content */}
-          <h3 className="text-2xl font-bold mb-4 text-mylli-dark group-hover:text-mylli-primary transition-colors">
-            {title}
-          </h3>
-          <p className="text-mylli-gray mb-6 leading-relaxed">
-            {description}
-          </p>
-          
-          {/* Collapsible content for detailed description */}
-          {detailedDescription && (
-            <Collapsible open={expanded} onOpenChange={handleToggle}>
-              <CollapsibleTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className={`mb-4 w-full justify-between ${colorScheme.border} ${colorScheme.text} hover:bg-gradient-to-r ${colorScheme.gradient}`}
-                >
-                  En savoir plus
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${expanded ? 'transform rotate-180' : ''}`} />
-                </Button>
-              </CollapsibleTrigger>
-              
-              <CollapsibleContent className="space-y-0 overflow-hidden">
-                <div className={`p-4 rounded-lg bg-gradient-to-r ${colorScheme.gradient} ${colorScheme.border} border`}>
-                  {detailedDescription.split('\n').map((paragraph, i) => (
-                    <p key={i} className="mb-3 text-mylli-gray text-sm leading-relaxed last:mb-0">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
-          )}
-          
-          {/* Action button */}
-          {link !== '#' && (
-            <Button asChild className={`w-full ${colorScheme.accent} hover:opacity-90 text-white`}>
-              <Link to={link} className="flex items-center justify-center">
-                Découvrir ce service
-                <ExternalLink size={16} className="ml-2" />
-              </Link>
-            </Button>
-          )}
-        </CardContent>
+        )}
+        <div className="p-6 flex flex-col flex-grow bg-white">
+          {!image && icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1" />
+          </button>
+        </div>
         
-        {/* Decorative elements */}
-        <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-mylli-light rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-      </Card>
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
+    );
+  }
+  
+  if (style === 'minimal') {
+    return (
+      <div className={cardStyles[style]}>
+        <div className="flex items-start h-full">
+          {icon && <div className="text-mylli-primary mr-4">{icon}</div>}
+          <div className="flex flex-col h-full">
+            <h3 className="text-lg font-bold mb-2 text-mylli-dark">{title}</h3>
+            <p className="text-mylli-gray mb-3 flex-grow">{description}</p>
+            <button 
+              onClick={handleEnSavoirPlusClick} 
+              className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
+            >
+              En savoir plus <ArrowRight size={16} className="ml-1" />
+            </button>
+          </div>
+        </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
+    );
+  }
+  
+  if (style === 'featured') {
+    return (
+      <div className={cardStyles[style]}>
+        <div className="flex flex-col h-full">
+          {icon && <div className="text-mylli-primary mb-4 text-4xl">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick}
+            className="btn-primary text-center w-full mt-auto"
+          >
+            En savoir plus
+          </button>
+        </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
     );
   }
 
-  // Default style (keeping existing implementation for backward compatibility)
+  // Default style
   return (
-    <Card className={`h-full transition-all duration-300 hover:shadow-md hover:-translate-y-1 ${className}`}>
-      <CardContent className="p-6 h-full flex flex-col">
-        <div className="mb-4">
-          {icon}
-        </div>
-        <h3 className="text-xl font-semibold mb-2 text-mylli-dark">{title}</h3>
-        <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
-        
-        {detailedDescription && (
-          <Collapsible open={expanded} onOpenChange={handleToggle} className="mb-4">
-            <CollapsibleTrigger asChild>
-              <Button variant="outline" size="sm" className="w-full justify-between">
-                En savoir plus
-                <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${expanded ? 'transform rotate-180' : ''}`} />
-              </Button>
-            </CollapsibleTrigger>
-            
-            <CollapsibleContent className="mt-2">
-              <div className="p-3 bg-mylli-light/50 rounded-lg">
-                {detailedDescription.split('\n').map((paragraph, i) => (
-                  <p key={i} className="mb-2 text-mylli-gray text-sm last:mb-0">{paragraph}</p>
-                ))}
-              </div>
-            </CollapsibleContent>
-          </Collapsible>
-        )}
-        
-        {link !== '#' && (
-          <Button asChild variant="outline" className="mt-auto">
-            <Link to={link} className="flex items-center justify-center">
-              Découvrir
-              <ArrowRight size={16} className="ml-2" />
-            </Link>
-          </Button>
-        )}
-      </CardContent>
-    </Card>
+    <div className={cardStyles.default}>
+      {icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+      <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+      <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+      <button 
+        onClick={handleEnSavoirPlusClick}
+        className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
+      >
+        En savoir plus <ArrowRight size={16} className="ml-1" />
+      </button>
+      
+      {detailedDescription && (
+        <ServiceDetailDialog 
+          isOpen={dialogOpen}
+          onClose={() => setDialogOpen(false)}
+          title={title}
+          description={detailedDescription || description}
+          icon={icon}
+          color={color}
+          link={link}
+        />
+      )}
+    </div>
   );
 };
 
