@@ -210,12 +210,19 @@ const HomePage = () => {
     // Find the availability feature card and trigger its expansion
     const availabilityCard = document.querySelector('[data-feature="availability"]');
     if (availabilityCard) {
-      const button = availabilityCard.querySelector('button[data-state]');
-      if (button) {
-        (button as HTMLButtonElement).click();
+      const collapsibleTrigger = availabilityCard.querySelector('[data-state]');
+      if (collapsibleTrigger) {
+        // Check if it's already open
+        const isOpen = collapsibleTrigger.getAttribute('data-state') === 'open';
+        if (!isOpen) {
+          (collapsibleTrigger as HTMLElement).click();
+        }
         // Scroll to the feature after a short delay to ensure expansion
         setTimeout(() => {
-          scrollToSection('availability-feature');
+          availabilityCard.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'center'
+          });
         }, 100);
       }
     }
@@ -231,7 +238,7 @@ const HomePage = () => {
       />
       
       <div className="overflow-hidden">
-        {/* Hero Section - Semantic HTML5 structure */}
+        {/* Hero Section */}
         <section ref={heroRef} className="relative min-h-[95vh] flex items-center overflow-hidden" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
           {/* Modern layered background with images */}
           <div className="absolute inset-0 z-0">
@@ -362,7 +369,7 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* Feature Section - Updated with id for 24/7 availability */}
+        {/* Feature Section */}
         <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30" aria-labelledby="features-heading">
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden">
@@ -390,7 +397,7 @@ const HomePage = () => {
               <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" id="features-heading" />
             </header>
             
-            {/* Redesigned feature cards with modern 3D effects - Updated with data attributes */}
+            {/* Redesigned feature cards with modern 3D effects */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
               {features.map((feature, index) => <div 
                 key={index} 
@@ -453,7 +460,7 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* About Section - Semantic article structure */}
+        {/* About Section */}
         <section className="section-padding bg-gradient-to-br from-mylli-light to-white relative overflow-hidden" aria-labelledby="about-heading">
           <div className="container-custom relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -506,10 +513,7 @@ const HomePage = () => {
           <div className="absolute bottom-0 left-0 -ml-16 -mb-16 w-64 h-64 bg-mylli-secondary/5 rounded-full blur-3xl"></div>
         </section>
         
-        {/* Service Locations Section - New modern section */}
-        <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
-        
-        {/* Services Section - Semantic structure */}
+        {/* Services Section - Moved before Service Locations */}
         <section className="section-padding bg-mylli-light/50 relative overflow-hidden" aria-labelledby="services-heading">
           <div className="container-custom relative z-10">
             <header>
@@ -547,7 +551,7 @@ const HomePage = () => {
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
         </section>
         
-        {/* How It Works Section - Updated with better visual connection */}
+        {/* How It Works Section - Moved before Service Locations */}
         <section className="section-padding bg-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
           <div className="container-custom relative z-10">
             <header>
@@ -598,7 +602,10 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* Testimonial Section - Modernized with unique design */}
+        {/* Service Locations Section - Now comes after Services and How It Works */}
+        <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
+        
+        {/* Testimonial Section */}
         <section className="section-padding bg-gradient-to-br from-mylli-primary/5 to-mylli-light relative overflow-hidden" aria-labelledby="testimonials-heading">
           {/* Background decoration elements */}
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -728,8 +735,9 @@ const HomePage = () => {
           </div>
         </section>
         
-        {/* CTA Contact Section - Updated with logo colors and black text for better visibility */}
+        {/* CTA Contact Section */}
       </div>
     </>;
 };
+
 export default HomePage;
