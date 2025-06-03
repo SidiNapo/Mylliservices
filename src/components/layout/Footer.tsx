@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const {
@@ -14,11 +13,7 @@ const Footer = () => {
           {/* About Section with Updated Logo */}
           <div>
             <Link to="/" className="flex items-center mb-4">
-              <img 
-                alt="Mylli Services Logo" 
-                className="h-10 w-auto" 
-                src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
-              />
+              <img alt="Mylli Services Logo" className="h-10 w-auto" src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" />
             </Link>
             <p className="text-mylli-gray mb-6">
               {t('footer.about')}
@@ -53,9 +48,9 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.caregiver')}</Link></li>
               <li><Link to="/services/infirmier" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.nurse')}</Link></li>
-              <li><Link to="/services/garde-malade-jour" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.day')}</Link></li>
-              <li><Link to="/services/garde-malade-nuit" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.night')}</Link></li>
-              <li><Link to="/services/garde-malade-24h" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.24h')}</Link></li>
+              
+              
+              
             </ul>
           </div>
           
@@ -88,5 +83,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;
