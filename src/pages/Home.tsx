@@ -87,8 +87,12 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Images for the hero background
-  const careImages = ['/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png', '/lovable-uploads/cfbe77b8-0c6a-4e5c-b8f4-b2fb19e403a5.png', '/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png'];
+  // Updated images for the hero background with new healthcare professional images
+  const careImages = [
+    '/lovable-uploads/5e72d59f-037f-46a2-a887-3878ba72f5dd.png', 
+    '/lovable-uploads/816b248a-adf4-4cb2-bf47-5f0e4904567e.png', 
+    '/lovable-uploads/0d08dc69-6a6c-4807-b6c5-e314eba8fc93.png'
+  ];
 
   // Sample data for services
   const services = [{
@@ -156,19 +160,19 @@ const HomePage = () => {
     icon: <Shield className="text-mylli-primary h-12 w-12" />,
     title: "Sécurité & Confiance",
     description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité et sérénité.",
-    color: "primary",
+    color: "primary" as const,
     detailedDescription: "Chez Mylli Services, votre sécurité et bien-être sont nos priorités absolues. Chaque intervenant fait l'objet d'une sélection rigoureuse basée sur ses qualifications professionnelles, son expérience et ses aptitudes relationnelles.\n\nNous effectuons une vérification approfondie des références et des antécédents professionnels. Notre personnel est formé régulièrement aux dernières techniques et protocoles de soins, garantissant ainsi un service de haute qualité.\n\nGrâce à notre approche centrée sur la confiance et la transparence, vous et votre famille pouvez avoir l'esprit tranquille, sachant que vous êtes entre des mains compétentes et bienveillantes."
   }, {
     icon: <Star className="text-mylli-secondary h-12 w-12" />,
     title: "Qualité de service",
     description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
-    color: "secondary",
+    color: "secondary" as const,
     detailedDescription: "La qualité est au cœur de notre engagement envers chaque patient. Nous commençons par une évaluation détaillée de vos besoins spécifiques pour élaborer un plan de soins sur mesure qui respecte vos préférences et votre mode de vie.\n\nNos procédures de qualité comprennent des évaluations régulières, des ajustements du plan de soins selon l'évolution de vos besoins, et un suivi continu avec vous et votre famille.\n\nNous mettons également en place un système de feedback constant qui nous permet d'améliorer constamment nos services. Notre équipe de supervision effectue des visites régulières pour s'assurer que les standards de qualité sont non seulement atteints mais dépassés."
   }, {
     icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
     title: "Disponibilité 24/7",
     description: "Notre équipe est disponible jour et nuit pour répondre à tous vos besoins d'urgence.",
-    color: "accent",
+    color: "accent" as const,
     detailedDescription: "La maladie et les besoins de soins ne respectent pas les horaires de bureau. C'est pourquoi nous offrons un service disponible 24 heures sur 24, 7 jours sur 7.\n\nQue vous ayez besoin d'assistance pendant la nuit, les week-ends ou les jours fériés, notre équipe est toujours prête à intervenir. Notre système de permanence téléphonique vous garantit un contact immédiat avec un professionnel qualifié qui pourra vous conseiller ou organiser rapidement une intervention à votre domicile.\n\nNous proposons également des services de garde-malade de jour, de nuit ou en continu 24h/24, adaptés aux besoins spécifiques de chaque situation. Cette disponibilité constante apporte une tranquillité d'esprit inestimable aux patients comme à leurs proches."
   }];
 
@@ -323,8 +327,6 @@ const HomePage = () => {
                 
                 {/* Modern content card with optimized images */}
                 <article className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
-                  {/* Logo display */}
-                  
                   {/* Top photo highlight */}
                   <div className="relative h-48 overflow-hidden group">
                     <OptimizedImage src={careImages[activeImage]} alt="Services professionnels d'aide et de soins à domicile Mylli Services" width={400} height={192} priority={true} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
@@ -335,9 +337,9 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  {/* Content section */}
+                  {/* Content section with larger text */}
                   <div className="p-6 text-white">
-                    <p className="mb-4 text-sm">
+                    <p className="mb-4 text-lg leading-relaxed">
                       Nos professionnels qualifiés vous accompagnent avec respect et dignité dans votre quotidien, offrant des soins adaptés à vos besoins spécifiques.
                     </p>
                     
