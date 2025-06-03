@@ -89,9 +89,9 @@ const HomePage = () => {
 
   // Updated images for the hero background with new healthcare professional images
   const careImages = [
-    '/lovable-uploads/5e72d59f-037f-46a2-a887-3878ba72f5dd.png', 
-    '/lovable-uploads/816b248a-adf4-4cb2-bf47-5f0e4904567e.png', 
-    '/lovable-uploads/0d08dc69-6a6c-4807-b6c5-e314eba8fc93.png'
+    '/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', 
+    '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', 
+    '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'
   ];
 
   // Sample data for services
@@ -329,7 +329,14 @@ const HomePage = () => {
                 <article className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
                   {/* Top photo highlight */}
                   <div className="relative h-48 overflow-hidden group">
-                    <OptimizedImage src={careImages[activeImage]} alt="Services professionnels d'aide et de soins à domicile Mylli Services" width={400} height={192} priority={true} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+                    <OptimizedImage 
+                      src={careImages[activeImage]} 
+                      alt="Services professionnels d'aide et de soins à domicile Mylli Services" 
+                      width={400} 
+                      height={192} 
+                      priority={true} 
+                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
@@ -339,7 +346,7 @@ const HomePage = () => {
                   
                   {/* Content section with larger text */}
                   <div className="p-6 text-white">
-                    <p className="mb-4 text-lg leading-relaxed">
+                    <p className="mb-4 text-xl leading-relaxed">
                       Nos professionnels qualifiés vous accompagnent avec respect et dignité dans votre quotidien, offrant des soins adaptés à vos besoins spécifiques.
                     </p>
                     
@@ -349,7 +356,7 @@ const HomePage = () => {
                     </div>
                     
                     <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
-                      <Link to="/services">Mot du Président</Link>
+                      <Link to="/apropos">Mot du Président</Link>
                     </Button>
                   </div>
                 </article>
