@@ -302,67 +302,48 @@ const HomePage = () => {
                 </div>
               </div>
               
-              {/* Right column: Modern Full-Image Card */}
+              {/* Right column: Visual Element */}
               <aside className="relative flex justify-center items-center">
                 {/* Decorative elements */}
                 <div className="absolute -top-10 -left-10 w-40 h-40 bg-mylli-quaternary/30 rounded-full filter blur-3xl"></div>
                 <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-mylli-secondary/30 rounded-full filter blur-3xl"></div>
                 
-                {/* Modern content card - completely redesigned */}
-                <article className="relative w-full max-w-md h-96 rounded-2xl overflow-hidden shadow-glass group">
-                  {/* Full background image covering entire card */}
-                  <div className="absolute inset-0 w-full h-full">
-                    <OptimizedImage 
-                      src={careImages[activeImage]} 
-                      alt="Services professionnels d'aide et de soins à domicile Mylli Services" 
-                      width={400} 
-                      height={384} 
-                      priority={true} 
-                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110" 
-                    />
-                  </div>
-                  
-                  {/* Gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/95 via-mylli-dark/40 to-transparent"></div>
-                  
-                  {/* Top badge */}
-                  <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 border border-white/30">
-                    <h3 className="text-white text-sm font-bold">Soins professionnels</h3>
-                  </div>
-                  
-                  {/* Content overlay - positioned at bottom */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold mb-2">Accompagnement personnalisé à domicile</h3>
-                      <p className="text-sm leading-relaxed text-white/90">
-                        Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme le maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
-                      </p>
+                {/* Modern content card with optimized images */}
+                <article className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
+                  {/* Top photo highlight */}
+                  <div className="relative h-48 overflow-hidden group">
+                    <div className="absolute inset-0 w-full h-full">
+                      <OptimizedImage 
+                        src={careImages[activeImage]} 
+                        alt="Services professionnels d'aide et de soins à domicile Mylli Services" 
+                        width={400} 
+                        height={192} 
+                        priority={true} 
+                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                      />
                     </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
+                      <p className="text-white/90 text-sm">Accompagnement personnalisé à domicile</p>
+                    </div>
+                  </div>
+                  
+                  {/* Content section with larger text */}
+                  <div className="p-6 text-white">
+                    <p className="mb-4 leading-relaxed text-base">
+                      Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme le maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
+                    </p>
                     
-                    {/* Image selector dots */}
+                    {/* Image selector - modern touch with logo colors */}
                     <div className="flex space-x-2 mb-4">
-                      {careImages.map((_, index) => (
-                        <button 
-                          key={index} 
-                          onClick={() => setActiveImage(index)} 
-                          className={`h-2 rounded-full transition-all duration-300 ${
-                            activeImage === index 
-                              ? 'bg-mylli-secondary w-6' 
-                              : 'bg-white/40 w-2 hover:bg-white/60'
-                          }`} 
-                          aria-label={`Image ${index + 1}`} 
-                        />
-                      ))}
+                      {careImages.map((_, index) => <button key={index} onClick={() => setActiveImage(index)} className={`w-2 h-2 rounded-full transition-all duration-300 ${activeImage === index ? 'bg-mylli-secondary w-6' : 'bg-white/30'}`} aria-label={`Image ${index + 1}`} />)}
                     </div>
                     
-                    {/* CTA Button */}
-                    <Button asChild variant="outline" className="w-full border-white/40 text-white hover:bg-white/20 hover:border-white/60 backdrop-blur-sm">
+                    <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
                       <Link to="/apropos">Mot du Président</Link>
                     </Button>
                   </div>
-                  
-                  {/* Hover effect overlay */}
-                  <div className="absolute inset-0 bg-mylli-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </article>
               </aside>
             </div>
@@ -750,5 +731,4 @@ const HomePage = () => {
       </div>
     </>;
 };
-
 export default HomePage;
