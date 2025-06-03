@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ const HomePage = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
   const [hoverCard, setHoverCard] = useState(-1);
+  const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
 
   // For mouse parallax effect
   const [mousePosition, setMousePosition] = useState({
@@ -151,24 +153,24 @@ const HomePage = () => {
     location: "Casablanca"
   }];
 
-  // Features section data with updated details and detailed descriptions
+  // Features section data with updated details and detailed descriptions - fixed color types
   const features = [{
     icon: <Shield className="text-mylli-primary h-12 w-12" />,
     title: "Sécurité & Confiance",
     description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité et sérénité.",
-    color: "primary",
+    color: "primary" as const,
     detailedDescription: "Chez Mylli Services, votre sécurité et bien-être sont nos priorités absolues. Chaque intervenant fait l'objet d'une sélection rigoureuse basée sur ses qualifications professionnelles, son expérience et ses aptitudes relationnelles.\n\nNous effectuons une vérification approfondie des références et des antécédents professionnels. Notre personnel est formé régulièrement aux dernières techniques et protocoles de soins, garantissant ainsi un service de haute qualité.\n\nGrâce à notre approche centrée sur la confiance et la transparence, vous et votre famille pouvez avoir l'esprit tranquille, sachant que vous êtes entre des mains compétentes et bienveillantes."
   }, {
     icon: <Star className="text-mylli-secondary h-12 w-12" />,
     title: "Qualité de service",
     description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
-    color: "secondary",
+    color: "secondary" as const,
     detailedDescription: "La qualité est au cœur de notre engagement envers chaque patient. Nous commençons par une évaluation détaillée de vos besoins spécifiques pour élaborer un plan de soins sur mesure qui respecte vos préférences et votre mode de vie.\n\nNos procédures de qualité comprennent des évaluations régulières, des ajustements du plan de soins selon l'évolution de vos besoins, et un suivi continu avec vous et votre famille.\n\nNous mettons également en place un système de feedback constant qui nous permet d'améliorer constamment nos services. Notre équipe de supervision effectue des visites régulières pour s'assurer que les standards de qualité sont non seulement atteints mais dépassés."
   }, {
     icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
     title: "Disponibilité 24/7",
     description: "Notre équipe est disponible jour et nuit pour répondre à tous vos besoins d'urgence.",
-    color: "accent",
+    color: "accent" as const,
     detailedDescription: "La maladie et les besoins de soins ne respectent pas les horaires de bureau. C'est pourquoi nous offrons un service disponible 24 heures sur 24, 7 jours sur 7.\n\nQue vous ayez besoin d'assistance pendant la nuit, les week-ends ou les jours fériés, notre équipe est toujours prête à intervenir. Notre système de permanence téléphonique vous garantit un contact immédiat avec un professionnel qualifié qui pourra vous conseiller ou organiser rapidement une intervention à votre domicile.\n\nNous proposons également des services de garde-malade de jour, de nuit ou en continu 24h/24, adaptés aux besoins spécifiques de chaque situation. Cette disponibilité constante apporte une tranquillité d'esprit inestimable aux patients comme à leurs proches."
   }];
 
@@ -212,19 +214,9 @@ const HomePage = () => {
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
       
-      // After scrolling, find and expand the availability card
+      // After scrolling, expand the availability card (index 2)
       setTimeout(() => {
-        const availabilityCard = document.querySelector('[data-feature="availability"]');
-        if (availabilityCard) {
-          const collapsibleTrigger = availabilityCard.querySelector('[data-state]');
-          if (collapsibleTrigger) {
-            // Check if it's already open
-            const isOpen = collapsibleTrigger.getAttribute('data-state') === 'open';
-            if (!isOpen) {
-              (collapsibleTrigger as HTMLElement).click();
-            }
-          }
-        }
+        setExpandedFeature(2);
       }, 800); // Wait for scroll to complete
     }
   };
@@ -417,6 +409,8 @@ const HomePage = () => {
                     style="3d" 
                     color={feature.color} 
                     className="h-full" 
+                    isExpanded={expandedFeature === index}
+                    onToggle={() => setExpandedFeature(expandedFeature === index ? null : index)}
                   />
                 </div>
               ))}
