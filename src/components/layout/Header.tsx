@@ -1,8 +1,16 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Heart, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import LanguageSwitcher from '../common/LanguageSwitcher';
 import BrandName from '../common/BrandName';
 import { useLanguage } from '@/context/LanguageContext';
@@ -41,10 +49,6 @@ const Header = () => {
       path: '/'
     },
     {
-      name: t('nav.services'),
-      path: '/services'
-    },
-    {
       name: t('nav.functioning'),
       path: '/fonctionnement'
     },
@@ -59,6 +63,21 @@ const Header = () => {
     {
       name: t('nav.articles'),
       path: '/articles'
+    }
+  ];
+
+  const serviceItems = [
+    {
+      title: "Infirmier(ère) à domicile",
+      description: "Soins médicaux professionnels à votre domicile",
+      href: "/services/infirmier",
+      icon: Heart
+    },
+    {
+      title: "Aide-soignant(e) à domicile",
+      description: "Accompagnement dans les actes de la vie quotidienne",
+      href: "/services/aide-soignant",
+      icon: User
     }
   ];
 
@@ -81,18 +100,69 @@ const Header = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-1`}>
-          {navLinks.map(link => (
-            <Link 
-              key={link.path} 
-              to={link.path} 
-              className={`nav-link ${isActiveLink(link.path) ? 'active-nav-link' : ''}`} 
-              onClick={closeMenu}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+        <NavigationMenu className="hidden md:flex">
+          <NavigationMenuList className={`${isRTL ? 'space-x-reverse' : ''} space-x-1`}>
+            {navLinks.map(link => (
+              <NavigationMenuItem key={link.path}>
+                <Link 
+                  to={link.path} 
+                  className={`nav-link ${isActiveLink(link.path) ? 'active-nav-link' : ''}`} 
+                  onClick={closeMenu}
+                >
+                  {link.name}
+                </Link>
+              </NavigationMenuItem>
+            ))}
+            
+            {/* Services dropdown */}
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className={`nav-link ${location.pathname.startsWith('/services') ? 'active-nav-link' : ''}`}>
+                {t('nav.services')}
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <div className="grid gap-3 p-6 w-[400px] bg-white border border-gray-200 shadow-lg rounded-lg">
+                  <div className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <Link
+                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-mylli-light/50 to-mylli-light p-6 no-underline outline-none focus:shadow-md hover:bg-mylli-light/70 transition-colors"
+                        to="/services"
+                      >
+                        <div className="mb-2 mt-4 text-lg font-medium text-mylli-dark">
+                          Nos Services
+                        </div>
+                        <p className="text-sm leading-tight text-mylli-gray">
+                          Découvrez tous nos services d'aide et de soins à domicile
+                        </p>
+                      </Link>
+                    </NavigationMenuLink>
+                  </div>
+                  <div className="grid gap-2">
+                    {serviceItems.map((item) => (
+                      <NavigationMenuLink key={item.href} asChild>
+                        <Link
+                          to={item.href}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-mylli-light/50 focus:bg-mylli-light/50 group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <item.icon className="h-5 w-5 text-mylli-primary group-hover:text-mylli-secondary transition-colors" />
+                            <div>
+                              <div className="text-sm font-medium leading-none text-mylli-dark group-hover:text-mylli-primary transition-colors">
+                                {item.title}
+                              </div>
+                              <p className="line-clamp-2 text-xs leading-snug text-mylli-gray mt-1">
+                                {item.description}
+                              </p>
+                            </div>
+                          </div>
+                        </Link>
+                      </NavigationMenuLink>
+                    ))}
+                  </div>
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         
         {/* Contact Button and Language Switcher */}
         <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
@@ -131,6 +201,31 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
+            
+            {/* Mobile Services Section */}
+            <div className="border-t pt-4">
+              <Link 
+                to="/services" 
+                className={`p-2 block ${location.pathname.startsWith('/services') ? 'text-mylli-primary font-medium' : 'text-mylli-dark'}`} 
+                onClick={closeMenu}
+              >
+                {t('nav.services')}
+              </Link>
+              <div className="ml-4 mt-2 space-y-2">
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="flex items-center gap-2 p-2 text-sm text-mylli-gray hover:text-mylli-primary transition-colors"
+                    onClick={closeMenu}
+                  >
+                    <item.icon size={16} />
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
             <Button asChild className="btn-accent w-full">
               <Link to="/contact" onClick={closeMenu}>
                 {t('nav.contact')}
