@@ -77,9 +77,7 @@ const ServicesPage = () => {
       </section>
       
       {/* Garde-Malade Services */}
-      <section className="section-padding bg-white">
-        
-      </section>
+      
       
       {/* Exécution d'ordonnance médicale */}
       <section className="section-padding bg-gray-50">
