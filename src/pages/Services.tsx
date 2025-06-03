@@ -101,7 +101,7 @@ const ServicesPage = () => {
                 description={service.description}
                 icon={service.icon}
                 link={service.link}
-                style="3d"
+                style="modern"
                 className="animate-fade-in h-full"
               />
             ))}
