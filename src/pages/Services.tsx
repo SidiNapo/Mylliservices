@@ -58,7 +58,7 @@ const ServicesPage = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <p className="text-lg text-mylli-gray">
+            <p className="text-mylli-gray text-xl">
               Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
             </p>
           </div>
