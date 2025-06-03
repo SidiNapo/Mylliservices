@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,6 @@ import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
-
 const ServicesPage = () => {
   const {
     t,
@@ -51,7 +49,6 @@ const ServicesPage = () => {
     icon: <Clock size={24} className="text-mylli-primary" />,
     link: "/services/garde-malade-24h"
   }];
-
   return <div>
       <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
@@ -74,17 +71,10 @@ const ServicesPage = () => {
           <SectionHeading title={t('services.main.title')} subtitle={t('services.main.subtitle')} align={isRTL ? "right" : "left"} className="max-w-2xl" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mainServices.map((service, index) => (
-              <div key={index} className="card-service flex flex-col h-full relative overflow-hidden group animate-fade-in">
-                {service.image && (
-                  <div className="h-48 mb-6 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                    />
-                  </div>
-                )}
+            {mainServices.map((service, index) => <div key={index} className="card-service flex flex-col h-full relative overflow-hidden group animate-fade-in">
+                {service.image && <div className="h-48 mb-6 overflow-hidden">
+                    <img src={service.image} alt={service.title} className="w-full h-full transition-transform duration-500 group-hover:scale-110 object-scale-down" />
+                  </div>}
                 <div className="p-6 flex flex-col flex-grow bg-white">
                   {!service.image && service.icon && <div className="text-mylli-primary mb-4">{service.icon}</div>}
                   <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
@@ -95,8 +85,7 @@ const ServicesPage = () => {
                     </Link>
                   </Button>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -176,5 +165,4 @@ const ServicesPage = () => {
       </section>
     </div>;
 };
-
 export default ServicesPage;
