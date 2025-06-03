@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -9,68 +8,51 @@ import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
-
 const ServicesPage = () => {
-  const { t, isRTL } = useLanguage();
-  
+  const {
+    t,
+    isRTL
+  } = useLanguage();
+
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
-  
+
   // Main services
-  const mainServices = [
-    {
-      title: t('services.caregiver.title'),
-      description: t('services.caregiver.desc'),
-      icon: <User size={36} className="text-mylli-primary" />,
-      image: "/placeholder.svg",
-      link: "/services/aide-soignant",
-    },
-    {
-      title: t('services.nurse.title'),
-      description: t('services.nurse.desc'),
-      icon: <Heart size={36} className="text-mylli-primary" />,
-      image: "/placeholder.svg",
-      link: "/services/infirmier",
-    }
-  ];
-  
+  const mainServices = [{
+    title: t('services.caregiver.title'),
+    description: t('services.caregiver.desc'),
+    icon: <User size={36} className="text-mylli-primary" />,
+    image: "/placeholder.svg",
+    link: "/services/aide-soignant"
+  }, {
+    title: t('services.nurse.title'),
+    description: t('services.nurse.desc'),
+    icon: <Heart size={36} className="text-mylli-primary" />,
+    image: "/placeholder.svg",
+    link: "/services/infirmier"
+  }];
+
   // Garde-malade services
-  const gardeMaladeServices = [
-    {
-      title: t('footer.service.day'),
-      description: "Présence attentive et aide aux activités quotidiennes pendant la journée.",
-      icon: <Clock size={24} className="text-mylli-primary" />,
-      link: "/services/garde-malade-jour",
-    },
-    {
-      title: t('footer.service.night'),
-      description: "Surveillance nocturne et assistance pour un sommeil serein et sécurisé.",
-      icon: <Clock size={24} className="text-mylli-primary" />,
-      link: "/services/garde-malade-nuit",
-    },
-    {
-      title: t('footer.service.24h'),
-      description: "Présence continue avec relève d'équipe pour une assistance permanente.",
-      icon: <Clock size={24} className="text-mylli-primary" />,
-      link: "/services/garde-malade-24h",
-    }
-  ];
-  
-  return (
-    <div>
-      <SEOHead
-        title="Nos Services - Aide à domicile professionnelle | Mylli Services"
-        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs."
-        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca"
-        canonicalUrl="/services"
-        structuredData={structuredData}
-      />
+  const gardeMaladeServices = [{
+    title: t('footer.service.day'),
+    description: "Présence attentive et aide aux activités quotidiennes pendant la journée.",
+    icon: <Clock size={24} className="text-mylli-primary" />,
+    link: "/services/garde-malade-jour"
+  }, {
+    title: t('footer.service.night'),
+    description: "Surveillance nocturne et assistance pour un sommeil serein et sécurisé.",
+    icon: <Clock size={24} className="text-mylli-primary" />,
+    link: "/services/garde-malade-nuit"
+  }, {
+    title: t('footer.service.24h'),
+    description: "Présence continue avec relève d'équipe pour une assistance permanente.",
+    icon: <Clock size={24} className="text-mylli-primary" />,
+    link: "/services/garde-malade-24h"
+  }];
+  return <div>
+      <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
-      <PageBanner 
-        title={t('services.title')}
-        subtitle={t('services.subtitle')}
-        variant="modern"
-      />
+      <PageBanner title={t('services.title')} subtitle={t('services.subtitle')} variant="modern" />
       
       {/* Introduction */}
       <section className="section-padding bg-white">
@@ -86,81 +68,17 @@ const ServicesPage = () => {
       {/* Main Services */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <SectionHeading 
-            title={t('services.main.title')}
-            subtitle={t('services.main.subtitle')}
-            align={isRTL ? "right" : "left"}
-            className="max-w-2xl"
-          />
+          <SectionHeading title={t('services.main.title')} subtitle={t('services.main.subtitle')} align={isRTL ? "right" : "left"} className="max-w-2xl" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mainServices.map((service, index) => (
-              <ServiceCard 
-                key={index}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                link={service.link}
-                style="modern"
-                className="animate-fade-in h-full"
-              />
-            ))}
+            {mainServices.map((service, index) => <ServiceCard key={index} title={service.title} description={service.description} icon={service.icon} link={service.link} style="modern" className="animate-fade-in h-full" />)}
           </div>
         </div>
       </section>
       
       {/* Garde-Malade Services */}
       <section className="section-padding bg-white">
-        <div className="container-custom">
-          <SectionHeading 
-            title={t('services.gardemalade.title')}
-            subtitle="Une présence rassurante adaptée à vos besoins"
-            align={isRTL ? "right" : "left"}
-            className="max-w-2xl"
-          />
-          
-          <div className="bg-mylli-primary/5 rounded-2xl p-6 md:p-10 mb-12 animate-fade-in">
-            <div className="flex flex-col lg:flex-row">
-              {/* Description */}
-              <div className={`lg:w-1/2 ${isRTL ? 'lg:pl-10' : 'lg:pr-10'} mb-8 lg:mb-0`}>
-                <h3 className="text-2xl font-bold text-mylli-dark mb-4">{t('services.gardemalade.title')}</h3>
-                <p className="text-mylli-gray mb-6">
-                  {t('services.gardemalade.desc')}
-                </p>
-                <div className="bg-white rounded-lg p-4 border border-mylli-primary/20">
-                  <h4 className="text-lg font-semibold text-mylli-dark mb-3 flex items-center">
-                    <AlertCircle size={18} className="text-mylli-primary mr-2" />
-                    À savoir
-                  </h4>
-                  <p className="text-sm text-mylli-gray">
-                    Tous nos gardes-malades sont formés aux premiers secours et possèdent une expérience significative dans l'accompagnement de personnes dépendantes. Nous assurons également une coordination permanente avec le personnel médical et les proches.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Options */}
-              <div className="lg:w-1/2">
-                <div className="bg-white rounded-xl shadow-soft overflow-hidden">
-                  {gardeMaladeServices.map((service, index) => (
-                    <div 
-                      key={index}
-                      className={`p-5 ${index !== gardeMaladeServices.length - 1 ? 'border-b border-gray-100' : ''}`}
-                    >
-                      <ServiceCard 
-                        title={service.title}
-                        description={service.description}
-                        icon={service.icon}
-                        link={service.link}
-                        style="minimal"
-                        className="border-0 p-0 hover:bg-transparent"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </section>
       
       {/* Exécution d'ordonnance médicale */}
@@ -233,8 +151,6 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ServicesPage;
