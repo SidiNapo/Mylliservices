@@ -55,7 +55,15 @@ const ServicesPage = () => {
       <PageBanner title={t('services.title')} subtitle={t('services.subtitle')} variant="modern" />
       
       {/* Introduction */}
-      
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center animate-fade-in">
+            <p className="text-lg text-mylli-gray">
+              Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
+            </p>
+          </div>
+        </div>
+      </section>
       
       {/* Main Services */}
       <section className="section-padding bg-gray-50">
