@@ -11,6 +11,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -311,7 +312,16 @@ const HomePage = () => {
                 <article className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
                   {/* Top photo highlight */}
                   <div className="relative h-48 overflow-hidden group">
-                    <OptimizedImage src={careImages[activeImage]} alt="Services professionnels d'aide et de soins à domicile Mylli Services" width={400} height={192} priority={true} className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" />
+                    <div className="absolute inset-0 w-full h-full">
+                      <OptimizedImage 
+                        src={careImages[activeImage]} 
+                        alt="Services professionnels d'aide et de soins à domicile Mylli Services" 
+                        width={400} 
+                        height={192} 
+                        priority={true} 
+                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                      />
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
