@@ -533,7 +533,7 @@ const HomePage = () => {
         <section className="section-padding bg-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
           <div className="container-custom relative z-10">
             <header>
-              <SectionHeading title="Notre Fonctionnement" subtitle="Une approche simple et efficace pour mettre en place un accompagnement parfaitement adapté à vos besoins." variant="split" highlightText="Fonctionnement" id="how-it-works-heading" />
+              <SectionHeading title="Un accompagnement personnalisé en 4 étapes" variant="split" highlightText="personnalisé" id="how-it-works-heading" />
             </header>
             
             <div className="relative">
