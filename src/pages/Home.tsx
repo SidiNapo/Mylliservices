@@ -309,40 +309,64 @@ const HomePage = () => {
                 <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-mylli-secondary/30 rounded-full filter blur-3xl"></div>
                 
                 {/* Modern content card with optimized images */}
-                <article className="relative max-w-md w-full backdrop-blur-lg bg-white/20 border border-white/30 rounded-2xl shadow-glass overflow-hidden">
-                  {/* Top photo highlight */}
-                  <div className="relative h-48 overflow-hidden group">
-                    <div className="absolute inset-0 w-full h-full">
-                      <OptimizedImage 
-                        src={careImages[activeImage]} 
-                        alt="Services professionnels d'aide et de soins à domicile Mylli Services" 
-                        width={400} 
-                        height={192} 
-                        priority={true} 
-                        className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                <article className="relative max-w-md w-full">
+                  {/* Card container with perfect rounded corners */}
+                  <div className="relative backdrop-blur-lg bg-white/15 border border-white/20 rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:scale-[1.02] hover:shadow-3xl group">
+                    
+                    {/* Image Section - Full Coverage */}
+                    <div className="relative h-64 overflow-hidden">
+                      {/* Background image with full coverage */}
+                      <div 
+                        className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                        style={{
+                          backgroundImage: `url(${careImages[activeImage]})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center'
+                        }}
                       />
+                      
+                      {/* Gradient overlay for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 via-mylli-dark/30 to-transparent"></div>
+                      
+                      {/* Text overlay on image */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-white text-2xl font-bold mb-2 drop-shadow-lg">Soins professionnels</h3>
+                        <p className="text-white/95 text-sm font-medium drop-shadow-md">Accompagnement personnalisé à domicile</p>
+                      </div>
+                      
+                      {/* Image selector dots - positioned over image */}
+                      <div className="absolute top-4 right-4 flex space-x-2">
+                        {careImages.map((_, index) => (
+                          <button 
+                            key={index} 
+                            onClick={() => setActiveImage(index)} 
+                            className={`w-3 h-3 rounded-full transition-all duration-300 border border-white/50 ${
+                              activeImage === index 
+                                ? 'bg-mylli-secondary scale-110 shadow-lg' 
+                                : 'bg-white/30 hover:bg-white/50'
+                            }`} 
+                            aria-label={`Image ${index + 1}`} 
+                          />
+                        ))}
+                      </div>
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <h3 className="text-white text-xl font-bold mb-1">Soins professionnels</h3>
-                      <p className="text-white/90 text-sm">Accompagnement personnalisé à domicile</p>
-                    </div>
-                  </div>
-                  
-                  {/* Content section with larger text */}
-                  <div className="p-6 text-white">
-                    <p className="mb-4 leading-relaxed text-base">
-                      Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme le maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
-                    </p>
                     
-                    {/* Image selector - modern touch with logo colors */}
-                    <div className="flex space-x-2 mb-4">
-                      {careImages.map((_, index) => <button key={index} onClick={() => setActiveImage(index)} className={`w-2 h-2 rounded-full transition-all duration-300 ${activeImage === index ? 'bg-mylli-secondary w-6' : 'bg-white/30'}`} aria-label={`Image ${index + 1}`} />)}
+                    {/* Content Section */}
+                    <div className="p-6 bg-white/10 backdrop-blur-sm">
+                      <div className="text-white mb-6">
+                        <p className="leading-relaxed text-base mb-4 text-white/90">
+                          Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme la maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
+                        </p>
+                      </div>
+                      
+                      {/* Action button */}
+                      <Button asChild variant="outline" className="w-full border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+                        <Link to="/apropos" className="flex items-center justify-center">
+                          Mot du Président
+                          <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      </Button>
                     </div>
-                    
-                    <Button asChild variant="outline" className="w-full border-white/30 text-black hover:bg-white/20">
-                      <Link to="/apropos">Mot du Président</Link>
-                    </Button>
                   </div>
                 </article>
               </aside>
