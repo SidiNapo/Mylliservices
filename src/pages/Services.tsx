@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { useLanguage } from '@/context/LanguageContext';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
+
 const ServicesPage = () => {
   const {
     t,
@@ -49,6 +51,7 @@ const ServicesPage = () => {
     icon: <Clock size={24} className="text-mylli-primary" />,
     link: "/services/garde-malade-24h"
   }];
+
   return <div>
       <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
@@ -59,7 +62,7 @@ const ServicesPage = () => {
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
             <p className="text-lg text-mylli-gray">
-              {t('services.intro')}
+              Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
             </p>
           </div>
         </div>
@@ -151,4 +154,5 @@ const ServicesPage = () => {
       </section>
     </div>;
 };
+
 export default ServicesPage;
