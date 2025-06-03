@@ -506,15 +506,15 @@ const HomePage = () => {
               
               <article>
                 <header>
-                  <SectionHeading title="Depuis 10 ans à vos côtés" subtitle="Mylli Services vous accompagne depuis 2014 avec un engagement constant pour préserver l'autonomie et la dignité des personnes fragilisées à leur domicile." align="left" variant="gradient" id="about-heading" />
+                  <SectionHeading title="Plus de 10 ans d'expérience au service de la dignité humaine" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
                 </header>
                 
                 <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
                   <p className="mb-4">
-                    Notre équipe de professionnels qualifiés offre une approche humaine et personnalisée adaptée aux besoins spécifiques de chaque patient.
+                    Cette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral et relationnel.
                   </p>
                   <p>
-                    Grâce à notre expérience et notre dévouement, nous permettons aux personnes en perte d'autonomie de rester chez elles dans les meilleures conditions possibles.
+                    Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de haute qualité, toujours empreint de respect et de bienveillance.
                   </p>
                 </div>
                 
