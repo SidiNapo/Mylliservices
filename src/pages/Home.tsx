@@ -335,7 +335,7 @@ const HomePage = () => {
                       width={400} 
                       height={192} 
                       priority={true} 
-                      className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
+                      className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
@@ -347,7 +347,7 @@ const HomePage = () => {
                   {/* Content section with larger text */}
                   <div className="p-6 text-white">
                     <p className="mb-4 text-xl leading-relaxed">
-                      Nos professionnels qualifiés vous accompagnent avec respect et dignité dans votre quotidien, offrant des soins adaptés à vos besoins spécifiques.
+                      Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme le maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
                     </p>
                     
                     {/* Image selector - modern touch with logo colors */}
