@@ -70,10 +70,6 @@ const FonctionnementPage = () => {
     {
       question: "Comment sont gérées les urgences?",
       answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
-    },
-    {
-      question: "Les tarifs sont-ils fixes?",
-      answer: "Nos tarifs sont établis en fonction de vos besoins spécifiques et du niveau de qualification requis pour les intervenants. Ils peuvent être ajustés en fonction de l'évolution de votre situation. Tout changement tarifaire vous est communiqué avec un préavis d'au moins un mois et fait l'objet d'un avenant au contrat."
     }
   ];
   
@@ -81,7 +77,7 @@ const FonctionnementPage = () => {
     <div>
       <PageBanner 
         title="Notre Fonctionnement" 
-        subtitle="Un accompagnement personnalisé en 4 étapes simples"
+        subtitle="Un accompagnement personnalisé en 4 étapes"
         variant="particles"
       />
       
@@ -111,11 +107,6 @@ const FonctionnementPage = () => {
       {/* Process Steps */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <SectionHeading 
-            title="Notre processus en 4 étapes"
-            subtitle="Une approche structurée pour garantir des services parfaitement adaptés à vos besoins"
-          />
-          
           <div className="max-w-5xl mx-auto">
             {steps.map((step, index) => (
               <div 
