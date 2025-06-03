@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -74,7 +73,29 @@ const ServicesPage = () => {
           <SectionHeading title={t('services.main.title')} subtitle={t('services.main.subtitle')} align={isRTL ? "right" : "left"} className="max-w-2xl" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {mainServices.map((service, index) => <ServiceCard key={index} title={service.title} description={service.description} icon={service.icon} link={service.link} style="modern" className="animate-fade-in h-full" />)}
+            {mainServices.map((service, index) => (
+              <div key={index} className="card-service flex flex-col h-full relative overflow-hidden group animate-fade-in">
+                {service.image && (
+                  <div className="h-48 mb-6 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                  </div>
+                )}
+                <div className="p-6 flex flex-col flex-grow bg-white">
+                  {!service.image && service.icon && <div className="text-mylli-primary mb-4">{service.icon}</div>}
+                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
+                  <p className="text-mylli-gray mb-4 flex-grow">{service.description}</p>
+                  <Button asChild className="btn-primary mt-auto">
+                    <Link to={service.link}>
+                      En savoir plus
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
