@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -316,14 +315,11 @@ const HomePage = () => {
                     {/* Image Section - Full Coverage */}
                     <div className="relative h-64 overflow-hidden">
                       {/* Background image with full coverage */}
-                      <div 
-                        className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
-                        style={{
-                          backgroundImage: `url(${careImages[activeImage]})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center'
-                        }}
-                      />
+                      <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" style={{
+                      backgroundImage: `url(${careImages[activeImage]})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }} />
                       
                       {/* Gradient overlay for text readability */}
                       <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 via-mylli-dark/30 to-transparent"></div>
@@ -336,18 +332,7 @@ const HomePage = () => {
                       
                       {/* Image selector dots - positioned over image */}
                       <div className="absolute top-4 right-4 flex space-x-2">
-                        {careImages.map((_, index) => (
-                          <button 
-                            key={index} 
-                            onClick={() => setActiveImage(index)} 
-                            className={`w-3 h-3 rounded-full transition-all duration-300 border border-white/50 ${
-                              activeImage === index 
-                                ? 'bg-mylli-secondary scale-110 shadow-lg' 
-                                : 'bg-white/30 hover:bg-white/50'
-                            }`} 
-                            aria-label={`Image ${index + 1}`} 
-                          />
-                        ))}
+                        {careImages.map((_, index) => <button key={index} onClick={() => setActiveImage(index)} className={`w-3 h-3 rounded-full transition-all duration-300 border border-white/50 ${activeImage === index ? 'bg-mylli-secondary scale-110 shadow-lg' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Image ${index + 1}`} />)}
                       </div>
                     </div>
                     
@@ -428,40 +413,16 @@ const HomePage = () => {
             
             {/* New interactive trust indicators */}
             <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-primary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-primary/10 rounded-full p-3 mr-4">
-                  <Shield className="h-5 w-5 text-mylli-primary" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Personnel qualifié</h4>
-                  <p className="text-sm text-mylli-gray">Nos intervenants sont soigneusement sélectionnés et formés</p>
-                </div>
-              </div>
               
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-secondary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-secondary/10 rounded-full p-3 mr-4">
-                  <Heart className="h-5 w-5 text-mylli-secondary" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Approche humaine</h4>
-                  <p className="text-sm text-mylli-gray">Nous plaçons l'humain au cœur de notre démarche</p>
-                </div>
-              </div>
               
-              <div className="bg-white rounded-xl p-5 shadow-soft border-t-4 border-mylli-quaternary flex items-start transform transition-all duration-300 hover:-translate-y-1 hover:shadow-hover">
-                <div className="bg-mylli-quaternary/10 rounded-full p-3 mr-4">
-                  <Star className="h-5 w-5 text-mylli-quaternary" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-mylli-dark mb-1">Services personnalisés</h4>
-                  <p className="text-sm text-mylli-gray">Des solutions adaptées à vos besoins spécifiques</p>
-                </div>
-              </div>
+              
+              
+              
             </div>
             
             {/* Interactive call-to-action */}
             <div className="mt-16 text-center">
-              <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group">
+              <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group mx-0">
                 <span className="mr-2">Découvrir nos services</span>
                 <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
