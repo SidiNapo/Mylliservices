@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -23,13 +24,13 @@ const ServicesPage = () => {
     title: t('services.caregiver.title'),
     description: t('services.caregiver.desc'),
     icon: <User size={36} className="text-mylli-primary" />,
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png",
     link: "/services/aide-soignant"
   }, {
     title: t('services.nurse.title'),
     description: t('services.nurse.desc'),
     icon: <Heart size={36} className="text-mylli-primary" />,
-    image: "/placeholder.svg",
+    image: "/lovable-uploads/9bf34643-8906-46d2-8de6-63cbd35a7929.png",
     link: "/services/infirmier"
   }];
 
