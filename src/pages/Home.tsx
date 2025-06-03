@@ -11,6 +11,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -156,19 +157,19 @@ const HomePage = () => {
     title: "Une expérience de plus de 10 ans",
     description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité et sérénité.",
     color: "primary" as const,
-    detailedDescription: "Chez Mylli Services, votre sécurité et bien-être sont nos priorités absolues. Chaque intervenant fait l'objet d'une sélection rigoureuse basée sur ses qualifications professionnelles, son expérience et ses aptitudes relationnelles.\n\nNous effectuons une vérification approfondie des références et des antécédents professionnels. Notre personnel est formé régulièrement aux dernières techniques et protocoles de soins, garantissant ainsi un service de haute qualité.\n\nGrâce à notre approche centrée sur la confiance et la transparence, vous et votre famille pouvez avoir l'esprit tranquille, sachant que vous êtes entre des mains compétentes et bienveillantes."
+    detailedDescription: "Plus de 10 ans d'expérience au service de la dignité humaine\n\nDepuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain.\n\nCette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral et relationnel. Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de haute qualité, toujours empreint de respect et de bienveillance."
   }, {
     icon: <Star className="text-mylli-secondary h-12 w-12" />,
     title: "Une équipe compétente pour un service de qualité",
     description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
     color: "secondary" as const,
-    detailedDescription: "La qualité est au cœur de notre engagement envers chaque patient. Nous commençons par une évaluation détaillée de vos besoins spécifiques pour élaborer un plan de soins sur mesure qui respecte vos préférences et votre mode de vie.\n\nNos procédures de qualité comprennent des évaluations régulières, des ajustements du plan de soins selon l'évolution de vos besoins, et un suivi continu avec vous et votre famille.\n\nNous mettons également en place un système de feedback constant qui nous permet d'améliorer constamment nos services. Notre équipe de supervision effectue des visites régulières pour s'assurer que les standards de qualité sont non seulement atteints mais dépassés."
+    detailedDescription: "Des équipes engagées, compétentes et à l'écoute\n\nChez Mylli Services, la qualité de nos prestations repose avant tout sur la valeur humaine et professionnelle de nos équipes. Chaque intervenant — aide-soignant, infirmier ou coordinateur — est sélectionné avec soin pour ses compétences, mais aussi pour son sens de l'écoute, de l'empathie et de la responsabilité.\n\nFormés aux spécificités de l'accompagnement à domicile, nos professionnels savent s'adapter aux situations les plus délicates, tout en maintenant un climat de confiance avec les patients et leurs familles. Présents, attentifs et bienveillants, ils ne se contentent pas d'exécuter une mission : ils créent un lien humain, essentiel pour surmonter les épreuves de la maladie.\n\nCette approche humaine et professionnelle est au cœur de notre réussite et fait de chaque intervention une expérience respectueuse, sécurisante et profondément humaine."
   }, {
     icon: <Clock className="text-mylli-quaternary h-12 w-12" />,
     title: "Disponibilité 24/7 avec un service personnalisé",
     description: "Notre équipe est disponible jour et nuit pour répondre à tous vos besoins d'urgence.",
     color: "accent" as const,
-    detailedDescription: "La maladie et les besoins de soins ne respectent pas les horaires de bureau. C'est pourquoi nous offrons un service disponible 24 heures sur 24, 7 jours sur 7.\n\nQue vous ayez besoin d'assistance pendant la nuit, les week-ends ou les jours fériés, notre équipe est toujours prête à intervenir. Notre système de permanence téléphonique vous garantit un contact immédiat avec un professionnel qualifié qui pourra vous conseiller ou organiser rapidement une intervention à votre domicile.\n\nNous proposons également des services de garde-malade de jour, de nuit ou en continu 24h/24, adaptés aux besoins spécifiques de chaque situation. Cette disponibilité constante apporte une tranquillité d'esprit inestimable aux patients comme à leurs proches."
+    detailedDescription: "Un accompagnement disponible 24h/24 et 7j/7\n\nParce que les besoins en soins et en assistance ne connaissent ni pause ni horaires, Mylli Services assure une présence continue, jour et nuit, toute l'année.\n\nNos équipes sont organisées pour intervenir à tout moment, 24h/24 et 7j/7, afin d'apporter un soutien immédiat, que ce soit pour une urgence, un besoin ponctuel ou un accompagnement de longue durée. Cette disponibilité permanente garantit une tranquillité d'esprit totale aux familles, qui savent qu'elles peuvent compter sur nous à chaque instant.\n\nCette réactivité est l'une des clés de notre efficacité et un pilier fondamental de notre engagement envers les patients et leurs proches."
   }];
 
   // Sample locations data for the new component - updated without quartiers
@@ -716,4 +717,5 @@ const HomePage = () => {
       </div>
     </>;
 };
+
 export default HomePage;
