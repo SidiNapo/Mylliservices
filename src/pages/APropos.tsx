@@ -1,5 +1,6 @@
+
 import { Link } from 'react-router-dom';
-import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users, Calendar, Building, Landmark, Phone } from 'lucide-react';
+import { CheckCircle, MapPin, Heart, Award, Clock, Globe, Shield, Users, Calendar, Building, Landmark, Phone, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -7,35 +8,6 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import ServiceLocations from '@/components/common/ServiceLocations';
 
 const AProposPage = () => {
-  // Timeline data
-  const milestones = [
-    {
-      year: 2014,
-      title: "Fondation de Mylli Services",
-      description: "Création de l'entreprise par Ahmed Bennani avec une équipe initiale de 5 professionnels de santé."
-    },
-    {
-      year: 2016,
-      title: "Premier partenariat hospitalier",
-      description: "Signature d'un accord avec la Clinique Spécialisée de Casablanca pour la prise en charge post-hospitalisation."
-    },
-    {
-      year: 2018,
-      title: "Extension des services",
-      description: "Ajout des services de garde-malade 24h/24 et développement de l'offre pour les personnes atteintes de maladies neurodégénératives."
-    },
-    {
-      year: 2020,
-      title: "Adaptation aux défis sanitaires",
-      description: "Mise en place de protocoles spécifiques pour assurer la continuité des soins pendant la pandémie de COVID-19."
-    },
-    {
-      year: 2024,
-      title: "10 ans d'excellence",
-      description: "Célébration d'une décennie au service des personnes fragilisées avec une équipe de plus de 50 professionnels."
-    }
-  ];
-  
   // Why choose us data
   const reasons = [
     {
@@ -86,48 +58,129 @@ const AProposPage = () => {
         subtitle="PLUS DE 10 ANS D'EXPÉRIENCE AU SERVICE DES PERSONNES FRAGILISÉES À LEUR DOMICILE"
       />
       
-      {/* History Section - Redesigned with modern timeline */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
+      {/* President's Message Section - Modern Design */}
+      <section className="py-24 bg-gradient-to-br from-white via-gray-50 to-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 rounded-full border border-mylli-primary animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-24 h-24 rounded-full border border-mylli-secondary animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full border border-mylli-accent animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
           <SectionHeading 
-            title="Notre Histoire"
-            subtitle="Une décennie d'engagement et de dévouement"
+            title="Le Mot du Fondateur"
             variant="modern"
+            className="mb-16"
           />
           
-          <div className="max-w-5xl mx-auto">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-mylli-primary via-mylli-secondary to-mylli-accent -ml-0.5 hidden md:block"></div>
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+              {/* President's Image */}
+              <div className="lg:col-span-4 flex justify-center lg:justify-start">
+                <div className="relative group">
+                  {/* Decorative background */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  
+                  {/* Main image container */}
+                  <div className="relative bg-white rounded-2xl p-2 shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/lovable-uploads/6614d6c0-17b6-4417-b39c-a959be53d239.png" 
+                        alt="M. HARAKAT, Fondateur de Mylli Services" 
+                        className="w-80 h-96 object-cover object-top"
+                      />
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent"></div>
+                    </div>
+                    
+                    {/* Name plate */}
+                    <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-lg px-6 py-3 border border-gray-100">
+                      <p className="text-mylli-dark font-bold text-center">M. HARAKAT</p>
+                      <p className="text-mylli-gray text-sm text-center">Fondateur</p>
+                    </div>
+                  </div>
+                  
+                  {/* Floating quote icon */}
+                  <div className="absolute -top-2 -left-2 w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center shadow-lg">
+                    <Quote size={24} className="text-white" />
+                  </div>
+                </div>
+              </div>
               
-              {milestones.map((milestone, index) => (
-                <div key={index} className="relative mb-16 last:mb-0">
-                  <div className={`flex flex-col md:flex-row ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                    {/* Year bubble */}
-                    <div className="md:hidden absolute left-0 top-0 flex flex-col items-center">
-                      <div className="bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white font-bold py-1 px-4 rounded-full">
-                        {milestone.year}
+              {/* Speech Content */}
+              <div className="lg:col-span-8">
+                <div className="space-y-8">
+                  {/* First section */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100/50 transform hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-start mb-6">
+                      <div className="w-1 h-16 bg-gradient-to-b from-mylli-primary to-mylli-secondary rounded-full mr-6"></div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-mylli-dark mb-4">La Vision Fondatrice</h3>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          La création de Mylli Services en 2014 a été d'abord animée par une conviction profonde : révolutionner l'accompagnement à domicile des personnes en perte d'autonomie au Maroc et offrir un accompagnement digne, humain et professionnel.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          Notre engagement est né d'un constat simple mais crucial : la société marocaine a évolué vers un modèle moderne où hommes et femmes travaillent, rendant difficile la prise en charge traditionnelle d'un proche malade au domicile familial.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          Cette transformation sociétale appelait à une réponse professionnelle adaptée. Beaucoup pensaient que notre concept n'avait aucune chance d'aboutir. Pourtant, nous avons persévéré et créé un système de fonctionnement parfaitement adapté au marché marocain.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed font-medium">
+                          Aujourd'hui, notre modèle est devenu la référence pour la majorité des entreprises qui ont vu le jour après nous dans ce secteur.
+                        </p>
                       </div>
                     </div>
-                    
-                    <div className="absolute left-1/2 top-0 -translate-x-1/2 flex-col items-center hidden md:flex">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white flex items-center justify-center font-bold text-lg shadow-lg">
-                        {milestone.year.toString().substring(2)}
+                  </div>
+                  
+                  {/* Second section */}
+                  <div className="bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-2xl p-8 shadow-lg border border-mylli-primary/10 transform hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-start mb-6">
+                      <div className="w-1 h-16 bg-gradient-to-b from-mylli-secondary to-mylli-accent rounded-full mr-6"></div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-mylli-dark mb-4 flex items-center">
+                          <Heart size={28} className="text-mylli-primary mr-3" />
+                          Notre Mission au Cœur de l'Humain
+                        </h3>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          Chez Mylli Services, nous proposons des aides-soignants et des infirmiers qui s'occupent des personnes en perte d'autonomie 24h/24 et 7j/7 à leur domicile. C'est un métier noble et passionnant où les plus belles valeurs humaines s'expriment avec intensité.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          Notre mission va au-delà du simple soin : nous aidons non seulement les malades, mais aussi leurs familles à affronter les difficultés liées aux pathologies handicapantes.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed">
+                          Au fil des années, nous avons acquis un savoir-faire indéniable, une expérience plus que probante et une excellente réputation sur le marché. Notre force réside dans notre approche minutieuse du recrutement : nous sélectionnons nos intervenants tant sur le plan humain que sur celui des compétences techniques.
+                        </p>
                       </div>
-                      <div className="w-1 h-8 bg-gradient-to-b from-mylli-primary to-transparent"></div>
                     </div>
-                    
-                    {/* Content */}
-                    <div className={`md:w-1/2 pt-10 md:pt-0 pl-10 md:pl-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
-                      <div className="bg-white rounded-xl shadow-xl p-6 transform transition-all duration-500 hover:shadow-2xl hover:translate-y-[-5px] border-t-4 border-mylli-primary">
-                        <div className="hidden md:block text-mylli-primary font-bold text-lg mb-2">{milestone.year}</div>
-                        <h3 className="text-xl font-bold mb-3 text-mylli-dark">{milestone.title}</h3>
-                        <p className="text-mylli-gray">{milestone.description}</p>
+                  </div>
+                  
+                  {/* Third section */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100/50 transform hover:shadow-xl transition-shadow duration-300">
+                    <div className="flex items-start mb-6">
+                      <div className="w-1 h-16 bg-gradient-to-b from-mylli-accent to-mylli-primary rounded-full mr-6"></div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-mylli-dark mb-4 flex items-center">
+                          <Award size={28} className="text-mylli-secondary mr-3" />
+                          Un Engagement qui Perdure
+                        </h3>
+                        <p className="text-mylli-gray leading-relaxed mb-4">
+                          Dix ans après sa création, Mylli Services continue d'innover et de s'adapter aux besoins évolutifs de nos concitoyens.
+                        </p>
+                        <p className="text-mylli-gray leading-relaxed mb-6">
+                          Notre succès témoigne de la justesse de notre vision initiale et de notre engagement indéfectible envers ceux qui nous font confiance.
+                        </p>
+                        
+                        {/* Signature */}
+                        <div className="bg-gradient-to-r from-mylli-primary/10 to-mylli-secondary/10 rounded-lg p-4 border-l-4 border-mylli-primary">
+                          <p className="text-mylli-dark font-bold text-lg italic">M. HARAKAT</p>
+                          <p className="text-mylli-gray">Fondateur de Mylli Services</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
