@@ -17,16 +17,16 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="page-banner-gradient min-h-screen flex items-center justify-center px-4">
+    <div className="min-h-screen flex items-center justify-center bg-mylli-primary/5 px-4">
       <div className="text-center max-w-md">
-        <div className="inline-block p-6 rounded-full bg-white/20 backdrop-blur-sm mb-6">
-          <span className="text-6xl font-bold text-white">404</span>
+        <div className="inline-block p-6 rounded-full bg-mylli-primary/10 mb-6">
+          <span className="text-6xl font-bold text-mylli-primary">404</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">{t('notFound.title')}</h1>
-        <p className="text-lg text-white/90 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-mylli-dark">{t('notFound.title')}</h1>
+        <p className="text-lg text-mylli-gray mb-8">
           {t('notFound.message')}
         </p>
-        <Button asChild className="bg-white text-mylli-primary hover:bg-white/90 inline-flex items-center">
+        <Button asChild className="btn-primary inline-flex items-center">
           <Link to="/">
             <Home size={18} className={isRTL ? "ml-2" : "mr-2"} />
             {t('notFound.button')}
@@ -35,7 +35,7 @@ const NotFound = () => {
         <div className="mt-8">
           <img 
             alt="Mylli Services Logo" 
-            className="h-8 w-auto mx-auto filter brightness-0 invert" 
+            className="h-8 w-auto mx-auto" 
             src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
           />
         </div>
