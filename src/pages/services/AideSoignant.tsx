@@ -6,6 +6,7 @@ import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -27,7 +28,7 @@ const AideSoignantPage = () => {
 
   // Testimonials
   const testimonials = [{
-    quote: "L'aide-soignante qui s'occupe de ma mère fait preuve d'une patience et d'une douceur remarquables. Nous avons noté une réelle amélioration de son moral depuis qu'elle intervient.",
+    quote: "L'aide-soignant qui s'occupe de ma mère fait preuve d'une patience et d'une douceur remarquables. Nous avons noté une réelle amélioration de son moral depuis qu'elle intervient.",
     name: "Karima L.",
     title: "Fille d'une patiente"
   }, {
@@ -103,9 +104,9 @@ const AideSoignantPage = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 scale-110"></div>
                         <div className="absolute inset-0 bg-gradient-to-tl from-mylli-accent/5 to-transparent rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500 scale-105"></div>
                         
-                        {/* Main image container - larger size */}
-                        <div className="relative w-32 h-32 mx-auto rounded-3xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl border border-mylli-primary/10">
-                          <OptimizedImage src={role.iconImage} alt={role.title} width={80} height={80} className="w-20 h-20 object-contain filter group-hover:brightness-110 transition-all duration-500" />
+                        {/* Main image container - much larger size */}
+                        <div className="relative w-40 h-40 mx-auto rounded-3xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl border border-mylli-primary/10">
+                          <OptimizedImage src={role.iconImage} alt={role.title} width={120} height={120} className="w-32 h-32 object-contain filter group-hover:brightness-110 transition-all duration-500" />
                         </div>
                         
                         {/* Additional decorative elements */}
@@ -238,4 +239,5 @@ const AideSoignantPage = () => {
       
     </div>;
 };
+
 export default AideSoignantPage;
