@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { CheckCircle, Heart, Award, Clock, Users, Calendar, Building, Phone, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -39,7 +38,7 @@ const AProposPage = () => {
       />
       
       {/* President's Message Section - Ultra Modern Design */}
-      <section className="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
+      <section id="mot-du-fondateur" className="py-32 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
         {/* Advanced Background Elements */}
         <div className="absolute inset-0 opacity-10">
           {/* Animated geometric shapes */}
