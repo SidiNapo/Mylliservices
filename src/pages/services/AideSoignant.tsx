@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,6 @@ import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -37,7 +35,6 @@ const AideSoignantPage = () => {
     name: "Hassan M.",
     title: "69 ans"
   }];
-
   return <div>
       <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
@@ -99,11 +96,7 @@ const AideSoignantPage = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Rôles de l'aide-soignant(e)" 
-            subtitle="Un accompagnement complet pour le bien-être quotidien" 
-            variant="gradient" 
-          />
+          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="gradient" />
           
           <div className="max-w-7xl mx-auto">
             {/* Unique hexagonal grid layout */}
@@ -114,11 +107,11 @@ const AideSoignantPage = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                {roles.map((role, index) => (
-                  <div key={index} className="group relative">
+                {roles.map((role, index) => <div key={index} className="group relative">
                     {/* Connecting line to center (visible on larger screens) */}
-                    <div className="hidden lg:block absolute top-1/2 left-1/2 w-16 h-0.5 bg-gradient-to-r from-mylli-primary/20 to-transparent transform -translate-y-1/2 origin-left"
-                         style={{ transform: `translate(-50%, -50%) rotate(${index * 72}deg)` }}></div>
+                    <div className="hidden lg:block absolute top-1/2 left-1/2 w-16 h-0.5 bg-gradient-to-r from-mylli-primary/20 to-transparent transform -translate-y-1/2 origin-left" style={{
+                  transform: `translate(-50%, -50%) rotate(${index * 72}deg)`
+                }}></div>
                     
                     <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:border-mylli-primary/30 group-hover:scale-105">
                       {/* Image container with unique styling */}
@@ -129,13 +122,7 @@ const AideSoignantPage = () => {
                           
                           {/* Image container */}
                           <div className="relative w-28 h-28 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl">
-                            <OptimizedImage 
-                              src={role.iconImage}
-                              alt={role.title}
-                              width={64}
-                              height={64}
-                              className="w-16 h-16 object-contain filter group-hover:brightness-110 transition-all duration-500"
-                            />
+                            <OptimizedImage src={role.iconImage} alt={role.title} width={64} height={64} className="w-16 h-16 object-contain filter group-hover:brightness-110 transition-all duration-500" />
                           </div>
                         </div>
                         
@@ -148,14 +135,11 @@ const AideSoignantPage = () => {
                       {/* Subtle bottom accent */}
                       <div className="h-1 bg-gradient-to-r from-transparent via-mylli-primary/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
               
               {/* Central decorative element */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary shadow-lg flex items-center justify-center opacity-20">
-                <Heart size={24} className="text-white" />
-              </div>
+              
             </div>
           </div>
         </div>
