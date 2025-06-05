@@ -6,6 +6,7 @@ import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -35,8 +36,13 @@ const AideSoignantPage = () => {
     name: "Hassan M.",
     title: "69 ans"
   }];
-  return <div>
-      <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
+
+  return (
+    <div>
+      <PageBanner 
+        title="AIDE-SOIGNANT(E) À DOMICILE" 
+        subtitle="Préservation de l'autonomie et accompagnement quotidien" 
+      />
       
       {/* Introduction - Centered and Modern design */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -87,59 +93,63 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Roles - Unique modern design */}
+      {/* Roles - Enhanced larger cards with uniform sizing */}
       <section className="py-24 bg-white relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-br from-mylli-primary/5 to-transparent"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-tr from-mylli-secondary/5 to-transparent"></div>
-        </div>
-        
-        <div className="container-custom relative z-10">
-          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="gradient" />
+        <div className="container-custom">
+          <SectionHeading 
+            title="Rôles de l'aide-soignant(e)" 
+            subtitle="Un accompagnement complet pour le bien-être quotidien" 
+            variant="gradient" 
+          />
           
-          <div className="max-w-7xl mx-auto">
-            {/* Unique hexagonal grid layout */}
-            <div className="relative">
-              {/* Central connecting lines */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-96 h-96 rounded-full border border-mylli-primary/10"></div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                {roles.map((role, index) => <div key={index} className="group relative">
-                    {/* Connecting line to center (visible on larger screens) */}
-                    <div className="hidden lg:block absolute top-1/2 left-1/2 w-16 h-0.5 bg-gradient-to-r from-mylli-primary/20 to-transparent transform -translate-y-1/2 origin-left" style={{
-                  transform: `translate(-50%, -50%) rotate(${index * 72}deg)`
-                }}></div>
-                    
-                    <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:border-mylli-primary/30 group-hover:scale-105">
-                      {/* Image container with unique styling */}
-                      <div className="relative p-8 pb-6">
-                        <div className="relative">
-                          {/* Decorative background */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-mylli-light/20 to-transparent rounded-2xl transform rotate-6 group-hover:rotate-12 transition-transform duration-500"></div>
-                          
-                          {/* Image container */}
-                          <div className="relative w-28 h-28 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-xl">
-                            <OptimizedImage src={role.iconImage} alt={role.title} width={64} height={64} className="w-16 h-16 object-contain filter group-hover:brightness-110 transition-all duration-500" />
-                          </div>
+          <div className="max-w-7xl mx-auto mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+              {roles.map((role, index) => (
+                <div key={index} className="group relative">
+                  <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:border-mylli-primary/30 group-hover:scale-105 h-80 flex flex-col">
+                    {/* Image container with enhanced styling */}
+                    <div className="relative p-8 pb-6 flex-grow flex flex-col items-center justify-center">
+                      <div className="relative mb-6">
+                        {/* Enhanced decorative background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 scale-110"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tl from-mylli-accent/5 to-transparent rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500 scale-105"></div>
+                        
+                        {/* Main image container - larger size */}
+                        <div className="relative w-32 h-32 mx-auto rounded-3xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl border border-mylli-primary/10">
+                          <OptimizedImage 
+                            src={role.iconImage} 
+                            alt={role.title} 
+                            width={80} 
+                            height={80} 
+                            className="w-20 h-20 object-contain filter group-hover:brightness-110 transition-all duration-500" 
+                          />
                         </div>
                         
-                        {/* Title with modern typography */}
-                        <h3 className="text-center text-mylli-dark font-semibold text-sm leading-tight px-2 group-hover:text-mylli-primary transition-colors duration-300">
-                          {role.title}
-                        </h3>
+                        {/* Additional decorative elements */}
+                        <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-mylli-secondary/20 animate-pulse group-hover:scale-150 transition-transform duration-500"></div>
+                        <div className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-mylli-primary/20 animate-pulse delay-500 group-hover:scale-150 transition-transform duration-500"></div>
                       </div>
-                      
-                      {/* Subtle bottom accent */}
-                      <div className="h-1 bg-gradient-to-r from-transparent via-mylli-primary/20 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                     </div>
-                  </div>)}
-              </div>
-              
-              {/* Central decorative element */}
-              
+                    
+                    {/* Title section with fixed height */}
+                    <div className="px-6 pb-8 flex items-center justify-center min-h-[80px]">
+                      <h3 className="text-center text-mylli-dark font-bold text-base leading-tight group-hover:text-mylli-primary transition-colors duration-300">
+                        {role.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Enhanced bottom accent */}
+                    <div className="h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    
+                    {/* Floating elements for enhanced uniqueness */}
+                    <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-mylli-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-bounce"></div>
+                    <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-mylli-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
+                  </div>
+                  
+                  {/* External glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 transform scale-0 group-hover:scale-110 transition-transform duration-700 -z-10 blur-xl"></div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -256,6 +266,8 @@ const AideSoignantPage = () => {
       
       {/* CTA - Modern design */}
       
-    </div>;
+    </div>
+  );
 };
+
 export default AideSoignantPage;
