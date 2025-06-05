@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Heart, Clock, File, Phone, Clipboard, Syringe, Hospital, Calendar, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
+import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const InfirmierPage = () => {
   // Patient profiles
   const patientProfiles = [{
@@ -21,27 +24,27 @@ const InfirmierPage = () => {
     icon: <User className="text-mylli-primary" size={32} />
   }];
 
-  // Nurse roles
+  // Nurse roles with images
   const nurseRoles = [{
     title: "Exécuter une ordonnance médicale",
     description: "Administration de traitements, préparation et administration d'injections, surveillance des effets secondaires.",
-    icon: <Clipboard size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png"
   }, {
     title: "Poser et surveiller les sondes",
     description: "Installation et maintenance des sondes urinaires, nasogastriques et autres dispositifs médicaux invasifs.",
-    icon: <Syringe size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/5364c2b1-9466-4ff2-b1bf-f6288e735add.png"
   }, {
     title: "Poser et surveiller une perfusion",
     description: "Mise en place et surveillance des perfusions pour l'hydratation, la nutrition et l'administration de médicaments.",
-    icon: <Hospital size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }, {
     title: "Assurer la communication avec le médecin traitant",
     description: "Transmission régulière des informations sur l'évolution de l'état du patient, coordination des soins.",
-    icon: <MessageSquare size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png"
   }, {
     title: "Rédiger un rapport quotidiennement",
     description: "Documentation détaillée des soins prodigués, des observations et de l'évolution du patient pour une traçabilité optimale.",
-    icon: <File size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png"
   }];
 
   // Testimonials
@@ -56,29 +59,94 @@ const InfirmierPage = () => {
     title: "Fils d'un patient",
     image: "/placeholder.svg"
   }];
+
   return <div className="pb-12">
       {/* Banner */}
       <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="particles" />
       
-      {/* Description Section */}
-      <section className="section-padding bg-white">
+      {/* Description Section - Centered and Unique */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-right">
-              <SectionHeading title="Soins infirmiers à domicile" subtitle="Une alternative à l'hospitalisation" align="left" />
-              <div className="prose max-w-none">
-                <p className="text-mylli-gray mb-4">
-                  Notre service d'infirmier(ère) à domicile offre une prise en charge complète des soins médicaux, permettant aux patients de recevoir des traitements professionnels dans le confort de leur environnement familier.
-                </p>
-                <p className="text-mylli-gray mb-4">
-                  Cette solution représente une véritable alternative à l'hospitalisation pour de nombreuses pathologies : cancers, maladies respiratoires, situations de dépendance, et bien d'autres conditions nécessitant un suivi médical régulier.
-                </p>
-                <p className="text-mylli-gray">
-                  Nos infirmier(ère)s qualifié(e)s assurent la continuité des soins prescrits par le médecin, tout en maintenant un lien permanent avec l'équipe médicale pour adapter le traitement si nécessaire.
-                </p>
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              {/* Background decorative elements */}
+              <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/5 via-transparent to-mylli-secondary/5 rounded-3xl transform rotate-1"></div>
+              <div className="absolute -inset-4 bg-gradient-to-l from-mylli-accent/5 via-transparent to-mylli-primary/5 rounded-3xl transform -rotate-1"></div>
+              
+              {/* Main content card */}
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-mylli-primary/10">
+                <div className="text-center mb-12">
+                  <div className="flex justify-center mb-8">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center shadow-xl">
+                      <Heart size={48} className="text-white" />
+                    </div>
+                  </div>
+                  
+                  <SectionHeading 
+                    title="Soins infirmiers à domicile" 
+                    subtitle="Alternative à l'hospitalisation" 
+                    align="center"
+                    variant="gradient"
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                  <div className="space-y-6">
+                    <p className="text-lg text-mylli-gray leading-relaxed">
+                      Alternative à l'hospitalisation, la prise en charge des soins à domicile est aujourd'hui effective pour un nombre croissant de pathologies comme les cancers, les maladies respiratoires ou des situations de dépendance comme le handicap.
+                    </p>
+                    
+                    <div className="bg-gradient-to-r from-mylli-light to-white rounded-2xl p-6 border border-mylli-primary/10">
+                      <h3 className="text-xl font-bold mb-4 text-mylli-dark">LES PATIENTS SONT PRINCIPALEMENT DES PERSONNES :</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui, suite à une hospitalisation, se rétablissent chez eux d'une maladie ou d'un accident.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui souffrent d'une maladie chronique ou d'un handicap et nécessitent de recevoir des soins durant une longue période.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui nécessitent des soins palliatifs.</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <p className="text-lg text-mylli-gray leading-relaxed mb-4">
+                        Les soins infirmiers à domicile se font toujours suite à une prescription d'un médecin, sauf pour les soins d'hygiène.
+                      </p>
+                      <p className="text-lg text-mylli-gray leading-relaxed mb-4">
+                        L'infirmier à domicile doit rédiger et tenir à jour un dossier pour chaque patient.
+                      </p>
+                      <p className="text-lg text-mylli-gray leading-relaxed">
+                        Le service d'infirmier assure les gardes de jour, de nuit ou de 24h/24h.
+                      </p>
+                    </div>
+                    
+                    {/* Decorative info card */}
+                    <div className="bg-gradient-to-br from-mylli-primary to-mylli-secondary text-white rounded-2xl p-6 shadow-xl">
+                      <div className="flex items-center mb-3">
+                        <Clock size={24} className="mr-3" />
+                        <h4 className="font-bold text-lg">Service continu</h4>
+                      </div>
+                      <p className="text-white/90">
+                        Notre équipe d'infirmiers qualifiés assure une présence adaptée à vos besoins, 24h/24 si nécessaire.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Decorative floating elements */}
+                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-mylli-primary/10 animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 rounded-full bg-mylli-secondary/10 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/3 -right-2 w-8 h-8 rounded-full bg-mylli-accent/10 animate-pulse delay-500"></div>
               </div>
             </div>
-            
           </div>
         </div>
       </section>
@@ -104,23 +172,52 @@ const InfirmierPage = () => {
         </div>
       </section>
 
-      {/* Nurse Roles */}
-      <section className="section-padding bg-white">
+      {/* Nurse Roles - Centered with Images */}
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="container-custom">
-          <SectionHeading title="Rôles de l'infirmier(ère)" subtitle="Une prise en charge médicale complète à domicile" align="center" />
+          <SectionHeading title="Rôles de l'infirmier(ère)" subtitle="Une prise en charge médicale complète à domicile" align="center" variant="gradient" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            {nurseRoles.map((role, index) => <div key={index} className="flex p-5 bg-mylli-light/50 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 animate-fade-in h-full">
-                <div className="mr-4">
-                  <div className="p-3 rounded-full bg-white shadow-md">
-                    {role.icon}
+          <div className="max-w-7xl mx-auto mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+              {nurseRoles.map((role, index) => <div key={index} className="group relative">
+                  <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:border-mylli-primary/30 group-hover:scale-105 h-80 flex flex-col">
+                    {/* Image container with enhanced styling */}
+                    <div className="relative p-8 pb-6 flex-grow flex flex-col items-center justify-center">
+                      <div className="relative mb-6">
+                        {/* Enhanced decorative background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 scale-110"></div>
+                        <div className="absolute inset-0 bg-gradient-to-tl from-mylli-accent/5 to-transparent rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-transform duration-500 scale-105"></div>
+                        
+                        {/* Main image container */}
+                        <div className="relative w-40 h-40 mx-auto rounded-3xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl border border-mylli-primary/10">
+                          <OptimizedImage src={role.iconImage} alt={role.title} width={140} height={140} className="w-36 h-36 object-contain filter group-hover:brightness-110 transition-all duration-500" />
+                        </div>
+                        
+                        {/* Additional decorative elements */}
+                        <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-mylli-secondary/20 animate-pulse group-hover:scale-150 transition-transform duration-500"></div>
+                        <div className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-mylli-primary/20 animate-pulse delay-500 group-hover:scale-150 transition-transform duration-500"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Title section with fixed height */}
+                    <div className="px-6 pb-8 flex items-center justify-center min-h-[80px]">
+                      <h3 className="text-center text-mylli-dark font-bold text-base leading-tight group-hover:text-mylli-primary transition-colors duration-300">
+                        {role.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Enhanced bottom accent */}
+                    <div className="h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    
+                    {/* Floating elements for enhanced uniqueness */}
+                    <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-mylli-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-bounce"></div>
+                    <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-mylli-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse"></div>
                   </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-mylli-dark">{role.title}</h3>
-                  <p className="text-sm text-mylli-gray">{role.description}</p>
-                </div>
-              </div>)}
+                  
+                  {/* External glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 transform scale-0 group-hover:scale-110 transition-transform duration-700 -z-10 blur-xl"></div>
+                </div>)}
+            </div>
           </div>
         </div>
       </section>
@@ -135,4 +232,5 @@ const InfirmierPage = () => {
       
     </div>;
 };
+
 export default InfirmierPage;
