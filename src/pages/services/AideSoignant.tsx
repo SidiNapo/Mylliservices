@@ -92,37 +92,37 @@ const AideSoignantPage = () => {
                       <User size={48} className="text-mylli-primary" />
                     </div>
                   </div>
-                  <h3 className="text-2xl font-bold mb-6 text-center text-mylli-dark">Bénéfices clés</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-center text-mylli-dark">Rôle de l'aide soignant(e)</h3>
                   <ul className="space-y-4">
                     <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
                       <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
                         <Star size={18} className="text-mylli-accent" />
                       </div>
-                      <span className="text-mylli-gray font-medium">Maintien à domicile sécurisé</span>
+                      <span className="text-mylli-gray font-medium">Assister à l'hygiène corporelle</span>
                     </li>
                     <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
                       <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
                         <Star size={18} className="text-mylli-accent" />
                       </div>
-                      <span className="text-mylli-gray font-medium">Préservation de l'autonomie</span>
+                      <span className="text-mylli-gray font-medium">Aider à la prise de médicaments</span>
                     </li>
                     <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
                       <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
                         <Star size={18} className="text-mylli-accent" />
                       </div>
-                      <span className="text-mylli-gray font-medium">Suivi rigoureux de l'état de santé</span>
+                      <span className="text-mylli-gray font-medium">Aider à l'alimentation</span>
                     </li>
                     <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
                       <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
                         <Star size={18} className="text-mylli-accent" />
                       </div>
-                      <span className="text-mylli-gray font-medium">Soutien psychologique et social</span>
+                      <span className="text-mylli-gray font-medium">Mesurer électroniquement les constantes</span>
                     </li>
                     <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
                       <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
                         <Star size={18} className="text-mylli-accent" />
                       </div>
-                      <span className="text-mylli-gray font-medium">Tranquillité d'esprit pour les proches</span>
+                      <span className="text-mylli-gray font-medium">Accompagner et sécuriser le patient</span>
                     </li>
                   </ul>
                 </div>
