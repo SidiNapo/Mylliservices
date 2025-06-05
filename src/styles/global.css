@@ -60,3 +60,21 @@
 .page-banner-gradient {
   background: linear-gradient(135deg, #029edd 0%, #0077c0 50%, #005a8b 100%);
 }
+
+/* Remove any top spacing from page content */
+.page-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure sections start immediately after header */
+section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Remove default spacing from main content areas */
+main > section:first-child,
+main > div:first-child {
+  margin-top: 0 !important;
+}

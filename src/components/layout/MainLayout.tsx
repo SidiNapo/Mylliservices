@@ -60,7 +60,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
         <Header />
         {showBreadcrumbs && <BreadcrumbNav />}
-        <main className="flex-grow" role="main" style={{ marginTop: '64px' }}>
+        <main className="flex-grow" role="main">
           {children}
         </main>
         <Footer />
