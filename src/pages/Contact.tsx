@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
+
+import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User, Navigation, MapPinHouse, Compass } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ContactForm from '@/components/common/ContactForm';
@@ -7,6 +8,7 @@ import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
 import RecallRequestForm from '@/components/common/RecallRequestForm';
+
 const ContactPage = () => {
   // Updated opening hours - always open
   const openingHours = [{
@@ -19,7 +21,9 @@ const ContactPage = () => {
     day: "Consultations",
     hours: "Sur rendez-vous"
   }];
-  return <div>
+
+  return (
+    <div>
       <PageBanner title="Contactez-nous" subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!" />
       
       {/* Contact Info Section */}
@@ -99,10 +103,12 @@ const ContactPage = () => {
                 <h3 className="text-2xl font-bold text-mylli-dark">Disponibilité</h3>
               </div>
               <div className="space-y-4">
-                {openingHours.map((item, index) => <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
+                {openingHours.map((item, index) => (
+                  <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
                     <span className="text-lg text-mylli-dark font-medium">{item.day}</span>
                     <span className="text-lg font-bold text-mylli-primary">{item.hours}</span>
-                  </div>)}
+                  </div>
+                ))}
               </div>
               <div className="mt-6 flex items-start p-4 bg-mylli-primary/5 rounded-lg">
                 <AlertCircle size={20} className="text-mylli-accent mt-0.5 mr-3 flex-shrink-0" />
@@ -115,58 +121,140 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Contact Form Section with Parallax */}
-      
-      
-      {/* Recall Request Section - Without FAQ */}
-      
-      
-      {/* Map Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(59,130,246,0.1),_transparent_70%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
-        
+      {/* Unique Interactive Location Section */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-32 h-32 bg-mylli-primary/20 rounded-full blur-xl animate-pulse"></div>
+          <div className="absolute bottom-32 right-32 w-40 h-40 bg-mylli-secondary/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-mylli-accent/30 rounded-full blur-lg animate-pulse delay-1000"></div>
+        </div>
+
         <div className="container-custom relative z-10">
-          <SectionHeading title="Notre emplacement" subtitle="Venez nous rencontrer au cœur de Casablanca" variant="gradient" />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-            <div className="lg:col-span-2">
-              <MapInfoCard address="19, rue Masmouda hay Al Hana, Casablanca - 20210" phone="+212 661 37 74 38" hours={[{
-              day: "Lundi - Dimanche",
-              hours: "24h/24 - 7j/7"
-            }, {
-              day: "Services d'urgence",
-              hours: "Disponibles à tout moment"
-            }, {
-              day: "Consultations",
-              hours: "Sur rendez-vous"
-            }]} className="h-full transform transition-all duration-500 hover:shadow-2xl" />
-            </div>
-            
-            <div className="lg:col-span-3 h-[550px]">
-              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
-                <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
-                
-                <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg">
-                  <div className="relative flex items-center justify-center">
-                    <div className="absolute w-8 h-8 bg-mylli-primary/30 rounded-full animate-ping"></div>
-                    <div className="relative z-10 w-8 h-8 bg-mylli-primary rounded-full flex items-center justify-center">
-                      <MapPin className="h-5 w-5 text-white" />
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Trouvez-nous sur la{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                carte interactive
+              </span>
+            </h2>
+            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+              Explorez notre localisation avec une expérience cartographique immersive
+            </p>
+          </div>
+
+          {/* Interactive Map Container */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Glassmorphism Container */}
+            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
+              {/* Floating Action Buttons */}
+              <div className="absolute -top-4 -right-4 z-20 flex gap-3">
+                <button className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300">
+                  <Navigation size={20} />
+                </button>
+                <button className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300">
+                  <Compass size={20} />
+                </button>
+              </div>
+
+              {/* Interactive Header */}
+              <div className="flex items-center justify-between mb-8">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <MapPinHouse className="text-white" size={28} />
                     </div>
+                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">Mylli Services</h3>
+                    <p className="text-blue-200">Centre de soins à domicile</p>
                   </div>
                 </div>
                 
-                <div className="absolute bottom-6 left-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl p-4 shadow-lg max-w-xs">
-                  <h4 className="text-xl font-bold mb-1 text-mylli-dark">Mylli Services</h4>
-                  <p className="text-mylli-gray text-sm">
-                    19, rue Masmouda hay Al Hana,<br />Casablanca - 20210
-                  </p>
+                <div className="text-right">
+                  <div className="text-white font-semibold">Casablanca, Maroc</div>
+                  <div className="text-blue-200 text-sm">Hay Al Hana</div>
                 </div>
+              </div>
+
+              {/* Map Container with Unique Design */}
+              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
+                
+                {/* Overlay Elements */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Animated Location Pulse */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative">
+                      <div className="absolute w-20 h-20 bg-red-500/30 rounded-full animate-ping"></div>
+                      <div className="absolute w-12 h-12 bg-red-500/50 rounded-full animate-pulse delay-300"></div>
+                      <div className="relative w-8 h-8 bg-red-500 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Corner Info Cards */}
+                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-xl p-3 text-white pointer-events-auto">
+                    <div className="text-xs opacity-80">Distance du centre</div>
+                    <div className="font-semibold">12.5 km</div>
+                  </div>
+
+                  <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm rounded-xl p-3 text-white pointer-events-auto">
+                    <div className="text-xs opacity-80">Temps d'arrivée</div>
+                    <div className="font-semibold">15-20 min</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a 
+                  href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-3"
+                >
+                  <Navigation className="group-hover:rotate-12 transition-transform duration-300" size={20} />
+                  <span className="font-medium">Obtenir l'itinéraire</span>
+                </a>
+
+                <button className="group bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 flex items-center gap-3">
+                  <Phone className="group-hover:scale-110 transition-transform duration-300" size={20} />
+                  <span className="font-medium">Appeler maintenant</span>
+                </button>
+
+                <a 
+                  href="https://wa.me/212661377438" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-r from-green-600 to-green-700 text-white p-4 rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center gap-3"
+                >
+                  <MessageSquare className="group-hover:bounce transition-transform duration-300" size={20} />
+                  <span className="font-medium">WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Floating Address Card */}
+            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 max-w-md">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                  <MapPin className="text-white" size={24} />
+                </div>
+                <h4 className="font-bold text-gray-800 mb-1">Notre adresse précise</h4>
+                <p className="text-gray-600 text-sm">
+                  19, rue Masmouda hay Al Hana<br />
+                  Casablanca - 20210, Maroc
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default ContactPage;
