@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -330,7 +329,7 @@ const HomePage = () => {
       
       <div className="overflow-hidden">
         {/* Hero Section with improved mobile spacing */}
-        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-20" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
+        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-32 md:pt-20" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
           {/* Modern layered background with images */}
           <div className="absolute inset-0 z-0">
             {/* Gradient overlay - updated to logo colors */}
@@ -439,7 +438,7 @@ const HomePage = () => {
                       </div>
                       
                       {/* Action button with better mobile sizing and improved visibility */}
-                      <Button asChild variant="outline" className="w-full border-white/30 text-white bg-white/15 hover:bg-white/25 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base py-3 sm:py-4 font-medium">
+                      <Button asChild variant="outline" className="w-full border-white/30 text-black bg-white hover:bg-white/90 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base py-3 sm:py-4 font-medium">
                         <Link to="/apropos" className="flex items-center justify-center">
                           Mot du Président
                           <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
