@@ -276,20 +276,11 @@ const ContactPage = () => {
           
           {/* Additional information cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-primary">
-              <h4 className="font-bold mb-2 text-mylli-dark">Transport en commun</h4>
-              <p className="text-mylli-gray">Facilement accessible par les lignes de tramway et bus à proximité</p>
-            </div>
             
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-secondary">
-              <h4 className="font-bold mb-2 text-mylli-dark">Stationnement</h4>
-              <p className="text-mylli-gray">Parking gratuit disponible pour nos clients</p>
-            </div>
             
-            <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-mylli-accent">
-              <h4 className="font-bold mb-2 text-mylli-dark">Accessibilité</h4>
-              <p className="text-mylli-gray">Nos locaux sont entièrement accessibles aux personnes à mobilité réduite</p>
-            </div>
+            
+            
+            
           </div>
         </div>
       </section>
