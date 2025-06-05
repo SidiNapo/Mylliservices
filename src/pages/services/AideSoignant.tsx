@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -69,13 +68,19 @@ const AideSoignantPage = () => {
                 </h2>
                 <div className="space-y-6">
                   <p className="text-lg text-mylli-gray">
-                    L'aide-soignant(e) à domicile stimule et préserve l'autonomie du patient tout en accomplissant différents actes de la vie quotidienne. Son approche globale prend en compte les dimensions physiques, psychologiques et sociales pour assurer un accompagnement complet.
+                    Tout en stimulant et préservant l'autonomie du malade, l'aide-soignant accomplit différents actes de la vie quotidienne : aide au lever et au coucher, aide au transfert du malade, aide à la toilette et à l'habillage, administration des repas, changement de la literie…
                   </p>
                   <p className="text-lg text-mylli-gray">
-                    Au-delà des actes techniques, l'aide-soignant(e) développe une relation de confiance avec le patient et sa famille, facilitant ainsi la communication et l'adaptation des soins aux évolutions de la situation.
+                    Il accompagne cette personne dans les activités de sa vie quotidienne, il contribue à son bien-être et à lui faire recouvrer, dans la mesure du possible, son autonomie.
                   </p>
                   <p className="text-lg text-mylli-gray">
-                    Nos aide-soignant(e)s sont titulaires d'un diplôme d'État et bénéficient de formations continues régulières pour garantir la qualité des soins prodigués.
+                    L'aide-soignant réalise des soins liés aux fonctions d'entretien et de continuité de la vie visant à compenser partiellement ou totalement un manque ou une diminution de l'autonomie de la personne.
+                  </p>
+                  <p className="text-lg text-mylli-gray">
+                    Son rôle s'inscrit dans une approche globale de la personne soignée et prend en compte la dimension relationnelle des soins.
+                  </p>
+                  <p className="text-lg text-mylli-gray">
+                    Le service d'aide-soignant assure les gardes de jour, de nuit ou de 24h/24h.
                   </p>
                 </div>
               </div>
