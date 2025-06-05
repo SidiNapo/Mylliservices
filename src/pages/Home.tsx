@@ -93,13 +93,13 @@ const HomePage = () => {
   // Updated images for the hero background with new healthcare professional images
   const careImages = ['/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'];
 
-  // Updated services data - removed garde-malade service and added images
+  // Updated services data with new images
   const services = [{
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
     icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
       <OptimizedImage 
-        src="/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png" 
+        src="/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png" 
         alt="Aide-soignant à domicile" 
         width={64} 
         height={64} 
@@ -112,7 +112,7 @@ const HomePage = () => {
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
     icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
       <OptimizedImage 
-        src="/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png" 
+        src="/lovable-uploads/638e9202-dcc8-4b57-aeda-4e66c2ccc619.png" 
         alt="Infirmier à domicile" 
         width={64} 
         height={64} 
@@ -165,11 +165,11 @@ const HomePage = () => {
     location: "Casablanca"
   }];
 
-  // Features section data with updated details and detailed descriptions
+  // Features section data with updated images
   const features = [{
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage 
-        src="/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png" 
+        src="/lovable-uploads/f9cacdd3-a25a-4fca-b442-ab317b68783a.png" 
         alt="Expérience professionnelle" 
         width={80} 
         height={80} 
@@ -183,7 +183,7 @@ const HomePage = () => {
   }, {
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage 
-        src="/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png" 
+        src="/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png" 
         alt="Équipe compétente" 
         width={80} 
         height={80} 
@@ -197,7 +197,7 @@ const HomePage = () => {
   }, {
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage 
-        src="/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png" 
+        src="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png" 
         alt="Disponibilité 24/7" 
         width={80} 
         height={80} 
