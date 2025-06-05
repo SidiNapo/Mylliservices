@@ -53,15 +53,7 @@ const ArticlesPage = () => {
           
           
           {/* Categories Tags */}
-          <div className="flex flex-wrap justify-center gap-2 mt-6">
-            <button onClick={() => handleCategoryChange('all')} className={`px-3 py-1 text-xs md:text-sm rounded-full transition-colors ${selectedCategory === 'all' ? 'bg-mylli-primary text-white' : 'bg-gray-100 text-mylli-gray hover:bg-gray-200'}`}>
-              Tout
-            </button>
-            {categories.map(category => <button key={category.value} onClick={() => handleCategoryChange(category.value)} className={`px-3 py-1 text-xs md:text-sm rounded-full transition-colors flex items-center ${selectedCategory === category.value ? 'bg-mylli-primary text-white' : 'bg-gray-100 text-mylli-gray hover:bg-gray-200'}`}>
-                {category.name}
-                <span className="ml-1 text-xs opacity-70">({category.count})</span>
-              </button>)}
-          </div>
+          
         </div>
       </div>
       
