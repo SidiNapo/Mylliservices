@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -329,7 +330,7 @@ const HomePage = () => {
       
       <div className="overflow-hidden">
         {/* Hero Section with improved mobile spacing */}
-        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-20 md:pt-16" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
+        <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-20" onMouseMove={handleMouseMove} aria-labelledby="hero-heading">
           {/* Modern layered background with images */}
           <div className="absolute inset-0 z-0">
             {/* Gradient overlay - updated to logo colors */}
@@ -363,7 +364,7 @@ const HomePage = () => {
               {/* Left column: Text content with better mobile spacing */}
               <div className="text-center lg:text-left">
                 <header>
-                  <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight">
+                  <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
                     <span className="block text-white animate-pulse-glow mb-2">
                       NOUS SOMMES LÀ
                     </span>
@@ -372,24 +373,24 @@ const HomePage = () => {
                     </span>
                   </h1>
                   
-                  <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-8 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
+                  <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
                     Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
                 </header>
                 
-                {/* Stats - Updated with better mobile responsive design */}
-                <div className="mt-8 mb-8 grid grid-cols-3 gap-2 sm:gap-4 max-w-sm sm:max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
-                  <Link to="/apropos" className="text-center p-2 sm:p-3 backdrop-blur-sm bg-white/10 rounded-lg sm:rounded-xl border border-white/20 hover:border-mylli-secondary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
+                {/* Stats - Updated with better mobile responsive design and improved visibility */}
+                <div className="mt-8 mb-10 grid grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-md mx-auto lg:mx-0 animate-fade-in delay-[1200ms]">
+                  <Link to="/apropos" className="text-center p-3 sm:p-4 backdrop-blur-sm bg-white/15 rounded-xl border border-white/30 hover:border-mylli-secondary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
                     <p className="text-xl sm:text-2xl md:text-3xl font-bold text-mylli-secondary group-hover:text-mylli-secondary">{isVisible ? '+10' : '0'}</p>
-                    <p className="text-xs text-white leading-tight">années d'expérience</p>
+                    <p className="text-xs sm:text-sm text-white leading-tight">années d'expérience</p>
                   </Link>
-                  <button onClick={() => scrollToSection('testimonials-heading')} className="text-center p-2 sm:p-3 backdrop-blur-sm bg-white/10 rounded-lg sm:rounded-xl border border-white/20 hover:border-mylli-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
-                    <p className="text-xl sm:text-2xl md:text-3xl font-bold text-mylli-quaternary group-hover:text-mylli-primary">{isVisible ? '+4500' : '0'}</p>
-                    <p className="text-xs text-white leading-tight">Interventions</p>
+                  <button onClick={() => scrollToSection('testimonials-heading')} className="text-center p-3 sm:p-4 backdrop-blur-sm bg-white/15 rounded-xl border border-white/30 hover:border-mylli-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-mylli-quaternary group-hover:text-mylli-primary">{isVisible ? '+4500' : '0'}</p>
+                    <p className="text-xs sm:text-sm text-white leading-tight">Interventions</p>
                   </button>
-                  <button onClick={triggerAvailabilityFeature} className="text-center p-2 sm:p-3 backdrop-blur-sm bg-white/10 rounded-lg sm:rounded-xl border border-white/20 hover:border-mylli-quaternary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
+                  <button onClick={triggerAvailabilityFeature} className="text-center p-3 sm:p-4 backdrop-blur-sm bg-white/15 rounded-xl border border-white/30 hover:border-mylli-quaternary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
                     <p className="text-xl sm:text-2xl md:text-3xl font-bold text-mylli-quaternary group-hover:text-mylli-quaternary">{isVisible ? '24/7' : '0'}</p>
-                    <p className="text-xs text-white leading-tight">disponibilité</p>
+                    <p className="text-xs sm:text-sm text-white leading-tight">disponibilité</p>
                   </button>
                 </div>
               </div>
@@ -429,16 +430,16 @@ const HomePage = () => {
                       </div>
                     </div>
                     
-                    {/* Content Section with responsive padding */}
+                    {/* Content Section with responsive padding and improved text layout */}
                     <div className="p-4 sm:p-6 bg-white/10 backdrop-blur-sm">
                       <div className="text-white mb-4 sm:mb-6">
-                        <p className="leading-relaxed text-sm sm:text-base mb-3 sm:mb-4 text-white/90">
+                        <p className="leading-relaxed text-sm sm:text-base mb-4 sm:mb-6 text-white/90">
                           Nous sommes spécialement formés pour garantir des services de qualité aux personnes atteintes de maladies chroniques handicapantes comme la maladie de Parkinson, d'Alzheimer, hémiplégie, paraplégie, SEP, SLA, ainsi que les soins palliatifs.
                         </p>
                       </div>
                       
-                      {/* Action button with better mobile sizing */}
-                      <Button asChild variant="outline" className="w-full border-white/30 text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base py-2 sm:py-3">
+                      {/* Action button with better mobile sizing and improved visibility */}
+                      <Button asChild variant="outline" className="w-full border-white/30 text-white bg-white/15 hover:bg-white/25 backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base py-3 sm:py-4 font-medium">
                         <Link to="/apropos" className="flex items-center justify-center">
                           Mot du Président
                           <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
@@ -938,7 +939,7 @@ const HomePage = () => {
               })}
             </div>
             
-            {/* Enhanced call-to-action section */}
+            {/* Enhanced call-to-action section with updated button text */}
             <div className="mt-20 relative">
               {/* Background decoration */}
               <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/5 via-mylli-secondary/5 to-mylli-quaternary/5 rounded-3xl blur-xl"></div>
@@ -964,7 +965,7 @@ const HomePage = () => {
                     <Button asChild className="rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary hover:to-mylli-primary-dark shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 px-8 py-4">
                       <Link to="/contact" className="flex items-center gap-3">
                         <Phone size={18} />
-                        <span className="font-medium">Demander un devis gratuit</span>
+                        <span className="font-medium">Rejoignez-nous</span>
                         <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
                       </Link>
                     </Button>
