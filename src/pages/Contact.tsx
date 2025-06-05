@@ -22,6 +22,10 @@ const ContactPage = () => {
     hours: "Sur rendez-vous"
   }];
 
+  // Exact address and coordinates for Mylli Services
+  const exactAddress = "19, rue Masmouda hay Al Hana, Casablanca 20210, Maroc";
+  const coordinates = "33.5731,-7.5898"; // Approximate coordinates for the address
+
   return (
     <div>
       <PageBanner title="Contactez-nous" subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!" />
@@ -69,7 +73,7 @@ const ContactPage = () => {
                 Casablanca - 20210
               </p>
               <p className="text-mylli-gray mt-3">
-                <a href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" target="_blank" rel="noopener noreferrer" className="text-mylli-primary hover:underline">
+                <a href={`https://maps.google.com/?q=${encodeURIComponent(exactAddress)}`} target="_blank" rel="noopener noreferrer" className="text-mylli-primary hover:underline">
                   Voir sur Google Maps
                 </a>
               </p>
@@ -150,7 +154,7 @@ const ContactPage = () => {
               {/* Floating Action Buttons */}
               <div className="absolute -top-4 -right-4 z-20 flex gap-3">
                 <a 
-                  href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
+                  href={`https://maps.google.com/maps/dir/?api=1&destination=${encodeURIComponent(exactAddress)}`}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
@@ -189,7 +193,7 @@ const ContactPage = () => {
 
               {/* Map Container with Unique Design */}
               <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-                <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
+                <GoogleMapEmbed address={exactAddress} />
                 
                 {/* Overlay Elements */}
                 <div className="absolute inset-0 pointer-events-none">
@@ -217,10 +221,24 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Quick Actions */}
+              {/* Well-positioned Address Card - Inside map container but better positioned */}
+              <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-white/20 max-w-sm w-full mx-4 z-10">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center mx-auto mb-3">
+                    <MapPin className="text-white" size={24} />
+                  </div>
+                  <h4 className="font-bold text-gray-800 mb-2">Notre adresse précise</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    19, rue Masmouda hay Al Hana<br />
+                    Casablanca - 20210, Maroc
+                  </p>
+                </div>
+              </div>
+
+              {/* Quick Actions - Updated with exact coordinates */}
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a 
-                  href="https://maps.google.com/maps/dir/?api=1&destination=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
+                  href={`https://maps.google.com/maps/dir/?api=1&destination=${encodeURIComponent(exactAddress)}`}
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-3"
@@ -246,20 +264,6 @@ const ContactPage = () => {
                   <MessageSquare className="group-hover:bounce transition-transform duration-300" size={20} />
                   <span className="font-medium">WhatsApp</span>
                 </a>
-              </div>
-            </div>
-
-            {/* Fixed Floating Address Card - Better positioned */}
-            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 max-w-sm w-full mx-4">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center mx-auto mb-3">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <h4 className="font-bold text-gray-800 mb-2">Notre adresse précise</h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  19, rue Masmouda hay Al Hana<br />
-                  Casablanca - 20210, Maroc
-                </p>
               </div>
             </div>
           </div>
