@@ -55,3 +55,8 @@
 .animate-pulse-glow {
   animation: pulse-glow 2s ease-in-out infinite;
 }
+
+/* Consistent page banner gradient */
+.page-banner-gradient {
+  background: linear-gradient(135deg, #029edd 0%, #0077c0 50%, #005a8b 100%);
+}
