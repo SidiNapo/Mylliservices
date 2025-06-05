@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Heart, Clock, File, Phone, Clipboard, Syringe, Hospital, Calendar, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
+
 const InfirmierPage = () => {
   // Patient profiles
   const patientProfiles = [{
@@ -56,6 +58,7 @@ const InfirmierPage = () => {
     title: "Fils d'un patient",
     image: "/placeholder.svg"
   }];
+
   return <div className="pb-12">
       {/* Banner */}
       <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="particles" />
@@ -68,13 +71,35 @@ const InfirmierPage = () => {
               <SectionHeading title="Soins infirmiers à domicile" subtitle="Une alternative à l'hospitalisation" align="left" />
               <div className="prose max-w-none">
                 <p className="text-mylli-gray mb-4">
-                  Notre service d'infirmier(ère) à domicile offre une prise en charge complète des soins médicaux, permettant aux patients de recevoir des traitements professionnels dans le confort de leur environnement familier.
+                  Alternative à l'hospitalisation, la prise en charge des soins à domicile est aujourd'hui effective pour un nombre croissant de pathologies comme les cancers, les maladies respiratoires ou des situations de dépendance comme le handicap.
+                </p>
+                
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-mylli-dark mb-3 uppercase">LES PATIENTS SONT PRINCIPALEMENT DES PERSONNES :</h3>
+                  <ul className="space-y-3 text-mylli-gray">
+                    <li className="flex items-start">
+                      <CheckCircle size={20} className="text-mylli-primary mr-3 mt-1 flex-shrink-0" />
+                      <span>qui, suite à une hospitalisation, se rétablissent chez eux d'une maladie ou d'un accident.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle size={20} className="text-mylli-primary mr-3 mt-1 flex-shrink-0" />
+                      <span>qui souffrent d'une maladie chronique ou d'un handicap et nécessitent de recevoir des soins durant une longue période.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle size={20} className="text-mylli-primary mr-3 mt-1 flex-shrink-0" />
+                      <span>qui nécessitent des soins palliatifs.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="text-mylli-gray mb-4">
+                  Les soins infirmiers à domicile se font toujours suite à une prescription d'un médecin, sauf pour les soins d'hygiène.
                 </p>
                 <p className="text-mylli-gray mb-4">
-                  Cette solution représente une véritable alternative à l'hospitalisation pour de nombreuses pathologies : cancers, maladies respiratoires, situations de dépendance, et bien d'autres conditions nécessitant un suivi médical régulier.
+                  L'infirmier à domicile doit rédiger et tenir à jour un dossier pour chaque patient.
                 </p>
                 <p className="text-mylli-gray">
-                  Nos infirmier(ère)s qualifié(e)s assurent la continuité des soins prescrits par le médecin, tout en maintenant un lien permanent avec l'équipe médicale pour adapter le traitement si nécessaire.
+                  Le service d'infirmier assure les gardes de jour, de nuit ou de 24h/24h.
                 </p>
               </div>
             </div>
@@ -110,7 +135,7 @@ const InfirmierPage = () => {
           <SectionHeading title="Rôles de l'infirmier(ère)" subtitle="Une prise en charge médicale complète à domicile" align="center" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
-            {nurseRoles.map((role, index) => <div key={index} className="flex p-5 bg-mylli-light/50 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 animate-fade-in h-full">
+            {nurseRoles.slice(0, 4).map((role, index) => <div key={index} className="flex p-5 bg-mylli-light/50 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 animate-fade-in h-full">
                 <div className="mr-4">
                   <div className="p-3 rounded-full bg-white shadow-md">
                     {role.icon}
@@ -121,6 +146,21 @@ const InfirmierPage = () => {
                   <p className="text-sm text-mylli-gray">{role.description}</p>
                 </div>
               </div>)}
+          </div>
+          
+          {/* Centered "Rédiger un rapport quotidiennement" section */}
+          <div className="flex justify-center mt-8">
+            <div className="flex p-5 bg-mylli-light/50 rounded-xl shadow-soft hover:shadow-card transition-all duration-300 animate-fade-in max-w-md">
+              <div className="mr-4">
+                <div className="p-3 rounded-full bg-white shadow-md">
+                  {nurseRoles[4].icon}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2 text-mylli-dark">{nurseRoles[4].title}</h3>
+                <p className="text-sm text-mylli-gray">{nurseRoles[4].description}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -135,4 +175,5 @@ const InfirmierPage = () => {
       
     </div>;
 };
+
 export default InfirmierPage;
