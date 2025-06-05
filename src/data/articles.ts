@@ -455,6 +455,307 @@ export const articles: Article[] = [
     publishedDate: "2023-12-18",
     readTime: 8,
     author: "Dr. Philippe Renard"
+  },
+  {
+    id: '7',
+    title: "Les soins palliatifs: accompagner avec dignité et humanité",
+    slug: "soins-palliatifs-accompagner-dignite-humanite",
+    excerpt: "Les soins palliatifs visent à améliorer la qualité de vie des patients en fin de vie et de leurs proches. Découvrez cette approche humaine et bienveillante.",
+    content: `
+      <h2>Qu'est-ce que les soins palliatifs?</h2>
+      <p>Les soins palliatifs constituent une approche qui améliore la qualité de vie des patients et de leur famille, face aux conséquences d'une maladie potentiellement mortelle, par la prévention et le soulagement de la souffrance, grâce à une identification précoce et à une évaluation impeccable et au traitement de la douleur et des autres problèmes physiques, psychosociaux et spirituels.</p>
+      
+      <h2>Les principes fondamentaux</h2>
+      <p>Les soins palliatifs reposent sur plusieurs principes essentiels:</p>
+      <ul>
+        <li><strong>Soulagement de la douleur</strong>: Contrôle optimal des symptômes physiques</li>
+        <li><strong>Respect de la dignité</strong>: Préservation de l'autonomie et des choix du patient</li>
+        <li><strong>Approche globale</strong>: Prise en compte des dimensions physique, psychologique, sociale et spirituelle</li>
+        <li><strong>Accompagnement familial</strong>: Soutien aux proches pendant la maladie et le deuil</li>
+        <li><strong>Travail en équipe</strong>: Collaboration interdisciplinaire pour une prise en charge optimale</li>
+      </ul>
+      
+      <h2>Les différents types de soins palliatifs</h2>
+      <p>Les soins palliatifs peuvent être dispensés dans différents contextes:</p>
+      <ul>
+        <li><strong>Soins palliatifs à domicile</strong>: Permettent au patient de rester dans son environnement familier</li>
+        <li><strong>Unités de soins palliatifs</strong>: Services hospitaliers spécialisés</li>
+        <li><strong>Équipes mobiles</strong>: Interviennent dans différents services de l'hôpital</li>
+        <li><strong>Maisons de soins palliatifs</strong>: Structures alternatives à l'hospitalisation</li>
+      </ul>
+      
+      <h2>La gestion de la douleur</h2>
+      <p>Le contrôle de la douleur est un élément central des soins palliatifs:</p>
+      <ul>
+        <li><strong>Évaluation régulière</strong>: Utilisation d'échelles de douleur adaptées</li>
+        <li><strong>Traitements médicamenteux</strong>: Antalgiques, morphiniques selon les besoins</li>
+        <li><strong>Méthodes non médicamenteuses</strong>: Relaxation, massage, musicothérapie</li>
+        <li><strong>Adaptation personnalisée</strong>: Ajustement selon l'évolution et les préférences du patient</li>
+      </ul>
+      
+      <h2>Le soutien psychologique et spirituel</h2>
+      <p>Les soins palliatifs incluent un accompagnement psychologique et spirituel:</p>
+      <ul>
+        <li><strong>Écoute active</strong>: Permettre l'expression des émotions et des peurs</li>
+        <li><strong>Soutien psychologique</strong>: Aide pour faire face à l'angoisse et à la dépression</li>
+        <li><strong>Accompagnement spirituel</strong>: Respect des croyances et des valeurs du patient</li>
+        <li><strong>Préparation au départ</strong>: Aide pour les derniers souhaits et la réconciliation</li>
+      </ul>
+      
+      <h2>L'accompagnement des familles</h2>
+      <p>Les proches font partie intégrante de la prise en charge palliative:</p>
+      <ul>
+        <li><strong>Information et communication</strong>: Explication claire de la situation et des soins</li>
+        <li><strong>Formation aux gestes de confort</strong>: Apprentissage des soins de base</li>
+        <li><strong>Soutien émotionnel</strong>: Aide pour gérer l'angoisse et l'épuisement</li>
+        <li><strong>Accompagnement du deuil</strong>: Suivi après le décès</li>
+      </ul>
+      
+      <h2>Les défis des soins palliatifs à domicile</h2>
+      <p>Maintenir un patient en soins palliatifs à domicile nécessite:</p>
+      <ul>
+        <li><strong>Organisation rigoureuse</strong>: Coordination entre les différents intervenants</li>
+        <li><strong>Disponibilité 24h/24</strong>: Possibilité d'intervention d'urgence</li>
+        <li><strong>Matériel adapté</strong>: Lit médicalisé, système d'oxygène si nécessaire</li>
+        <li><strong>Formation des aidants</strong>: Apprentissage des gestes essentiels</li>
+      </ul>
+      
+      <h2>L'éthique en soins palliatifs</h2>
+      <p>Les soins palliatifs soulèvent des questions éthiques importantes:</p>
+      <ul>
+        <li><strong>Respect de l'autonomie</strong>: Droit du patient à participer aux décisions</li>
+        <li><strong>Vérité et information</strong>: Droit de savoir ou de ne pas savoir</li>
+        <li><strong>Proportionnalité des soins</strong>: Éviter l'acharnement thérapeutique</li>
+        <li><strong>Dignité jusqu'au bout</strong>: Maintien de la qualité de vie</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services</h2>
+      <p>Notre équipe spécialisée en soins palliatifs propose:</p>
+      <ul>
+        <li>Soins de confort et de bien-être</li>
+        <li>Surveillance médicale continue</li>
+        <li>Soutien psychologique pour le patient et sa famille</li>
+        <li>Coordination avec l'équipe médicale</li>
+        <li>Accompagnement dans les derniers moments</li>
+      </ul>
+      
+      <p>Les soins palliatifs représentent l'essence même de l'humanité en médecine. Ils permettent d'accompagner chaque personne vers une fin de vie digne, apaisée et entourée de l'amour de ses proches. Notre équipe s'engage à offrir cet accompagnement avec le plus grand respect et la plus grande compassion.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
+    imageAlt: "Accompagnement bienveillant en soins palliatifs",
+    category: "Soins spécialisés",
+    publishedDate: "2024-03-12",
+    readTime: 10,
+    author: "Dr. Amina Benali"
+  },
+  {
+    id: '8',
+    title: "L'oncologie: accompagner les patients atteints de cancer",
+    slug: "oncologie-accompagner-patients-cancer",
+    excerpt: "L'accompagnement des patients atteints de cancer nécessite une approche globale et personnalisée. Découvrez nos services d'aide et de soutien.",
+    content: `
+      <h2>L'oncologie: une spécialité complexe</h2>
+      <p>L'oncologie est la spécialité médicale qui étudie et traite les cancers. Le cancer est une maladie caractérisée par la prolifération anormale de cellules qui envahissent les tissus voisins et peuvent se propager dans l'organisme. Cette pathologie complexe nécessite une prise en charge multidisciplinaire et un accompagnement personnalisé.</p>
+      
+      <h2>Les différents types de cancer</h2>
+      <p>Il existe de nombreux types de cancer, classés selon plusieurs critères:</p>
+      <ul>
+        <li><strong>Cancer solides</strong>: Tumeurs du sein, du poumon, du côlon, de la prostate...</li>
+        <li><strong>Cancers hématologiques</strong>: Leucémies, lymphomes, myélomes</li>
+        <li><strong>Cancers rares</strong>: Sarcomes, tumeurs neuroendocrines</li>
+        <li><strong>Cancers pédiatriques</strong>: Spécificités de l'enfant et de l'adolescent</li>
+      </ul>
+      
+      <h2>Les traitements en oncologie</h2>
+      <p>La prise en charge du cancer fait appel à plusieurs modalités thérapeutiques:</p>
+      <ul>
+        <li><strong>Chirurgie</strong>: Ablation de la tumeur et des tissus environnants</li>
+        <li><strong>Chimiothérapie</strong>: Médicaments qui détruisent les cellules cancéreuses</li>
+        <li><strong>Radiothérapie</strong>: Rayons à haute énergie dirigés vers la tumeur</li>
+        <li><strong>Immunothérapie</strong>: Stimulation du système immunitaire contre le cancer</li>
+        <li><strong>Thérapies ciblées</strong>: Médicaments qui s'attaquent à des anomalies spécifiques</li>
+        <li><strong>Hormonothérapie</strong>: Blocage des hormones qui favorisent certains cancers</li>
+      </ul>
+      
+      <h2>Les effets secondaires des traitements</h2>
+      <p>Les traitements contre le cancer peuvent provoquer divers effets secondaires:</p>
+      <ul>
+        <li><strong>Fatigue</strong>: Épuisement physique et psychologique</li>
+        <li><strong>Nausées et vomissements</strong>: Liés à la chimiothérapie</li>
+        <li><strong>Perte de cheveux</strong>: Alopécie temporaire ou définitive</li>
+        <li><strong>Troubles digestifs</strong>: Diarrhées, constipation, mucites</li>
+        <li><strong>Immunodépression</strong>: Risque accru d'infections</li>
+        <li><strong>Troubles de l'humeur</strong>: Anxiété, dépression</li>
+      </ul>
+      
+      <h2>L'importance du soutien psychologique</h2>
+      <p>Le diagnostic de cancer représente un bouleversement majeur:</p>
+      <ul>
+        <li><strong>Choc du diagnostic</strong>: Aide pour accepter et comprendre la maladie</li>
+        <li><strong>Gestion de l'anxiété</strong>: Techniques de relaxation et de gestion du stress</li>
+        <li><strong>Maintien de l'estime de soi</strong>: Face aux changements physiques</li>
+        <li><strong>Communication familiale</strong>: Aide pour parler de la maladie avec les proches</li>
+        <li><strong>Projet de vie</strong>: Redéfinition des priorités et des objectifs</li>
+      </ul>
+      
+      <h2>La nutrition pendant le traitement</h2>
+      <p>Une alimentation adaptée est cruciale pendant les traitements:</p>
+      <ul>
+        <li><strong>Maintien du poids</strong>: Prévention de la dénutrition</li>
+        <li><strong>Renforcement immunitaire</strong>: Aliments riches en vitamines et minéraux</li>
+        <li><strong>Gestion des nausées</strong>: Aliments faciles à digérer</li>
+        <li><strong>Hydratation</strong>: Compensation des pertes liées aux traitements</li>
+        <li><strong>Adaptation aux goûts</strong>: Modification des saveurs due aux traitements</li>
+      </ul>
+      
+      <h2>L'activité physique adaptée</h2>
+      <p>L'exercice physique présente de nombreux bénéfices:</p>
+      <ul>
+        <li><strong>Réduction de la fatigue</strong>: Amélioration de l'endurance</li>
+        <li><strong>Maintien de la masse musculaire</strong>: Prévention de la fonte musculaire</li>
+        <li><strong>Bien-être psychologique</strong>: Libération d'endorphines</li>
+        <li><strong>Amélioration du sommeil</strong>: Meilleure qualité de repos</li>
+        <li><strong>Renforcement immunitaire</strong>: Stimulation des défenses naturelles</li>
+      </ul>
+      
+      <h2>Le retour à domicile</h2>
+      <p>Le maintien ou le retour à domicile nécessite une organisation particulière:</p>
+      <ul>
+        <li><strong>Aménagement du logement</strong>: Adaptation aux limitations temporaires</li>
+        <li><strong>Surveillance médicale</strong>: Suivi des constantes et des symptômes</li>
+        <li><strong>Gestion des traitements</strong>: Aide à la prise de médicaments</li>
+        <li><strong>Soins de confort</strong>: Hygiène, mobilisation, prévention des escarres</li>
+        <li><strong>Soutien familial</strong>: Formation et accompagnement des proches</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services</h2>
+      <p>Notre équipe spécialisée en oncologie propose:</p>
+      <ul>
+        <li>Soins infirmiers spécialisés à domicile</li>
+        <li>Accompagnement aux séances de chimiothérapie</li>
+        <li>Surveillance des effets secondaires</li>
+        <li>Soutien nutritionnel et aide aux repas</li>
+        <li>Accompagnement psychologique</li>
+        <li>Coordination avec l'équipe médicale</li>
+      </ul>
+      
+      <p>L'accompagnement d'un patient atteint de cancer est un défi qui mobilise toutes nos compétences humaines et techniques. Notre objectif est de permettre aux patients de traverser cette épreuve avec le maximum de confort, de dignité et d'espoir, entourés de leurs proches dans un environnement familier.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    imageAlt: "Accompagnement de patient en oncologie",
+    category: "Soins spécialisés",
+    publishedDate: "2024-02-28",
+    readTime: 12,
+    author: "Dr. Hassan Alaoui"
+  },
+  {
+    id: '9',
+    title: "Maladie de Charcot (SLA): comprendre et accompagner",
+    slug: "maladie-charcot-sla-comprendre-accompagner",
+    excerpt: "La sclérose latérale amyotrophique (SLA) ou maladie de Charcot est une maladie neurodégénérative grave. Découvrez comment accompagner les patients et leurs familles.",
+    content: `
+      <h2>Qu'est-ce que la maladie de Charcot?</h2>
+      <p>La sclérose latérale amyotrophique (SLA), également appelée maladie de Charcot, est une maladie neurodégénérative qui affecte les neurones moteurs. Ces cellules nerveuses contrôlent les mouvements volontaires des muscles. Leur dégénérescence progressive entraîne une faiblesse musculaire qui s'étend graduellement à l'ensemble du corps.</p>
+      
+      <h2>Les premiers signes de la maladie</h2>
+      <p>Les symptômes initiaux de la SLA peuvent être subtils et variés:</p>
+      <ul>
+        <li><strong>Faiblesse musculaire</strong>: Généralement asymétrique, touchant d'abord les mains, les bras ou les jambes</li>
+        <li><strong>Crampes et fasciculations</strong>: Contractions involontaires des muscles</li>
+        <li><strong>Troubles de la dextérité</strong>: Difficulté à manipuler des objets fins</li>
+        <li><strong>Troubles de l'élocution</strong>: Dysarthrie, voix enrouée</li>
+        <li><strong>Troubles de la déglutition</strong>: Difficultés à avaler</li>
+        <li><strong>Raideur musculaire</strong>: Spasticité progressive</li>
+      </ul>
+      
+      <h2>L'évolution de la maladie</h2>
+      <p>La SLA évolue de manière progressive et irréversible:</p>
+      <ul>
+        <li><strong>Phase précoce</strong>: Atteinte localisée, maintien de l'autonomie</li>
+        <li><strong>Phase intermédiaire</strong>: Extension des symptômes, besoin d'aides techniques</li>
+        <li><strong>Phase avancée</strong>: Atteinte respiratoire, dépendance totale</li>
+        <li><strong>Préservation cognitive</strong>: L'intelligence reste généralement intacte</li>
+      </ul>
+      
+      <h2>Le diagnostic de la SLA</h2>
+      <p>Le diagnostic repose sur plusieurs examens:</p>
+      <ul>
+        <li><strong>Examen clinique</strong>: Évaluation neurologique approfondie</li>
+        <li><strong>Électromyographie (EMG)</strong>: Mesure de l'activité électrique des muscles</li>
+        <li><strong>IRM cérébrale et médullaire</strong>: Élimination d'autres pathologies</li>
+        <li><strong>Analyses sanguines</strong>: Recherche de causes alternatives</li>
+        <li><strong>Biopsie musculaire</strong>: Parfois nécessaire pour confirmer le diagnostic</li>
+      </ul>
+      
+      <h2>Les traitements disponibles</h2>
+      <p>Bien qu'il n'existe pas de traitement curatif, plusieurs approches peuvent ralentir l'évolution:</p>
+      <ul>
+        <li><strong>Riluzole</strong>: Seul médicament ayant montré une efficacité modeste</li>
+        <li><strong>Edaravone</strong>: Antioxydant utilisé dans certains cas</li>
+        <li><strong>Traitements symptomatiques</strong>: Gestion de la spasticité, des crampes, de la salivation</li>
+        <li><strong>Soutien nutritionnel</strong>: Gastrostomie en cas de troubles de déglutition</li>
+        <li><strong>Assistance respiratoire</strong>: Ventilation non invasive puis invasive</li>
+      </ul>
+      
+      <h2>La prise en charge multidisciplinaire</h2>
+      <p>L'accompagnement de la SLA nécessite une équipe pluridisciplinaire:</p>
+      <ul>
+        <li><strong>Neurologue</strong>: Suivi médical et ajustement des traitements</li>
+        <li><strong>Kinésithérapeute</strong>: Maintien de la mobilité et prévention des contractures</li>
+        <li><strong>Orthophoniste</strong>: Travail sur la parole et la déglutition</li>
+        <li><strong>Ergothérapeute</strong>: Adaptation du domicile et aides techniques</li>
+        <li><strong>Diététicien</strong>: Maintien d'un état nutritionnel optimal</li>
+        <li><strong>Psychologue</strong>: Soutien émotionnel pour le patient et sa famille</li>
+      </ul>
+      
+      <h2>Les aides techniques et l'adaptation</h2>
+      <p>De nombreuses aides peuvent améliorer la qualité de vie:</p>
+      <ul>
+        <li><strong>Aides à la mobilité</strong>: Cannes, déambulateurs, fauteuils roulants</li>
+        <li><strong>Aides techniques</strong>: Systèmes de communication assistée, ordinateurs adaptés</li>
+        <li><strong>Aménagement du domicile</strong>: Plans inclinés, barres d'appui, lit médicalisé</li>
+        <li><strong>Matériel respiratoire</strong>: Aspirateur de sécrétions, ventilateur</li>
+      </ul>
+      
+      <h2>Le soutien psychologique</h2>
+      <p>L'accompagnement psychologique est essentiel:</p>
+      <ul>
+        <li><strong>Acceptation du diagnostic</strong>: Aide pour traverser les différentes phases du deuil</li>
+        <li><strong>Maintien de l'estime de soi</strong>: Valorisation des capacités préservées</li>
+        <li><strong>Communication</strong>: Aide pour exprimer ses besoins et ses émotions</li>
+        <li><strong>Projet de vie</strong>: Adaptation des objectifs à l'évolution de la maladie</li>
+        <li><strong>Préparation aux directives anticipées</strong>: Réflexion sur les souhaits de fin de vie</li>
+      </ul>
+      
+      <h2>L'impact sur la famille</h2>
+      <p>La SLA affecte profondément l'entourage familial:</p>
+      <ul>
+        <li><strong>Burden de l'aidant</strong>: Charge physique et émotionnelle croissante</li>
+        <li><strong>Réorganisation familiale</strong>: Adaptation des rôles et des responsabilités</li>
+        <li><strong>Soutien aux enfants</strong>: Aide pour comprendre et faire face à la maladie</li>
+        <li><strong>Épuisement des aidants</strong>: Nécessité de prendre du répit</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services</h2>
+      <p>Notre équipe spécialisée dans la SLA propose:</p>
+      <ul>
+        <li>Soins spécialisés adaptés à l'évolution de la maladie</li>
+        <li>Aide aux gestes de la vie quotidienne</li>
+        <li>Surveillance respiratoire et gestion des sécrétions</li>
+        <li>Soutien nutritionnel et aide à l'alimentation</li>
+        <li>Accompagnement psychologique du patient et de sa famille</li>
+        <li>Coordination avec l'équipe médicale pluridisciplinaire</li>
+        <li>Formation des aidants familiaux</li>
+      </ul>
+      
+      <p>La maladie de Charcot représente l'un des défis les plus difficiles en neurologie. Notre engagement est d'accompagner chaque patient et sa famille avec le maximum de compétence, de compassion et de respect, en préservant la dignité et la qualité de vie à chaque étape de cette épreuve.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f",
+    imageAlt: "Accompagnement de patient atteint de la maladie de Charcot",
+    category: "Maladies neurodégénératives",
+    publishedDate: "2024-01-25",
+    readTime: 11,
+    author: "Dr. Rachid Tazi"
   }
 ];
 
