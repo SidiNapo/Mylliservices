@@ -442,6 +442,11 @@ export const getArticlesByCategory = (category: string) => {
   return articles.filter(article => article.category.toLowerCase() === category.toLowerCase());
 };
 
+// Helper function to get article by slug
+export const getArticleBySlug = (slug: string) => {
+  return articles.find(article => article.slug === slug);
+};
+
 // Helper function to get related articles (same category, excluding current article)
 export const getRelatedArticles = (currentArticleId: string, limit: number = 3) => {
   const currentArticle = articles.find(article => article.id === currentArticleId);
