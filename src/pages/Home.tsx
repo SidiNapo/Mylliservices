@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share } from 'lucide-react';
+import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import SectionHeading from '@/components/common/SectionHeading';
@@ -19,6 +19,9 @@ const HomePage = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
   const [hoverCard, setHoverCard] = useState(-1);
+  
+  // Modal state for feature details
+  const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
 
   // For mouse parallax effect
   const [mousePosition, setMousePosition] = useState({
@@ -232,6 +235,40 @@ const HomePage = () => {
       }, 800); // Wait for scroll to complete
     }
   };
+
+  // Format detailed description for better display
+  const formatDetailedDescription = (text: string) => {
+    return text.split('\n').map((line, index) => {
+      if (line.trim() === '') return <br key={index} />;
+      if (line.includes('•')) {
+        return (
+          <li key={index} className="ml-4 text-mylli-gray leading-relaxed">
+            {line.replace('•', '').trim()}
+          </li>
+        );
+      }
+      if (line.match(/^[A-Z\s]+$/)) {
+        return (
+          <h4 key={index} className="font-bold text-mylli-dark text-lg mt-4 mb-2">
+            {line}
+          </h4>
+        );
+      }
+      if (line.endsWith(':')) {
+        return (
+          <h4 key={index} className="font-semibold text-mylli-dark text-base mt-4 mb-2">
+            {line}
+          </h4>
+        );
+      }
+      return (
+        <p key={index} className="text-mylli-gray leading-relaxed mb-3">
+          {line}
+        </p>
+      );
+    });
+  };
+
   return <>
       <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
       
@@ -435,11 +472,14 @@ const HomePage = () => {
                       
                       {/* Call to action */}
                       <div className="mt-auto">
-                        <button className={`w-full text-center font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300 ${
-                          feature.color === 'primary' ? 'text-mylli-primary' :
-                          feature.color === 'secondary' ? 'text-mylli-secondary' :
-                          'text-mylli-quaternary'
-                        }`}>
+                        <button 
+                          onClick={() => setSelectedFeature(index)}
+                          className={`w-full text-center font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300 ${
+                            feature.color === 'primary' ? 'text-mylli-primary' :
+                            feature.color === 'secondary' ? 'text-mylli-secondary' :
+                            'text-mylli-quaternary'
+                          }`}
+                        >
                           En savoir plus
                           <ArrowRight size={16} className="ml-2" />
                         </button>
@@ -764,6 +804,69 @@ const HomePage = () => {
         
         {/* CTA Contact Section */}
       </div>
+
+      {/* Feature Details Modal */}
+      {selectedFeature !== null && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in">
+            {/* Modal Header */}
+            <div className={`relative p-8 ${
+              features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' :
+              features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' :
+              'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'
+            }`}>
+              <button
+                onClick={() => setSelectedFeature(null)}
+                className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+              >
+                <X size={24} />
+              </button>
+              
+              <div className="flex items-center gap-6">
+                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+                  {features[selectedFeature].icon}
+                </div>
+                <div>
+                  <h2 className="text-3xl font-bold text-white mb-2">
+                    {features[selectedFeature].title}
+                  </h2>
+                  <p className="text-white/90 text-lg">
+                    {features[selectedFeature].description}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-8 overflow-y-auto max-h-[60vh]">
+              <div className="prose prose-lg max-w-none">
+                {formatDetailedDescription(features[selectedFeature].detailedDescription)}
+              </div>
+              
+              {/* Call to Action */}
+              <div className="mt-8 flex gap-4 justify-end">
+                <Button
+                  variant="outline"
+                  onClick={() => setSelectedFeature(null)}
+                  className="px-6 py-3"
+                >
+                  Fermer
+                </Button>
+                <Button asChild className={`px-6 py-3 ${
+                  features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' :
+                  features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' :
+                  'bg-mylli-quaternary hover:bg-mylli-accent'
+                }`}>
+                  <Link to="/contact">
+                    Contactez-nous
+                    <ArrowRight size={16} className="ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>;
 };
 export default HomePage;
