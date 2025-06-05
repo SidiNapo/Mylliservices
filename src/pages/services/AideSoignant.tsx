@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -5,28 +6,35 @@ import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
+import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const AideSoignantPage = () => {
-  // Roles of caregiver
+  // Roles of caregiver with specific healthcare icons
   const roles = [{
     title: "Assister à l'hygiène corporelle",
     description: "L'aide-soignant(e) assure la toilette quotidienne complète ou partielle selon les besoins, ainsi que les soins d'hygiène spécifiques.",
-    icon: <User size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png",
+    color: "from-blue-500 to-blue-600"
   }, {
     title: "Aider à la prise de médicaments",
     description: "Administration des médicaments selon les prescriptions médicales, avec surveillance des effets et rappels des horaires.",
-    icon: <Heart size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png",
+    color: "from-green-500 to-green-600"
   }, {
     title: "Aider à l'alimentation",
     description: "Préparation des repas équilibrés, aide à la prise alimentaire si nécessaire, et surveillance de l'hydratation.",
-    icon: <Clock size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/815918b5-b645-4a8e-b1bf-f6288e735add.png",
+    color: "from-purple-500 to-purple-600"
   }, {
-    title: "Mesurer les constantes",
+    title: "Mesurer électroniquement les constantes",
     description: "Suivi électronique régulier de la température, tension artérielle, pouls et saturation en oxygène.",
-    icon: <Shield size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/5364c2b1-9466-4ff2-b1bf-f6288e735add.png",
+    color: "from-orange-500 to-orange-600"
   }, {
-    title: "Accompagner et sécuriser",
+    title: "Accompagner et sécuriser le patient",
     description: "Présence rassurante, aide aux déplacements, prévention des chutes et accidents domestiques.",
-    icon: <CheckCircle size={36} className="text-mylli-primary" />
+    iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png",
+    color: "from-teal-500 to-teal-600"
   }];
 
   // Testimonials
@@ -39,6 +47,7 @@ const AideSoignantPage = () => {
     name: "Hassan M.",
     title: "69 ans"
   }];
+
   return <div>
       <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
@@ -79,36 +88,20 @@ const AideSoignantPage = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-6 text-center text-mylli-dark">Rôle de l'aide soignant(e)</h3>
                   <ul className="space-y-4">
-                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
-                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
-                        <Star size={18} className="text-mylli-accent" />
-                      </div>
-                      <span className="text-mylli-gray font-medium">Assister à l'hygiène corporelle</span>
-                    </li>
-                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
-                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
-                        <Star size={18} className="text-mylli-accent" />
-                      </div>
-                      <span className="text-mylli-gray font-medium">Aider à la prise de médicaments</span>
-                    </li>
-                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
-                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
-                        <Star size={18} className="text-mylli-accent" />
-                      </div>
-                      <span className="text-mylli-gray font-medium">Aider à l'alimentation</span>
-                    </li>
-                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
-                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
-                        <Star size={18} className="text-mylli-accent" />
-                      </div>
-                      <span className="text-mylli-gray font-medium">Mesurer électroniquement les constantes</span>
-                    </li>
-                    <li className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
-                      <div className="w-8 h-8 rounded-full bg-mylli-accent/10 flex items-center justify-center mr-3">
-                        <Star size={18} className="text-mylli-accent" />
-                      </div>
-                      <span className="text-mylli-gray font-medium">Accompagner et sécuriser le patient</span>
-                    </li>
+                    {roles.map((role, index) => (
+                      <li key={index} className="flex items-center p-3 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:translate-x-2">
+                        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3 shadow-md">
+                          <OptimizedImage 
+                            src={role.iconImage}
+                            alt={role.title}
+                            width={24}
+                            height={24}
+                            className="w-6 h-6 object-contain"
+                          />
+                        </div>
+                        <span className="text-mylli-gray font-medium text-sm">{role.title}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
@@ -117,20 +110,49 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Roles with Parallax */}
+      {/* Roles with Parallax - Modern unique cards */}
       <ParallaxSection backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%)" height="auto" className="py-24">
         <div className="container-custom">
           <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="underline" className="text-white" highlightColor="white" />
           
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {roles.map((role, index) => <div key={index} className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-                  <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-6">
-                    {role.icon}
+              {roles.map((role, index) => (
+                <div key={index} className="group relative bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-700 hover:-translate-y-4 hover:shadow-3xl">
+                  {/* Gradient background overlay */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  
+                  {/* Icon container with unique styling */}
+                  <div className="relative p-8">
+                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${role.color} flex items-center justify-center mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg`}>
+                      <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                        <OptimizedImage 
+                          src={role.iconImage}
+                          alt={role.title}
+                          width={40}
+                          height={40}
+                          className="w-10 h-10 object-contain brightness-0 invert"
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <h3 className="text-xl font-bold mb-4 text-mylli-dark group-hover:text-gray-800 transition-colors duration-300">
+                      {role.title}
+                    </h3>
+                    <p className="text-mylli-gray group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
+                      {role.description}
+                    </p>
+                    
+                    {/* Decorative elements */}
+                    <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${role.color} opacity-5 rounded-bl-3xl transform transition-all duration-500 group-hover:scale-150`}></div>
+                    <div className={`absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr ${role.color} opacity-10 rounded-tr-2xl transform transition-all duration-500 group-hover:scale-125`}></div>
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-mylli-dark">{role.title}</h3>
-                  <p className="text-mylli-gray">{role.description}</p>
-                </div>)}
+                  
+                  {/* Border animation */}
+                  <div className={`absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} style={{ mask: 'linear-gradient(white 0 0) content-box, linear-gradient(white 0 0)', maskComposite: 'xor' }}></div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
