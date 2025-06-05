@@ -73,8 +73,8 @@ const ArticlesPage = () => {
                   <SelectContent>
                     <SelectItem value="all">Toutes les catégories</SelectItem>
                     {categories.map(category => (
-                      <SelectItem key={category} value={category.toLowerCase()}>
-                        {category}
+                      <SelectItem key={category.name} value={category.name.toLowerCase()}>
+                        {category.name}
                       </SelectItem>
                     ))}
                   </SelectContent>
