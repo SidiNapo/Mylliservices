@@ -6,7 +6,6 @@ import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -36,13 +35,8 @@ const AideSoignantPage = () => {
     name: "Hassan M.",
     title: "69 ans"
   }];
-
-  return (
-    <div>
-      <PageBanner 
-        title="AIDE-SOIGNANT(E) À DOMICILE" 
-        subtitle="Préservation de l'autonomie et accompagnement quotidien" 
-      />
+  return <div>
+      <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
       {/* Introduction - Centered and Modern design */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -96,16 +90,11 @@ const AideSoignantPage = () => {
       {/* Roles - Enhanced larger cards with uniform sizing */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="container-custom">
-          <SectionHeading 
-            title="Rôles de l'aide-soignant(e)" 
-            subtitle="Un accompagnement complet pour le bien-être quotidien" 
-            variant="gradient" 
-          />
+          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="gradient" />
           
           <div className="max-w-7xl mx-auto mt-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-              {roles.map((role, index) => (
-                <div key={index} className="group relative">
+              {roles.map((role, index) => <div key={index} className="group relative">
                   <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-2xl hover:border-mylli-primary/30 group-hover:scale-105 h-80 flex flex-col">
                     {/* Image container with enhanced styling */}
                     <div className="relative p-8 pb-6 flex-grow flex flex-col items-center justify-center">
@@ -116,13 +105,7 @@ const AideSoignantPage = () => {
                         
                         {/* Main image container - larger size */}
                         <div className="relative w-32 h-32 mx-auto rounded-3xl bg-gradient-to-br from-white to-mylli-light/30 flex items-center justify-center shadow-xl transform transition-all duration-500 group-hover:scale-110 group-hover:shadow-2xl border border-mylli-primary/10">
-                          <OptimizedImage 
-                            src={role.iconImage} 
-                            alt={role.title} 
-                            width={80} 
-                            height={80} 
-                            className="w-20 h-20 object-contain filter group-hover:brightness-110 transition-all duration-500" 
-                          />
+                          <OptimizedImage src={role.iconImage} alt={role.title} width={80} height={80} className="w-20 h-20 object-contain filter group-hover:brightness-110 transition-all duration-500" />
                         </div>
                         
                         {/* Additional decorative elements */}
@@ -148,8 +131,7 @@ const AideSoignantPage = () => {
                   
                   {/* External glow effect */}
                   <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 transform scale-0 group-hover:scale-110 transition-transform duration-700 -z-10 blur-xl"></div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -172,11 +154,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Présence attentive pendant la journée pour les soins quotidiens, l'accompagnement aux activités et la surveillance continue.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Horaires flexibles entre 7h et 20h selon vos besoins
-                  </p>
-                </div>
+                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-secondary to-mylli-primary/90 text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -189,11 +167,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Surveillance nocturne, aide au coucher et au lever, gestion des réveils nocturnes et des situations d'urgence.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Interventions de 20h à 7h avec possibilité de veille
-                  </p>
-                </div>
+                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-accent to-mylli-primary text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -206,11 +180,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Accompagnement permanent avec relève d'équipes pour une présence continue et des soins ininterrompus.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Service complet avec rotation des équipes soignantes
-                  </p>
-                </div>
+                
               </div>
             </div>
             
@@ -266,8 +236,6 @@ const AideSoignantPage = () => {
       
       {/* CTA - Modern design */}
       
-    </div>
-  );
+    </div>;
 };
-
 export default AideSoignantPage;
