@@ -59,12 +59,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     <HelmetProvider>
       <div className={`flex flex-col min-h-screen ${!isHomePage ? 'bg-gradient-to-br from-white to-mylli-light/30' : ''}`}>
         <Header />
-        {showBreadcrumbs && (
-          <div className="pt-16">
-            <BreadcrumbNav />
-          </div>
-        )}
-        <main className={`flex-grow ${showBreadcrumbs ? 'pt-0' : 'pt-16'}`} role="main">
+        {showBreadcrumbs && <BreadcrumbNav />}
+        <main className="flex-grow pt-16" role="main">
           {children}
         </main>
         <Footer />

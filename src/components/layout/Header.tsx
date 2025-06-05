@@ -49,7 +49,7 @@ const Header = () => {
       path: '/fonctionnement'
     },
     {
-      name: 'Nos Outils',
+      name: t('nav.team'),
       path: '/equipe'
     },
     {
