@@ -28,34 +28,11 @@ const EquipePage = () => {
     }
   ];
   
-  const teamMembers = [
-    {
-      name: "Ahmed Bennani",
-      title: "Directeur",
-      bio: "Fondateur de Mylli Services avec plus de 15 ans d'expérience dans le secteur médico-social. Ahmed supervise l'ensemble des opérations et garantit le respect des valeurs de l'entreprise."
-    },
-    {
-      name: "Sophia Alami",
-      title: "Responsable du recrutement",
-      bio: "Ancienne infirmière coordinatrice, Sophia sélectionne rigoureusement chaque intervenant selon des critères techniques et humains stricts pour assurer la qualité de nos services."
-    },
-    {
-      name: "Karim Tazi",
-      title: "Coordinateur médical",
-      bio: "Infirmier de formation, Karim assure la liaison avec les professionnels de santé et supervise la formation continue de notre équipe d'intervenants."
-    },
-    {
-      name: "Leila Bensouda",
-      title: "Conseillère principale",
-      bio: "Avec sa formation en psychologie et son expérience en gestion de cas complexes, Leila accompagne personnellement nos clients dans la définition de leurs besoins."
-    }
-  ];
-  
   return (
     <div>
       <PageBanner 
-        title="Notre Équipe & Nos Outils" 
-        subtitle="Une équipe dévouée et des outils performants au service de votre bien-être"
+        title="Nos Outils" 
+        subtitle="Des outils performants au service de votre bien-être"
       />
       
       {/* Approach Section with Parallax */}
@@ -260,45 +237,6 @@ const EquipePage = () => {
           </div>
         </div>
       </section>
-      
-      {/* Team Section - Modern cards with parallax */}
-      <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1523712999610-f77fbcfc3843"
-        height="auto"
-        className="py-24"
-      >
-        <div className="container-custom">
-          <SectionHeading 
-            title="Notre Équipe de Direction"
-            subtitle="Des professionnels expérimentés dédiés à votre bien-être"
-            variant="underline"
-            className="text-white"
-            highlightColor="white"
-          />
-          
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {teamMembers.map((member, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-2xl"
-                >
-                  <div className="h-36 bg-gradient-to-br from-mylli-primary/90 to-mylli-dark/90 flex items-center justify-center">
-                    <div className="w-24 h-24 rounded-full bg-white/20 backdrop-blur-md border-4 border-white/30 flex items-center justify-center transform transition-all duration-500 hover:scale-110">
-                      <span className="text-3xl font-bold text-white">{member.name.charAt(0)}</span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-1 text-mylli-dark">{member.name}</h3>
-                    <p className="text-mylli-primary font-medium mb-4">{member.title}</p>
-                    <p className="text-mylli-gray text-sm">{member.bio}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </ParallaxSection>
       
       {/* Values Section - Modern glass cards */}
       <section className="py-24 bg-gradient-to-r from-mylli-primary to-mylli-dark">
