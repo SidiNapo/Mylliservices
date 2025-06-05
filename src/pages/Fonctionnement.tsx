@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
+
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -40,8 +41,12 @@ const FonctionnementPage = () => {
     question: "Comment sont gérées les urgences?",
     answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
   }];
-  return <div>
-      <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="particles" />
+  return (
+    <div>
+      <PageBanner 
+        title="Notre Fonctionnement" 
+        subtitle="Un accompagnement personnalisé en 4 étapes" 
+      />
       
       {/* Conseiller Section */}
       <section className="section-padding bg-white">
@@ -171,6 +176,8 @@ const FonctionnementPage = () => {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default FonctionnementPage;
