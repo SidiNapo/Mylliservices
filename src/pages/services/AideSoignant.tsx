@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -12,29 +11,19 @@ const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
     title: "Assister à l'hygiène corporelle",
-    description: "L'aide-soignant(e) assure la toilette quotidienne complète ou partielle selon les besoins, ainsi que les soins d'hygiène spécifiques.",
-    iconImage: "/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png",
-    color: "from-blue-500 to-blue-600"
+    iconImage: "/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png"
   }, {
     title: "Aider à la prise de médicaments",
-    description: "Administration des médicaments selon les prescriptions médicales, avec surveillance des effets et rappels des horaires.",
-    iconImage: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png",
-    color: "from-green-500 to-green-600"
+    iconImage: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png"
   }, {
     title: "Aider à l'alimentation",
-    description: "Préparation des repas équilibrés, aide à la prise alimentaire si nécessaire, et surveillance de l'hydratation.",
-    iconImage: "/lovable-uploads/815918b5-b645-4a8e-b1bf-f6288e735add.png",
-    color: "from-purple-500 to-purple-600"
+    iconImage: "/lovable-uploads/815918b5-b645-4a8e-b1bf-f6288e735add.png"
   }, {
     title: "Mesurer électroniquement les constantes",
-    description: "Suivi électronique régulier de la température, tension artérielle, pouls et saturation en oxygène.",
-    iconImage: "/lovable-uploads/5364c2b1-9466-4ff2-b1bf-f6288e735add.png",
-    color: "from-orange-500 to-orange-600"
+    iconImage: "/lovable-uploads/5364c2b1-9466-4ff2-b1bf-f6288e735add.png"
   }, {
     title: "Accompagner et sécuriser le patient",
-    description: "Présence rassurante, aide aux déplacements, prévention des chutes et accidents domestiques.",
-    iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png",
-    color: "from-teal-500 to-teal-600"
+    iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }];
 
   // Testimonials
@@ -110,53 +99,41 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Roles with Parallax - Modern unique cards */}
-      <ParallaxSection backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%)" height="auto" className="py-24">
+      {/* Roles - Clean minimalist design */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
-          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="underline" className="text-white" highlightColor="white" />
+          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="gradient" />
           
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
               {roles.map((role, index) => (
-                <div key={index} className="group relative bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-700 hover:-translate-y-4 hover:shadow-3xl">
-                  {/* Gradient background overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                  
-                  {/* Icon container with unique styling */}
-                  <div className="relative p-8">
-                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${role.color} flex items-center justify-center mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 shadow-lg`}>
-                      <div className="w-16 h-16 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        <OptimizedImage 
-                          src={role.iconImage}
-                          alt={role.title}
-                          width={40}
-                          height={40}
-                          className="w-10 h-10 object-contain brightness-0 invert"
-                        />
-                      </div>
+                <div key={index} className="group relative bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-500 hover:-translate-y-3 hover:shadow-xl">
+                  {/* Image container - made larger and more prominent */}
+                  <div className="relative p-8 pb-6">
+                    <div className="w-24 h-24 mx-auto mb-6 rounded-2xl bg-mylli-light/30 flex items-center justify-center transform transition-all duration-500 group-hover:scale-110">
+                      <OptimizedImage 
+                        src={role.iconImage}
+                        alt={role.title}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16 object-contain"
+                      />
                     </div>
                     
-                    {/* Content */}
-                    <h3 className="text-xl font-bold mb-4 text-mylli-dark group-hover:text-gray-800 transition-colors duration-300">
+                    {/* Title only - no description */}
+                    <h3 className="text-center text-mylli-dark font-semibold text-sm leading-tight px-2">
                       {role.title}
                     </h3>
-                    <p className="text-mylli-gray group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">
-                      {role.description}
-                    </p>
-                    
-                    {/* Decorative elements */}
-                    <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${role.color} opacity-5 rounded-bl-3xl transform transition-all duration-500 group-hover:scale-150`}></div>
-                    <div className={`absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr ${role.color} opacity-10 rounded-tr-2xl transform transition-all duration-500 group-hover:scale-125`}></div>
                   </div>
                   
-                  {/* Border animation */}
-                  <div className={`absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-br ${role.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} style={{ mask: 'linear-gradient(white 0 0) content-box, linear-gradient(white 0 0)', maskComposite: 'xor' }}></div>
+                  {/* Subtle hover effect border */}
+                  <div className="absolute inset-0 rounded-2xl border-2 border-transparent transition-all duration-500 group-hover:border-mylli-primary/20"></div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </ParallaxSection>
+      </section>
       
       {/* Types of Interventions - Modern cards with animation */}
       <section className="py-24 bg-white">
