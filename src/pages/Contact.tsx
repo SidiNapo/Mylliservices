@@ -22,9 +22,9 @@ const ContactPage = () => {
     hours: "Sur rendez-vous"
   }];
 
-  // Exact address and coordinates for Mylli Services
-  const exactAddress = "19, rue Masmouda hay Al Hana, Casablanca 20210, Maroc";
-  const coordinates = "33.5731,-7.5898"; // Approximate coordinates for the address
+  // Updated exact address and coordinates for Mylli Services
+  const exactAddress = "Infirmier à domicile Mylli Services, 19 Rue De Masmouda, Casablanca 20210";
+  const displayAddress = "19, rue Masmouda hay Al Hana\nCasablanca - 20210";
 
   return (
     <div>
@@ -150,13 +150,13 @@ const ContactPage = () => {
                       <MapPin className="text-white" size={24} />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold">Mylli Services</h3>
+                      <h3 className="text-xl font-bold">Infirmier à domicile Mylli Services</h3>
                       <p className="text-white/90 text-sm">Centre de soins à domicile</p>
                     </div>
                   </div>
                   <div className="text-right">
                     <div className="text-sm opacity-90">Casablanca</div>
-                    <div className="text-xs opacity-75">Hay Al Hana</div>
+                    <div className="text-xs opacity-75">Rue De Masmouda</div>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@ const ContactPage = () => {
                 {/* Map Overlay Info */}
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
                   <div className="text-xs text-mylli-gray">Localisation exacte</div>
-                  <div className="font-semibold text-mylli-dark">Mylli Services</div>
+                  <div className="font-semibold text-mylli-dark">Infirmier à domicile Mylli Services</div>
                 </div>
               </div>
 
@@ -181,8 +181,9 @@ const ContactPage = () => {
                   <div className="text-center">
                     <h4 className="text-2xl font-bold text-mylli-dark mb-2">Notre adresse</h4>
                     <p className="text-lg text-mylli-gray leading-relaxed">
-                      19, rue Masmouda hay Al Hana<br />
-                      Casablanca - 20210, Maroc
+                      Infirmier à domicile Mylli Services<br />
+                      19 Rue De Masmouda<br />
+                      Casablanca 20210, Maroc
                     </p>
                   </div>
                 </div>
