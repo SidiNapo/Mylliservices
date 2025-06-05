@@ -69,7 +69,7 @@ const ContactPage = () => {
                 Casablanca - 20210
               </p>
               <p className="text-mylli-gray mt-3">
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="text-mylli-primary hover:underline">
+                <a href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" target="_blank" rel="noopener noreferrer" className="text-mylli-primary hover:underline">
                   Voir sur Google Maps
                 </a>
               </p>
@@ -149,20 +149,29 @@ const ContactPage = () => {
             <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
               {/* Floating Action Buttons */}
               <div className="absolute -top-4 -right-4 z-20 flex gap-3">
-                <button className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300">
+                <a 
+                  href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
+                >
                   <Navigation size={20} />
-                </button>
+                </a>
                 <button className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300">
                   <Compass size={20} />
                 </button>
               </div>
 
-              {/* Interactive Header */}
+              {/* Interactive Header with Mylli Services Logo */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                      <MapPinHouse className="text-white" size={28} />
+                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
+                      <img 
+                        src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
+                        alt="Mylli Services Logo" 
+                        className="w-12 h-12 object-contain"
+                      />
                     </div>
                     <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
                   </div>
@@ -211,7 +220,7 @@ const ContactPage = () => {
               {/* Quick Actions */}
               <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a 
-                  href="https://maps.google.com/?q=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
+                  href="https://maps.google.com/maps/dir/?api=1&destination=19,+rue+Masmouda+hay+Al+Hana+Casablanca+20210" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-3"
@@ -220,10 +229,13 @@ const ContactPage = () => {
                   <span className="font-medium">Obtenir l'itinéraire</span>
                 </a>
 
-                <button className="group bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 flex items-center gap-3">
+                <a 
+                  href="tel:+212661377438"
+                  className="group bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 flex items-center gap-3"
+                >
                   <Phone className="group-hover:scale-110 transition-transform duration-300" size={20} />
                   <span className="font-medium">Appeler maintenant</span>
-                </button>
+                </a>
 
                 <a 
                   href="https://wa.me/212661377438" 
@@ -237,14 +249,14 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Floating Address Card */}
-            <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 max-w-md">
+            {/* Fixed Floating Address Card - Better positioned */}
+            <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white rounded-2xl shadow-2xl p-6 border border-gray-100 max-w-sm w-full mx-4">
               <div className="text-center">
                 <div className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                   <MapPin className="text-white" size={24} />
                 </div>
-                <h4 className="font-bold text-gray-800 mb-1">Notre adresse précise</h4>
-                <p className="text-gray-600 text-sm">
+                <h4 className="font-bold text-gray-800 mb-2">Notre adresse précise</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
                   19, rue Masmouda hay Al Hana<br />
                   Casablanca - 20210, Maroc
                 </p>
