@@ -11,6 +11,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -403,12 +404,64 @@ const HomePage = () => {
             </header>
             
             {/* Redesigned feature cards with modern 3D effects */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-10">
-              {features.map((feature, index) => <div key={index} className={`feature-highlight ${index === 1 ? "md:mt-16" : ""} transform transition-all duration-500`} style={{
-              animationDelay: `${index * 200}ms`
-            }} data-feature={index === 2 ? 'availability' : undefined}>
-                  <ServiceCard title={feature.title} description={feature.description} detailedDescription={feature.detailedDescription} icon={feature.icon} link="#" style="3d" color={feature.color} className="h-full" />
-                </div>)}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {features.map((feature, index) => (
+                <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
+                  <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8 h-full flex flex-col transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:border-mylli-primary/20 group relative overflow-hidden">
+                    {/* Icon section */}
+                    <div className="flex justify-center mb-6">
+                      <div className={`w-20 h-20 rounded-full flex items-center justify-center ${
+                        feature.color === 'primary' ? 'bg-mylli-primary/10' :
+                        feature.color === 'secondary' ? 'bg-mylli-secondary/10' :
+                        'bg-mylli-quaternary/10'
+                      } group-hover:scale-110 transition-transform duration-300`}>
+                        {feature.icon}
+                      </div>
+                    </div>
+                    
+                    {/* Content section - flex-grow to ensure equal heights */}
+                    <div className="flex-grow flex flex-col">
+                      <h3 className={`text-xl font-bold mb-4 text-center ${
+                        feature.color === 'primary' ? 'text-mylli-primary' :
+                        feature.color === 'secondary' ? 'text-mylli-secondary' :
+                        'text-mylli-quaternary'
+                      }`}>
+                        {feature.title}
+                      </h3>
+                      
+                      <p className="text-mylli-gray text-center mb-6 flex-grow leading-relaxed">
+                        {feature.description}
+                      </p>
+                      
+                      {/* Call to action */}
+                      <div className="mt-auto">
+                        <button className={`w-full text-center font-medium flex items-center justify-center group-hover:translate-x-1 transition-transform duration-300 ${
+                          feature.color === 'primary' ? 'text-mylli-primary' :
+                          feature.color === 'secondary' ? 'text-mylli-secondary' :
+                          'text-mylli-quaternary'
+                        }`}>
+                          En savoir plus
+                          <ArrowRight size={16} className="ml-2" />
+                        </button>
+                      </div>
+                    </div>
+                    
+                    {/* Decorative elements */}
+                    <div className={`absolute bottom-0 left-0 w-full h-1 ${
+                      feature.color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary/50' :
+                      feature.color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-secondary/50' :
+                      'bg-gradient-to-r from-mylli-quaternary to-mylli-quaternary/50'
+                    } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+                    
+                    {/* Corner accent */}
+                    <div className={`absolute top-0 right-0 w-16 h-16 ${
+                      feature.color === 'primary' ? 'bg-mylli-primary/5' :
+                      feature.color === 'secondary' ? 'bg-mylli-secondary/5' :
+                      'bg-mylli-quaternary/5'
+                    } rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  </div>
+                </div>
+              ))}
             </div>
             
             {/* New interactive trust indicators */}
