@@ -1,461 +1,484 @@
-
 import { Article } from '@/types/article';
 
 export const articles: Article[] = [
   {
-    id: "1",
-    title: "Comment bien choisir son aide-soignant à domicile",
-    slug: "comment-bien-choisir-son-aide-soignant-a-domicile",
-    excerpt: "Découvrez les critères essentiels pour sélectionner l'aide-soignant idéal qui accompagnera votre proche au quotidien.",
+    id: '1',
+    title: "Comprendre l'Alzheimer: Signes précoces et traitements actuels",
+    slug: "comprendre-alzheimer-signes-et-traitements",
+    excerpt: "L'Alzheimer est une maladie neurodégénérative qui touche principalement les personnes âgées. Découvrez les signes précoces et les traitements disponibles.",
     content: `
-      <h2>L'importance du choix d'un aide-soignant</h2>
-      <p>Le choix d'un aide-soignant à domicile est une décision cruciale qui impacte directement la qualité de vie de votre proche. Cette personne sera présente au quotidien et jouera un rôle central dans son bien-être.</p>
+      <h2>Qu'est-ce que la maladie d'Alzheimer?</h2>
+      <p>La maladie d'Alzheimer est une maladie neurodégénérative qui provoque une détérioration progressive et irréversible des cellules nerveuses du cerveau. Elle représente la cause la plus fréquente de démence chez les personnes âgées et affecte environ 50 millions de personnes dans le monde.</p>
       
-      <h3>Les qualifications indispensables</h3>
-      <p>Un aide-soignant qualifié doit posséder :</p>
+      <h2>Les signes précoces</h2>
+      <p>Les premiers symptômes de la maladie d'Alzheimer peuvent être subtils et souvent confondus avec les effets normaux du vieillissement. Voici quelques signes précoces à surveiller:</p>
       <ul>
-        <li>Un diplôme d'État d'aide-soignant</li>
-        <li>Une expérience en gérontologie ou soins à domicile</li>
-        <li>Des formations complémentaires (Alzheimer, handicap, etc.)</li>
-        <li>Une connaissance des protocoles d'hygiène et de sécurité</li>
+        <li>Perte de mémoire affectant la vie quotidienne</li>
+        <li>Difficultés à planifier ou résoudre des problèmes</li>
+        <li>Confusion avec le temps ou le lieu</li>
+        <li>Problèmes de langage et de communication</li>
+        <li>Jugement altéré</li>
+        <li>Retrait social et professionnel</li>
       </ul>
       
-      <h3>Les qualités humaines essentielles</h3>
-      <p>Au-delà des compétences techniques, recherchez :</p>
+      <h2>Traitements actuels</h2>
+      <p>Bien qu'il n'existe pas encore de traitement curatif pour la maladie d'Alzheimer, plusieurs approches peuvent aider à gérer les symptômes et améliorer la qualité de vie:</p>
       <ul>
-        <li>L'empathie et la bienveillance</li>
-        <li>La patience et la douceur</li>
-        <li>La capacité d'écoute</li>
-        <li>La discrétion et le respect de l'intimité</li>
-        <li>La fiabilité et la ponctualité</li>
+        <li><strong>Traitements médicamenteux</strong>: Inhibiteurs de la cholinestérase et mémantine qui peuvent temporairement améliorer les symptômes.</li>
+        <li><strong>Thérapies non médicamenteuses</strong>: Stimulation cognitive, thérapie par réminiscence, activité physique régulière.</li>
+        <li><strong>Aménagements du cadre de vie</strong>: Adapter l'environnement pour plus de sécurité et moins de confusion.</li>
+        <li><strong>Soutien aux aidants</strong>: Formation et soutien psychologique pour les proches qui accompagnent les patients.</li>
       </ul>
       
-      <h3>L'importance de la compatibilité</h3>
-      <p>La relation entre l'aide-soignant et votre proche doit être basée sur la confiance mutuelle. Il est recommandé d'organiser une période d'essai pour évaluer la compatibilité.</p>
-      
-      <h3>Questions à poser lors de l'entretien</h3>
-      <p>N'hésitez pas à questionner le candidat sur :</p>
+      <h2>Recherches en cours</h2>
+      <p>La recherche sur la maladie d'Alzheimer est très active, avec plusieurs pistes prometteuses:</p>
       <ul>
-        <li>Son expérience avec des pathologies similaires</li>
-        <li>Sa façon de gérer les situations d'urgence</li>
-        <li>Sa disponibilité et sa flexibilité</li>
-        <li>Ses références et recommandations</li>
+        <li>Développement de nouveaux médicaments ciblant les plaques amyloïdes et les enchevêtrements neurofibrillaires.</li>
+        <li>Thérapies immunologiques visant à stimuler le système immunitaire pour éliminer les protéines toxiques.</li>
+        <li>Approches préventives basées sur la nutrition, l'exercice et la stimulation cognitive.</li>
       </ul>
       
-      <p>Chez Mylli Services, nous mettons un point d'honneur à sélectionner rigoureusement nos intervenants selon ces critères pour vous garantir un service de qualité.</p>
-    `,
-    imageSrc: "/lovable-uploads/5d0ce080-c5a4-42a8-8249-c2a0a65b787a.png",
-    imageAlt: "Aide-soignant professionnel au domicile",
-    category: "Conseils",
-    publishedDate: "2024-01-15",
-    readTime: 6,
-    author: "Dr. Sarah Benjelloun"
-  },
-  {
-    id: "2",
-    title: "Les signes de la perte d'autonomie chez les seniors",
-    slug: "signes-perte-autonomie-seniors",
-    excerpt: "Apprenez à reconnaître les premiers signes de perte d'autonomie pour agir rapidement et préserver la qualité de vie.",
-    content: `
-      <h2>Reconnaître les signaux d'alarme</h2>
-      <p>La perte d'autonomie ne survient généralement pas du jour au lendemain. Il est important de savoir reconnaître les signes précurseurs pour pouvoir agir rapidement.</p>
-      
-      <h3>Les signes physiques</h3>
+      <h2>Comment Mylli Services peut vous aider</h2>
+      <p>Chez Mylli Services, nos professionnels sont formés pour accompagner les personnes atteintes de la maladie d'Alzheimer et leurs familles. Nos services incluent:</p>
       <ul>
-        <li>Difficultés de mobilité et chutes répétées</li>
-        <li>Fatigue excessive et perte d'endurance</li>
-        <li>Troubles de l'équilibre</li>
-        <li>Diminution de la force musculaire</li>
-        <li>Problèmes de vue ou d'audition</li>
-      </ul>
-      
-      <h3>Les signes cognitifs</h3>
-      <ul>
-        <li>Troubles de la mémoire récente</li>
-        <li>Difficultés de concentration</li>
-        <li>Désorientation dans le temps et l'espace</li>
-        <li>Problèmes de langage</li>
-        <li>Difficultés à prendre des décisions</li>
-      </ul>
-      
-      <h3>Les signes comportementaux</h3>
-      <ul>
-        <li>Négligence de l'hygiène personnelle</li>
-        <li>Abandon des activités habituelles</li>
-        <li>Isolement social</li>
-        <li>Troubles du sommeil</li>
-        <li>Changements d'humeur ou irritabilité</li>
-      </ul>
-      
-      <h3>Les signes domestiques</h3>
-      <ul>
-        <li>Négligence de l'entretien du domicile</li>
-        <li>Oublis fréquents (gaz, eau, clés)</li>
-        <li>Difficultés pour faire les courses</li>
-        <li>Problèmes de gestion financière</li>
-        <li>Alimentation insuffisante ou déséquilibrée</li>
-      </ul>
-      
-      <h3>Quand consulter ?</h3>
-      <p>Si plusieurs de ces signes sont présents, il est recommandé de consulter un médecin pour faire le point sur l'état de santé et envisager les solutions d'accompagnement appropriées.</p>
-      
-      <p>L'intervention précoce d'professionnels peut permettre de ralentir la perte d'autonomie et d'améliorer significativement la qualité de vie.</p>
-    `,
-    imageSrc: "/lovable-uploads/5e72d59f-037f-46a2-a887-3878ba72f5dd.png",
-    imageAlt: "Senior avec des difficultés de mobilité",
-    category: "Santé",
-    publishedDate: "2024-01-20",
-    readTime: 5,
-    author: "Dr. Amina Alaoui"
-  },
-  {
-    id: "3",
-    title: "Préparer son domicile pour le maintien à domicile",
-    slug: "preparer-domicile-maintien-a-domicile",
-    excerpt: "Guide pratique pour adapter votre logement et créer un environnement sécurisé pour une personne dépendante.",
-    content: `
-      <h2>L'importance de l'adaptation du domicile</h2>
-      <p>Un domicile bien adapté est essentiel pour garantir la sécurité et le confort d'une personne en perte d'autonomie. Quelques aménagements simples peuvent faire une grande différence.</p>
-      
-      <h3>Sécurisation des espaces</h3>
-      <h4>Dans la salle de bain :</h4>
-      <ul>
-        <li>Installation de barres d'appui</li>
-        <li>Tapis antidérapants</li>
-        <li>Siège de douche</li>
-        <li>Rehausseur de toilettes</li>
-        <li>Éclairage renforcé</li>
-      </ul>
-      
-      <h4>Dans les escaliers :</h4>
-      <ul>
-        <li>Main courante des deux côtés</li>
-        <li>Éclairage automatique</li>
-        <li>Marches contrastées</li>
-        <li>Suppression des tapis glissants</li>
-      </ul>
-      
-      <h3>Amélioration de l'accessibilité</h3>
-      <ul>
-        <li>Élargissement des passages</li>
-        <li>Installation de plans inclinés</li>
-        <li>Adaptation de la hauteur des meubles</li>
-        <li>Amélioration de l'éclairage général</li>
-      </ul>
-      
-      <h3>Technologies d'assistance</h3>
-      <ul>
-        <li>Téléphone à grosses touches</li>
-        <li>Système d'alarme personnelle</li>
-        <li>Pilulier électronique</li>
-        <li>Détecteurs de chute</li>
-      </ul>
-      
-      <h3>Aides financières disponibles</h3>
-      <p>Plusieurs dispositifs peuvent vous aider à financer ces aménagements :</p>
-      <ul>
-        <li>ANAH (Agence Nationale de l'Habitat)</li>
-        <li>Caisses de retraite</li>
-        <li>Conseil départemental</li>
-        <li>Mutuelles complémentaires</li>
-      </ul>
-      
-      <p>Ces adaptations, associées à un accompagnement professionnel, permettent de maintenir l'autonomie et la qualité de vie au domicile.</p>
-    `,
-    imageSrc: "/lovable-uploads/9bf34643-8906-46d2-8de6-63cbd35a7929.png",
-    imageAlt: "Domicile adapté pour senior",
-    category: "Conseils",
-    publishedDate: "2024-02-01",
-    readTime: 7,
-    author: "Ing. Hassan Benali"
-  },
-  {
-    id: "4",
-    title: "L'accompagnement en soins palliatifs à domicile",
-    slug: "accompagnement-soins-palliatifs-domicile",
-    excerpt: "Comprendre l'importance des soins palliatifs à domicile pour accompagner dignement les patients en fin de vie et soutenir leurs familles.",
-    content: `
-      <h2>Qu'est-ce que les soins palliatifs ?</h2>
-      <p>Les soins palliatifs visent à améliorer la qualité de vie des patients atteints de maladies graves et de leurs familles, en prévenant et soulageant la souffrance grâce à une identification précoce, une évaluation correcte et un traitement de la douleur et des autres problèmes physiques, psychosociaux et spirituels.</p>
-      
-      <h3>Les principes des soins palliatifs à domicile</h3>
-      <ul>
-        <li>Respect de la dignité et de l'autonomie du patient</li>
-        <li>Soulagement de la douleur et des symptômes</li>
-        <li>Soutien psychologique et spirituel</li>
-        <li>Accompagnement de la famille</li>
-        <li>Coordination entre tous les intervenants</li>
-      </ul>
-      
-      <h3>L'équipe pluridisciplinaire</h3>
-      <p>L'accompagnement en soins palliatifs nécessite une équipe coordonnée composée de :</p>
-      <ul>
-        <li>Médecin traitant et médecin spécialisé en soins palliatifs</li>
-        <li>Infirmiers spécialisés</li>
-        <li>Aides-soignants formés</li>
-        <li>Psychologue</li>
-        <li>Assistant social</li>
-        <li>Bénévoles d'accompagnement</li>
-      </ul>
-      
-      <h3>Gestion de la douleur et des symptômes</h3>
-      <p>Le contrôle efficace des symptômes est primordial :</p>
-      <ul>
-        <li>Évaluation régulière de la douleur</li>
-        <li>Adaptation des traitements antalgiques</li>
-        <li>Gestion des nausées et vomissements</li>
-        <li>Prise en charge de la dyspnée</li>
-        <li>Soins de confort et d'hygiène</li>
-      </ul>
-      
-      <h3>Soutien aux familles</h3>
-      <p>L'accompagnement des proches est essentiel :</p>
-      <ul>
-        <li>Information et communication transparente</li>
-        <li>Formation aux gestes de soins simples</li>
-        <li>Soutien psychologique</li>
-        <li>Aide dans les démarches administratives</li>
-        <li>Accompagnement du deuil</li>
-      </ul>
-      
-      <h3>Avantages du domicile</h3>
-      <ul>
-        <li>Environnement familier et rassurant</li>
-        <li>Proximité avec les proches</li>
-        <li>Respect des habitudes de vie</li>
-        <li>Préservation de l'intimité</li>
-        <li>Possibilité de personnaliser les soins</li>
-      </ul>
-      
-      <p>Chez Mylli Services, nos équipes sont spécialement formées pour offrir un accompagnement respectueux et professionnel dans ces moments délicats, en veillant au confort du patient et au soutien de sa famille.</p>
-    `,
-    imageSrc: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-    imageAlt: "Accompagnement en soins palliatifs à domicile",
-    category: "Soins spécialisés",
-    publishedDate: "2024-02-10",
-    readTime: 8,
-    author: "Dr. Fatima Zahra Benali"
-  },
-  {
-    id: "5",
-    title: "Accompagnement des patients en oncologie à domicile",
-    slug: "accompagnement-patients-oncologie-domicile",
-    excerpt: "L'importance d'un accompagnement spécialisé pour les patients atteints de cancer, alliant soins médicaux et soutien psychologique au domicile.",
-    content: `
-      <h2>L'oncologie à domicile : une approche humanisée</h2>
-      <p>L'accompagnement des patients atteints de cancer à domicile représente une alternative précieuse aux hospitalisations prolongées. Cette approche permet de concilier soins de qualité et maintien dans un environnement familier.</p>
-      
-      <h3>Spécificités des soins oncologiques à domicile</h3>
-      <ul>
-        <li>Administration de chimiothérapies orales</li>
-        <li>Gestion des effets secondaires des traitements</li>
-        <li>Soins de support et de confort</li>
-        <li>Surveillance de l'état nutritionnel</li>
-        <li>Prévention et traitement des infections</li>
-      </ul>
-      
-      <h3>Gestion des effets secondaires</h3>
-      <h4>Effets digestifs :</h4>
-      <ul>
-        <li>Nausées et vomissements</li>
-        <li>Troubles du transit</li>
-        <li>Mucites et troubles de la déglutition</li>
-        <li>Perte d'appétit</li>
-      </ul>
-      
-      <h4>Effets cutanés :</h4>
-      <ul>
-        <li>Sécheresse et irritations</li>
-        <li>Soins des mains et pieds</li>
-        <li>Protection solaire renforcée</li>
-        <li>Soins spécifiques en cas de radiothérapie</li>
-      </ul>
-      
-      <h3>Soutien nutritionnel</h3>
-      <p>La nutrition joue un rôle crucial dans le traitement du cancer :</p>
-      <ul>
-        <li>Évaluation des besoins nutritionnels</li>
-        <li>Adaptation des textures alimentaires</li>
-        <li>Supplémentation si nécessaire</li>
-        <li>Hydratation optimale</li>
-        <li>Surveillance du poids</li>
-      </ul>
-      
-      <h3>Accompagnement psychologique</h3>
-      <p>Le soutien moral est indispensable :</p>
-      <ul>
-        <li>Écoute active et bienveillante</li>
-        <li>Gestion de l'anxiété et des peurs</li>
-        <li>Maintien du lien social</li>
-        <li>Activités adaptées aux capacités</li>
+        <li>Soins personnalisés à domicile</li>
+        <li>Stimulation cognitive adaptée</li>
         <li>Soutien aux aidants familiaux</li>
+        <li>Formation spécifique pour les proches</li>
       </ul>
       
-      <h3>Coordination des soins</h3>
-      <p>Une prise en charge efficace nécessite :</p>
-      <ul>
-        <li>Lien étroit avec l'équipe hospitalière</li>
-        <li>Suivi régulier par l'oncologue</li>
-        <li>Coordination avec le médecin traitant</li>
-        <li>Accès rapide aux services d'urgence</li>
-        <li>Planification des hospitalisations si nécessaire</li>
-      </ul>
-      
-      <h3>Adaptation du domicile</h3>
-      <ul>
-        <li>Aménagement pour faciliter les déplacements</li>
-        <li>Optimisation du confort du repos</li>
-        <li>Mise à disposition d'équipements médicaux</li>
-        <li>Création d'un environnement apaisant</li>
-      </ul>
-      
-      <p>Nos équipes spécialisées en oncologie sont formées pour accompagner les patients avec expertise et empathie, en respectant leur rythme et leurs besoins spécifiques tout au long de leur parcours de soins.</p>
+      <p>Si vous ou un proche êtes concernés par la maladie d'Alzheimer, n'hésitez pas à nous contacter pour un accompagnement professionnel et bienveillant.</p>
     `,
-    imageSrc: "/lovable-uploads/814f2ab3-ccf7-489c-a719-2651c104e2b6.png",
-    imageAlt: "Soins oncologiques à domicile",
-    category: "Soins spécialisés",
-    publishedDate: "2024-02-15",
-    readTime: 9,
-    author: "Dr. Omar Benkirane"
+    imageSrc: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
+    imageAlt: "Personne âgée avec un soignant",
+    category: "Maladies neurodégénératives",
+    publishedDate: "2023-11-15",
+    readTime: 8,
+    author: "Dr. Sophie Martin"
   },
   {
-    id: "6",
-    title: "Accompagnement de la maladie de Charcot (SLA) à domicile",
-    slug: "accompagnement-maladie-charcot-sla-domicile",
-    excerpt: "Comprendre les enjeux spécifiques de l'accompagnement des patients atteints de sclérose latérale amyotrophique et leurs besoins évolutifs.",
+    id: '2',
+    title: "Prévention des chutes chez les personnes âgées: Guide pratique",
+    slug: "prevention-chutes-personnes-agees",
+    excerpt: "Les chutes représentent un risque majeur pour les seniors. Découvrez nos conseils pratiques pour sécuriser le domicile et prévenir les accidents.",
     content: `
-      <h2>La maladie de Charcot : comprendre pour mieux accompagner</h2>
-      <p>La sclérose latérale amyotrophique (SLA), également appelée maladie de Charcot, est une maladie neurodégénérative progressive qui affecte les neurones moteurs. L'accompagnement à domicile nécessite une approche spécialisée et évolutive.</p>
+      <h2>L'importance de la prévention des chutes</h2>
+      <p>Les chutes sont la principale cause de blessures chez les personnes âgées et peuvent avoir des conséquences graves sur leur santé et leur autonomie. Chaque année, près d'un tiers des personnes de plus de 65 ans sont victimes d'une chute, dont les conséquences peuvent être dramatiques: fractures, hospitalisation, perte d'autonomie, voire décès.</p>
       
-      <h3>Évolution de la maladie et adaptation des soins</h3>
-      <h4>Phase initiale :</h4>
+      <h2>Facteurs de risque</h2>
+      <p>Plusieurs facteurs peuvent augmenter le risque de chute chez les personnes âgées:</p>
       <ul>
-        <li>Maintien de l'autonomie maximale</li>
-        <li>Kinésithérapie et ergothérapie</li>
-        <li>Adaptation du domicile progressive</li>
-        <li>Soutien psychologique précoce</li>
+        <li>Troubles de l'équilibre et de la marche</li>
+        <li>Diminution de la force musculaire</li>
+        <li>Problèmes de vision</li>
+        <li>Certains médicaments (somnifères, antidépresseurs...)</li>
+        <li>Maladies chroniques (Parkinson, arthrose...)</li>
+        <li>Environnement inadapté au domicile</li>
       </ul>
       
-      <h4>Phase intermédiaire :</h4>
+      <h2>Sécuriser le domicile</h2>
+      <p>Voici quelques aménagements simples mais efficaces pour rendre le domicile plus sûr:</p>
       <ul>
-        <li>Aide aux activités de la vie quotidienne</li>
-        <li>Introduction d'aides techniques</li>
-        <li>Surveillance nutritionnelle accrue</li>
-        <li>Prévention des complications respiratoires</li>
+        <li>Éliminer les obstacles: fils électriques, petits meubles, tapis...</li>
+        <li>Installer des barres d'appui dans la salle de bain et les toilettes</li>
+        <li>Améliorer l'éclairage, particulièrement dans les escaliers</li>
+        <li>Privilégier les sols antidérapants</li>
+        <li>Disposer les objets d'usage quotidien à portée de main</li>
       </ul>
       
-      <h4>Phase avancée :</h4>
+      <h2>Exercices recommandés</h2>
+      <p>L'activité physique régulière joue un rôle clé dans la prévention des chutes:</p>
       <ul>
-        <li>Assistance respiratoire</li>
-        <li>Nutrition entérale si nécessaire</li>
-        <li>Communication alternative</li>
-        <li>Soins de confort intensifiés</li>
+        <li>Exercices d'équilibre (tai-chi, yoga adapté...)</li>
+        <li>Renforcement musculaire ciblé (jambes et hanches principalement)</li>
+        <li>Marche quotidienne</li>
+        <li>Étirements pour maintenir la souplesse</li>
       </ul>
       
-      <h3>Gestion des troubles respiratoires</h3>
-      <p>La fonction respiratoire nécessite une surveillance particulière :</p>
+      <h2>Suivi médical</h2>
+      <p>Un suivi médical régulier permet de:</p>
       <ul>
-        <li>Évaluation régulière de la capacité respiratoire</li>
-        <li>Kinésithérapie respiratoire</li>
-        <li>Aspiration des sécrétions</li>
-        <li>Ventilation non invasive puis invasive</li>
-        <li>Formation des aidants aux gestes d'urgence</li>
+        <li>Réévaluer les traitements médicamenteux</li>
+        <li>Contrôler la vision et l'audition</li>
+        <li>Adapter les aides techniques (canne, déambulateur...)</li>
+        <li>Suivre l'évolution des pathologies chroniques</li>
       </ul>
       
-      <h3>Maintien de la communication</h3>
-      <p>Préserver la communication est essentiel :</p>
+      <h2>L'expertise de Mylli Services</h2>
+      <p>Chez Mylli Services, nous proposons:</p>
       <ul>
-        <li>Orthophonie adaptée</li>
-        <li>Systèmes de communication alternative</li>
-        <li>Technologies d'assistance (oculométrie)</li>
-        <li>Formation de l'entourage</li>
-        <li>Maintien des liens sociaux</li>
+        <li>Une évaluation personnalisée des risques à domicile</li>
+        <li>Des conseils d'aménagement du logement</li>
+        <li>Un accompagnement pour les activités physiques adaptées</li>
+        <li>Une présence rassurante pour sécuriser le quotidien</li>
       </ul>
       
-      <h3>Nutrition et déglutition</h3>
-      <ul>
-        <li>Surveillance des troubles de la déglutition</li>
-        <li>Adaptation des textures alimentaires</li>
-        <li>Évaluation du risque de fausses routes</li>
-        <li>Mise en place d'une gastrostomie si nécessaire</li>
-        <li>Maintien du plaisir alimentaire</li>
-      </ul>
-      
-      <h3>Équipements et aides techniques</h3>
-      <p>L'évolution de la maladie nécessite des équipements spécifiques :</p>
-      <ul>
-        <li>Lit médicalisé évolutif</li>
-        <li>Fauteuil roulant adapté</li>
-        <li>Matériel de transfert</li>
-        <li>Équipements de communication</li>
-        <li>Matériel respiratoire</li>
-      </ul>
-      
-      <h3>Accompagnement de la famille</h3>
-      <p>Le soutien aux proches est crucial :</p>
-      <ul>
-        <li>Information sur l'évolution de la maladie</li>
-        <li>Formation aux soins spécifiques</li>
-        <li>Soutien psychologique familial</li>
-        <li>Aide aux démarches administratives</li>
-        <li>Répit pour les aidants</li>
-      </ul>
-      
-      <h3>Qualité de vie et projets de vie</h3>
-      <ul>
-        <li>Maintien des activités possibles</li>
-        <li>Adaptation des loisirs</li>
-        <li>Préservation des relations sociales</li>
-        <li>Respect des volontés du patient</li>
-        <li>Anticipation des directives anticipées</li>
-      </ul>
-      
-      <p>L'accompagnement de la maladie de Charcot demande expertise médicale, empathie humaine et capacité d'adaptation. Nos équipes spécialisées sont formées pour offrir un soutien global qui évolue avec les besoins du patient et de sa famille.</p>
+      <p>La prévention des chutes est un élément essentiel du maintien à domicile des personnes âgées dans de bonnes conditions. N'hésitez pas à nous contacter pour bénéficier de notre expertise dans ce domaine.</p>
     `,
-    imageSrc: "/lovable-uploads/816b248a-adf4-4cb2-bf47-5f0e4904567e.png",
-    imageAlt: "Accompagnement maladie de Charcot à domicile",
-    category: "Soins spécialisés",
-    publishedDate: "2024-02-20",
-    readTime: 10,
-    author: "Dr. Aicha Tazi"
+    imageSrc: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f",
+    imageAlt: "Aménagement sécurisé pour seniors",
+    category: "Prévention et sécurité",
+    publishedDate: "2023-09-22",
+    readTime: 6,
+    author: "Mme Claire Dupont"
+  },
+  {
+    id: '3',
+    title: "Nutrition adaptée pour les seniors: conseils et menus équilibrés",
+    slug: "nutrition-adaptee-seniors",
+    excerpt: "Une alimentation équilibrée est essentielle pour préserver la santé des personnes âgées. Découvrez nos recommandations nutritionnelles spécifiques.",
+    content: `
+      <h2>Les besoins nutritionnels spécifiques des seniors</h2>
+      <p>Avec l'âge, les besoins nutritionnels évoluent tandis que l'appétit diminue souvent. Il est donc crucial d'adapter l'alimentation pour maintenir un bon état de santé et prévenir les carences.</p>
+      
+      <h2>Macronutriments essentiels</h2>
+      <p>Voici comment équilibrer les apports en macronutriments chez les personnes âgées:</p>
+      <ul>
+        <li><strong>Protéines</strong>: Les besoins sont augmentés (1g/kg de poids corporel) pour lutter contre la sarcopénie (perte musculaire). Privilégier les sources de protéines de haute qualité: viandes maigres, poissons, œufs, produits laitiers, légumineuses.</li>
+        <li><strong>Glucides</strong>: Favoriser les glucides complexes à index glycémique bas (céréales complètes, légumineuses) pour maintenir une glycémie stable.</li>
+        <li><strong>Lipides</strong>: Privilégier les bonnes graisses (huile d'olive, poissons gras) riches en oméga-3, bénéfiques pour la santé cardiovasculaire et cognitive.</li>
+      </ul>
+      
+      <h2>Micronutriments à surveiller</h2>
+      <p>Certains micronutriments nécessitent une attention particulière:</p>
+      <ul>
+        <li><strong>Calcium et vitamine D</strong>: Essentiels pour la santé osseuse et la prévention de l'ostéoporose.</li>
+        <li><strong>Vitamine B12</strong>: Son absorption diminue avec l'âge, augmentant le risque de carence.</li>
+        <li><strong>Fer</strong>: Pour prévenir l'anémie, fréquente chez les seniors.</li>
+        <li><strong>Antioxydants</strong>: Vitamines C, E et bêta-carotène pour renforcer les défenses immunitaires.</li>
+      </ul>
+      
+      <h2>Hydratation</h2>
+      <p>La sensation de soif diminue avec l'âge, pourtant les besoins en eau restent importants. Recommandations:</p>
+      <ul>
+        <li>Boire au minimum 1,5L d'eau par jour, même sans sensation de soif</li>
+        <li>Varier les sources d'hydratation: eau, tisanes, bouillons, fruits et légumes riches en eau</li>
+        <li>Limiter la consommation d'alcool et de boissons caféinées</li>
+      </ul>
+      
+      <h2>Exemple de menus équilibrés</h2>
+      <p><strong>Petit-déjeuner:</strong></p>
+      <ul>
+        <li>Yaourt nature enrichi en protéines</li>
+        <li>Flocons d'avoine avec fruits frais</li>
+        <li>Une tranche de pain complet avec un peu de beurre</li>
+        <li>Thé ou café sans sucre</li>
+      </ul>
+      
+      <p><strong>Déjeuner:</strong></p>
+      <ul>
+        <li>Poisson grillé ou viande maigre (100g)</li>
+        <li>Légumes cuits à la vapeur</li>
+        <li>Riz complet ou quinoa</li>
+        <li>Fruit frais de saison</li>
+      </ul>
+      
+      <p><strong>Collation:</strong></p>
+      <ul>
+        <li>Compote sans sucre ajouté</li>
+        <li>Quelques amandes ou noix</li>
+      </ul>
+      
+      <p><strong>Dîner:</strong></p>
+      <ul>
+        <li>Soupe de légumes maison</li>
+        <li>Omelette aux herbes</li>
+        <li>Salade verte avec vinaigrette à l'huile d'olive</li>
+        <li>Yaourt nature avec un peu de miel</li>
+      </ul>
+      
+      <h2>Comment Mylli Services peut vous aider</h2>
+      <p>Nos services incluent:</p>
+      <ul>
+        <li>Aide à la préparation de repas équilibrés</li>
+        <li>Courses et sélection de produits adaptés</li>
+        <li>Conseils nutritionnels personnalisés</li>
+        <li>Suivi de l'hydratation quotidienne</li>
+      </ul>
+      
+      <p>Une bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
+    imageAlt: "Repas équilibré pour seniors",
+    category: "Nutrition et bien-être",
+    publishedDate: "2024-01-10",
+    readTime: 7,
+    author: "Dr. Thomas Blanc"
+  },
+  {
+    id: '4',
+    title: "Diabète chez les personnes âgées: symptômes et gestion au quotidien",
+    slug: "diabete-personnes-agees-symptomes-gestion",
+    excerpt: "Le diabète chez les seniors présente des défis spécifiques. Découvrez comment reconnaître les signes et gérer cette maladie chronique au quotidien.",
+    content: `
+      <h2>Le diabète chez les personnes âgées: une maladie aux multiples facettes</h2>
+      <p>Le diabète est une maladie chronique qui touche particulièrement les personnes âgées, avec une prévalence qui augmente avec l'âge. Chez les plus de 65 ans, près d'un quart de la population est concernée, ce qui en fait un véritable enjeu de santé publique.</p>
+      
+      <h2>Types de diabète et particularités chez les seniors</h2>
+      <p>Les personnes âgées peuvent être touchées par les deux principaux types de diabète:</p>
+      <ul>
+        <li><strong>Diabète de type 1</strong>: Bien que généralement diagnostiqué plus tôt dans la vie, certains cas peuvent apparaître à un âge avancé.</li>
+        <li><strong>Diabète de type 2</strong>: C'est la forme la plus fréquente chez les seniors, souvent liée au surpoids, à la sédentarité et aux changements métaboliques liés à l'âge.</li>
+      </ul>
+      
+      <h2>Symptômes particuliers chez les personnes âgées</h2>
+      <p>Le diabète peut se manifester différemment chez les seniors, avec des symptômes parfois atypiques:</p>
+      <ul>
+        <li>Fatigue inexpliquée et persistante</li>
+        <li>Infections récurrentes, notamment urinaires ou cutanées</li>
+        <li>Cicatrisation lente des plaies</li>
+        <li>Troubles visuels progressifs</li>
+        <li>Déshydratation</li>
+        <li>Confusion mentale ou troubles cognitifs soudains</li>
+      </ul>
+      <p>Il est important de noter que la sensation de soif, symptôme classique du diabète, peut être diminuée chez les personnes âgées, rendant le diagnostic plus difficile.</p>
+      
+      <h2>Complications spécifiques</h2>
+      <p>Les complications du diabète sont particulièrement préoccupantes chez les seniors:</p>
+      <ul>
+        <li><strong>Hypoglycémies</strong>: Plus fréquentes et dangereuses car souvent non ressenties</li>
+        <li><strong>Risques cardiovasculaires</strong>: Infarctus, AVC</li>
+        <li><strong>Neuropathies</strong>: Douleurs, perte de sensibilité pouvant favoriser les chutes</li>
+        <li><strong>Néphropathie</strong>: Insuffisance rénale</li>
+        <li><strong>Rétinopathie</strong>: Troubles visuels pouvant aller jusqu'à la cécité</li>
+      </ul>
+      
+      <h2>Gestion quotidienne adaptée</h2>
+      <p>La prise en charge du diabète chez les seniors doit être personnalisée:</p>
+      <ul>
+        <li><strong>Objectifs glycémiques moins stricts</strong>: Pour éviter les hypoglycémies</li>
+        <li><strong>Alimentation équilibrée</strong>: Sans restrictions excessives pour maintenir un bon état nutritionnel</li>
+        <li><strong>Activité physique adaptée</strong>: Marche, natation douce, tai-chi</li>
+        <li><strong>Suivi médical régulier</strong>: Au moins tous les 3 mois</li>
+        <li><strong>Éducation thérapeutique</strong>: Adaptée aux capacités cognitives</li>
+      </ul>
+      
+      <h2>Traitements spécifiques</h2>
+      <p>Certains traitements sont à privilégier ou à éviter chez les seniors:</p>
+      <ul>
+        <li><strong>Metformine</strong>: Généralement bien tolérée mais attention à la fonction rénale</li>
+        <li><strong>Insuline</strong>: Parfois nécessaire, avec un apprentissage adapté</li>
+        <li><strong>Sulfamides</strong>: À utiliser avec précaution (risque d'hypoglycémie)</li>
+        <li><strong>Nouvelles classes thérapeutiques</strong>: Inhibiteurs DPP-4, analogues GLP-1, inhibiteurs SGLT-2, à discuter selon les cas</li>
+      </ul>
+      
+      <h2>Comment Mylli Services accompagne les seniors diabétiques</h2>
+      <p>Notre équipe spécialisée propose:</p>
+      <ul>
+        <li>Aide à la surveillance glycémique</li>
+        <li>Accompagnement nutritionnel</li>
+        <li>Rappel de prise des médicaments</li>
+        <li>Surveillance des pieds (prévention du pied diabétique)</li>
+        <li>Coordination avec les professionnels de santé</li>
+      </ul>
+      
+      <p>La bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
+    imageAlt: "Mesure de glycémie chez une personne âgée",
+    category: "Maladies chroniques",
+    publishedDate: "2024-02-05",
+    readTime: 9,
+    author: "Dr. Antoine Dupuis"
+  },
+  {
+    id: '5',
+    title: "AVC: reconnaître les signes et agir rapidement",
+    slug: "avc-reconnaitre-signes-agir-rapidement",
+    excerpt: "L'accident vasculaire cérébral (AVC) est une urgence médicale qui nécessite une intervention rapide. Apprenez à reconnaître les signes et à réagir efficacement.",
+    content: `
+      <h2>Qu'est-ce qu'un AVC?</h2>
+      <p>Un accident vasculaire cérébral (AVC) survient lorsque la circulation sanguine vers le cerveau est interrompue, soit par un caillot (AVC ischémique, 80% des cas), soit par une rupture d'un vaisseau sanguin (AVC hémorragique, 20% des cas). Dans les deux cas, les cellules cérébrales privées d'oxygène commencent à mourir rapidement, d'où l'importance d'une prise en charge immédiate.</p>
+      
+      <h2>Les facteurs de risque</h2>
+      <p>Certaines personnes sont plus à risque de subir un AVC:</p>
+      <ul>
+        <li>Personnes de plus de 65 ans</li>
+        <li>Hypertension artérielle</li>
+        <li>Diabète</li>
+        <li>Tabagisme</li>
+        <li>Hypercholestérolémie</li>
+        <li>Fibrillation auriculaire</li>
+        <li>Antécédents familiaux d'AVC</li>
+        <li>Obésité et sédentarité</li>
+        <li>Apnée du sommeil</li>
+      </ul>
+      
+      <h2>Reconnaître les signes d'AVC: la méthode FAST</h2>
+      <p>Pour identifier rapidement un AVC, retenez l'acronyme FAST (Face, Arms, Speech, Time):</p>
+      <ul>
+        <li><strong>F (Face/Visage)</strong>: Demandez à la personne de sourire. Un côté du visage est-il affaissé?</li>
+        <li><strong>A (Arms/Bras)</strong>: Demandez à la personne de lever les deux bras. Un bras descend-il involontairement?</li>
+        <li><strong>S (Speech/Parole)</strong>: La personne a-t-elle des difficultés à parler ou à comprendre? Sa parole est-elle embrouillée?</li>
+        <li><strong>T (Time/Temps)</strong>: Si vous observez un de ces signes, appelez immédiatement les secours (15, 112 ou 114).</li>
+      </ul>
+      
+      <p>D'autres symptômes peuvent également signaler un AVC:</p>
+      <ul>
+        <li>Trouble soudain de l'équilibre ou de la coordination</li>
+        <li>Maux de tête intenses et inhabituels</li>
+        <li>Trouble brutal de la vision d'un œil ou des deux yeux</li>
+        <li>Engourdissement soudain du visage, d'un bras ou d'une jambe</li>
+      </ul>
+      
+      <h2>Agir face à un AVC: chaque minute compte</h2>
+      <p>En cas de suspicion d'AVC:</p>
+      <ul>
+        <li><strong>Appelez immédiatement le 15 (SAMU)</strong> en précisant que vous suspectez un AVC</li>
+        <li>Notez l'heure d'apparition des premiers symptômes (crucial pour le traitement)</li>
+        <li>Allongez la personne sur le côté, en position latérale de sécurité</li>
+        <li>Desserrez ses vêtements, surtout au niveau du cou</li>
+        <li>Ne donnez rien à manger ni à boire</li>
+        <li>Ne donnez aucun médicament</li>
+        <li>Restez avec la personne et rassurez-la jusqu'à l'arrivée des secours</li>
+      </ul>
+      
+      <h2>Traitements d'urgence</h2>
+      <p>Plus le traitement est administré rapidement, plus les chances de récupération sont grandes:</p>
+      <ul>
+        <li><strong>Pour l'AVC ischémique</strong>: Thrombolyse (dissolution du caillot) si pratiquée dans les 4h30, thrombectomie mécanique (retrait du caillot) si possible dans les 6 heures</li>
+        <li><strong>Pour l'AVC hémorragique</strong>: Contrôle de la pression artérielle, parfois intervention chirurgicale</li>
+      </ul>
+      
+      <h2>Séquelles et rééducation</h2>
+      <p>Les séquelles d'un AVC dépendent de la zone cérébrale touchée et du délai de prise en charge:</p>
+      <ul>
+        <li>Troubles moteurs (hémiplégie, hémiparésie)</li>
+        <li>Troubles du langage (aphasie)</li>
+        <li>Troubles de la déglutition (dysphagie)</li>
+        <li>Troubles cognitifs</li>
+        <li>Troubles visuels</li>
+        <li>Troubles de l'humeur (dépression post-AVC)</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services après un AVC</h2>
+      <p>Notre équipe spécialisée propose un accompagnement personnalisé:</p>
+      <ul>
+        <li>Aide aux gestes quotidiens</li>
+        <li>Accompagnement aux séances de rééducation</li>
+        <li>Adaptation du domicile pour prévenir les chutes</li>
+        <li>Soutien psychologique pour le patient et ses proches</li>
+        <li>Coordination avec les professionnels de santé</li>
+      </ul>
+      
+      <p>Face à un AVC, chaque minute compte. Savoir reconnaître les signes et agir rapidement peut sauver une vie et limiter les séquelles. N'hésitez pas à nous contacter pour toute question sur l'accompagnement post-AVC.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1579154204601-01588f351e67",
+    imageAlt: "Neurologue expliquant une image cérébrale",
+    category: "Urgences médicales",
+    publishedDate: "2023-10-29",
+    readTime: 7,
+    author: "Dr. Marie Lefèvre"
+  },
+  {
+    id: '6',
+    title: "Parkinson: vivre avec la maladie et préserver l'autonomie",
+    slug: "parkinson-vivre-avec-maladie-preserver-autonomie",
+    excerpt: "La maladie de Parkinson affecte progressivement la mobilité et l'autonomie. Découvrez les stratégies pour mieux vivre avec cette pathologie au quotidien.",
+    content: `
+      <h2>Comprendre la maladie de Parkinson</h2>
+      <p>La maladie de Parkinson est une affection neurodégénérative chronique qui touche principalement les personnes de plus de 60 ans. Elle est causée par la destruction progressive des neurones produisant la dopamine, un neurotransmetteur essentiel au contrôle des mouvements. Cette maladie évolue lentement et affecte chaque personne différemment.</p>
+      
+      <h2>Les symptômes caractéristiques</h2>
+      <p>La maladie de Parkinson se manifeste par une triade de symptômes moteurs:</p>
+      <ul>
+        <li><strong>Le tremblement de repos</strong>: Généralement asymétrique, touchant d'abord les mains ou les pieds</li>
+        <li><strong>La rigidité musculaire</strong>: Sensation de raideur dans les membres</li>
+        <li><strong>L'akinésie/bradykinésie</strong>: Difficulté à initier les mouvements et lenteur d'exécution</li>
+      </ul>
+      
+      <p>D'autres symptômes peuvent également apparaître:</p>
+      <ul>
+        <li><strong>Troubles de la posture et de l'équilibre</strong>: Position voûtée, démarche à petits pas</li>
+        <li><strong>Troubles non moteurs</strong>: Dépression, anxiété, troubles du sommeil, constipation, hypotension, troubles cognitifs</li>
+        <li><strong>Modifications de l'écriture</strong>: Micrographie (écriture qui devient de plus en plus petite)</li>
+        <li><strong>Troubles de la parole</strong>: Voix faible, monotone</li>
+        <li><strong>Visage figé</strong>: Réduction des expressions faciales (hypomimie)</li>
+      </ul>
+      
+      <h2>Traitements médicamenteux</h2>
+      <p>Bien qu'il n'existe pas encore de traitement curatif, plusieurs options permettent de contrôler les symptômes:</p>
+      <ul>
+        <li><strong>Lévodopa</strong>: Le traitement de référence, transformée en dopamine dans le cerveau</li>
+        <li><strong>Agonistes dopaminergiques</strong>: Stimulent directement les récepteurs à la dopamine</li>
+        <li><strong>Inhibiteurs de la MAO-B et de la COMT</strong>: Ralentissent la dégradation de la dopamine</li>
+        <li><strong>Anticholinergiques</strong>: Pour réduire les tremblements</li>
+        <li><strong>Amantadine</strong>: Pour les mouvements anormaux induits par la lévodopa</li>
+      </ul>
+      
+      <p>Dans certains cas, la stimulation cérébrale profonde peut être proposée lorsque les médicaments ne suffisent plus à contrôler les symptômes.</p>
+      
+      <h2>Préserver l'autonomie au quotidien</h2>
+      <p>Plusieurs stratégies peuvent aider à maintenir une meilleure qualité de vie:</p>
+      <ul>
+        <li><strong>Activité physique régulière</strong>: Marche, natation, tai-chi, yoga, danse</li>
+        <li><strong>Kinésithérapie</strong>: Exercices spécifiques pour maintenir la souplesse et l'équilibre</li>
+        <li><strong>Orthophonie</strong>: Pour préserver la parole et la déglutition</li>
+        <li><strong>Ergothérapie</strong>: Adaptation du domicile et apprentissage de techniques facilitant les gestes quotidiens</li>
+        <li><strong>Soutien psychologique</strong>: Pour faire face à l'impact émotionnel de la maladie</li>
+      </ul>
+      
+      <h2>Aménagements du domicile</h2>
+      <p>Quelques modifications simples peuvent sécuriser l'environnement:</p>
+      <ul>
+        <li>Installation de barres d'appui dans la salle de bain et les toilettes</li>
+        <li>Retrait des tapis et obstacles au sol</li>
+        <li>Amélioration de l'éclairage</li>
+        <li>Ustensiles adaptés dans la cuisine (couverts à manche épais, tasses avec grande anse)</li>
+        <li>Chaises plus hautes avec accoudoirs</li>
+      </ul>
+      
+      <h2>Alimentation et hydratation</h2>
+      <p>Une alimentation adaptée est importante:</p>
+      <ul>
+        <li>Repas fractionnés en cas de fatigue</li>
+        <li>Aliments riches en fibres pour lutter contre la constipation</li>
+        <li>Hydratation suffisante (1,5L d'eau par jour minimum)</li>
+        <li>Attention aux interactions entre protéines et lévodopa (espacement recommandé)</li>
+      </ul>
+      
+      <h2>L'accompagnement par Mylli Services</h2>
+      <p>Notre équipe spécialisée propose:</p>
+      <ul>
+        <li>Aide aux activités quotidiennes (toilette, habillage, repas)</li>
+        <li>Accompagnement aux rendez-vous médicaux</li>
+        <li>Stimulation cognitive et physique adaptée</li>
+        <li>Soutien aux aidants familiaux</li>
+        <li>Mise en place d'un environnement sécurisé</li>
+      </ul>
+      
+      <p>Vivre avec la maladie de Parkinson représente un défi, mais avec un accompagnement adapté et des stratégies appropriées, il est possible de maintenir une bonne qualité de vie pendant de nombreuses années. N'hésitez pas à nous contacter pour mettre en place un plan d'accompagnement personnalisé.</p>
+    `,
+    imageSrc: "https://images.unsplash.com/photo-1597764690523-15bea4c581c9",
+    imageAlt: "Personne âgée en séance de physiothérapie",
+    category: "Maladies neurodégénératives",
+    publishedDate: "2023-12-18",
+    readTime: 8,
+    author: "Dr. Philippe Renard"
   }
 ];
 
-// Helper function to get all unique categories with article counts
-export const getCategories = () => {
-  const categoryCount = articles.reduce((acc, article) => {
-    const category = article.category.toLowerCase();
+export const getArticleBySlug = (slug: string): Article | undefined => {
+  return articles.find(article => article.slug === slug);
+};
+
+export const getRelatedArticles = (currentSlug: string, limit = 3): Article[] => {
+  return articles
+    .filter(article => article.slug !== currentSlug)
+    .slice(0, limit);
+};
+
+// Helper function to get all available categories
+export const getCategories = (): { name: string; value: string; count: number }[] => {
+  const categoriesMap = articles.reduce((acc, article) => {
+    const category = article.category;
     acc[category] = (acc[category] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
 
-  return Object.entries(categoryCount).map(([category, count]) => ({
-    name: category.charAt(0).toUpperCase() + category.slice(1),
-    value: category,
+  return Object.entries(categoriesMap).map(([category, count]) => ({
+    name: category,
+    value: category.toLowerCase().replace(/\s+/g, '-'),
     count
   }));
-};
-
-// Helper function to get articles by category
-export const getArticlesByCategory = (category: string) => {
-  if (category.toLowerCase() === 'all') return articles;
-  return articles.filter(article => article.category.toLowerCase() === category.toLowerCase());
-};
-
-// Helper function to get article by slug
-export const getArticleBySlug = (slug: string) => {
-  return articles.find(article => article.slug === slug);
-};
-
-// Helper function to get related articles (same category, excluding current article)
-export const getRelatedArticles = (currentArticleId: string, limit: number = 3) => {
-  const currentArticle = articles.find(article => article.id === currentArticleId);
-  if (!currentArticle) return [];
-  
-  return articles
-    .filter(article => 
-      article.id !== currentArticleId && 
-      article.category === currentArticle.category
-    )
-    .slice(0, limit);
 };
