@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -688,10 +687,7 @@ const HomePage = () => {
                 
                 <div className="flex gap-3">
                   <Button asChild variant="outline" className="rounded-full border-mylli-primary/30 hover:bg-mylli-primary/5">
-                    <Link to="/temoignages" className="flex items-center gap-2">
-                      <Star size={16} className="text-mylli-secondary" />
-                      Plus de témoignages
-                    </Link>
+                    
                   </Button>
                   
                   <Button asChild className="rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary hover:to-mylli-primary-dark shadow-soft hover:shadow-lg">
@@ -717,5 +713,4 @@ const HomePage = () => {
       </div>
     </>;
 };
-
 export default HomePage;
