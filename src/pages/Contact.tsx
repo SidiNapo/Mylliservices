@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -7,30 +8,20 @@ import GoogleMapEmbed from '@/components/common/GoogleMapEmbed';
 import MapInfoCard from '@/components/common/MapInfoCard';
 import { Card, CardContent } from "@/components/ui/card";
 import RecallRequestForm from '@/components/common/RecallRequestForm';
+
 const ContactPage = () => {
-  // Opening hours
+  // Updated opening hours - always open
   const openingHours = [{
-    day: "Lundi - Vendredi",
-    hours: "8h30 - 18h30"
+    day: "Lundi - Dimanche",
+    hours: "24h/24 - 7j/7"
   }, {
-    day: "Samedi",
-    hours: "9h00 - 16h00"
+    day: "Services d'urgence",
+    hours: "Disponibles à tout moment"
   }, {
-    day: "Dimanche",
-    hours: "Fermé (Urgences uniquement)"
+    day: "Consultations",
+    hours: "Sur rendez-vous"
   }];
 
-  // FAQ items
-  const faqs = [{
-    question: "Quel est le délai de réponse après un premier contact?",
-    answer: "Nous nous engageons à vous répondre dans les 24 heures ouvrables suivant votre demande. Pour les cas urgents, nous mettons tout en œuvre pour vous recontacter dans les plus brefs délais."
-  }, {
-    question: "Quels documents sont nécessaires pour débuter une intervention?",
-    answer: "Pour mettre en place nos services, nous aurons besoin d'une pièce d'identité, d'informations médicales pertinentes (ordonnances, rapports médicaux récents), et éventuellement d'une attestation d'assurance si applicable."
-  }, {
-    question: "Quelles sont les modalités de paiement?",
-    answer: "Nous acceptons plusieurs modes de paiement : virement bancaire, chèque ou espèces. Les factures sont émises mensuellement, et nous proposons également des formules d'abonnement avec tarifs préférentiels."
-  }];
   return <div>
       <PageBanner title="Contactez-nous" subtitle="NOUS SOMMES LÀ POUR VOUS AIDER!" />
       
@@ -48,7 +39,7 @@ const ContactPage = () => {
                 +212 661 37 74 38
               </a>
               <p className="text-mylli-gray mt-3">
-                Disponible 7j/7 pour les urgences
+                Disponible 24h/24 et 7j/7
               </p>
             </div>
             
@@ -84,13 +75,13 @@ const ContactPage = () => {
             </div>
           </div>
           
-          {/* WhatsApp and Hours - Redesigned with modern cards */}
+          {/* WhatsApp and Hours - Fixed WhatsApp logo and updated hours */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {/* WhatsApp */}
+            {/* WhatsApp - Fixed logo using proper SVG path */}
             <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-white p-8 shadow-lg transform transition-all duration-500 hover:shadow-2xl">
               <div className="flex items-center mb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 mr-4">
-                  <path d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-4-1.2-9 2.7-11.5S15.7 3.7 18.1 7.7c2.4 4 1.2 9-2.7 11.5" />
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
                 <h3 className="text-2xl font-bold">WhatsApp</h3>
               </div>
@@ -102,13 +93,13 @@ const ContactPage = () => {
               </a>
             </div>
             
-            {/* Opening Hours */}
+            {/* Opening Hours - Updated to always open */}
             <div className="bg-gradient-to-br from-mylli-light to-white rounded-2xl p-8 shadow-lg border border-mylli-primary/10">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-4">
                   <Clock size={28} className="text-mylli-primary" />
                 </div>
-                <h3 className="text-2xl font-bold text-mylli-dark">Heures d'ouverture</h3>
+                <h3 className="text-2xl font-bold text-mylli-dark">Disponibilité</h3>
               </div>
               <div className="space-y-4">
                 {openingHours.map((item, index) => <div key={index} className="flex justify-between items-center pb-3 border-b border-gray-100 last:border-0">
@@ -119,7 +110,7 @@ const ContactPage = () => {
               <div className="mt-6 flex items-start p-4 bg-mylli-primary/5 rounded-lg">
                 <AlertCircle size={20} className="text-mylli-accent mt-0.5 mr-3 flex-shrink-0" />
                 <p className="text-mylli-gray">
-                  Services d'intervention disponibles 24h/24 et 7j/7 selon vos besoins.
+                  Nous sommes disponibles 24h/24 et 7j/7 pour répondre à tous vos besoins de soins.
                 </p>
               </div>
             </div>
@@ -127,100 +118,45 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Contact Form Section with Parallax - REDESIGNED */}
+      {/* Contact Form Section with Parallax */}
       <section className="py-24 relative overflow-hidden">
-        {/* Modern Background with Overlapping Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-mylli-light via-white to-blue-50 z-0"></div>
-        
-        {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-[40%] h-[40%] bg-gradient-to-r from-mylli-primary/10 to-mylli-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl z-0"></div>
         <div className="absolute bottom-0 right-0 w-[50%] h-[50%] bg-gradient-to-l from-mylli-secondary/10 to-mylli-accent/5 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl z-0"></div>
         
-        {/* Animated Wave Patterns */}
-        <div className="absolute inset-0 opacity-10 z-0">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute top-1/3 left-0 w-full opacity-20">
-            <path fill="#0099FF" fillOpacity="1" d="M0,160L40,149.3C80,139,160,117,240,128C320,139,400,181,480,181.3C560,181,640,139,720,133.3C800,128,880,160,960,186.7C1040,213,1120,235,1200,213.3C1280,192,1360,128,1400,96L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="absolute bottom-0 left-0 w-full opacity-20">
-            <path fill="#E02E31" fillOpacity="1" d="M0,64L40,80C80,96,160,128,240,138.7C320,149,400,139,480,149.3C560,160,640,192,720,176C800,160,880,96,960,74.7C1040,53,1120,75,1200,101.3C1280,128,1360,160,1400,176L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path>
-          </svg>
+        <div className="container-custom relative z-10">
+          <SectionHeading 
+            title="Envoyez-nous un message" 
+            subtitle="Notre équipe vous répondra dans les plus brefs délais" 
+            variant="gradient" 
+          />
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-bl-[4rem]"></div>
+              <ContactForm />
+            </div>
+          </div>
         </div>
-        
-        {/* Floating Dots */}
-        <div className="absolute inset-0 z-0">
-          {[...Array(10)].map((_, i) => <div key={i} className={`absolute rounded-full bg-mylli-primary/10 animate-pulse-soft`} style={{
-          width: `${Math.random() * 20 + 5}px`,
-          height: `${Math.random() * 20 + 5}px`,
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          animationDelay: `${Math.random() * 5}s`,
-          animationDuration: `${Math.random() * 5 + 3}s`
-        }}></div>)}
-        </div>
-        
-        
       </section>
       
-      {/* Recall Request Section - REDESIGNED */}
+      {/* Recall Request Section - Without FAQ */}
       <section className="py-20 relative overflow-hidden bg-gradient-to-br from-mylli-light via-white to-blue-50">
-        {/* Modern Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-96 h-96 bg-mylli-primary/5 rounded-full translate-x-1/3 -translate-y-1/2 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-mylli-secondary/5 rounded-full -translate-x-1/3 translate-y-1/2 blur-3xl"></div>
-          
-          {/* Animated Dot Pattern */}
-          <div className="absolute inset-0 opacity-20">
-            {[...Array(20)].map((_, i) => <div key={i} className="absolute rounded-full bg-gradient-to-r from-mylli-primary to-mylli-accent" style={{
-            width: `${Math.random() * 8 + 4}px`,
-            height: `${Math.random() * 8 + 4}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animation: `pulse-soft ${Math.random() * 5 + 3}s infinite ease-in-out`,
-            animationDelay: `${Math.random() * 3}s`
-          }}></div>)}
-          </div>
-          
-          {/* Abstract Curved Lines */}
-          
         </div>
         
-        <div className="container-custom relative z-10 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Recall Form - Modernized */}
-            
-            
-            {/* FAQ - Modernized */}
-            <div>
-              <div className="flex items-center mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-mylli-secondary to-mylli-tertiary flex items-center justify-center p-3 shadow-lg mr-4">
-                  <MessageSquare className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-mylli-dark">Questions fréquentes</h3>
-              </div>
-              
-              <div className="space-y-6">
-                {faqs.map((faq, index) => <div key={index} className="bg-white rounded-2xl p-6 shadow-md border-l-4 border-mylli-accent transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-xl relative overflow-hidden group">
-                    {/* Corner Accent */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-mylli-primary/10 to-transparent rounded-bl-3xl"></div>
-                    
-                    <h4 className="text-lg font-bold mb-3 text-mylli-dark">{faq.question}</h4>
-                    <p className="text-mylli-gray relative z-10">{faq.answer}</p>
-                    
-                    {/* Icon Watermark */}
-                    <div className="absolute bottom-2 right-2 text-mylli-accent/5 transform transition-all duration-300 group-hover:scale-110">
-                      <MessageSquare className="h-12 w-12" />
-                    </div>
-                  </div>)}
-              </div>
-              
-              {/* Additional Help Link */}
-              <div className="mt-8 text-center lg:text-right">
-                <a href="#" className="inline-flex items-center text-mylli-primary hover:text-mylli-accent transition-colors duration-300 group">
-                  <span className="mr-2">Plus de questions-réponses</span>
-                  <span className="transform transition-transform duration-300 group-hover:translate-x-1">→</span>
-                </a>
-              </div>
-            </div>
+        <div className="container-custom relative z-10 max-w-4xl mx-auto">
+          <SectionHeading 
+            title="Demandez un rappel" 
+            subtitle="Nous vous rappelons dans les plus brefs délais" 
+            variant="gradient" 
+          />
+          
+          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-mylli-accent/10 to-transparent rounded-bl-3xl"></div>
+            <RecallRequestForm />
           </div>
         </div>
       </section>
@@ -234,26 +170,23 @@ const ContactPage = () => {
           <SectionHeading title="Notre emplacement" subtitle="Venez nous rencontrer au cœur de Casablanca" variant="gradient" />
           
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-7xl mx-auto">
-            {/* Info Card */}
             <div className="lg:col-span-2">
               <MapInfoCard address="19, rue Masmouda hay Al Hana, Casablanca - 20210" phone="+212 661 37 74 38" hours={[{
-              day: "Lundi - Vendredi",
-              hours: "8h30 - 18h30"
+              day: "Lundi - Dimanche",
+              hours: "24h/24 - 7j/7"
             }, {
-              day: "Samedi",
-              hours: "9h00 - 16h00"
+              day: "Services d'urgence",
+              hours: "Disponibles à tout moment"
             }, {
-              day: "Dimanche",
-              hours: "Fermé"
+              day: "Consultations",
+              hours: "Sur rendez-vous"
             }]} className="h-full transform transition-all duration-500 hover:shadow-2xl" />
             </div>
             
-            {/* Google Map */}
             <div className="lg:col-span-3 h-[550px]">
               <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
                 <GoogleMapEmbed address="19, rue Masmouda hay Al Hana, Casablanca, Morocco" />
                 
-                {/* Location pin overlay */}
                 <div className="absolute top-4 right-4 bg-white rounded-full p-3 shadow-lg">
                   <div className="relative flex items-center justify-center">
                     <div className="absolute w-8 h-8 bg-mylli-primary/30 rounded-full animate-ping"></div>
@@ -263,7 +196,6 @@ const ContactPage = () => {
                   </div>
                 </div>
                 
-                {/* Company card overlay */}
                 <div className="absolute bottom-6 left-6 bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl p-4 shadow-lg max-w-xs">
                   <h4 className="text-xl font-bold mb-1 text-mylli-dark">Mylli Services</h4>
                   <p className="text-mylli-gray text-sm">
@@ -273,17 +205,9 @@ const ContactPage = () => {
               </div>
             </div>
           </div>
-          
-          {/* Additional information cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-            
-            
-            
-            
-            
-          </div>
         </div>
       </section>
     </div>;
 };
+
 export default ContactPage;

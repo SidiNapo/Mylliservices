@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { articles, getCategories } from '@/data/articles';
@@ -6,12 +7,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Calendar, BookOpen, Search, Tag } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArticleCategory } from '@/types/article';
-const ARTICLES_PER_PAGE = 6;
+
 const ArticlesPage = () => {
-  const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const categories = getCategories();
@@ -22,24 +20,22 @@ const ArticlesPage = () => {
     const matchesCategory = selectedCategory === 'all' || article.category.toLowerCase() === selectedCategory.toLowerCase();
     return matchesSearch && matchesCategory;
   });
-  const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
-  const endIndex = startIndex + ARTICLES_PER_PAGE;
-  const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
-  const totalPages = Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE);
+
   const formatDate = (dateString: string) => {
     const date = parseISO(dateString);
     return format(date, 'dd MMMM yyyy', {
       locale: fr
     });
   };
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
-    setCurrentPage(1); // Reset to first page when searching
   };
+
   const handleCategoryChange = (value: string) => {
     setSelectedCategory(value);
-    setCurrentPage(1); // Reset to first page when changing category
   };
+
   return <div className="pt-16 md:pt-24">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -50,17 +46,51 @@ const ArticlesPage = () => {
         <div className="container-custom py-16 md:py-20">
           <SectionHeading title="Nos Articles de Santé" subtitle="Des informations fiables et actualisées pour mieux comprendre les enjeux de santé et du vieillissement" variant="gradient" align="center" />
           
-          
-          
-          {/* Categories Tags */}
-          
+          {/* Search and Filter Section */}
+          <div className="max-w-4xl mx-auto mt-12">
+            <div className="flex flex-col md:flex-row gap-4 mb-8">
+              {/* Search Input */}
+              <div className="relative flex-1">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-mylli-gray" size={20} />
+                <input
+                  type="text"
+                  placeholder="Rechercher un article..."
+                  value={searchQuery}
+                  onChange={handleSearch}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-mylli-primary/20 focus:border-mylli-primary"
+                />
+              </div>
+              
+              {/* Category Filter */}
+              <div className="md:w-64">
+                <Select value={selectedCategory} onValueChange={handleCategoryChange}>
+                  <SelectTrigger className="w-full h-12 border-gray-200 rounded-xl">
+                    <div className="flex items-center">
+                      <Tag className="mr-2 text-mylli-gray" size={16} />
+                      <SelectValue placeholder="Toutes les catégories" />
+                    </div>
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Toutes les catégories</SelectItem>
+                    {categories.map(category => (
+                      <SelectItem key={category} value={category.toLowerCase()}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
-      {/* Articles Grid */}
+      {/* Articles Grid - Display all articles */}
       <div className="container-custom py-12">
-        {paginatedArticles.length > 0 ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginatedArticles.map(article => <Link to={`/articles/${article.slug}`} key={article.id} className="group">
+        {filteredArticles.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredArticles.map(article => (
+              <Link to={`/articles/${article.slug}`} key={article.id} className="group">
                 <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 border border-transparent hover:border-mylli-primary/20 bg-white">
                   <div className="relative h-48 overflow-hidden">
                     <img src={article.imageSrc} alt={article.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -89,42 +119,26 @@ const ArticlesPage = () => {
                     </div>
                   </CardFooter>
                 </Card>
-              </Link>)}
-          </div> : <div className="text-center py-16">
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
             <div className="text-5xl mb-4">🔍</div>
             <h3 className="text-2xl font-medium mb-2">Aucun article trouvé</h3>
             <p className="text-mylli-gray mb-8">
               Essayez avec d'autres mots-clés ou catégories
             </p>
             <button onClick={() => {
-          setSearchQuery('');
-          setSelectedCategory('all');
-        }} className="btn-secondary">
+              setSearchQuery('');
+              setSelectedCategory('all');
+            }} className="btn-secondary">
               Voir tous les articles
             </button>
-          </div>}
-        
-        {/* Pagination */}
-        {totalPages > 1 && filteredArticles.length > 0 && <Pagination className="mt-12">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} className={currentPage === 1 ? "pointer-events-none opacity-50" : ""} />
-              </PaginationItem>
-              
-              {Array.from({
-            length: totalPages
-          }, (_, i) => i + 1).map(page => <PaginationItem key={page}>
-                  <PaginationLink onClick={() => setCurrentPage(page)} isActive={page === currentPage}>
-                    {page}
-                  </PaginationLink>
-                </PaginationItem>)}
-              
-              <PaginationItem>
-                <PaginationNext onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""} />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>}
+          </div>
+        )}
       </div>
     </div>;
 };
+
 export default ArticlesPage;
