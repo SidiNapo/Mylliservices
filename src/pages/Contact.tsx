@@ -125,145 +125,88 @@ const ContactPage = () => {
         </div>
       </section>
       
-      {/* Unique Interactive Location Section */}
-      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-32 h-32 bg-mylli-primary/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="absolute bottom-32 right-32 w-40 h-40 bg-mylli-secondary/20 rounded-full blur-2xl animate-float"></div>
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-mylli-accent/30 rounded-full blur-lg animate-pulse delay-1000"></div>
-        </div>
-
-        <div className="container-custom relative z-10">
+      {/* Modern Interactive Location Section */}
+      <section className="py-20 bg-gradient-to-br from-mylli-light via-white to-mylli-primary/5">
+        <div className="container-custom">
+          {/* Section Title */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-mylli-dark mb-6">
               Trouvez-nous sur la{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                carte interactive
-              </span>
+              <span className="text-gradient">carte interactive</span>
             </h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Explorez notre localisation avec une expérience cartographique immersive
+            <p className="text-xl text-mylli-gray max-w-2xl mx-auto">
+              Découvrez notre emplacement exact et planifiez facilement votre visite
             </p>
           </div>
 
-          {/* Interactive Map Container */}
-          <div className="relative max-w-6xl mx-auto">
-            {/* Glassmorphism Container */}
-            <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
-              {/* Floating Action Buttons */}
-              <div className="absolute -top-4 -right-4 z-20 flex gap-3">
-                <a 
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(exactAddress)}`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300"
-                >
-                  <Navigation size={20} />
-                </a>
-                <button className="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform duration-300">
-                  <Compass size={20} />
-                </button>
-              </div>
-
-              {/* Interactive Header with Mylli Services Logo */}
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg overflow-hidden">
-                      <img 
-                        src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
-                        alt="Mylli Services Logo" 
-                        className="w-12 h-12 object-contain"
-                      />
+          {/* Modern Map Container */}
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-mylli-primary/10">
+              {/* Map Header */}
+              <div className="bg-gradient-to-r from-mylli-primary to-mylli-secondary p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center">
+                      <MapPin className="text-white" size={24} />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">Mylli Services</h3>
-                    <p className="text-blue-200">Centre de soins à domicile</p>
-                  </div>
-                </div>
-                
-                <div className="text-right">
-                  <div className="text-white font-semibold">Casablanca, Maroc</div>
-                  <div className="text-blue-200 text-sm">Hay Al Hana</div>
-                </div>
-              </div>
-
-              {/* Address Card - Positioned above the map for better layout */}
-              <div className="mb-8 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-white/20">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center mx-auto mb-3">
-                    <MapPin className="text-white" size={24} />
-                  </div>
-                  <h4 className="font-bold text-gray-800 mb-2">Notre adresse précise</h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    19, rue Masmouda hay Al Hana<br />
-                    Casablanca - 20210, Maroc
-                  </p>
-                </div>
-              </div>
-
-              {/* Map Container with Unique Design */}
-              <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl mb-8">
-                <GoogleMapEmbed address={exactAddress} />
-                
-                {/* Overlay Elements */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {/* Animated Location Pulse */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="relative">
-                      <div className="absolute w-20 h-20 bg-red-500/30 rounded-full animate-ping"></div>
-                      <div className="absolute w-12 h-12 bg-red-500/50 rounded-full animate-pulse delay-300"></div>
-                      <div className="relative w-8 h-8 bg-red-500 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                      </div>
+                    <div>
+                      <h3 className="text-xl font-bold">Mylli Services</h3>
+                      <p className="text-white/90 text-sm">Centre de soins à domicile</p>
                     </div>
                   </div>
-
-                  {/* Corner Info Cards */}
-                  <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm rounded-xl p-3 text-white pointer-events-auto">
-                    <div className="text-xs opacity-80">Distance du centre</div>
-                    <div className="font-semibold">12.5 km</div>
-                  </div>
-
-                  <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm rounded-xl p-3 text-white pointer-events-auto">
-                    <div className="text-xs opacity-80">Temps d'arrivée</div>
-                    <div className="font-semibold">15-20 min</div>
+                  <div className="text-right">
+                    <div className="text-sm opacity-90">Casablanca</div>
+                    <div className="text-xs opacity-75">Hay Al Hana</div>
                   </div>
                 </div>
               </div>
 
-              {/* Quick Actions - Updated with proper spacing and functionality */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <a 
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(exactAddress)}`}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="group bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center gap-3"
-                >
-                  <Navigation className="group-hover:rotate-12 transition-transform duration-300" size={20} />
-                  <span className="font-medium">Obtenir l'itinéraire</span>
-                </a>
+              {/* Interactive Map */}
+              <div className="relative h-[400px] md:h-[500px]">
+                <GoogleMapEmbed address={exactAddress} className="w-full h-full" />
+                
+                {/* Map Overlay Info */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                  <div className="text-xs text-mylli-gray">Localisation exacte</div>
+                  <div className="font-semibold text-mylli-dark">Mylli Services</div>
+                </div>
+              </div>
 
-                <a 
-                  href="tel:+212661377438"
-                  className="group bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 flex items-center gap-3"
-                >
-                  <Phone className="group-hover:scale-110 transition-transform duration-300" size={20} />
-                  <span className="font-medium">Appeler maintenant</span>
-                </a>
+              {/* Address Information */}
+              <div className="p-8 bg-gradient-to-r from-mylli-light/50 to-white">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-2xl flex items-center justify-center mr-4">
+                    <MapPin className="text-white" size={28} />
+                  </div>
+                  <div className="text-center">
+                    <h4 className="text-2xl font-bold text-mylli-dark mb-2">Notre adresse</h4>
+                    <p className="text-lg text-mylli-gray leading-relaxed">
+                      19, rue Masmouda hay Al Hana<br />
+                      Casablanca - 20210, Maroc
+                    </p>
+                  </div>
+                </div>
 
-                <a 
-                  href="https://wa.me/212661377438" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="group bg-gradient-to-r from-green-600 to-green-700 text-white p-4 rounded-xl hover:from-green-700 hover:to-green-800 transition-all duration-300 flex items-center gap-3"
-                >
-                  <MessageSquare className="group-hover:bounce transition-transform duration-300" size={20} />
-                  <span className="font-medium">WhatsApp</span>
-                </a>
+                {/* Action Buttons */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-md mx-auto">
+                  <a 
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(exactAddress)}`}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white py-4 px-6 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+                  >
+                    <Navigation size={20} />
+                    Obtenir l'itinéraire
+                  </a>
+
+                  <a 
+                    href="tel:+212661377438"
+                    className="flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 px-6 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:scale-105"
+                  >
+                    <Phone size={20} />
+                    Appeler maintenant
+                  </a>
+                </div>
               </div>
             </div>
           </div>
