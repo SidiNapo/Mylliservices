@@ -5,57 +5,42 @@ import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ParallaxSection from '@/components/common/ParallaxSection';
-
 const AideSoignantPage = () => {
   // Roles of caregiver
-  const roles = [
-    {
-      title: "Assister à l'hygiène corporelle",
-      description: "L'aide-soignant(e) assure la toilette quotidienne complète ou partielle selon les besoins, ainsi que les soins d'hygiène spécifiques.",
-      icon: <User size={36} className="text-mylli-primary" />
-    },
-    {
-      title: "Aider à la prise de médicaments",
-      description: "Administration des médicaments selon les prescriptions médicales, avec surveillance des effets et rappels des horaires.",
-      icon: <Heart size={36} className="text-mylli-primary" />
-    },
-    {
-      title: "Aider à l'alimentation",
-      description: "Préparation des repas équilibrés, aide à la prise alimentaire si nécessaire, et surveillance de l'hydratation.",
-      icon: <Clock size={36} className="text-mylli-primary" />
-    },
-    {
-      title: "Mesurer les constantes",
-      description: "Suivi électronique régulier de la température, tension artérielle, pouls et saturation en oxygène.",
-      icon: <Shield size={36} className="text-mylli-primary" />
-    },
-    {
-      title: "Accompagner et sécuriser",
-      description: "Présence rassurante, aide aux déplacements, prévention des chutes et accidents domestiques.",
-      icon: <CheckCircle size={36} className="text-mylli-primary" />
-    }
-  ];
-  
+  const roles = [{
+    title: "Assister à l'hygiène corporelle",
+    description: "L'aide-soignant(e) assure la toilette quotidienne complète ou partielle selon les besoins, ainsi que les soins d'hygiène spécifiques.",
+    icon: <User size={36} className="text-mylli-primary" />
+  }, {
+    title: "Aider à la prise de médicaments",
+    description: "Administration des médicaments selon les prescriptions médicales, avec surveillance des effets et rappels des horaires.",
+    icon: <Heart size={36} className="text-mylli-primary" />
+  }, {
+    title: "Aider à l'alimentation",
+    description: "Préparation des repas équilibrés, aide à la prise alimentaire si nécessaire, et surveillance de l'hydratation.",
+    icon: <Clock size={36} className="text-mylli-primary" />
+  }, {
+    title: "Mesurer les constantes",
+    description: "Suivi électronique régulier de la température, tension artérielle, pouls et saturation en oxygène.",
+    icon: <Shield size={36} className="text-mylli-primary" />
+  }, {
+    title: "Accompagner et sécuriser",
+    description: "Présence rassurante, aide aux déplacements, prévention des chutes et accidents domestiques.",
+    icon: <CheckCircle size={36} className="text-mylli-primary" />
+  }];
+
   // Testimonials
-  const testimonials = [
-    {
-      quote: "L'aide-soignante qui s'occupe de ma mère fait preuve d'une patience et d'une douceur remarquables. Nous avons noté une réelle amélioration de son moral depuis qu'elle intervient.",
-      name: "Karima L.",
-      title: "Fille d'une patiente"
-    },
-    {
-      quote: "Après mon AVC, j'avais peur de ne plus pouvoir vivre seul. Grâce à l'aide-soignant de Mylli Services, j'ai retrouvé une autonomie que je croyais perdue.",
-      name: "Hassan M.",
-      title: "69 ans"
-    }
-  ];
-  
-  return (
-    <div>
-      <PageBanner 
-        title="AIDE-SOIGNANT(E) À DOMICILE" 
-        subtitle="Préservation de l'autonomie et accompagnement quotidien"
-      />
+  const testimonials = [{
+    quote: "L'aide-soignante qui s'occupe de ma mère fait preuve d'une patience et d'une douceur remarquables. Nous avons noté une réelle amélioration de son moral depuis qu'elle intervient.",
+    name: "Karima L.",
+    title: "Fille d'une patiente"
+  }, {
+    quote: "Après mon AVC, j'avais peur de ne plus pouvoir vivre seul. Grâce à l'aide-soignant de Mylli Services, j'ai retrouvé une autonomie que je croyais perdue.",
+    name: "Hassan M.",
+    title: "69 ans"
+  }];
+  return <div>
+      <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
       {/* Introduction - Modern design */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
@@ -133,34 +118,19 @@ const AideSoignantPage = () => {
       </section>
       
       {/* Roles with Parallax */}
-      <ParallaxSection
-        backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%)"
-        height="auto"
-        className="py-24"
-      >
+      <ParallaxSection backgroundGradient="linear-gradient(135deg, rgba(59, 130, 246, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%)" height="auto" className="py-24">
         <div className="container-custom">
-          <SectionHeading 
-            title="Rôles de l'aide-soignant(e)"
-            subtitle="Un accompagnement complet pour le bien-être quotidien"
-            variant="underline"
-            className="text-white"
-            highlightColor="white"
-          />
+          <SectionHeading title="Rôles de l'aide-soignant(e)" subtitle="Un accompagnement complet pour le bien-être quotidien" variant="underline" className="text-white" highlightColor="white" />
           
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {roles.map((role, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                >
+              {roles.map((role, index) => <div key={index} className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
                   <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mb-6">
                     {role.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-mylli-dark">{role.title}</h3>
                   <p className="text-mylli-gray">{role.description}</p>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -169,11 +139,7 @@ const AideSoignantPage = () => {
       {/* Types of Interventions - Modern cards with animation */}
       <section className="py-24 bg-white">
         <div className="container-custom">
-          <SectionHeading 
-            title="Types d'interventions"
-            subtitle="Des formules adaptées à tous les besoins"
-            variant="gradient"
-          />
+          <SectionHeading title="Types d'interventions" subtitle="Des formules adaptées à tous les besoins" variant="gradient" />
           
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -187,11 +153,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Présence attentive pendant la journée pour les soins quotidiens, l'accompagnement aux activités et la surveillance continue.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Horaires flexibles entre 7h et 20h selon vos besoins
-                  </p>
-                </div>
+                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-secondary to-mylli-primary/90 text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -204,11 +166,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Surveillance nocturne, aide au coucher et au lever, gestion des réveils nocturnes et des situations d'urgence.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Interventions de 20h à 7h avec possibilité de veille
-                  </p>
-                </div>
+                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-accent to-mylli-primary text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -221,11 +179,7 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Accompagnement permanent avec relève d'équipes pour une présence continue et des soins ininterrompus.
                 </p>
-                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-                  <p className="text-white">
-                    Service complet avec rotation des équipes soignantes
-                  </p>
-                </div>
+                
               </div>
             </div>
             
@@ -267,71 +221,20 @@ const AideSoignantPage = () => {
       </section>
       
       {/* Testimonials with Parallax */}
-      <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-        height="auto"
-        className="py-24"
-        overlayOpacity={0.7}
-      >
+      <ParallaxSection backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" height="auto" className="py-24" overlayOpacity={0.7}>
         <div className="container-custom">
-          <SectionHeading 
-            title="Témoignages"
-            subtitle="Ce que disent nos clients du service d'aide-soignant(e)"
-            variant="modern"
-            className="text-white"
-            highlightColor="white"
-          />
+          <SectionHeading title="Témoignages" subtitle="Ce que disent nos clients du service d'aide-soignant(e)" variant="modern" className="text-white" highlightColor="white" />
           
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard 
-                  key={index}
-                  quote={testimonial.quote}
-                  name={testimonial.name}
-                  title={testimonial.title}
-                  style="modern"
-                  className="bg-white/90 backdrop-blur-md transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
-                />
-              ))}
+              {testimonials.map((testimonial, index) => <TestimonialCard key={index} quote={testimonial.quote} name={testimonial.name} title={testimonial.title} style="modern" className="bg-white/90 backdrop-blur-md transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" />)}
             </div>
           </div>
         </div>
       </ParallaxSection>
       
       {/* CTA - Modern design */}
-      <section className="py-24 bg-gradient-to-r from-mylli-primary to-mylli-dark text-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-12 border border-white/20 shadow-2xl">
-              <div className="text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 animate-fade-in">
-                  Besoin d'un(e) aide-soignant(e) à domicile?
-                </h2>
-                <p className="text-xl opacity-90 mb-10 animate-fade-in">
-                  Contactez-nous dès aujourd'hui pour un devis personnalisé adapté à vos besoins spécifiques.
-                </p>
-                <div className="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-6 animate-fade-in">
-                  <Button asChild className="bg-mylli-accent hover:bg-mylli-accent/90 text-white px-8 py-6 text-lg rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]">
-                    <Link to="/contact">
-                      Demander un devis personnalisé
-                    </Link>
-                  </Button>
-                  <a 
-                    href="tel:+212661377438" 
-                    className="inline-flex items-center justify-center px-8 py-6 rounded-full border-2 border-white bg-transparent hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:translate-y-[-3px]"
-                  >
-                    <Phone size={20} className="mr-3" />
-                    +212 661 37 74 38
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+      
+    </div>;
 };
-
 export default AideSoignantPage;
