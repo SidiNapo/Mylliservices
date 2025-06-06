@@ -1,6 +1,9 @@
+
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import ManageCookiesButton from '@/components/cookies/ManageCookiesButton';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const {
@@ -48,9 +51,6 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.caregiver')}</Link></li>
               <li><Link to="/services/infirmier" className="text-mylli-gray hover:text-mylli-primary transition-colors">{t('footer.service.nurse')}</Link></li>
-              
-              
-              
             </ul>
           </div>
           
@@ -77,10 +77,26 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-200 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-mylli-gray text-sm">&copy; {currentYear} Mylli Services. {t('footer.rights')}</p>
-          <div className="mt-4 md:mt-0 flex space-x-4 text-sm">
+          <div className="mt-4 md:mt-0 flex flex-col sm:flex-row items-center gap-4 text-sm">
+            <div className={`flex ${isRTL ? 'space-x-reverse' : ''} space-x-4`}>
+              <Link 
+                to="/politique-cookies" 
+                className="text-mylli-gray hover:text-mylli-primary transition-colors"
+              >
+                Politique de cookies
+              </Link>
+              <Link 
+                to="/politique-confidentialite" 
+                className="text-mylli-gray hover:text-mylli-primary transition-colors"
+              >
+                Confidentialité
+              </Link>
+            </div>
+            <ManageCookiesButton />
           </div>
         </div>
       </div>
     </footer>;
 };
+
 export default Footer;
