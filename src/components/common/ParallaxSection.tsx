@@ -1,4 +1,6 @@
+
 import React, { useEffect, useRef, ReactNode } from 'react';
+
 interface ParallaxSectionProps {
   backgroundImage?: string;
   backgroundGradient?: string;
@@ -15,6 +17,7 @@ interface ParallaxSectionProps {
   interactive?: boolean;
   floatingElements?: boolean;
 }
+
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   backgroundGradient,
   speed = 0.3,
@@ -31,6 +34,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   floatingElements = false
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -48,6 +52,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [speed]);
+
   const getOverlayStyle = () => {
     if (overlayGradient) {
       return {
@@ -60,6 +65,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       opacity: overlayOpacity
     };
   };
+
   const getPatternStyle = () => {
     switch (pattern) {
       case 'dots':
@@ -94,6 +100,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         return {};
     }
   };
+
   const backgroundStyle: React.CSSProperties = {
     height,
     background: backgroundGradient || 'linear-gradient(135deg, #0077C0 0%, #005e9c 100%)',
@@ -101,6 +108,38 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
     backgroundPosition: 'center',
     position: 'relative'
   };
-  return;
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`relative overflow-hidden ${className}`}
+      style={backgroundStyle}
+    >
+      {/* Overlay */}
+      <div
+        className="absolute inset-0 z-10"
+        style={getOverlayStyle()}
+      />
+      
+      {/* Pattern overlay */}
+      {pattern !== 'none' && (
+        <div
+          className="absolute inset-0 z-20"
+          style={getPatternStyle()}
+        />
+      )}
+      
+      {/* Glass effect */}
+      {glassEffect && (
+        <div className="absolute inset-0 z-30 backdrop-blur-sm bg-white/10" />
+      )}
+      
+      {/* Content */}
+      <div className="relative z-40">
+        {children}
+      </div>
+    </section>
+  );
 };
+
 export default ParallaxSection;
