@@ -1,10 +1,9 @@
+
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
-import TestimonialCard from '@/components/common/TestimonialCard';
-import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 
 const AideSoignantPage = () => {
@@ -26,16 +25,6 @@ const AideSoignantPage = () => {
     iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }];
 
-  // Testimonials
-  const testimonials = [{
-    quote: "L'aide-soignant qui s'occupe de ma mère fait preuve d'une patience et d'une douceur remarquables. Nous avons noté une réelle amélioration de son moral depuis qu'elle intervient.",
-    name: "Karima L.",
-    title: "Fille d'une patiente"
-  }, {
-    quote: "Après mon AVC, j'avais peur de ne plus pouvoir vivre seul. Grâce à l'aide-soignant de Mylli Services, j'ai retrouvé une autonomie que je croyais perdue.",
-    name: "Hassan M.",
-    title: "69 ans"
-  }];
   return <div>
       <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
@@ -155,7 +144,6 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Présence attentive pendant la journée pour les soins quotidiens, l'accompagnement aux activités et la surveillance continue.
                 </p>
-                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-secondary to-mylli-primary/90 text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -168,7 +156,6 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Surveillance nocturne, aide au coucher et au lever, gestion des réveils nocturnes et des situations d'urgence.
                 </p>
-                
               </div>
               
               <div className="bg-gradient-to-br from-mylli-accent to-mylli-primary text-white rounded-3xl p-8 shadow-xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl">
@@ -181,7 +168,6 @@ const AideSoignantPage = () => {
                 <p className="text-white/90 mb-6 text-lg">
                   Accompagnement permanent avec relève d'équipes pour une présence continue et des soins ininterrompus.
                 </p>
-                
               </div>
             </div>
             
@@ -222,21 +208,27 @@ const AideSoignantPage = () => {
         </div>
       </section>
       
-      {/* Testimonials with Parallax */}
-      <ParallaxSection backgroundImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" height="auto" className="py-24" overlayOpacity={0.7}>
-        <div className="container-custom">
-          <SectionHeading title="Témoignages" subtitle="Ce que disent nos clients du service d'aide-soignant(e)" variant="modern" className="text-white" highlightColor="white" />
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {testimonials.map((testimonial, index) => <TestimonialCard key={index} quote={testimonial.quote} name={testimonial.name} title={testimonial.title} style="modern" className="bg-white/90 backdrop-blur-md transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" />)}
-            </div>
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-r from-mylli-primary to-mylli-dark text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">Besoin de nos services ?</h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto animate-fade-in">
+            Contactez-nous dès aujourd'hui pour une consultation gratuite et découvrez comment nous pouvons vous aider.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in">
+            <Button asChild className="btn-accent">
+              <Link to="/contact">
+                Contactez-nous
+              </Link>
+            </Button>
+            <Button variant="outline" asChild className="bg-transparent border-white hover:bg-white/10">
+              <Link to="/fonctionnement">
+                Notre fonctionnement
+              </Link>
+            </Button>
           </div>
         </div>
-      </ParallaxSection>
-      
-      {/* CTA - Modern design */}
-      
+      </section>
     </div>;
 };
 
