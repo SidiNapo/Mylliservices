@@ -1,6 +1,5 @@
 
 import { ReactNode } from 'react';
-import { useLanguage } from '@/context/LanguageContext';
 
 interface TestimonialCardProps {
   quote: string;
@@ -10,7 +9,6 @@ interface TestimonialCardProps {
   rating?: number;
   className?: string;
   style?: 'default' | 'modern' | 'minimal';
-  translationKey?: string; // Add translation key for quotes
 }
 
 const TestimonialCard = ({ 
@@ -20,13 +18,8 @@ const TestimonialCard = ({
   image, 
   rating = 5,
   className = '',
-  style = 'default',
-  translationKey
+  style = 'default'
 }: TestimonialCardProps) => {
-  const { t } = useLanguage();
-  
-  // Use translation if translationKey is provided, otherwise use the quote directly
-  const displayQuote = translationKey ? t(translationKey) : quote;
   
   const renderStars = () => {
     const stars: ReactNode[] = [];
@@ -60,7 +53,7 @@ const TestimonialCard = ({
           {renderStars()}
         </div>
         
-        <p className="text-mylli-gray mb-6 italic">"{displayQuote}"</p>
+        <p className="text-mylli-gray mb-6 italic">"{quote}"</p>
         
         <div className="flex items-center">
           {image && (
@@ -84,7 +77,7 @@ const TestimonialCard = ({
   if (style === 'minimal') {
     return (
       <div className={`p-6 border-l-4 border-mylli-primary ${className}`}>
-        <p className="text-mylli-gray mb-4 italic">"{displayQuote}"</p>
+        <p className="text-mylli-gray mb-4 italic">"{quote}"</p>
         <div className="flex items-center mb-2">
           {renderStars()}
         </div>
@@ -113,7 +106,7 @@ const TestimonialCard = ({
         )}
       </div>
       
-      <p className="text-mylli-gray mb-4 text-center italic">"{displayQuote}"</p>
+      <p className="text-mylli-gray mb-4 text-center italic">"{quote}"</p>
       
       <div className="flex justify-center items-center mb-2">
         {renderStars()}

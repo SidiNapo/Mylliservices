@@ -5,7 +5,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../seo/BreadcrumbNav';
-import { useLanguage } from '@/context/LanguageContext';
 import { preloadCriticalResources, measureCoreWebVitals } from '@/utils/seoUtils';
 
 interface MainLayoutProps {
@@ -14,7 +13,6 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   const location = useLocation();
-  const { isRTL } = useLanguage();
   
   // Scroll to top when route changes
   useEffect(() => {
@@ -24,32 +22,12 @@ const MainLayout = ({ children }: MainLayoutProps) => {
     });
   }, [location.pathname]);
   
-  // Apply RTL styling and SEO optimizations
+  // SEO optimizations
   useEffect(() => {
-    // Set RTL direction for the whole document
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    
-    // Apply RTL CSS variables
-    if (isRTL) {
-      document.documentElement.classList.add('rtl-layout');
-    } else {
-      document.documentElement.classList.remove('rtl-layout');
-    }
-    
-    // Apply RTL class to body for additional styling if needed
-    if (isRTL) {
-      document.body.classList.add('rtl');
-    } else {
-      document.body.classList.remove('rtl');
-    }
-
     // SEO optimizations
     preloadCriticalResources();
     measureCoreWebVitals();
-
-    // Add console log for debugging
-    console.log(`Language direction set to: ${isRTL ? 'RTL' : 'LTR'}`);
-  }, [isRTL]);
+  }, []);
 
   // Only apply special styling to the home page
   const isHomePage = location.pathname === '/' || location.pathname === '/home';

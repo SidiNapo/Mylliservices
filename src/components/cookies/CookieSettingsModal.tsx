@@ -19,7 +19,6 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
 import { 
   CookieCategory, 
   CookiePreferences, 
@@ -62,7 +61,6 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
   onSave,
   initialPreferences
 }) => {
-  const { isRTL } = useLanguage();
   const [preferences, setPreferences] = useState<CookiePreferences>(initialPreferences);
   const [expandedCategories, setExpandedCategories] = useState<Set<CookieCategory>>(new Set());
 
@@ -126,7 +124,7 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className={`text-2xl font-bold text-mylli-dark ${isRTL ? 'text-right' : 'text-left'}`}>
+          <DialogTitle className="text-2xl font-bold text-mylli-dark text-left">
             Paramètres des cookies
           </DialogTitle>
           <p className="text-mylli-gray mt-2">
@@ -138,8 +136,8 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
           {(Object.keys(cookieCategories) as CookieCategory[]).map((category) => (
             <Card key={category} className="border border-gray-200 overflow-hidden">
               <div className="p-6">
-                <div className={`flex items-start justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
-                  <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-4 flex-1`}>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start space-x-4 flex-1">
                     <div className="flex-shrink-0">
                       {categoryIcons[category]}
                     </div>
@@ -153,13 +151,13 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
                       
                       {/* Cookie count */}
                       <div className="flex items-center text-sm text-mylli-gray mb-4">
-                        <Info size={16} className={isRTL ? 'ml-2' : 'mr-2'} />
+                        <Info size={16} className="mr-2" />
                         <span>{cookieCategories[category].length} cookie(s) dans cette catégorie</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-4 flex-shrink-0`}>
+                  <div className="flex items-center space-x-4 flex-shrink-0">
                     <Switch
                       checked={preferences[category]}
                       onCheckedChange={(checked) => handlePreferenceChange(category, checked)}
@@ -180,7 +178,7 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
                     <Button
                       variant="ghost"
                       size="sm"
-                      className={`mt-4 text-mylli-primary hover:bg-mylli-primary/5 ${isRTL ? 'space-x-reverse' : ''} space-x-2`}
+                      className="mt-4 text-mylli-primary hover:bg-mylli-primary/5 space-x-2"
                     >
                       {expandedCategories.has(category) ? (
                         <ChevronUp size={16} />
@@ -207,7 +205,7 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
           {/* Compliance notice */}
           <Card className="bg-mylli-primary/5 border-mylli-primary/20">
             <div className="p-6">
-              <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+              <div className="flex items-start space-x-3">
                 <Shield size={24} className="text-mylli-primary flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-semibold text-mylli-dark mb-2">
@@ -225,7 +223,7 @@ const CookieSettingsModal: React.FC<CookieSettingsModalProps> = ({
           </Card>
         </div>
 
-        <DialogFooter className={`flex ${isRTL ? 'flex-row-reverse' : ''} gap-3`}>
+        <DialogFooter className="flex gap-3">
           <Button onClick={onClose} variant="outline">
             Annuler
           </Button>

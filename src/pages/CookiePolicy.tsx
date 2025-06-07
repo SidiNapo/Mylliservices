@@ -5,11 +5,8 @@ import PageBanner from '@/components/common/PageBanner';
 import SEOHead from '@/components/seo/SEOHead';
 import { Card } from '@/components/ui/card';
 import { cookieCategories, CookieCategory } from '@/utils/cookieConsent';
-import { useLanguage } from '@/context/LanguageContext';
 
 const CookiePolicy: React.FC = () => {
-  const { isRTL } = useLanguage();
-
   const categoryTitles: Record<CookieCategory, string> = {
     essential: "Cookies essentiels",
     analytics: "Cookies d'analyse",
@@ -37,7 +34,7 @@ const CookiePolicy: React.FC = () => {
           
           {/* Introduction */}
           <Card className="mb-8 p-8 border border-mylli-primary/20">
-            <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-4`}>
+            <div className="flex items-start space-x-4">
               <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center flex-shrink-0">
                 <Shield size={24} className="text-white" />
               </div>
@@ -128,7 +125,7 @@ const CookiePolicy: React.FC = () => {
             
             <Card className="p-6 bg-mylli-primary/5 border-mylli-primary/20">
               <div className="space-y-4">
-                <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+                <div className="flex items-start space-x-3">
                   <Info size={20} className="text-mylli-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-mylli-dark mb-2">Consentement libre et éclairé</h4>
@@ -139,7 +136,7 @@ const CookiePolicy: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+                <div className="flex items-start space-x-3">
                   <Info size={20} className="text-mylli-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-mylli-dark mb-2">Retrait du consentement</h4>
@@ -150,7 +147,7 @@ const CookiePolicy: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className={`flex items-start ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+                <div className="flex items-start space-x-3">
                   <Info size={20} className="text-mylli-primary mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-mylli-dark mb-2">Contrôle via votre navigateur</h4>
@@ -225,7 +222,7 @@ const CookiePolicy: React.FC = () => {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+              <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
                   <Mail size={20} className="text-mylli-primary" />
                 </div>
@@ -235,7 +232,7 @@ const CookiePolicy: React.FC = () => {
                 </div>
               </div>
               
-              <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+              <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
                   <Phone size={20} className="text-mylli-primary" />
                 </div>
@@ -245,7 +242,7 @@ const CookiePolicy: React.FC = () => {
                 </div>
               </div>
               
-              <div className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+              <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
                   <MapPin size={20} className="text-mylli-primary" />
                 </div>
