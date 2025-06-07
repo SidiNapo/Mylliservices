@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -19,7 +18,7 @@ const HomePage = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [activeImage, setActiveImage] = useState(0);
   const [hoverCard, setHoverCard] = useState(-1);
-  
+
   // Modal state for feature details
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
 
@@ -98,26 +97,14 @@ const HomePage = () => {
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
     icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
-      <OptimizedImage 
-        src="/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png" 
-        alt="Aide-soignant à domicile" 
-        width={64} 
-        height={64} 
-        className="w-full h-full object-cover"
-      />
+      <OptimizedImage src="/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png" alt="Aide-soignant à domicile" width={64} height={64} className="w-full h-full object-cover" />
     </div>,
     link: "/services/aide-soignant"
   }, {
     title: "Infirmier(ère) à domicile",
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
     icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
-      <OptimizedImage 
-        src="/lovable-uploads/638e9202-dcc8-4b57-aeda-4e66c2ccc619.png" 
-        alt="Infirmier à domicile" 
-        width={64} 
-        height={64} 
-        className="w-full h-full object-cover"
-      />
+      <OptimizedImage src="/lovable-uploads/638e9202-dcc8-4b57-aeda-4e66c2ccc619.png" alt="Infirmier à domicile" width={64} height={64} className="w-full h-full object-cover" />
     </div>,
     link: "/services/infirmier"
   }];
@@ -142,59 +129,48 @@ const HomePage = () => {
   }];
 
   // Updated testimonials data with the new reviews
-  const testimonials = [
-    {
-      quote: "Grâce à Mylli Services, j'ai pu continuer à vivre chez moi, malgré ma perte partielle d'autonomie suite à un grave AVC, tout en rassurant ma famille…",
-      name: "M. Mohamed B.",
-      title: "68 ans",
-      role: "bénéficiaire de l'aide à domicile",
-      avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-      rating: 5,
-      location: "Casablanca",
-      category: "beneficiary"
-    },
-    {
-      quote: "… j'ai trouvé en Mylli Services un appui considérable, ils me permettent d'apporter un maximum d'aide à ma mère âgée de 84 ans tout en gardant une vie normale.",
-      name: "Mme Leïla T.",
-      title: "52 ans",
-      role: "fille du bénéficiaire de l'aide à domicile",
-      avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-      rating: 5,
-      location: "Mohammedia",
-      category: "family"
-    },
-    {
-      quote: "Avant Mylli Services j'étais complètement désarmé face à la maladie de ma mère, atteinte d'Alzheimer, aujourd'hui je sens que j'ai un soutien permanent et rassurant.",
-      name: "M. Hicham S.",
-      title: "43 ans",
-      role: "fils du bénéficiaire de l'aide à domicile",
-      avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-      rating: 5,
-      location: "Casablanca",
-      category: "family"
-    },
-    {
-      quote: "Mylli Services a permis d'amener un service constant et efficace d'aide à la personne en toutes situations, et surtout de palier à l'aspect informel des interventions à domicile de notre métier…",
-      name: "Mme. Hasnaâ T.",
-      title: "31 ans",
-      role: "infirmière à Mylli Services",
-      avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-      rating: 5,
-      location: "Casablanca",
-      category: "professional"
-    }
-  ];
+  const testimonials = [{
+    quote: "Grâce à Mylli Services, j'ai pu continuer à vivre chez moi, malgré ma perte partielle d'autonomie suite à un grave AVC, tout en rassurant ma famille…",
+    name: "M. Mohamed B.",
+    title: "68 ans",
+    role: "bénéficiaire de l'aide à domicile",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Casablanca",
+    category: "beneficiary"
+  }, {
+    quote: "… j'ai trouvé en Mylli Services un appui considérable, ils me permettent d'apporter un maximum d'aide à ma mère âgée de 84 ans tout en gardant une vie normale.",
+    name: "Mme Leïla T.",
+    title: "52 ans",
+    role: "fille du bénéficiaire de l'aide à domicile",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Mohammedia",
+    category: "family"
+  }, {
+    quote: "Avant Mylli Services j'étais complètement désarmé face à la maladie de ma mère, atteinte d'Alzheimer, aujourd'hui je sens que j'ai un soutien permanent et rassurant.",
+    name: "M. Hicham S.",
+    title: "43 ans",
+    role: "fils du bénéficiaire de l'aide à domicile",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Casablanca",
+    category: "family"
+  }, {
+    quote: "Mylli Services a permis d'amener un service constant et efficace d'aide à la personne en toutes situations, et surtout de palier à l'aspect informel des interventions à domicile de notre métier…",
+    name: "Mme. Hasnaâ T.",
+    title: "31 ans",
+    role: "infirmière à Mylli Services",
+    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
+    rating: 5,
+    location: "Casablanca",
+    category: "professional"
+  }];
 
   // Features section data with updated images
   const features = [{
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
-      <OptimizedImage 
-        src="/lovable-uploads/f9cacdd3-a25a-4fca-b442-ab317b68783a.png" 
-        alt="Expérience professionnelle" 
-        width={80} 
-        height={80} 
-        className="w-full h-full object-cover"
-      />
+      <OptimizedImage src="/lovable-uploads/f9cacdd3-a25a-4fca-b442-ab317b68783a.png" alt="Expérience professionnelle" width={80} height={80} className="w-full h-full object-cover" />
     </div>,
     title: "Une expérience de plus de 10 ans",
     description: "Personnel qualifié et vérifié pour une prise en charge en toute sécurité et sérénité.",
@@ -202,13 +178,7 @@ const HomePage = () => {
     detailedDescription: "Plus de 10 ans d'expérience au service de la dignité humaine\n\nDepuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain.\n\nCette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral et relationnel. Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de haute qualité, toujours empreint de respect et de bienveillance."
   }, {
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
-      <OptimizedImage 
-        src="/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png" 
-        alt="Équipe compétente" 
-        width={80} 
-        height={80} 
-        className="w-full h-full object-cover"
-      />
+      <OptimizedImage src="/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png" alt="Équipe compétente" width={80} height={80} className="w-full h-full object-cover" />
     </div>,
     title: "Une équipe compétente pour un service de qualité",
     description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
@@ -216,13 +186,7 @@ const HomePage = () => {
     detailedDescription: "Des équipes engagées, compétentes et à l'écoute\n\nChez Mylli Services, la qualité de nos prestations repose avant tout sur la valeur humaine et professionnelle de nos équipes. Chaque intervenant — aide-soignant, infirmier ou coordinateur — est sélectionné avec soin pour ses compétences, mais aussi pour son sens de l'écoute, de l'empathie et de la responsabilité.\n\nFormés aux spécificités de l'accompagnement à domicile, nos professionnels savent s'adapter aux situations les plus délicates, tout en maintenant un climat de confiance avec les patients et leurs familles. Présents, attentifs et bienveillants, ils ne se contentent pas d'exécuter une mission : ils créent un lien humain, essentiel pour surmonter les épreuves de la maladie.\n\nCette approche humaine et professionnelle est au cœur de notre réussite et fait de chaque intervention une expérience respectueuse, sécurisante et profondément humaine."
   }, {
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
-      <OptimizedImage 
-        src="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png" 
-        alt="Disponibilité 24/7" 
-        width={80} 
-        height={80} 
-        className="w-full h-full object-cover"
-      />
+      <OptimizedImage src="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png" alt="Disponibilité 24/7" width={80} height={80} className="w-full h-full object-cover" />
     </div>,
     title: "Disponibilité 24/7 avec un service personnalisé",
     description: "Notre équipe est disponible jour et nuit pour répondre à tous vos besoins d'urgence.",
@@ -296,34 +260,25 @@ const HomePage = () => {
     return text.split('\n').map((line, index) => {
       if (line.trim() === '') return <br key={index} />;
       if (line.includes('•')) {
-        return (
-          <li key={index} className="ml-4 text-mylli-gray leading-relaxed">
+        return <li key={index} className="ml-4 text-mylli-gray leading-relaxed">
             {line.replace('•', '').trim()}
-          </li>
-        );
+          </li>;
       }
       if (line.match(/^[A-Z\s]+$/)) {
-        return (
-          <h4 key={index} className="font-bold text-mylli-dark text-lg mt-4 mb-2">
+        return <h4 key={index} className="font-bold text-mylli-dark text-lg mt-4 mb-2">
             {line}
-          </h4>
-        );
+          </h4>;
       }
       if (line.endsWith(':')) {
-        return (
-          <h4 key={index} className="font-semibold text-mylli-dark text-base mt-4 mb-2">
+        return <h4 key={index} className="font-semibold text-mylli-dark text-base mt-4 mb-2">
             {line}
-          </h4>
-        );
+          </h4>;
       }
-      return (
-        <p key={index} className="text-mylli-gray leading-relaxed mb-3">
+      return <p key={index} className="text-mylli-gray leading-relaxed mb-3">
           {line}
-        </p>
-      );
+        </p>;
     });
   };
-
   return <>
       <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
       
@@ -497,40 +452,23 @@ const HomePage = () => {
             
             {/* Enhanced feature cards with modern design and images */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              {features.map((feature, index) => (
-                <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
+              {features.map((feature, index) => <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
                   <div className="bg-white rounded-3xl shadow-2xl border border-gray-50 p-8 h-full flex flex-col transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl hover:border-mylli-primary/20 group relative overflow-hidden">
                     {/* Background gradient overlay */}
-                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${
-                      feature.color === 'primary' ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary' :
-                      feature.color === 'secondary' ? 'bg-gradient-to-br from-mylli-secondary to-mylli-tertiary' :
-                      'bg-gradient-to-br from-mylli-quaternary to-mylli-accent'
-                    } rounded-3xl`}></div>
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-br from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-br from-mylli-quaternary to-mylli-accent'} rounded-3xl`}></div>
                     
                     {/* Enhanced icon section with better styling */}
                     <div className="flex justify-center mb-8 relative z-10">
-                      <div className={`relative group-hover:scale-110 transition-transform duration-500 ${
-                        feature.color === 'primary' ? 'drop-shadow-lg' :
-                        feature.color === 'secondary' ? 'drop-shadow-lg' :
-                        'drop-shadow-lg'
-                      }`}>
+                      <div className={`relative group-hover:scale-110 transition-transform duration-500 ${feature.color === 'primary' ? 'drop-shadow-lg' : feature.color === 'secondary' ? 'drop-shadow-lg' : 'drop-shadow-lg'}`}>
                         {feature.icon}
                         {/* Glow effect on hover */}
-                        <div className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 ${
-                          feature.color === 'primary' ? 'bg-mylli-primary' :
-                          feature.color === 'secondary' ? 'bg-mylli-secondary' :
-                          'bg-mylli-quaternary'
-                        }`}></div>
+                        <div className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-mylli-primary' : feature.color === 'secondary' ? 'bg-mylli-secondary' : 'bg-mylli-quaternary'}`}></div>
                       </div>
                     </div>
                     
                     {/* Enhanced content section */}
                     <div className="flex-grow flex flex-col relative z-10">
-                      <h3 className={`text-xl font-bold mb-4 text-center ${
-                        feature.color === 'primary' ? 'text-mylli-primary' :
-                        feature.color === 'secondary' ? 'text-mylli-secondary' :
-                        'text-mylli-quaternary'
-                      } group-hover:text-mylli-dark transition-colors duration-300`}>
+                      <h3 className={`text-xl font-bold mb-4 text-center ${feature.color === 'primary' ? 'text-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary' : 'text-mylli-quaternary'} group-hover:text-mylli-dark transition-colors duration-300`}>
                         {feature.title}
                       </h3>
                       
@@ -540,14 +478,7 @@ const HomePage = () => {
                       
                       {/* Enhanced call to action */}
                       <div className="mt-auto">
-                        <button 
-                          onClick={() => setSelectedFeature(index)}
-                          className={`w-full text-center font-semibold flex items-center justify-center py-3 px-6 rounded-xl border transition-all duration-300 ${
-                            feature.color === 'primary' ? 'text-mylli-primary border-mylli-primary/20 hover:bg-mylli-primary hover:text-white hover:border-mylli-primary' :
-                            feature.color === 'secondary' ? 'text-mylli-secondary border-mylli-secondary/20 hover:bg-mylli-secondary hover:text-white hover:border-mylli-secondary' :
-                            'text-mylli-quaternary border-mylli-quaternary/20 hover:bg-mylli-quaternary hover:text-white hover:border-mylli-quaternary'
-                          } hover:shadow-lg hover:scale-105`}
-                        >
+                        <button onClick={() => setSelectedFeature(index)} className={`w-full text-center font-semibold flex items-center justify-center py-3 px-6 rounded-xl border transition-all duration-300 ${feature.color === 'primary' ? 'text-mylli-primary border-mylli-primary/20 hover:bg-mylli-primary hover:text-white hover:border-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary border-mylli-secondary/20 hover:bg-mylli-secondary hover:text-white hover:border-mylli-secondary' : 'text-mylli-quaternary border-mylli-quaternary/20 hover:bg-mylli-quaternary hover:text-white hover:border-mylli-quaternary'} hover:shadow-lg hover:scale-105`}>
                           En savoir plus
                           <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
@@ -555,21 +486,12 @@ const HomePage = () => {
                     </div>
                     
                     {/* Enhanced decorative elements */}
-                    <div className={`absolute bottom-0 left-0 w-full h-2 ${
-                      feature.color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-quaternary' :
-                      feature.color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' :
-                      'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'
-                    } transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-3xl`}></div>
+                    <div className={`absolute bottom-0 left-0 w-full h-2 ${feature.color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-3xl`}></div>
                     
                     {/* Enhanced corner accent */}
-                    <div className={`absolute top-0 right-0 w-20 h-20 ${
-                      feature.color === 'primary' ? 'bg-mylli-primary/10' :
-                      feature.color === 'secondary' ? 'bg-mylli-secondary/10' :
-                      'bg-mylli-quaternary/10'
-                    } rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                    <div className={`absolute top-0 right-0 w-20 h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* New interactive trust indicators */}
@@ -660,10 +582,7 @@ const HomePage = () => {
             
             {/* Enhanced services grid with better spacing for 2 cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-              {services.map((service, index) => 
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-xl border border-transparent transition-all duration-500 hover:shadow-2xl hover:border-mylli-primary/20 hover:-translate-y-2 relative overflow-hidden group ${hoverCard === index ? 'shadow-2xl border-mylli-primary/20 -translate-y-2' : ''}`} 
-                     onMouseEnter={() => setHoverCard(index)} 
-                     onMouseLeave={() => setHoverCard(-1)}>
+              {services.map((service, index) => <div key={index} className={`bg-white rounded-2xl p-8 shadow-xl border border-transparent transition-all duration-500 hover:shadow-2xl hover:border-mylli-primary/20 hover:-translate-y-2 relative overflow-hidden group ${hoverCard === index ? 'shadow-2xl border-mylli-primary/20 -translate-y-2' : ''}`} onMouseEnter={() => setHoverCard(index)} onMouseLeave={() => setHoverCard(-1)}>
                   
                   {/* Enhanced gradient accent bar */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary"></div>
@@ -697,8 +616,7 @@ const HomePage = () => {
                   
                   {/* Enhanced background decoration */}
                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              )}
+                </div>)}
             </div>
             
             <div className="text-center animate-fade-in">
@@ -778,58 +696,54 @@ const HomePage = () => {
             
             {/* Modern geometric patterns */}
             <div className="absolute top-20 left-1/4 w-32 h-32 border border-mylli-primary/10 rounded-3xl rotate-12 animate-pulse-soft"></div>
-            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
             
             {/* Floating quote icons */}
             <div className="absolute top-32 left-10 text-mylli-primary/10 animate-pulse-soft">
               <Quote size={40} />
             </div>
-            <div className="absolute bottom-40 right-16 text-mylli-secondary/15 animate-pulse-soft" style={{ animationDelay: '1.5s' }}>
+            <div className="absolute bottom-40 right-16 text-mylli-secondary/15 animate-pulse-soft" style={{
+            animationDelay: '1.5s'
+          }}>
               <Quote size={32} />
             </div>
           </div>
 
           <div className="container-custom relative z-10">
             <header className="max-w-3xl mx-auto text-center mb-16">
-              <SectionHeading 
-                title="Ce que disent nos clients" 
-                subtitle="Découvrez les témoignages authentiques de nos bénéficiaires, de leurs familles et de nos professionnels qui font la différence chaque jour." 
-                variant="gradient" 
-                id="testimonials-heading" 
-              />
+              <SectionHeading title="Ce que disent nos clients" subtitle="Découvrez les témoignages authentiques de nos bénéficiaires, de leurs familles et de nos professionnels qui font la différence chaque jour." variant="gradient" id="testimonials-heading" />
             </header>
 
             {/* Revolutionary testimonial layout with category-based design */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               {testimonials.map((testimonial, index) => {
-                const isEven = index % 2 === 0;
-                const categoryColors = {
-                  beneficiary: {
-                    gradient: 'from-mylli-primary to-mylli-quaternary',
-                    accent: 'mylli-primary',
-                    bg: 'mylli-primary/5'
-                  },
-                  family: {
-                    gradient: 'from-mylli-secondary to-mylli-tertiary',
-                    accent: 'mylli-secondary', 
-                    bg: 'mylli-secondary/5'
-                  },
-                  professional: {
-                    gradient: 'from-mylli-quaternary to-mylli-accent',
-                    accent: 'mylli-quaternary',
-                    bg: 'mylli-quaternary/5'
-                  }
-                };
-                
-                const colors = categoryColors[testimonial.category as keyof typeof categoryColors];
-                
-                return (
-                  <div 
-                    key={index} 
-                    className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`}
-                    style={{ animationDelay: `${index * 200}ms` }}
-                  >
+              const isEven = index % 2 === 0;
+              const categoryColors = {
+                beneficiary: {
+                  gradient: 'from-mylli-primary to-mylli-quaternary',
+                  accent: 'mylli-primary',
+                  bg: 'mylli-primary/5'
+                },
+                family: {
+                  gradient: 'from-mylli-secondary to-mylli-tertiary',
+                  accent: 'mylli-secondary',
+                  bg: 'mylli-secondary/5'
+                },
+                professional: {
+                  gradient: 'from-mylli-quaternary to-mylli-accent',
+                  accent: 'mylli-quaternary',
+                  bg: 'mylli-quaternary/5'
+                }
+              };
+              const colors = categoryColors[testimonial.category as keyof typeof categoryColors];
+              return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{
+                animationDelay: `${index * 200}ms`
+              }}>
                     {/* Revolutionary card design with layered effects */}
                     <div className="relative h-full">
                       {/* Animated background glow */}
@@ -851,8 +765,7 @@ const HomePage = () => {
                           <div className="absolute bottom-4 left-6 flex items-center">
                             <div className="w-3 h-3 bg-white rounded-full mr-3 animate-pulse"></div>
                             <span className="text-white text-sm font-medium opacity-90">
-                              {testimonial.category === 'beneficiary' ? 'Bénéficiaire' : 
-                               testimonial.category === 'family' ? 'Famille' : 'Professionnel'}
+                              {testimonial.category === 'beneficiary' ? 'Bénéficiaire' : testimonial.category === 'family' ? 'Famille' : 'Professionnel'}
                             </span>
                           </div>
                           
@@ -889,15 +802,9 @@ const HomePage = () => {
                           <div className="flex justify-center mb-6">
                             <div className={`p-3 bg-${colors.bg} rounded-2xl`}>
                               <div className="flex gap-1">
-                                {[...Array(testimonial.rating)].map((_, i) => (
-                                  <Star 
-                                    key={i} 
-                                    size={18} 
-                                    className={`text-${colors.accent} transform hover:scale-125 transition-transform duration-200`}
-                                    fill={`var(--${colors.accent})`}
-                                    style={{ animationDelay: `${i * 100}ms` }}
-                                  />
-                                ))}
+                                {[...Array(testimonial.rating)].map((_, i) => <Star key={i} size={18} className={`text-${colors.accent} transform hover:scale-125 transition-transform duration-200`} fill={`var(--${colors.accent})`} style={{
+                              animationDelay: `${i * 100}ms`
+                            }} />)}
                               </div>
                             </div>
                           </div>
@@ -933,9 +840,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
             
             {/* Enhanced call-to-action section with updated button text */}
@@ -970,10 +876,7 @@ const HomePage = () => {
                     </Button>
                     
                     <Button asChild variant="outline" className="rounded-full border-mylli-primary/30 text-mylli-primary hover:bg-mylli-primary/5 px-8 py-4">
-                      <Link to="/fonctionnement" className="flex items-center gap-2">
-                        <span>Comment ça marche</span>
-                        <ArrowUpRight size={16} />
-                      </Link>
+                      
                     </Button>
                   </div>
                 </div>
@@ -993,19 +896,11 @@ const HomePage = () => {
       </div>
 
       {/* Feature Details Modal */}
-      {selectedFeature !== null && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      {selectedFeature !== null && <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in">
             {/* Modal Header */}
-            <div className={`relative p-8 ${
-              features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' :
-              features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' :
-              'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'
-            }`}>
-              <button
-                onClick={() => setSelectedFeature(null)}
-                className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
-              >
+            <div className={`relative p-8 ${features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'}`}>
+              <button onClick={() => setSelectedFeature(null)} className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full">
                 <X size={24} />
               </button>
               
@@ -1032,18 +927,10 @@ const HomePage = () => {
               
               {/* Call to Action */}
               <div className="mt-8 flex gap-4 justify-end">
-                <Button
-                  variant="outline"
-                  onClick={() => setSelectedFeature(null)}
-                  className="px-6 py-3"
-                >
+                <Button variant="outline" onClick={() => setSelectedFeature(null)} className="px-6 py-3">
                   Fermer
                 </Button>
-                <Button asChild className={`px-6 py-3 ${
-                  features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' :
-                  features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' :
-                  'bg-mylli-quaternary hover:bg-mylli-accent'
-                }`}>
+                <Button asChild className={`px-6 py-3 ${features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' : 'bg-mylli-quaternary hover:bg-mylli-accent'}`}>
                   <Link to="/contact">
                     Contactez-nous
                     <ArrowRight size={16} className="ml-2" />
@@ -1052,8 +939,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
+        </div>}
     </>;
 };
 export default HomePage;
