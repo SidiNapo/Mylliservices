@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -23,7 +22,7 @@ const ServicesPage = () => {
       link: "/services/aide-soignant"
     },
     {
-      title: 'Infirmier',
+      title: 'INFIRMIER(ÈRE) À DOMICILE',
       description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
       icon: <Heart size={36} className="text-mylli-primary" />,
       image: "/lovable-uploads/9bf34643-8906-46d2-8de6-63cbd35a7929.png",
@@ -33,6 +32,7 @@ const ServicesPage = () => {
 
   return (
     <div>
+      {/* ... keep existing code (SEO Head) */}
       <SEOHead 
         title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
         description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
@@ -41,6 +41,7 @@ const ServicesPage = () => {
         structuredData={structuredData} 
       />
       
+      {/* ... keep existing code (PageBanner and Introduction sections) */}
       <PageBanner 
         title="Nos Services" 
         subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" 
