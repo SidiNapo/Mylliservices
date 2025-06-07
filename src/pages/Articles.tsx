@@ -14,6 +14,20 @@ const ArticlesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const categories = getCategories();
 
+  // Custom image mapping for specific articles
+  const getArticleImage = (slug: string) => {
+    switch (slug) {
+      case 'soins-palliatifs-accompagner-dignite-humanite':
+        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png';
+      case 'oncologie-accompagner-patients-cancer':
+        return '/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png';
+      case 'maladie-charcot-sla-comprendre-accompagner':
+        return '/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png';
+      default:
+        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png'; // Default image
+    }
+  };
+
   // Filter articles based on search query and selected category
   const filteredArticles = articles.filter(article => {
     const matchesSearch = searchQuery === '' || article.title.toLowerCase().includes(searchQuery.toLowerCase()) || article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
@@ -93,7 +107,11 @@ const ArticlesPage = () => {
               <Link to={`/articles/${article.slug}`} key={article.id} className="group">
                 <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 border border-transparent hover:border-mylli-primary/20 bg-white">
                   <div className="relative h-48 overflow-hidden">
-                    <img src={article.imageSrc} alt={article.imageAlt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img 
+                      src={getArticleImage(article.slug)} 
+                      alt={article.imageAlt} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                    />
                     <div className="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-xs font-medium text-mylli-dark">
                       {article.category}
                     </div>

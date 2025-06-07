@@ -19,9 +19,8 @@ import ArticleDetail from "./pages/ArticleDetail";
 import CookiePolicy from "./pages/CookiePolicy";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
-import { LanguageProvider } from "./context/LanguageContext";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
-import "./styles/global.css"; // Import global CSS for RTL support
+import "./styles/global.css";
 
 const queryClient = new QueryClient();
 
@@ -38,30 +37,28 @@ const App: React.FC = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-              <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
-              <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
-              <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
-              <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
-              <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
-              <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
-              <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
-              <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
-              <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
-              <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-              <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
-            </Routes>
-            <CookieConsentManager />
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+            <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
+            <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
+            <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
+            <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
+            <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
+            <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
+            <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
+            <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
+            <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
+            <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
+          </Routes>
+          <CookieConsentManager />
+        </BrowserRouter>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };

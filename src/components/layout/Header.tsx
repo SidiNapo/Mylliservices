@@ -3,15 +3,12 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import LanguageSwitcher from '../common/LanguageSwitcher';
 import BrandName from '../common/BrandName';
-import { useLanguage } from '@/context/LanguageContext';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const { t, isRTL } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,15 +34,15 @@ const Header = () => {
 
   const navLinks = [
     {
-      name: t('nav.home'),
+      name: 'Accueil',
       path: '/'
     },
     {
-      name: t('nav.services'),
+      name: 'Nos Services',
       path: '/services'
     },
     {
-      name: t('nav.functioning'),
+      name: 'Notre Fonctionnement',
       path: '/fonctionnement'
     },
     {
@@ -53,11 +50,11 @@ const Header = () => {
       path: '/equipe'
     },
     {
-      name: t('nav.about'),
+      name: 'À Propos',
       path: '/apropos'
     },
     {
-      name: t('nav.articles'),
+      name: 'Articles',
       path: '/articles'
     }
   ];
@@ -81,7 +78,7 @@ const Header = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-1`}>
+        <nav className="hidden md:flex items-center space-x-1">
           {navLinks.map(link => (
             <Link 
               key={link.path} 
@@ -94,19 +91,17 @@ const Header = () => {
           ))}
         </nav>
         
-        {/* Contact Button and Language Switcher */}
-        <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-          <LanguageSwitcher />
+        {/* Contact Button */}
+        <div className="hidden md:flex items-center">
           <Button asChild className="btn-accent">
             <Link to="/contact">
-              {t('nav.contact')}
+              Contactez-nous
             </Link>
           </Button>
         </div>
         
         {/* Mobile Menu Button */}
-        <div className={`md:hidden flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-2`}>
-          <LanguageSwitcher />
+        <div className="md:hidden flex items-center">
           <button 
             className="text-mylli-dark focus:outline-none" 
             onClick={toggleMenu} 
@@ -133,7 +128,7 @@ const Header = () => {
             ))}
             <Button asChild className="btn-accent w-full">
               <Link to="/contact" onClick={closeMenu}>
-                {t('nav.contact')}
+                Contactez-nous
               </Link>
             </Button>
           </div>
