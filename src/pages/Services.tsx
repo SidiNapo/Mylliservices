@@ -15,7 +15,7 @@ const ServicesPage = () => {
   // Main services
   const mainServices = [
     {
-      title: 'Aide-soignant',
+      title: 'AIDE-SOIGNANT(E) À DOMICILE',
       description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
       icon: <User size={36} className="text-mylli-primary" />,
       image: "/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png",

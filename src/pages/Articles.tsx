@@ -14,17 +14,31 @@ const ArticlesPage = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const categories = getCategories();
 
-  // Custom image mapping for specific articles
+  // Enhanced image mapping for specific articles with proper healthcare-related images
   const getArticleImage = (slug: string) => {
     switch (slug) {
       case 'soins-palliatifs-accompagner-dignite-humanite':
-        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png';
+        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png'; // Healthcare professional with patient
       case 'oncologie-accompagner-patients-cancer':
-        return '/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png';
+        return '/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png'; // Medical consultation
       case 'maladie-charcot-sla-comprendre-accompagner':
-        return '/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png';
+        return '/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png'; // Neurological care
+      case 'alzheimer-accompagnement-famille':
+        return '/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png'; // Home care assistance
+      case 'depression-seniors-detection-prise-charge':
+        return '/lovable-uploads/9bf34643-8906-46d2-8de6-63cbd35a7929.png'; // Mental health support
+      case 'nutrition-personnes-agees':
+        return '/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png'; // Nutrition assistance
+      case 'prevention-chutes-domicile':
+        return '/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png'; // Safety at home
+      case 'gestion-medicaments-domicile':
+        return '/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png'; // Medication management
+      case 'hygiene-toilette-aide-soignant':
+        return '/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png'; // Personal hygiene care
+      case 'soins-infirmiers-domicile-avantages':
+        return '/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png'; // Nursing care at home
       default:
-        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png'; // Default image
+        return '/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png'; // Default healthcare image
     }
   };
 
@@ -99,7 +113,7 @@ const ArticlesPage = () => {
         </div>
       </div>
       
-      {/* Articles Grid - Display all articles */}
+      {/* Articles Grid - Display all articles with enhanced images */}
       <div className="container-custom py-12">
         {filteredArticles.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -109,12 +123,14 @@ const ArticlesPage = () => {
                   <div className="relative h-48 overflow-hidden">
                     <img 
                       src={getArticleImage(article.slug)} 
-                      alt={article.imageAlt} 
+                      alt={article.imageAlt || `Image illustrant ${article.title}`} 
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                     />
                     <div className="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-xs font-medium text-mylli-dark">
                       {article.category}
                     </div>
+                    {/* Enhanced overlay for better text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <CardHeader className="pb-2">
                     <CardTitle className="text-xl group-hover:text-mylli-primary transition-colors">

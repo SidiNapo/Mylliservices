@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import ManageCookiesButton from '@/components/cookies/ManageCookiesButton';
@@ -45,7 +46,7 @@ const Footer = () => {
           <div>
             <h4 className="font-serif font-bold text-lg mb-4 text-mylli-dark">Nos Services</h4>
             <ul className="space-y-2">
-              <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">Aide-soignant</Link></li>
+              <li><Link to="/services/aide-soignant" className="text-mylli-gray hover:text-mylli-primary transition-colors">AIDE-SOIGNANT(E) À DOMICILE</Link></li>
               <li><Link to="/services/infirmier" className="text-mylli-gray hover:text-mylli-primary transition-colors">INFIRMIER(ÈRE) À DOMICILE</Link></li>
             </ul>
           </div>
