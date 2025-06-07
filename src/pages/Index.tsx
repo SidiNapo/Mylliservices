@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import ServiceLocations from '@/components/common/ServiceLocations';
 import ParallaxSection from '@/components/common/ParallaxSection';
-import { useLanguage } from '@/context/LanguageContext';
 
 // Sample location data
 const locations = [
@@ -27,22 +26,20 @@ const locations = [
 ];
 
 const Index = () => {
-  const { t } = useLanguage();
-
   return (
     <div className="min-h-screen">
       {/* Hero section */}
       <section className="bg-gradient-to-br from-mylli-light to-white py-24">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-mylli-primary">{t('home.hero.title')}</h1>
-            <p className="text-xl text-mylli-gray mb-12">{t('home.hero.subtitle')}</p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-mylli-primary">Soins à domicile de qualité</h1>
+            <p className="text-xl text-mylli-gray mb-12">Des professionnels qualifiés pour vous accompagner dans le confort de votre foyer</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-mylli-primary hover:bg-mylli-primary/90 text-white">
-                <Link to="/services">{t('home.hero.discover')}</Link>
+                <Link to="/services">Découvrir nos services</Link>
               </Button>
               <Button asChild size="lg" variant="outline" className="border-mylli-secondary text-mylli-secondary hover:bg-mylli-secondary/10">
-                <Link to="/contact">{t('home.hero.contact')}</Link>
+                <Link to="/contact">Nous contacter</Link>
               </Button>
             </div>
           </div>
@@ -51,8 +48,8 @@ const Index = () => {
       
       {/* Service locations section */}
       <ServiceLocations 
-        title={t('home.locations.title')}
-        subtitle={t('home.locations.subtitle')}
+        title="Nos zones d'intervention"
+        subtitle="Nous intervenons dans plusieurs villes du Maroc pour vous offrir nos services de qualité"
         locations={locations}
       />
       
@@ -64,8 +61,8 @@ const Index = () => {
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-mylli-primary mb-4">{t('home.features.title')}</h2>
-            <p className="text-lg text-mylli-gray max-w-3xl mx-auto">{t('home.features.subtitle')}</p>
+            <h2 className="text-3xl font-bold text-mylli-primary mb-4">Pourquoi nous choisir ?</h2>
+            <p className="text-lg text-mylli-gray max-w-3xl mx-auto">Notre engagement : vous offrir des soins de qualité dans le respect et la bienveillance</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -73,24 +70,24 @@ const Index = () => {
               <div className="w-12 h-12 bg-mylli-light rounded-full flex items-center justify-center mb-4">
                 <Clock size={24} className="text-mylli-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.features.247.title')}</h3>
-              <p className="text-mylli-gray">{t('home.features.247.desc')}</p>
+              <h3 className="text-xl font-semibold mb-2">Disponibilité 24h/7</h3>
+              <p className="text-mylli-gray">Une équipe disponible à tout moment pour répondre à vos besoins urgents</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-mylli-light rounded-full flex items-center justify-center mb-4">
                 <Users size={24} className="text-mylli-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.features.qualified.title')}</h3>
-              <p className="text-mylli-gray">{t('home.features.qualified.desc')}</p>
+              <h3 className="text-xl font-semibold mb-2">Personnel qualifié</h3>
+              <p className="text-mylli-gray">Des professionnels diplômés et expérimentés pour des soins de qualité</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-mylli-light rounded-full flex items-center justify-center mb-4">
                 <Shield size={24} className="text-mylli-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">{t('home.features.personalized.title')}</h3>
-              <p className="text-mylli-gray">{t('home.features.personalized.desc')}</p>
+              <h3 className="text-xl font-semibold mb-2">Soins personnalisés</h3>
+              <p className="text-mylli-gray">Une approche adaptée aux besoins spécifiques de chaque patient</p>
             </div>
           </div>
         </div>
