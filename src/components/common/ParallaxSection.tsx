@@ -1,4 +1,6 @@
+
 import React, { useEffect, useRef, ReactNode } from 'react';
+
 interface ParallaxSectionProps {
   backgroundImage?: string;
   backgroundGradient?: string;
@@ -15,6 +17,7 @@ interface ParallaxSectionProps {
   interactive?: boolean;
   floatingElements?: boolean;
 }
+
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   backgroundGradient,
   speed = 0.3,
@@ -31,6 +34,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   floatingElements = false
 }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -45,9 +49,11 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         sectionRef.current.style.backgroundColor = `hsl(201, 100%, ${35 + hueShift / 2}%)`;
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [speed]);
+
   const getOverlayStyle = () => {
     if (overlayGradient) {
       return {
@@ -60,6 +66,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
       opacity: overlayOpacity
     };
   };
+
   const getPatternStyle = () => {
     switch (pattern) {
       case 'dots':
@@ -94,6 +101,7 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
         return {};
     }
   };
+
   const backgroundStyle: React.CSSProperties = {
     height,
     background: backgroundGradient || 'linear-gradient(135deg, #0077C0 0%, #005e9c 100%)',
@@ -101,6 +109,38 @@ const ParallaxSection: React.FC<ParallaxSectionProps> = ({
     backgroundPosition: 'center',
     position: 'relative'
   };
-  return;
+
+  return (
+    <div
+      ref={sectionRef}
+      className={`relative overflow-hidden ${className}`}
+      style={backgroundStyle}
+    >
+      {/* Pattern overlay */}
+      {pattern !== 'none' && (
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={getPatternStyle()}
+        />
+      )}
+
+      {/* Color overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={getOverlayStyle()}
+      />
+
+      {/* Glass effect */}
+      {glassEffect && (
+        <div className="absolute inset-0 backdrop-blur-sm bg-white/10 pointer-events-none" />
+      )}
+
+      {/* Content */}
+      <div className="relative z-10">
+        {children}
+      </div>
+    </div>
+  );
 };
+
 export default ParallaxSection;
