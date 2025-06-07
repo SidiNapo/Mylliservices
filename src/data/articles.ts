@@ -1,3 +1,4 @@
+
 import { Article } from '@/types/article';
 
 export const articles: Article[] = [
@@ -49,8 +50,8 @@ export const articles: Article[] = [
       
       <p>Si vous ou un proche êtes concernés par la maladie d'Alzheimer, n'hésitez pas à nous contacter pour un accompagnement professionnel et bienveillant.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56",
-    imageAlt: "Personne âgée avec un soignant",
+    imageSrc: "/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png",
+    imageAlt: "Accompagnement d'une personne âgée atteinte d'Alzheimer",
     category: "Maladies neurodégénératives",
     publishedDate: "2023-11-15",
     readTime: 8,
@@ -115,8 +116,8 @@ export const articles: Article[] = [
       
       <p>La prévention des chutes est un élément essentiel du maintien à domicile des personnes âgées dans de bonnes conditions. N'hésitez pas à nous contacter pour bénéficier de notre expertise dans ce domaine.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f",
-    imageAlt: "Aménagement sécurisé pour seniors",
+    imageSrc: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png",
+    imageAlt: "Aménagement sécurisé pour prévenir les chutes",
     category: "Prévention et sécurité",
     publishedDate: "2023-09-22",
     readTime: 6,
@@ -198,8 +199,8 @@ export const articles: Article[] = [
       
       <p>Une bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1498837167922-ddd27525d352",
-    imageAlt: "Repas équilibré pour seniors",
+    imageSrc: "/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png",
+    imageAlt: "Alimentation équilibrée pour seniors",
     category: "Nutrition et bien-être",
     publishedDate: "2024-01-10",
     readTime: 7,
@@ -274,8 +275,8 @@ export const articles: Article[] = [
       
       <p>La bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1579684385127-1ef15d508118",
-    imageAlt: "Mesure de glycémie chez une personne âgée",
+    imageSrc: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png",
+    imageAlt: "Gestion du diabète chez les personnes âgées",
     category: "Maladies chroniques",
     publishedDate: "2024-02-05",
     readTime: 9,
@@ -363,8 +364,8 @@ export const articles: Article[] = [
       
       <p>Face à un AVC, chaque minute compte. Savoir reconnaître les signes et agir rapidement peut sauver une vie et limiter les séquelles. N'hésitez pas à nous contacter pour toute question sur l'accompagnement post-AVC.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1579154204601-01588f351e67",
-    imageAlt: "Neurologue expliquant une image cérébrale",
+    imageSrc: "/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png",
+    imageAlt: "Urgence médicale AVC",
     category: "Urgences médicales",
     publishedDate: "2023-10-29",
     readTime: 7,
@@ -449,8 +450,8 @@ export const articles: Article[] = [
       
       <p>Vivre avec la maladie de Parkinson représente un défi, mais avec un accompagnement adapté et des stratégies appropriées, il est possible de maintenir une bonne qualité de vie pendant de nombreuses années. N'hésitez pas à nous contacter pour mettre en place un plan d'accompagnement personnalisé.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1597764690523-15bea4c581c9",
-    imageAlt: "Personne âgée en séance de physiothérapie",
+    imageSrc: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
+    imageAlt: "Accompagnement de personne atteinte de Parkinson",
     category: "Maladies neurodégénératives",
     publishedDate: "2023-12-18",
     readTime: 8,
@@ -541,8 +542,8 @@ export const articles: Article[] = [
       
       <p>Les soins palliatifs représentent l'essence même de l'humanité en médecine. Ils permettent d'accompagner chaque personne vers une fin de vie digne, apaisée et entourée de l'amour de ses proches. Notre équipe s'engage à offrir cet accompagnement avec le plus grand respect et la plus grande compassion.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843",
-    imageAlt: "Accompagnement bienveillant en soins palliatifs",
+    imageSrc: "/lovable-uploads/dc40d7ba-e017-4b5e-aabc-071e8f563810.png",
+    imageAlt: "Soins palliatifs avec accompagnement bienveillant",
     category: "Soins spécialisés",
     publishedDate: "2024-03-12",
     readTime: 10,
@@ -641,8 +642,8 @@ export const articles: Article[] = [
       
       <p>L'accompagnement d'un patient atteint de cancer est un défi qui mobilise toutes nos compétences humaines et techniques. Notre objectif est de permettre aux patients de traverser cette épreuve avec le maximum de confort, de dignité et d'espoir, entourés de leurs proches dans un environnement familier.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1518770660439-4636190af475",
-    imageAlt: "Accompagnement de patient en oncologie",
+    imageSrc: "/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png",
+    imageAlt: "Accompagnement en oncologie",
     category: "Soins spécialisés",
     publishedDate: "2024-02-28",
     readTime: 12,
@@ -750,8 +751,8 @@ export const articles: Article[] = [
       
       <p>La maladie de Charcot représente l'un des défis les plus difficiles en neurologie. Notre engagement est d'accompagner chaque patient et sa famille avec le maximum de compétence, de compassion et de respect, en préservant la dignité et la qualité de vie à chaque étape de cette épreuve.</p>
     `,
-    imageSrc: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f",
-    imageAlt: "Accompagnement de patient atteint de la maladie de Charcot",
+    imageSrc: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
+    imageAlt: "Accompagnement neurologique spécialisé",
     category: "Maladies neurodégénératives",
     publishedDate: "2024-01-25",
     readTime: 11,
