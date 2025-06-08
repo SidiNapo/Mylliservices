@@ -50,7 +50,7 @@ export const articles: Article[] = [
       
       <p>Si vous ou un proche êtes concernés par la maladie d'Alzheimer, n'hésitez pas à nous contacter pour un accompagnement professionnel et bienveillant.</p>
     `,
-    imageSrc: "/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png",
+    imageSrc: "",
     imageAlt: "Accompagnement d'une personne âgée atteinte d'Alzheimer",
     category: "Maladies neurodégénératives",
     publishedDate: "2023-11-15",
@@ -116,7 +116,7 @@ export const articles: Article[] = [
       
       <p>La prévention des chutes est un élément essentiel du maintien à domicile des personnes âgées dans de bonnes conditions. N'hésitez pas à nous contacter pour bénéficier de notre expertise dans ce domaine.</p>
     `,
-    imageSrc: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png",
+    imageSrc: "https://www.lalibre.be/resizer/v2/PQRT2MHTR5BTBMTKDXKMXSLE5U.jpg?auth=3d4748cd5fcdf81821cf29d5f1bd03bb1e011ff39abbdfdbe5b95ad06e311aff&width=1200&height=800&quality=85&focal=3968%2C2645",
     imageAlt: "Aménagement sécurisé pour prévenir les chutes",
     category: "Prévention et sécurité",
     publishedDate: "2023-09-22",
