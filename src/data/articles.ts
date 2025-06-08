@@ -116,7 +116,7 @@ export const articles: Article[] = [
       
       <p>La prévention des chutes est un élément essentiel du maintien à domicile des personnes âgées dans de bonnes conditions. N'hésitez pas à nous contacter pour bénéficier de notre expertise dans ce domaine.</p>
     `,
-    imageSrc: "https://www.lalibre.be/resizer/v2/PQRT2MHTR5BTBMTKDXKMXSLE5U.jpg?auth=3d4748cd5fcdf81821cf29d5f1bd03bb1e011ff39abbdfdbe5b95ad06e311aff&width=1200&height=800&quality=85&focal=3968%2C2645",
+    imageSrc: "https://static.wixstatic.com/media/cb85dc_9d99e7a9389c491cbbf438bd4ab2f92a~mv2.jpg/v1/fill/w_850,h_550,al_c/cb85dc_9d99e7a9389c491cbbf438bd4ab2f92a~mv2.jpg",
     imageAlt: "Aménagement sécurisé pour prévenir les chutes",
     category: "Prévention et sécurité",
     publishedDate: "2023-09-22",
@@ -199,7 +199,7 @@ export const articles: Article[] = [
       
       <p>Une bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
     `,
-    imageSrc: "https://vitalitesenior.com/wp-content/uploads/2024/02/anna-pelzer-IGfIGP5ONV0-unsplash-1-4-scaled.jpg.webp",
+    imageSrc: "/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png",
     imageAlt: "Alimentation équilibrée pour seniors",
     category: "Nutrition et bien-être",
     publishedDate: "2024-01-10",
