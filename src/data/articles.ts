@@ -199,7 +199,7 @@ export const articles: Article[] = [
       
       <p>Une bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
     `,
-    imageSrc: "/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png",
+    imageSrc: "https://vitalitesenior.com/wp-content/uploads/2024/02/anna-pelzer-IGfIGP5ONV0-unsplash-1-4-scaled.jpg.webp",
     imageAlt: "Alimentation équilibrée pour seniors",
     category: "Nutrition et bien-être",
     publishedDate: "2024-01-10",
@@ -275,7 +275,7 @@ export const articles: Article[] = [
       
       <p>La bonne nutrition est un pilier essentiel du bien-vieillir. Nos équipes sont formées pour vous accompagner dans cette démarche préventive et thérapeutique.</p>
     `,
-    imageSrc: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png",
+    imageSrc: "https://www.korian.fr/medias/webp/As56565",
     imageAlt: "Gestion du diabète chez les personnes âgées",
     category: "Maladies chroniques",
     publishedDate: "2024-02-05",
