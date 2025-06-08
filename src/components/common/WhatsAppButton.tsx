@@ -21,7 +21,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = 'https://wa.me/212661377438'; 
+    const phoneNumber = '212661377438'; // Your phone number without spaces or special characters
     const message = encodeURIComponent('Bonjour! Je souhaite obtenir plus d\'informations sur vos services d\'aide à domicile.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
