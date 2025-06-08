@@ -1,11 +1,12 @@
-
 import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
 import BreadcrumbNav from '../seo/BreadcrumbNav';
+import WhatsAppButton from '../common/WhatsAppButton';
 import { preloadCriticalResources, measureCoreWebVitals } from '@/utils/seoUtils';
+import '../../styles/whatsapp-button.css';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -42,6 +43,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
           {children}
         </main>
         <Footer />
+        <WhatsAppButton />
       </div>
     </HelmetProvider>
   );
