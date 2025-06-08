@@ -21,7 +21,7 @@ const WhatsAppButton = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '+33123456789'; // Replace with your actual WhatsApp number
+    const phoneNumber = '+212 661 37 74 38'; 
     const message = encodeURIComponent('Bonjour! Je souhaite obtenir plus d\'informations sur vos services d\'aide à domicile.');
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank');
