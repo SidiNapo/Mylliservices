@@ -364,7 +364,7 @@ export const articles: Article[] = [
       
       <p>Face à un AVC, chaque minute compte. Savoir reconnaître les signes et agir rapidement peut sauver une vie et limiter les séquelles. N'hésitez pas à nous contacter pour toute question sur l'accompagnement post-AVC.</p>
     `,
-    imageSrc: "/lovable-uploads/f90ed46f-8601-43f7-8480-fa93661cb1ff.png",
+    imageSrc: "https://ensemble.aesio.fr/sites/default/files/styles/510x/public/2021-04/alerte-avc-light.jpg?itok=6dZYlX8K",
     imageAlt: "Urgence médicale AVC",
     category: "Urgences médicales",
     publishedDate: "2023-10-29",
@@ -450,7 +450,7 @@ export const articles: Article[] = [
       
       <p>Vivre avec la maladie de Parkinson représente un défi, mais avec un accompagnement adapté et des stratégies appropriées, il est possible de maintenir une bonne qualité de vie pendant de nombreuses années. N'hésitez pas à nous contacter pour mettre en place un plan d'accompagnement personnalisé.</p>
     `,
-    imageSrc: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
+    imageSrc: "https://www.retraiteplus.fr/docs/upload/users/10/dossier%20sans%20nom/parkinson.jpg",
     imageAlt: "Accompagnement de personne atteinte de Parkinson",
     category: "Maladies neurodégénératives",
     publishedDate: "2023-12-18",
