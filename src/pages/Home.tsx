@@ -11,6 +11,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -109,23 +110,31 @@ const HomePage = () => {
     link: "/services/infirmier"
   }];
 
-  // Sample data for how it works
+  // Sample data for how it works - updated with icons for modern design
   const howItWorks = [{
     step: 1,
     title: "Rencontre à domicile",
-    description: "Nous prenons le temps de vous rencontrer chez vous pour comprendre vos besoins."
+    description: "Nous prenons le temps de vous rencontrer chez vous pour comprendre vos besoins spécifiques et évaluer la situation.",
+    icon: <HomeIcon size={32} className="text-mylli-primary" />,
+    color: "primary"
   }, {
     step: 2,
     title: "Proposition personnalisée",
-    description: "Nous élaborons un devis sur mesure adapté à vos besoins spécifiques."
+    description: "Nous élaborons un devis sur mesure adapté à vos besoins spécifiques et votre budget.",
+    icon: <User size={32} className="text-mylli-secondary" />,
+    color: "secondary"
   }, {
     step: 3,
     title: "Présentation de l'intervenant",
-    description: "Nous vous présentons le soignant qui vous accompagnera."
+    description: "Nous vous présentons le soignant qualifié qui vous accompagnera dans votre quotidien.",
+    icon: <Heart size={32} className="text-mylli-quaternary" />,
+    color: "quaternary"
   }, {
     step: 4,
     title: "Suivi de satisfaction",
-    description: "Nous effectuons un suivi régulier pour garantir votre satisfaction."
+    description: "Nous effectuons un suivi régulier pour garantir votre satisfaction et ajuster si nécessaire.",
+    icon: <CheckCircle size={32} className="text-mylli-accent" />,
+    color: "accent"
   }];
 
   // Updated testimonials data with the new reviews
@@ -282,8 +291,15 @@ const HomePage = () => {
         </p>;
     });
   };
-  return <>
-      <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
+  return (
+    <>
+      <SEOHead 
+        title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
+        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." 
+        keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" 
+        canonicalUrl="/" 
+        structuredData={structuredData} 
+      />
       
       <div className="overflow-hidden">
         {/* Hero Section with improved mobile spacing */}
@@ -636,54 +652,202 @@ const HomePage = () => {
           <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-mylli-quaternary/5 blur-3xl"></div>
         </section>
         
-        {/* How It Works Section - Now comes before Service Locations */}
-        <section className="section-padding bg-white relative overflow-hidden" aria-labelledby="how-it-works-heading">
+        {/* Revolutionary How It Works Section with Modern Design */}
+        <section className="section-padding bg-gradient-to-br from-mylli-light/30 via-white to-mylli-primary/5 relative overflow-hidden" aria-labelledby="how-it-works-heading">
+          {/* Enhanced background decoration */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            {/* Animated gradient orbs */}
+            <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/5 blur-3xl animate-pulse-soft"></div>
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-accent/5 blur-3xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            
+            {/* Geometric patterns */}
+            <div className="absolute top-20 left-1/4 w-24 h-24 border border-mylli-primary/10 rounded-2xl rotate-12 animate-pulse-soft"></div>
+            <div className="absolute bottom-20 right-1/3 w-16 h-16 bg-mylli-secondary/5 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
+            <div className="absolute top-1/2 right-10 w-20 h-20 border-2 border-mylli-quaternary/10 rounded-xl -rotate-12 animate-pulse-soft" style={{animationDelay: '3s'}}></div>
+          </div>
+
           <div className="container-custom relative z-10">
-            <header>
-              <SectionHeading title="Un accompagnement personnalisé en 4 étapes" variant="split" highlightText="personnalisé" id="how-it-works-heading" />
+            <header className="text-center mb-16">
+              <SectionHeading 
+                title="Un accompagnement personnalisé en 4 étapes" 
+                subtitle="Découvrez notre processus simple et efficace pour vous offrir les meilleurs soins à domicile, adapté à vos besoins spécifiques."
+                variant="gradient" 
+                highlightText="personnalisé" 
+                id="how-it-works-heading" 
+              />
             </header>
             
-            <div className="relative">
-              {/* Connecting line */}
-              <div className="absolute left-1/2 top-8 bottom-8 w-0.5 bg-gradient-to-b from-mylli-primary via-mylli-secondary to-mylli-quaternary hidden md:block"></div>
+            {/* Revolutionary Grid Layout with Image Integration */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
-                {howItWorks.map((item, index) => <div key={index} className={`relative ${index % 2 === 1 ? "md:translate-y-16" : ""}`}>
-                    {/* Connection point */}
-                    <div className="absolute left-1/2 top-8 w-6 h-6 -ml-3 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary hidden md:block"></div>
-                    
-                    {/* Card */}
-                    <div className="bg-white rounded-2xl shadow-soft p-6 border border-gray-100 transition-all duration-300 hover:shadow-card hover:border-mylli-primary/20 hover:-translate-y-1 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 h-20 w-20 bg-mylli-light rounded-bl-3xl flex items-start justify-end p-2">
-                        <span className="text-mylli-primary font-bold text-xl">{item.step}</span>
+              {/* Left Side: Beautiful Image with Modern Frame */}
+              <div className="order-2 lg:order-1 relative">
+                <div className="relative group">
+                  {/* Animated background glow */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                  
+                  {/* Main image container with modern styling */}
+                  <div className="relative bg-white p-3 rounded-3xl shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
+                    {/* Image with responsive handling */}
+                    <div className="relative overflow-hidden rounded-2xl">
+                      <OptimizedImage 
+                        src="/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png"
+                        alt="Professional healthcare services at home - Nurse providing personalized care"
+                        width={600}
+                        height={400}
+                        className="w-full h-64 sm:h-80 md:h-96 object-cover object-center filter brightness-105 contrast-105"
+                      />
+                      
+                      {/* Overlay gradient for text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent"></div>
+                      
+                      {/* Quality badge */}
+                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <div className="flex items-center gap-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                          <span className="text-sm font-medium text-mylli-dark">Soins professionnels</span>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold mb-3 text-mylli-dark">{item.title}</h3>
-                      <p className="text-mylli-gray max-w-[80%]">{item.description}</p>
+                      
+                      {/* Experience badge */}
+                      <div className="absolute bottom-4 left-4 bg-mylli-primary/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
+                        <span className="text-white font-bold text-lg">+10 ans d'expérience</span>
+                      </div>
                     </div>
-                  </div>)}
+                    
+                    {/* Decorative corner elements */}
+                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-mylli-primary rounded-tl-2xl"></div>
+                    <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-mylli-secondary rounded-br-2xl"></div>
+                  </div>
+                  
+                  {/* Floating stats cards */}
+                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-primary/10 hidden md:block">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-mylli-primary">24/7</div>
+                      <div className="text-xs text-mylli-gray">Disponibilité</div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-secondary/10 hidden md:block">
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-mylli-secondary">4500+</div>
+                      <div className="text-xs text-mylli-gray">Interventions</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right Side: Modern Step Cards */}
+              <div className="order-1 lg:order-2 space-y-6">
+                {howItWorks.map((item, index) => {
+                  const colorClasses = {
+                    primary: {
+                      bg: 'bg-mylli-primary/5',
+                      border: 'border-mylli-primary/20',
+                      text: 'text-mylli-primary',
+                      gradient: 'from-mylli-primary to-mylli-primary-dark'
+                    },
+                    secondary: {
+                      bg: 'bg-mylli-secondary/5',
+                      border: 'border-mylli-secondary/20',
+                      text: 'text-mylli-secondary',
+                      gradient: 'from-mylli-secondary to-mylli-tertiary'
+                    },
+                    quaternary: {
+                      bg: 'bg-mylli-quaternary/5',
+                      border: 'border-mylli-quaternary/20',
+                      text: 'text-mylli-quaternary',
+                      gradient: 'from-mylli-quaternary to-mylli-accent'
+                    },
+                    accent: {
+                      bg: 'bg-mylli-accent/5',
+                      border: 'border-mylli-accent/20',
+                      text: 'text-mylli-accent',
+                      gradient: 'from-mylli-accent to-mylli-quaternary'
+                    }
+                  };
+                  
+                  const colors = colorClasses[item.color as keyof typeof colorClasses];
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className="group relative transform transition-all duration-500 hover:-translate-x-2 hover:scale-[1.02]"
+                      style={{animationDelay: `${index * 200}ms`}}
+                    >
+                      {/* Connection line to next step */}
+                      {index < howItWorks.length - 1 && (
+                        <div className="absolute left-8 top-20 w-0.5 h-12 bg-gradient-to-b from-current to-transparent opacity-20 hidden sm:block"></div>
+                      )}
+                      
+                      {/* Modern step card */}
+                      <div className={`relative bg-white rounded-2xl shadow-lg border ${colors.border} p-6 sm:p-8 transition-all duration-500 hover:shadow-2xl hover:border-opacity-40 overflow-hidden`}>
+                        
+                        {/* Animated background on hover */}
+                        <div className={`absolute inset-0 bg-gradient-to-r ${colors.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`}></div>
+                        
+                        {/* Step content */}
+                        <div className="relative z-10 flex items-start gap-4 sm:gap-6">
+                          
+                          {/* Step number and icon */}
+                          <div className="flex-shrink-0">
+                            {/* Step number badge */}
+                            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl ${colors.bg} border ${colors.border} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                              <span className={`text-xl sm:text-2xl font-bold ${colors.text}`}>
+                                {item.step}
+                              </span>
+                            </div>
+                            
+                            {/* Icon */}
+                            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl ${colors.bg} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                              {item.icon}
+                            </div>
+                          </div>
+                          
+                          {/* Step details */}
+                          <div className="flex-grow min-w-0">
+                            <h3 className={`text-lg sm:text-xl font-bold mb-3 ${colors.text} group-hover:text-mylli-dark transition-colors duration-300`}>
+                              {item.title}
+                            </h3>
+                            <p className="text-mylli-gray leading-relaxed text-sm sm:text-base group-hover:text-mylli-dark transition-colors duration-300">
+                              {item.description}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Decorative elements */}
+                        <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${colors.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl`}></div>
+                        
+                        {/* Corner decoration */}
+                        <div className={`absolute top-0 right-0 w-16 h-16 ${colors.bg} rounded-bl-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                          <div className={`absolute top-2 right-2 w-3 h-3 rounded-full ${colors.text.replace('text-', 'bg-')}`}></div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             
-            <div className="mt-16 text-center animate-fade-in">
-              <Button asChild variant="outline" className="border-mylli-primary text-mylli-primary hover:bg-mylli-primary hover:text-white">
-                <Link to="/fonctionnement">
-                  En savoir plus sur notre fonctionnement <ArrowRight size={16} className="ml-2" />
-                </Link>
-              </Button>
+            {/* Enhanced call-to-action */}
+            <div className="mt-16 text-center">
+              <div className="relative inline-block group">
+                {/* Button glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
+                
+                <Button asChild className="relative bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary hover:to-mylli-primary-dark shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 rounded-full px-8 py-4 text-white font-medium">
+                  <Link to="/fonctionnement" className="flex items-center gap-3">
+                    <Clock size={20} />
+                    <span>Découvrir notre processus complet</span>
+                    <ArrowRight size={20} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </Link>
+                </Button>
+              </div>
+              
+              <p className="mt-4 text-mylli-gray text-sm">
+                Un processus simple et transparent pour votre tranquillité d'esprit
+              </p>
             </div>
-          </div>
-          
-          {/* Background decoration */}
-          <div className="absolute top-20 right-0 opacity-5">
-            <svg width="300" height="300" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#0077C0" d="M40.8,-70.3C52.6,-61.8,61.4,-49.5,67.8,-36.1C74.1,-22.7,77.9,-8.3,76.8,6.1C75.7,20.5,69.8,34.9,60.3,45.2C50.9,55.5,37.9,61.8,24.4,64.8C10.9,67.8,-3,67.5,-17.5,65.3C-32,63.1,-47.1,58.9,-54.4,48.5C-61.8,38.2,-61.3,21.6,-64.3,5.5C-67.4,-10.6,-74.1,-26.3,-71,-39.9C-67.9,-53.5,-55.1,-65,-40.9,-72.9C-26.7,-80.9,-11.1,-85.2,2.5,-89.4C16,-93.7,29,-78.8,40.8,-70.3Z" transform="translate(100 100)" />
-            </svg>
-          </div>
-          
-          <div className="absolute bottom-10 left-0 opacity-5">
-            <svg width="250" height="250" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#E02E31" d="M44.3,-76C57.9,-69.1,69.7,-57.9,76.7,-44.5C83.8,-31.1,86.2,-15.5,84.6,-1C83.1,13.5,77.7,27,69.3,38.6C60.9,50.3,49.5,60.2,36.7,65C23.9,69.8,9.7,69.5,-3.6,75.7C-17,81.8,-34,94.5,-46.3,92.7C-58.6,90.9,-66.3,74.7,-70.8,58.9C-75.2,43.1,-76.4,27.9,-78.1,13C-79.7,-1.9,-81.7,-16.5,-77.6,-29.4C-73.4,-42.4,-63.1,-53.7,-50.3,-60.7C-37.6,-67.7,-22.5,-70.4,-7.4,-68.5C7.7,-66.6,30.7,-82.9,44.3,-76Z" transform="translate(100 100)" />
-            </svg>
           </div>
         </section>
         
@@ -943,6 +1107,8 @@ const HomePage = () => {
             </div>
           </div>
         </div>}
-    </>;
+    </>
+  );
 };
+
 export default HomePage;

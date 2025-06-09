@@ -68,11 +68,11 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white shadow-md h-16">
       <div className="container-custom flex justify-between items-center h-full">
-        {/* Logo */}
+        {/* Logo - Made bigger and more visible */}
         <Link to="/" className="flex items-center">
           <img 
             alt="Mylli Services Logo" 
-            className="h-10 w-auto" 
+            className="h-14 w-auto sm:h-16 md:h-18" 
             src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" 
           />
         </Link>
