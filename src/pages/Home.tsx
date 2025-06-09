@@ -320,7 +320,7 @@ const HomePage = () => {
                 <header>
                   <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
                     <span className="block text-white animate-pulse-glow mb-2">
-                      NOUS SOMMES LÀ
+                      NOUS SOMMES LÀ POUR VOUS
                     </span>
                     <span className="block text-white animate-pulse-glow">
                       AIDER!
@@ -328,7 +328,7 @@ const HomePage = () => {
                   </h1>
                   
                   <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
-                    Depuis <span className="text-mylli-secondary font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
+                    Depuis <span className="text-white font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
                 </header>
                 

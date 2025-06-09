@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import ManageCookiesButton from '@/components/cookies/ManageCookiesButton';
@@ -13,12 +12,16 @@ const Footer = () => {
           {/* About Section with Updated Logo */}
           <div>
             <Link to="/" className="flex items-center mb-4">
-              <img alt="Mylli Services Logo" className="h-10 w-auto" src="/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png" />
+              <img 
+                alt="Mylli Services Logo" 
+                className="h-16 w-auto" 
+                src="/lovable-uploads/0c9706b2-918b-4ec9-9b7c-25c18e0feafe.png" 
+              />
             </Link>
             <p className="text-mylli-gray mb-6">
               Votre partenaire de confiance pour des services de santé à domicile de qualité, adaptés à vos besoins spécifiques.
             </p>
-            <div className="flex space-x-3 mx-[80px]">
+            <div className="flex space-x-3">
               <a href="https://web.facebook.com/mylliservices" aria-label="Facebook" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Facebook size={18} className="text-mylli-primary" />
               </a>
