@@ -1,11 +1,9 @@
-
 import React from 'react';
 import { Shield, Info, Mail, Phone, MapPin } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SEOHead from '@/components/seo/SEOHead';
 import { Card } from '@/components/ui/card';
 import { cookieCategories, CookieCategory } from '@/utils/cookieConsent';
-
 const CookiePolicy: React.FC = () => {
   const categoryTitles: Record<CookieCategory, string> = {
     essential: "Cookies essentiels",
@@ -13,21 +11,10 @@ const CookiePolicy: React.FC = () => {
     marketing: "Cookies marketing",
     preferences: "Cookies de préférences"
   };
-
-  return (
-    <div>
-      <SEOHead 
-        title="Politique de Cookies - Mylli Services"
-        description="Découvrez comment Mylli Services utilise les cookies et comment gérer vos préférences selon la réglementation CNDP."
-        keywords="cookies, CNDP, politique cookies, confidentialité, données personnelles"
-        canonicalUrl="/politique-cookies"
-      />
+  return <div>
+      <SEOHead title="Politique de Cookies - Mylli Services" description="Découvrez comment Mylli Services utilise les cookies et comment gérer vos préférences selon la réglementation CNDP." keywords="cookies, CNDP, politique cookies, confidentialité, données personnelles" canonicalUrl="/politique-cookies" />
       
-      <PageBanner 
-        title="Politique de Cookies"
-        subtitle="Transparence et contrôle de vos données selon la CNDP"
-        variant="modern"
-      />
+      <PageBanner title="Politique de Cookies" subtitle="Transparence et contrôle de vos données selon la CNDP" variant="modern" />
 
       <section className="section-padding bg-white">
         <div className="container-custom max-w-4xl">
@@ -78,15 +65,13 @@ const CookiePolicy: React.FC = () => {
             </h2>
             
             <div className="space-y-6">
-              {(Object.keys(cookieCategories) as CookieCategory[]).map((category) => (
-                <Card key={category} className="p-6 border border-gray-200">
+              {(Object.keys(cookieCategories) as CookieCategory[]).map(category => <Card key={category} className="p-6 border border-gray-200">
                   <h3 className="text-xl font-semibold text-mylli-dark mb-4">
                     {categoryTitles[category]}
                   </h3>
                   
                   <div className="space-y-4">
-                    {cookieCategories[category].map((cookie, index) => (
-                      <div key={index} className="bg-gray-50 rounded-lg p-4">
+                    {cookieCategories[category].map((cookie, index) => <div key={index} className="bg-gray-50 rounded-lg p-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                           <div>
                             <span className="font-medium text-mylli-dark">Nom:</span>
@@ -109,11 +94,9 @@ const CookiePolicy: React.FC = () => {
                             <span className="ml-2 text-mylli-gray">{cookie.type}</span>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
@@ -174,10 +157,7 @@ const CookiePolicy: React.FC = () => {
                   Utilisez le bouton "Gérer les cookies" disponible en permanence en bas de notre site 
                   pour accéder à vos préférences et les modifier à tout moment.
                 </p>
-                <button
-                  onClick={() => (window as any).showCookieSettings?.()}
-                  className="btn-primary"
-                >
+                <button onClick={() => (window as any).showCookieSettings?.()} className="btn-primary">
                   Gérer mes préférences cookies
                 </button>
               </div>
@@ -211,52 +191,9 @@ const CookiePolicy: React.FC = () => {
           </div>
 
           {/* Contact information */}
-          <Card className="p-8 bg-gradient-to-r from-mylli-primary/5 to-mylli-secondary/5 border border-mylli-primary/20">
-            <h2 className="text-2xl font-bold text-mylli-dark mb-6">
-              Contactez notre Délégué à la Protection des Données (DPO)
-            </h2>
-            
-            <p className="text-mylli-gray mb-6">
-              Pour toute question concernant cette politique de cookies ou pour exercer vos droits 
-              selon la réglementation CNDP, vous pouvez nous contacter :
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
-                  <Mail size={20} className="text-mylli-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-mylli-dark">Email</p>
-                  <p className="text-sm text-mylli-gray">dpo@mylliservices.com</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
-                  <Phone size={20} className="text-mylli-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-mylli-dark">Téléphone</p>
-                  <p className="text-sm text-mylli-gray">+212 661 37 74 38</p>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-mylli-primary/10 rounded-full flex items-center justify-center">
-                  <MapPin size={20} className="text-mylli-primary" />
-                </div>
-                <div>
-                  <p className="font-medium text-mylli-dark">Adresse</p>
-                  <p className="text-sm text-mylli-gray">19, rue Masmouda hay Al Hana<br />Casablanca - 20210</p>
-                </div>
-              </div>
-            </div>
-          </Card>
+          
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default CookiePolicy;
