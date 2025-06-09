@@ -194,7 +194,7 @@ const HomePage = () => {
     detailedDescription: "Un accompagnement disponible 24h/24 et 7j/7\n\nParce que les besoins en soins et en assistance ne connaissent ni pause ni horaires, Mylli Services assure une présence continue, jour et nuit, toute l'année.\n\nNos équipes sont organisées pour intervenir à tout moment, 24h/24 et 7j/7, afin d'apporter un soutien immédiat, que ce soit pour une urgence, un besoin ponctuel ou un accompagnement de longue durée. Cette disponibilité permanente garantit une tranquillité d'esprit totale aux familles, qui savent qu'elles peuvent compter sur nous à chaque instant.\n\nCette réactivité est l'une des clés de notre efficacité et un pilier fondamental de notre engagement envers les patients et leurs proches."
   }];
 
-  // Sample locations data for the new component - updated without quartiers
+  // Sample locations data for the new component - updated with Salé
   const serviceLocations = [{
     city: "Casablanca",
     areas: [],
@@ -213,6 +213,9 @@ const HomePage = () => {
     areas: []
   }, {
     city: "Rabat",
+    areas: []
+  }, {
+    city: "Salé",
     areas: []
   }];
 
@@ -447,7 +450,7 @@ const HomePage = () => {
           <div className="container-custom relative z-10">
             <header className="max-w-2xl mx-auto mb-16">
               {/* Section heading */}
-              <SectionHeading title="Des services d'exception pour votre bien-être" variant="animated" highlightText="exception" className="text-center" id="features-heading" />
+              <SectionHeading title="Des services Sur mesure pour vous accompagner a domicile" variant="animated" highlightText="Sur mesure" className="text-center" id="features-heading" />
             </header>
             
             {/* Enhanced feature cards with modern design and images */}
@@ -545,7 +548,7 @@ const HomePage = () => {
               
               <article>
                 <header>
-                  <SectionHeading title="Plus de 10 ans d'expérience au service de la dignité humaine" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
+                  <SectionHeading title="Plus de 10 ans au service de laccompagnment a domicile" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
                 </header>
                 
                 <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">

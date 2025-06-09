@@ -1,5 +1,6 @@
+
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import ManageCookiesButton from '@/components/cookies/ManageCookiesButton';
 
 const Footer = () => {
@@ -27,6 +28,12 @@ const Footer = () => {
               </a>
               <a href="https://www.instagram.com/mylliservices" aria-label="Instagram" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Instagram size={18} className="text-mylli-primary" />
+              </a>
+              <a href="https://twitter.com/mylliservices" aria-label="Twitter/X" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+                <Twitter size={18} className="text-mylli-primary" />
+              </a>
+              <a href="https://linkedin.com/company/mylliservices" aria-label="LinkedIn" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+                <Linkedin size={18} className="text-mylli-primary" />
               </a>
             </div>
           </div>
