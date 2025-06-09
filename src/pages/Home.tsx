@@ -7,6 +7,7 @@ import ServiceCard from '@/components/common/ServiceCard';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import ContactForm from '@/components/common/ContactForm';
 import ServiceLocations from '@/components/common/ServiceLocations';
+import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
@@ -291,6 +292,10 @@ const HomePage = () => {
         </p>;
     });
   };
+
+  // Generate structured data for home page
+  const structuredData = generateHomePageStructuredData();
+
   return (
     <>
       <SEOHead 
@@ -687,7 +692,7 @@ const HomePage = () => {
                   <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
                   
                   {/* Main image container with modern styling */}
-                  <div className="relative bg-white p-3 rounded-3xl shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
                     {/* Image with responsive handling */}
                     <div className="relative overflow-hidden rounded-2xl">
                       <OptimizedImage 
@@ -699,7 +704,7 @@ const HomePage = () => {
                       />
                       
                       {/* Overlay gradient for text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent rounded-xl"></div>
                       
                       {/* Quality badge */}
                       <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
@@ -851,6 +856,117 @@ const HomePage = () => {
           </div>
         </section>
         
+        {/* Exécution d'ordonnance médicale */}
+        <section className="section-padding bg-gray-50">
+          <div className="container-custom">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Image with uploaded healthcare image */}
+              <div className="animate-fade-in-right order-2 lg:order-1">
+                <div className="relative group">
+                  {/* Enhanced background with gradient */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
+                  
+                  {/* Main image container */}
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
+                    <div className="relative">
+                      <img 
+                        src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" 
+                        alt="Professionnel de santé exécutant une ordonnance médicale" 
+                        className="w-full h-80 object-cover rounded-xl"
+                      />
+                      
+                      {/* Overlay with gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/20 via-transparent to-transparent rounded-xl"></div>
+                      
+                      {/* Floating badge */}
+                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                          <span className="text-sm font-medium text-mylli-dark">Service Actif</span>
+                        </div>
+                      </div>
+                      
+                      {/* Bottom info card */}
+                      <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h4 className="font-bold text-mylli-dark">Soins Professionnels</h4>
+                            <p className="text-sm text-mylli-gray">Selon prescription médicale</p>
+                          </div>
+                          <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center">
+                            <Heart size={20} className="text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-mylli-secondary to-mylli-accent rounded-2xl flex items-center justify-center shadow-lg animate-float">
+                    <Heart size={24} className="text-white" />
+                  </div>
+                  
+                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-mylli-quaternary to-mylli-primary rounded-xl flex items-center justify-center shadow-lg">
+                    <CheckCircle size={16} className="text-white" />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Content - enhanced with better styling */}
+              <div className="animate-fade-in-left order-1 lg:order-2">
+                <div className="relative">
+                  {/* Background decoration */}
+                  <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-2xl"></div>
+                  
+                  <div className="relative">
+                    <h2 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6 leading-tight">
+                      Exécution d'ordonnance médicale
+                    </h2>
+                    
+                    <p className="text-mylli-gray mb-6 text-lg leading-relaxed">
+                      Nos professionnels de santé assurent le suivi rigoureux des prescriptions médicales. Ce service comprend l'administration correcte des médicaments, le suivi des traitements, les injections, pansements et autres soins prescrits par le médecin.
+                    </p>
+                    
+                    <ul className="space-y-4 mb-8">
+                      <li className="flex items-start">
+                        <div className="flex-shrink-0 mt-1">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3" />
+                        </div>
+                        <span className="text-mylli-gray">Administration de médicaments selon les prescriptions</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="flex-shrink-0 mt-1">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3" />
+                        </div>
+                        <span className="text-mylli-gray">Surveillance des effets secondaires et interactions médicamenteuses</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="flex-shrink-0 mt-1">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3" />
+                        </div>
+                        <span className="text-mylli-gray">Communication régulière avec le médecin traitant</span>
+                      </li>
+                      <li className="flex items-start">
+                        <div className="flex-shrink-0 mt-1">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3" />
+                        </div>
+                        <span className="text-mylli-gray">Tenue d'un dossier médical précis et à jour</span>
+                      </li>
+                    </ul>
+                    
+                    <Button asChild className="btn-primary group">
+                      <Link to="/services/infirmier" className="flex items-center">
+                        En savoir plus sur nos services infirmiers
+                        <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         {/* Service Locations Section - Now comes after Services and How It Works */}
         <ServiceLocations locations={serviceLocations} title="Nos Zones d'Intervention" subtitle="Mylli Services propose des soins à domicile professionnels dans toute la région de Casablanca. Découvrez si votre quartier est couvert." />
         
@@ -991,7 +1107,7 @@ const HomePage = () => {
                               
                               <div className="ml-4">
                                 <h4 className="font-bold text-mylli-dark text-lg">{testimonial.name}</h4>
-                                <p className="text-sm text-mylli-gray font-medium">{testimonial.title}</p>
+                                <p className="text-sm text-mylli-gray">{testimonial.title}</p>
                                 <p className="text-xs text-mylli-gray opacity-75 italic">{testimonial.role}</p>
                               </div>
                             </div>
