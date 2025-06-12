@@ -1,4 +1,3 @@
-
 import { ReactNode, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
@@ -31,11 +30,12 @@ const ServiceCard = ({
   const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
     if (!detailedDescription) return;
     e.preventDefault();
+    e.stopPropagation();
     setDialogOpen(true);
   };
 
-  // Mobile-first base classes
-  const baseMobileClasses = "w-full min-h-[320px] flex flex-col p-4 relative";
+  // Mobile-first base classes with better mobile sizing
+  const baseMobileClasses = "w-full min-h-[280px] sm:min-h-[320px] flex flex-col p-4 sm:p-6 relative";
   
   if (style === 'glass') {
     return (
@@ -44,19 +44,19 @@ const ServiceCard = ({
           <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="relative flex flex-col h-full z-10">
             {icon && (
-              <div className="text-mylli-primary mb-4 transform transition-transform duration-300 group-hover:scale-110 text-2xl flex justify-center">
+              <div className="text-mylli-primary mb-4 transform transition-transform duration-300 group-hover:scale-110 text-2xl sm:text-3xl flex justify-center">
                 {icon}
               </div>
             )}
-            <h3 className="text-lg font-bold mb-3 text-mylli-dark leading-tight text-center">
+            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
               {title}
             </h3>
-            <p className="text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center">
+            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
               {description}
             </p>
             <button 
               onClick={handleEnSavoirPlusClick} 
-              className="mt-auto w-full inline-flex items-center justify-center px-4 py-3 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white text-sm font-medium transform transition-all duration-300 group-hover:scale-105 shadow-sm min-h-[44px]"
+              className="mt-auto w-full inline-flex items-center justify-center px-4 py-3 sm:py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white text-sm sm:text-base font-medium transform transition-all duration-300 group-hover:scale-105 shadow-sm min-h-[44px] sm:min-h-[48px]"
             >
               En savoir plus 
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -91,21 +91,21 @@ const ServiceCard = ({
               <div className="mb-4 relative flex justify-center">
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                 <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 w-fit">
-                  <div className="text-xl text-mylli-primary">
+                  <div className="text-xl sm:text-2xl text-mylli-primary">
                     {icon}
                   </div>
                 </div>
               </div>
             )}
-            <h3 className="text-lg font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1 leading-tight text-center">
+            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1 leading-tight text-center px-2">
               {title}
             </h3>
-            <p className="text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center">
+            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
               {description}
             </p>
             <button 
               onClick={handleEnSavoirPlusClick} 
-              className="w-full flex items-center justify-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2 px-4 py-3 rounded-lg bg-mylli-primary/5 text-sm min-h-[44px]"
+              className="w-full flex items-center justify-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2 px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
             >
               En savoir plus 
               <ArrowRight size={16} className="ml-2 transform transition-all duration-300 group-hover:translate-x-1" />
@@ -135,7 +135,7 @@ const ServiceCard = ({
       <>
         <div className={`${baseMobileClasses} group bg-white rounded-2xl shadow-card ${className}`}>
           {image && (
-            <div className="h-40 mb-4 overflow-hidden rounded-xl">
+            <div className="h-32 sm:h-40 mb-4 overflow-hidden rounded-xl">
               <img 
                 src={image} 
                 alt={title}
@@ -145,19 +145,19 @@ const ServiceCard = ({
           )}
           <div className="flex flex-col flex-grow">
             {!image && icon && (
-              <div className="text-mylli-primary mb-4 text-2xl flex justify-center">
+              <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl flex justify-center">
                 {icon}
               </div>
             )}
-            <h3 className="text-lg font-bold mb-3 text-mylli-dark leading-tight text-center">
+            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
               {title}
             </h3>
-            <p className="text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center">
+            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
               {description}
             </p>
             <button 
               onClick={handleEnSavoirPlusClick} 
-              className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto px-4 py-3 rounded-lg bg-mylli-primary/5 text-sm min-h-[44px]"
+              className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
             >
               En savoir plus 
               <ArrowRight size={16} className="ml-2" />
@@ -186,20 +186,20 @@ const ServiceCard = ({
         <div className={`${baseMobileClasses} border-b border-gray-200 hover:bg-gray-50 transition-colors bg-white rounded-lg ${className}`}>
           <div className="flex flex-col h-full">
             {icon && (
-              <div className="text-mylli-primary mb-3 text-2xl self-center">
+              <div className="text-mylli-primary mb-3 text-2xl sm:text-3xl self-center">
                 {icon}
               </div>
             )}
             <div className="flex flex-col h-full flex-grow">
-              <h3 className="text-lg font-bold mb-2 text-mylli-dark leading-tight text-center">
+              <h3 className="text-base sm:text-lg font-bold mb-2 text-mylli-dark leading-tight text-center px-2">
                 {title}
               </h3>
-              <p className="text-sm text-mylli-gray mb-4 flex-grow leading-relaxed text-center">
+              <p className="text-xs sm:text-sm text-mylli-gray mb-4 flex-grow leading-relaxed text-center px-2">
                 {description}
               </p>
               <button 
                 onClick={handleEnSavoirPlusClick} 
-                className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 rounded-lg bg-mylli-primary/5 text-sm min-h-[44px]"
+                className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
               >
                 En savoir plus 
                 <ArrowRight size={16} className="ml-2" />
@@ -229,19 +229,19 @@ const ServiceCard = ({
         <div className={`${baseMobileClasses} bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card transition-all duration-300 border border-mylli-primary/20 ${className}`}>
           <div className="flex flex-col h-full text-center">
             {icon && (
-              <div className="text-mylli-primary mb-4 text-3xl self-center">
+              <div className="text-mylli-primary mb-4 text-3xl sm:text-4xl self-center">
                 {icon}
               </div>
             )}
-            <h3 className="text-lg font-bold mb-3 text-mylli-dark leading-tight">
+            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight px-2">
               {title}
             </h3>
-            <p className="text-sm text-mylli-gray mb-6 flex-grow leading-relaxed">
+            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed px-2">
               {description}
             </p>
             <button 
               onClick={handleEnSavoirPlusClick}
-              className="btn-primary text-center w-full mt-auto py-3 text-sm font-medium rounded-lg min-h-[44px]"
+              className="btn-primary text-center w-full mt-auto py-3 sm:py-4 text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
             >
               En savoir plus
             </button>
@@ -268,19 +268,19 @@ const ServiceCard = ({
     <>
       <div className={`${baseMobileClasses} bg-white rounded-2xl shadow-card border border-gray-100 ${className}`}>
         {icon && (
-          <div className="text-mylli-primary mb-4 text-2xl self-center">
+          <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl self-center">
             {icon}
           </div>
         )}
-        <h3 className="text-lg font-bold mb-3 text-mylli-dark leading-tight text-center">
+        <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
           {title}
         </h3>
-        <p className="text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center">
+        <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
           {description}
         </p>
         <button 
           onClick={handleEnSavoirPlusClick}
-          className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 rounded-lg bg-mylli-primary/5 text-sm min-h-[44px]"
+          className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
         >
           En savoir plus 
           <ArrowRight size={16} className="ml-2" />
