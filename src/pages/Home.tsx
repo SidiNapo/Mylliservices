@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   // For the animated counter effect
   const [count, setCount] = useState(0);
@@ -291,15 +290,8 @@ const HomePage = () => {
         </p>;
     });
   };
-  return (
-    <>
-      <SEOHead 
-        title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
-        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." 
-        keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" 
-        canonicalUrl="/" 
-        structuredData={structuredData} 
-      />
+  return <>
+      <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
       
       <div className="overflow-hidden">
         {/* Hero Section with improved mobile spacing */}
@@ -658,23 +650,23 @@ const HomePage = () => {
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Animated gradient orbs */}
             <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/5 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-accent/5 blur-3xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-accent/5 blur-3xl animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
             
             {/* Geometric patterns */}
             <div className="absolute top-20 left-1/4 w-24 h-24 border border-mylli-primary/10 rounded-2xl rotate-12 animate-pulse-soft"></div>
-            <div className="absolute bottom-20 right-1/3 w-16 h-16 bg-mylli-secondary/5 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-10 w-20 h-20 border-2 border-mylli-quaternary/10 rounded-xl -rotate-12 animate-pulse-soft" style={{animationDelay: '3s'}}></div>
+            <div className="absolute bottom-20 right-1/3 w-16 h-16 bg-mylli-secondary/5 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/2 right-10 w-20 h-20 border-2 border-mylli-quaternary/10 rounded-xl -rotate-12 animate-pulse-soft" style={{
+            animationDelay: '3s'
+          }}></div>
           </div>
 
           <div className="container-custom relative z-10">
             <header className="text-center mb-16">
-              <SectionHeading 
-                title="Un accompagnement personnalisé en 4 étapes" 
-                subtitle="Découvrez notre processus simple et efficace pour vous offrir les meilleurs soins à domicile, adapté à vos besoins spécifiques."
-                variant="gradient" 
-                highlightText="personnalisé" 
-                id="how-it-works-heading" 
-              />
+              <SectionHeading title="Un accompagnement personnalisé en 4 étapes" subtitle="Découvrez notre processus simple et efficace pour vous offrir les meilleurs soins à domicile, adapté à vos besoins spécifiques." variant="gradient" highlightText="personnalisé" id="how-it-works-heading" />
             </header>
             
             {/* Revolutionary Grid Layout with Image Integration */}
@@ -690,13 +682,7 @@ const HomePage = () => {
                   <div className="relative bg-white p-3 rounded-3xl shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
                     {/* Image with responsive handling */}
                     <div className="relative overflow-hidden rounded-2xl">
-                      <OptimizedImage 
-                        src="/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png"
-                        alt="Professional healthcare services at home - Nurse providing personalized care"
-                        width={600}
-                        height={400}
-                        className="w-full h-64 sm:h-80 md:h-96 object-cover object-center filter brightness-105 contrast-105"
-                      />
+                      <OptimizedImage src="/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png" alt="Professional healthcare services at home - Nurse providing personalized care" width={600} height={400} className="w-full h-64 sm:h-80 md:h-96 object-cover object-center filter brightness-105 contrast-105" />
                       
                       {/* Overlay gradient for text readability */}
                       <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent"></div>
@@ -740,45 +726,38 @@ const HomePage = () => {
               {/* Right Side: Modern Step Cards */}
               <div className="order-1 lg:order-2 space-y-6">
                 {howItWorks.map((item, index) => {
-                  const colorClasses = {
-                    primary: {
-                      bg: 'bg-mylli-primary/5',
-                      border: 'border-mylli-primary/20',
-                      text: 'text-mylli-primary',
-                      gradient: 'from-mylli-primary to-mylli-primary-dark'
-                    },
-                    secondary: {
-                      bg: 'bg-mylli-secondary/5',
-                      border: 'border-mylli-secondary/20',
-                      text: 'text-mylli-secondary',
-                      gradient: 'from-mylli-secondary to-mylli-tertiary'
-                    },
-                    quaternary: {
-                      bg: 'bg-mylli-quaternary/5',
-                      border: 'border-mylli-quaternary/20',
-                      text: 'text-mylli-quaternary',
-                      gradient: 'from-mylli-quaternary to-mylli-accent'
-                    },
-                    accent: {
-                      bg: 'bg-mylli-accent/5',
-                      border: 'border-mylli-accent/20',
-                      text: 'text-mylli-accent',
-                      gradient: 'from-mylli-accent to-mylli-quaternary'
-                    }
-                  };
-                  
-                  const colors = colorClasses[item.color as keyof typeof colorClasses];
-                  
-                  return (
-                    <div 
-                      key={index} 
-                      className="group relative transform transition-all duration-500 hover:-translate-x-2 hover:scale-[1.02]"
-                      style={{animationDelay: `${index * 200}ms`}}
-                    >
+                const colorClasses = {
+                  primary: {
+                    bg: 'bg-mylli-primary/5',
+                    border: 'border-mylli-primary/20',
+                    text: 'text-mylli-primary',
+                    gradient: 'from-mylli-primary to-mylli-primary-dark'
+                  },
+                  secondary: {
+                    bg: 'bg-mylli-secondary/5',
+                    border: 'border-mylli-secondary/20',
+                    text: 'text-mylli-secondary',
+                    gradient: 'from-mylli-secondary to-mylli-tertiary'
+                  },
+                  quaternary: {
+                    bg: 'bg-mylli-quaternary/5',
+                    border: 'border-mylli-quaternary/20',
+                    text: 'text-mylli-quaternary',
+                    gradient: 'from-mylli-quaternary to-mylli-accent'
+                  },
+                  accent: {
+                    bg: 'bg-mylli-accent/5',
+                    border: 'border-mylli-accent/20',
+                    text: 'text-mylli-accent',
+                    gradient: 'from-mylli-accent to-mylli-quaternary'
+                  }
+                };
+                const colors = colorClasses[item.color as keyof typeof colorClasses];
+                return <div key={index} className="group relative transform transition-all duration-500 hover:-translate-x-2 hover:scale-[1.02]" style={{
+                  animationDelay: `${index * 200}ms`
+                }}>
                       {/* Connection line to next step */}
-                      {index < howItWorks.length - 1 && (
-                        <div className="absolute left-8 top-20 w-0.5 h-12 bg-gradient-to-b from-current to-transparent opacity-20 hidden sm:block"></div>
-                      )}
+                      {index < howItWorks.length - 1 && <div className="absolute left-8 top-20 w-0.5 h-12 bg-gradient-to-b from-current to-transparent opacity-20 hidden sm:block"></div>}
                       
                       {/* Modern step card */}
                       <div className={`relative bg-white rounded-2xl shadow-lg border ${colors.border} p-6 sm:p-8 transition-all duration-500 hover:shadow-2xl hover:border-opacity-40 overflow-hidden`}>
@@ -823,9 +802,8 @@ const HomePage = () => {
                           <div className={`absolute top-2 right-2 w-3 h-3 rounded-full ${colors.text.replace('text-', 'bg-')}`}></div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
             </div>
             
@@ -1093,22 +1071,10 @@ const HomePage = () => {
               </div>
               
               {/* Call to Action */}
-              <div className="mt-8 flex gap-4 justify-end">
-                <Button variant="outline" onClick={() => setSelectedFeature(null)} className="px-6 py-3">
-                  Fermer
-                </Button>
-                <Button asChild className={`px-6 py-3 ${features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' : 'bg-mylli-quaternary hover:bg-mylli-accent'}`}>
-                  <Link to="/contact">
-                    Contactez-nous
-                    <ArrowRight size={16} className="ml-2" />
-                  </Link>
-                </Button>
-              </div>
+              
             </div>
           </div>
         </div>}
-    </>
-  );
+    </>;
 };
-
 export default HomePage;
