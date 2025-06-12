@@ -3,7 +3,6 @@ import { ReactNode, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface ServiceCardProps {
   title: string;
@@ -29,7 +28,6 @@ const ServiceCard = ({
   detailedDescription
 }: ServiceCardProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
-  const isMobile = useIsMobile();
   
   const colorClasses = {
     primary: 'from-mylli-primary to-mylli-quaternary',
@@ -41,14 +39,14 @@ const ServiceCard = ({
   const cardStyles = {
     default: `card-service flex flex-col h-full ${className}`,
     modern: `card-service flex flex-col h-full relative overflow-hidden group ${className}`,
-    minimal: `p-4 sm:p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors h-full ${className}`,
-    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-4 sm:p-6 transition-all duration-300 border border-mylli-primary/20 h-full ${className}`,
-    glass: `backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass p-4 sm:p-6 transition-all duration-300 hover:shadow-lg h-full group ${className}`,
-    '3d': `relative bg-white rounded-2xl shadow-soft p-4 sm:p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg h-full group overflow-hidden ${className}`
+    minimal: `p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors h-full ${className}`,
+    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-6 transition-all duration-300 border border-mylli-primary/20 h-full ${className}`,
+    glass: `backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass p-6 transition-all duration-300 hover:shadow-lg h-full group ${className}`,
+    '3d': `relative bg-white rounded-2xl shadow-soft p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg h-full group overflow-hidden ${className}`
   };
 
   const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
-    if (!detailedDescription) return;
+    if (!detailedDescription) return; // Only proceed if we have detailed content
     e.preventDefault();
     setDialogOpen(true);
   };
@@ -58,14 +56,14 @@ const ServiceCard = ({
       <div className={cardStyles[style]}>
         <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="relative flex flex-col h-full z-10">
-          {icon && <div className="text-mylli-primary mb-3 sm:mb-5 transform transition-transform duration-300 group-hover:scale-110">{icon}</div>}
-          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-mylli-dark leading-tight">{title}</h3>
-          <p className="text-mylli-gray mb-4 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+          {icon && <div className="text-mylli-primary mb-5 transform transition-transform duration-300 group-hover:scale-110">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
           <button 
             onClick={handleEnSavoirPlusClick} 
-            className="mt-auto inline-flex items-center justify-center px-3 py-2 sm:px-4 sm:py-2 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white transform transition-all duration-300 group-hover:scale-105 shadow-sm text-sm sm:text-base w-full sm:w-auto min-h-[44px]"
+            className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white transform transition-all duration-300 group-hover:scale-105 shadow-sm"
           >
-            En savoir plus <ArrowRight size={isMobile ? 14 : 16} className="ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+            En savoir plus <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
         {detailedDescription && (
@@ -86,27 +84,29 @@ const ServiceCard = ({
   if (style === '3d') {
     return (
       <div className={cardStyles[style]}>
+        {/* 3D effects with pseudo-elements */}
         <div className="absolute top-0 left-0 w-full h-full transform -rotate-6 scale-95 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
         <div className="absolute top-0 right-0 w-3 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
         
         <div className="flex flex-col h-full">
           {icon && (
-            <div className="mb-3 sm:mb-5 relative">
+            <div className="mb-5 relative">
               <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-              <div className="relative bg-white rounded-full p-2 sm:p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                 {icon}
               </div>
             </div>
           )}
-          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1 leading-tight">{title}</h3>
-          <p className="text-mylli-gray mb-4 sm:mb-6 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
           <button 
             onClick={handleEnSavoirPlusClick} 
-            className="flex items-center justify-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2 text-sm sm:text-base w-full sm:w-auto min-h-[44px] p-2 rounded-lg hover:bg-mylli-primary/5"
+            className="flex items-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2"
           >
-            En savoir plus <ArrowRight size={isMobile ? 14 : 16} className="ml-1 transform transition-all duration-300 group-hover:translate-x-1 flex-shrink-0" />
+            En savoir plus <ArrowRight size={16} className="ml-1 transform transition-all duration-300 group-hover:translate-x-1" />
           </button>
           
+          {/* Decorative corner element */}
           <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl"></div>
         </div>
         
@@ -129,7 +129,7 @@ const ServiceCard = ({
     return (
       <div className={cardStyles[style]}>
         {image && (
-          <div className="h-40 sm:h-48 mb-4 sm:mb-6 overflow-hidden rounded-lg">
+          <div className="h-48 mb-6 overflow-hidden">
             <img 
               src={image} 
               alt={title}
@@ -137,15 +137,15 @@ const ServiceCard = ({
             />
           </div>
         )}
-        <div className="p-4 sm:p-6 flex flex-col flex-grow bg-white rounded-b-2xl">
-          {!image && icon && <div className="text-mylli-primary mb-3 sm:mb-4">{icon}</div>}
-          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-mylli-dark leading-tight">{title}</h3>
-          <p className="text-mylli-gray mb-4 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+        <div className="p-6 flex flex-col flex-grow bg-white">
+          {!image && icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
           <button 
             onClick={handleEnSavoirPlusClick} 
-            className="flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto text-sm sm:text-base w-full sm:w-auto min-h-[44px] p-2 rounded-lg hover:bg-mylli-primary/5"
+            className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto"
           >
-            En savoir plus <ArrowRight size={isMobile ? 14 : 16} className="ml-1 flex-shrink-0" />
+            En savoir plus <ArrowRight size={16} className="ml-1" />
           </button>
         </div>
         
@@ -168,15 +168,15 @@ const ServiceCard = ({
     return (
       <div className={cardStyles[style]}>
         <div className="flex items-start h-full">
-          {icon && <div className="text-mylli-primary mr-3 sm:mr-4 flex-shrink-0">{icon}</div>}
-          <div className="flex flex-col h-full min-w-0 flex-1">
-            <h3 className="text-base sm:text-lg font-bold mb-2 text-mylli-dark leading-tight">{title}</h3>
-            <p className="text-mylli-gray mb-3 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+          {icon && <div className="text-mylli-primary mr-4">{icon}</div>}
+          <div className="flex flex-col h-full">
+            <h3 className="text-lg font-bold mb-2 text-mylli-dark">{title}</h3>
+            <p className="text-mylli-gray mb-3 flex-grow">{description}</p>
             <button 
               onClick={handleEnSavoirPlusClick} 
-              className="flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto text-sm sm:text-base w-full sm:w-auto min-h-[44px] p-2 rounded-lg hover:bg-mylli-primary/5"
+              className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
             >
-              En savoir plus <ArrowRight size={isMobile ? 14 : 16} className="ml-1 flex-shrink-0" />
+              En savoir plus <ArrowRight size={16} className="ml-1" />
             </button>
           </div>
         </div>
@@ -200,12 +200,12 @@ const ServiceCard = ({
     return (
       <div className={cardStyles[style]}>
         <div className="flex flex-col h-full">
-          {icon && <div className="text-mylli-primary mb-3 sm:mb-4 text-3xl sm:text-4xl">{icon}</div>}
-          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-mylli-dark leading-tight">{title}</h3>
-          <p className="text-mylli-gray mb-4 sm:mb-6 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+          {icon && <div className="text-mylli-primary mb-4 text-4xl">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
           <button 
             onClick={handleEnSavoirPlusClick}
-            className="btn-primary text-center w-full mt-auto min-h-[44px] text-sm sm:text-base"
+            className="btn-primary text-center w-full mt-auto"
           >
             En savoir plus
           </button>
@@ -229,14 +229,14 @@ const ServiceCard = ({
   // Default style
   return (
     <div className={cardStyles.default}>
-      {icon && <div className="text-mylli-primary mb-3 sm:mb-4">{icon}</div>}
-      <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-mylli-dark leading-tight">{title}</h3>
-      <p className="text-mylli-gray mb-4 flex-grow text-sm sm:text-base leading-relaxed">{description}</p>
+      {icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+      <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+      <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
       <button 
         onClick={handleEnSavoirPlusClick}
-        className="flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto text-sm sm:text-base w-full sm:w-auto min-h-[44px] p-2 rounded-lg hover:bg-mylli-primary/5"
+        className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
       >
-        En savoir plus <ArrowRight size={isMobile ? 14 : 16} className="ml-1 flex-shrink-0" />
+        En savoir plus <ArrowRight size={16} className="ml-1" />
       </button>
       
       {detailedDescription && (
