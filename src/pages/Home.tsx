@@ -15,20 +15,18 @@ const HomePage = () => {
     {
       title: "Aide-soignant à domicile",
       description: "Soins d'hygiène, aide aux gestes quotidiens, surveillance médicale personnalisée.",
-      icon: <Heart className="h-8 w-8" />,
+      icon: Heart,
       features: ["Toilette et hygiène", "Aide aux repas", "Surveillance médicale", "Accompagnement personnalisé"],
       price: "À partir de 150 DH/heure",
-      imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
-      link: "/services/aide-soignant"
+      imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png"
     },
     {
       title: "Infirmier à domicile",
       description: "Soins infirmiers spécialisés, injections, pansements, suivi médical à domicile.",
-      icon: <Shield className="h-8 w-8" />,
+      icon: Shield,
       features: ["Injections et perfusions", "Pansements complexes", "Surveillance post-opératoire", "Éducation thérapeutique"],
       price: "À partir de 200 DH/heure",
-      imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png",
-      link: "/services/infirmier"
+      imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png"
     }
   ];
 
@@ -36,23 +34,23 @@ const HomePage = () => {
     {
       name: "Fatima Bennani",
       location: "Casablanca",
-      quote: "Service exceptionnel ! L'équipe est très professionnelle et bienveillante. Ma mère se sent en sécurité.",
+      text: "Service exceptionnel ! L'équipe est très professionnelle et bienveillante. Ma mère se sent en sécurité.",
       rating: 5,
-      image: "/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png"
+      avatar: "/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png"
     },
     {
       name: "Ahmed Alami",
       location: "Rabat",
-      quote: "Mylli Service a transformé notre quotidien. Des soins de qualité dans le confort de notre foyer.",
+      text: "Mylli Service a transformé notre quotidien. Des soins de qualité dans le confort de notre foyer.",
       rating: 5,
-      image: "/lovable-uploads/c787f2aa-80fe-4009-8468-b57881b297a9.png"
+      avatar: "/lovable-uploads/c787f2aa-80fe-4009-8468-b57881b297a9.png"
     },
     {
       name: "Aicha Benjelloun",
       location: "Marrakech",
-      quote: "Une équipe formidable, toujours à l'écoute. Je recommande vivement leurs services.",
+      text: "Une équipe formidable, toujours à l'écoute. Je recommande vivement leurs services.",
       rating: 5,
-      image: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
+      avatar: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
     }
   ];
 
@@ -103,7 +101,7 @@ const HomePage = () => {
                 className="border-white text-white hover:bg-white hover:text-mylli-primary px-8 py-3 text-lg"
               >
                 <Link to="/mot-du-fondateur">
-                  Mot du Président
+                  Le Mot du Fondateur
                 </Link>
               </Button>
             </div>
@@ -140,7 +138,7 @@ const HomePage = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-6 text-lg leading-relaxed">
-                  <p className="text-mylli-gray text-justify">
+                  <p className="text-mylli-gray">
                     Depuis 2014, Mylli Service est le pionnier de l'accompagnement à domicile au Maroc. 
                     Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, 
                     nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, 
@@ -214,7 +212,7 @@ const HomePage = () => {
       >
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
-            Pourquoi Choisir <BrandName /> ?
+            Pourquoi Choisir <BrandName className="text-mylli-quaternary" /> ?
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
