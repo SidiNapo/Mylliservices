@@ -18,7 +18,6 @@ import ArticlesPage from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import CookiePolicy from "./pages/CookiePolicy";
 import MotDuFondateur from "./pages/MotDuFondateur";
-import MotDuPresident from "./pages/MotDuPresident";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
@@ -53,7 +52,6 @@ const App: React.FC = () => {
             <Route path="/equipe" element={<MainLayout><EquipePage /></MainLayout>} />
             <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
             <Route path="/mot-du-fondateur" element={<MainLayout><MotDuFondateur /></MainLayout>} />
-            <Route path="/mot-du-president" element={<MainLayout><MotDuPresident /></MainLayout>} />
             <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
             <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
             <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
