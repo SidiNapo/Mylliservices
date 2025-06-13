@@ -15,7 +15,7 @@ const HomePage = () => {
     {
       title: "Aide-soignant à domicile",
       description: "Soins d'hygiène, aide aux gestes quotidiens, surveillance médicale personnalisée.",
-      icon: <Heart className="h-8 w-8" />,
+      icon: <Heart />,
       features: ["Toilette et hygiène", "Aide aux repas", "Surveillance médicale", "Accompagnement personnalisé"],
       price: "À partir de 150 DH/heure",
       imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
@@ -24,7 +24,7 @@ const HomePage = () => {
     {
       title: "Infirmier à domicile",
       description: "Soins infirmiers spécialisés, injections, pansements, suivi médical à domicile.",
-      icon: <Shield className="h-8 w-8" />,
+      icon: <Shield />,
       features: ["Injections et perfusions", "Pansements complexes", "Surveillance post-opératoire", "Éducation thérapeutique"],
       price: "À partir de 200 DH/heure",
       imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png",
@@ -103,7 +103,7 @@ const HomePage = () => {
                 className="border-white text-white hover:bg-white hover:text-mylli-primary px-8 py-3 text-lg"
               >
                 <Link to="/mot-du-fondateur">
-                  Le Mot du Président
+                  Le Mot du Fondateur
                 </Link>
               </Button>
             </div>
@@ -141,20 +141,20 @@ const HomePage = () => {
               <div className="space-y-6">
                 <div className="space-y-6 text-lg leading-relaxed">
                   <p className="text-mylli-gray text-justify">
-                    Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. 
+                    Depuis 2014, Mylli Service est le pionnier de l'accompagnement à domicile au Maroc. 
                     Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, 
                     nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, 
                     et une parfaite connaissance des besoins du terrain.
                   </p>
                   
-                  <p className="text-mylli-gray">
+                  <p className="text-mylli-gray text-justify">
                     Cette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, 
                     réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des 
                     soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, 
                     soutien moral et relationnel.
                   </p>
                   
-                  <p className="text-mylli-gray">
+                  <p className="text-mylli-gray text-justify">
                     Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service 
                     de haute qualité, toujours empreint de respect et de bienveillance.
                   </p>
@@ -214,7 +214,7 @@ const HomePage = () => {
       >
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
-            Pourquoi Choisir <BrandName /> ?
+            Pourquoi Choisir <span className="text-mylli-quaternary"><BrandName /></span> ?
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
