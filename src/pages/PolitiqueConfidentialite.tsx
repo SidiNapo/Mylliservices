@@ -7,8 +7,8 @@ const PolitiqueConfidentialite = () => {
   return (
     <>
       <SEOHead 
-        title="Politique de Confidentialité - Mylli Service"
-        description="Découvrez comment Mylli Service protège vos données personnelles et respecte votre vie privée dans nos services de soins à domicile."
+        title="Politique de Confidentialité - Mylli Services"
+        description="Découvrez comment Mylli Services protège vos données personnelles et respecte votre vie privée dans nos services de soins à domicile."
         canonicalUrl="/politique-confidentialite"
       />
       
@@ -26,7 +26,7 @@ const PolitiqueConfidentialite = () => {
             <div className="border-b border-mylli-light pb-6">
               <h2 className="text-2xl font-bold text-mylli-dark mb-4">Introduction</h2>
               <p className="text-mylli-gray leading-relaxed">
-                Chez <strong className="text-mylli-primary">Mylli Service</strong>, nous nous engageons à protéger 
+                Chez <strong className="text-mylli-primary">Mylli Services</strong>, nous nous engageons à protéger 
                 et respecter votre vie privée. Cette politique explique comment nous collectons, utilisons et 
                 protégeons vos informations personnelles dans le cadre de nos services de soins à domicile.
               </p>
@@ -127,9 +127,9 @@ const PolitiqueConfidentialite = () => {
                   contactez-nous :
                 </p>
                 <div className="space-y-2">
-                  <p><strong>Email :</strong> <a href="mailto:contact@mylli-service.ma" className="text-mylli-primary hover:text-mylli-secondary">contact@mylli-service.ma</a></p>
-                  <p><strong>Téléphone :</strong> <a href="tel:+212522123456" className="text-mylli-primary hover:text-mylli-secondary">+212 522 123 456</a></p>
-                  <p><strong>WhatsApp :</strong> <a href="https://wa.me/212661234567" className="text-mylli-primary hover:text-mylli-secondary">+212 661 234 567</a></p>
+                  <p><strong>Email :</strong> <a href="mailto:contact@mylliservices.ma" className="text-mylli-primary hover:text-mylli-secondary">contact@mylliservices.ma</a></p>
+                  <p><strong>Téléphone :</strong> <a href="tel:+212600000000" className="text-mylli-primary hover:text-mylli-secondary">+212 6 00 00 00 00</a></p>
+                  <p><strong>WhatsApp :</strong> <a href="https://wa.me/212600000000" className="text-mylli-primary hover:text-mylli-secondary">+212 6 00 00 00 00</a></p>
                   <p><strong>Adresse :</strong> Avenue Hassan II, Casablanca, Maroc</p>
                 </div>
               </div>
