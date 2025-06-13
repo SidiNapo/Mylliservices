@@ -8,7 +8,7 @@ const MotDuFondateur = () => {
   return (
     <>
       <SEOHead 
-        title="Le Mot du Fondateur - Mylli Assistance"
+        title="Le Mot du Fondateur - Mylli Service"
         description="Découvrez le message personnel de notre fondateur sur notre mission d'accompagnement à domicile avec compassion et professionnalisme."
         canonicalUrl="/mot-du-fondateur"
       />
@@ -36,7 +36,7 @@ const MotDuFondateur = () => {
                   </p>
                   
                   <p>
-                    Fondée en 2013, <strong className="text-mylli-primary">Mylli Assistance</strong> est née d'une conviction profonde : 
+                    Fondée en 2013, <strong className="text-mylli-primary">Mylli Service</strong> est née d'une conviction profonde : 
                     chaque personne mérite de vivre dans la dignité et le confort de son domicile, 
                     entourée de soins attentionnés et personnalisés.
                   </p>
@@ -56,7 +56,7 @@ const MotDuFondateur = () => {
                   <div className="pt-4 border-t border-mylli-primary/20">
                     <p className="font-medium text-mylli-primary">
                       Avec toute notre gratitude,<br/>
-                      <span className="text-mylli-dark">L'équipe fondatrice de Mylli Assistance</span>
+                      <span className="text-mylli-dark">L'équipe fondatrice de Mylli Service</span>
                     </p>
                   </div>
                 </div>
@@ -67,7 +67,7 @@ const MotDuFondateur = () => {
               <div className="relative">
                 <OptimizedImage
                   src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png"
-                  alt="Équipe Mylli Assistance - Soins à domicile professionnels"
+                  alt="Équipe Mylli Service - Soins à domicile professionnels"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
                   priority
                 />
