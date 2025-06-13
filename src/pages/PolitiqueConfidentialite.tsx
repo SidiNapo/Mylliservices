@@ -9,13 +9,13 @@ const PolitiqueConfidentialite = () => {
       <SEOHead 
         title="Politique de Confidentialité - Mylli Assistance"
         description="Découvrez comment Mylli Assistance protège vos données personnelles et respecte votre vie privée dans nos services de soins à domicile."
-        canonical="/politique-confidentialite"
+        canonicalUrl="/politique-confidentialite"
       />
       
       <PageBanner
         title="Politique de Confidentialité"
         subtitle="Protection de vos données personnelles"
-        backgroundImage="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png"
+        bgImage="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png"
       />
 
       <div className="container mx-auto px-4 py-16">

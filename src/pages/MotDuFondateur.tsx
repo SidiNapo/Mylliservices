@@ -10,13 +10,13 @@ const MotDuFondateur = () => {
       <SEOHead 
         title="Le Mot du Fondateur - Mylli Assistance"
         description="Découvrez le message personnel de notre fondateur sur notre mission d'accompagnement à domicile avec compassion et professionnalisme."
-        canonical="/mot-du-fondateur"
+        canonicalUrl="/mot-du-fondateur"
       />
       
       <PageBanner
         title="Le Mot du Fondateur"
         subtitle="Notre vision et nos valeurs"
-        backgroundImage="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png"
+        bgImage="/lovable-uploads/b9ac4790-4e3c-4f05-aaa8-cffc22c2b8d9.png"
       />
 
       <div className="container mx-auto px-4 py-16">
