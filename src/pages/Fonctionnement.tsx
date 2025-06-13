@@ -1,9 +1,12 @@
+
 import { Link } from 'react-router-dom';
 import { User, Calendar, Check, Phone, HelpCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
+import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -30,6 +33,7 @@ const FonctionnementPage = () => {
     icon: <Phone size={32} strokeWidth={1.5} />,
     details: ["Visites de contrôle régulières", "Appels de suivi pour recueillir vos impressions", "Ajustement du service selon vos retours", "Communication constante entre vous, l'intervenant et notre équipe"]
   }];
+
   const faqs = [{
     question: "Comment modifier le planning?",
     answer: "Vous pouvez modifier votre planning en contactant directement votre conseiller personnel par téléphone ou par email, idéalement 48h à l'avance. Pour les ajustements réguliers, une simple notification nous suffit. Pour les changements majeurs, nous organiserons une nouvelle visite pour réévaluer vos besoins."
@@ -40,25 +44,80 @@ const FonctionnementPage = () => {
     question: "Comment sont gérées les urgences?",
     answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
   }];
+
   return <div>
       <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="particles" />
       
-      {/* Conseiller Section */}
-      <section className="section-padding bg-white">
+      {/* Conseiller Section - Redesigned with modern styling */}
+      <section className="section-padding bg-gradient-to-br from-white via-mylli-light/5 to-mylli-primary/5">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-mylli-primary/5 rounded-2xl p-8 animate-fade-in">
-              <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-1/3 mb-6 md:mb-0">
-                  <div className="w-48 h-48 rounded-full bg-white shadow-card border border-mylli-primary/10 flex items-center justify-center">
-                    <User size={80} className="text-mylli-primary" />
+          <div className="max-w-6xl mx-auto">
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-mylli-primary/10 via-white to-mylli-secondary/10 p-12 shadow-2xl border border-mylli-primary/20 backdrop-blur-sm animate-fade-in">
+              {/* Decorative elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-mylli-quaternary/20 to-transparent rounded-full blur-2xl"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-mylli-secondary/20 to-transparent rounded-full blur-xl"></div>
+              
+              <div className="flex flex-col lg:flex-row items-center relative z-10">
+                <div className="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                  <div className="relative">
+                    {/* Modern image container with effects */}
+                    <div className="relative w-80 h-80 mx-auto">
+                      <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-2xl transform rotate-6 blur-sm"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tr from-mylli-quaternary/20 to-mylli-tertiary/20 rounded-2xl transform -rotate-3 blur-sm"></div>
+                      <div className="relative bg-white rounded-2xl p-4 shadow-xl border border-mylli-primary/10">
+                        <OptimizedImage
+                          src="/lovable-uploads/27a9dae4-de15-42cc-a49d-29e600025c70.png"
+                          alt="Conseiller Mylli Service - Soins à domicile professionnels"
+                          className="w-full h-72 object-contain rounded-xl"
+                          priority
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="md:w-2/3 md:pl-8">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-mylli-dark">VOTRE CONSEILLER MYLLI SERVICES</h2>
-                  <p className="text-lg text-mylli-gray">
-                    <strong>VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE AU SEIN DE NOTRE SOCIÉTÉ.</strong> IL EST À VOTRE ÉCOUTE ET À VOTRE DISPOSITION POUR ORGANISER LE BON DÉROULEMENT DES PRESTATIONS ET POUR RÉPONDRE À VOS QUESTIONS.
-                  </p>
+                
+                <div className="lg:w-1/2 lg:pl-8">
+                  <div className="space-y-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-12 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full"></div>
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center">
+                          <div className="w-3 h-3 rounded-full bg-white"></div>
+                        </div>
+                      </div>
+                      
+                      <h2 className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-tertiary bg-clip-text text-transparent leading-tight">
+                        VOTRE CONSEILLER MYLLI SERVICES
+                      </h2>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <p className="text-lg text-mylli-gray leading-relaxed">
+                        <strong className="text-mylli-primary">VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE</strong> au sein de notre société.
+                      </p>
+                      
+                      <p className="text-lg text-mylli-gray leading-relaxed">
+                        Il est à votre écoute et à votre disposition pour organiser le bon déroulement des prestations et pour répondre à vos questions avec professionnalisme et bienveillance.
+                      </p>
+                    </div>
+                    
+                    {/* Modern feature highlights */}
+                    <div className="grid grid-cols-2 gap-4 pt-4">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-mylli-primary/10 shadow-sm">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary mb-2 flex items-center justify-center">
+                          <Phone size={16} className="text-white" />
+                        </div>
+                        <p className="text-sm font-medium text-mylli-dark">Disponibilité 24/7</p>
+                      </div>
+                      
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-mylli-secondary/10 shadow-sm">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-quaternary mb-2 flex items-center justify-center">
+                          <User size={16} className="text-white" />
+                        </div>
+                        <p className="text-sm font-medium text-mylli-dark">Accompagnement personnalisé</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -173,4 +232,5 @@ const FonctionnementPage = () => {
       </section>
     </div>;
 };
+
 export default FonctionnementPage;
