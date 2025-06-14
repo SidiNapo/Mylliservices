@@ -1,8 +1,8 @@
 
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X, LucideIcon } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ServiceDetailDialogProps {
@@ -10,7 +10,7 @@ interface ServiceDetailDialogProps {
   onClose: () => void;
   title: string;
   description: string;
-  icon?: LucideIcon | ReactNode;
+  icon?: React.ReactNode;
   color?: string;
   link?: string;
 }
@@ -29,19 +29,6 @@ const ServiceDetailDialog = ({
     secondary: "from-mylli-secondary to-mylli-tertiary",
     accent: "from-mylli-accent to-mylli-quaternary",
     mixed: "from-mylli-primary via-mylli-secondary to-mylli-quaternary"
-  };
-
-  const renderIcon = () => {
-    if (!icon) return null;
-    
-    // If it's a function (Lucide icon), render it as a component
-    if (typeof icon === 'function') {
-      const IconComponent = icon;
-      return <IconComponent size={20} />;
-    }
-    
-    // If it's already a React element, render it directly
-    return icon;
   };
 
   return (
@@ -65,7 +52,7 @@ const ServiceDetailDialog = ({
               {icon && (
                 <div className="p-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 flex-shrink-0">
                   <div className="text-lg text-mylli-primary">
-                    {renderIcon()}
+                    {icon}
                   </div>
                 </div>
               )}
