@@ -1,3 +1,4 @@
+
 import React, { ReactNode } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -33,13 +34,13 @@ const ServiceDetailDialog = ({
   const renderIcon = () => {
     if (!icon) return null;
     
-    // Check if icon is a Lucide icon component (function/constructor)
+    // If it's a function (Lucide icon), render it as a component
     if (typeof icon === 'function') {
-      const IconComponent = icon as LucideIcon;
+      const IconComponent = icon;
       return <IconComponent size={20} />;
     }
     
-    // Otherwise render as ReactNode (already a valid React element)
+    // If it's already a React element, render it directly
     return icon;
   };
 

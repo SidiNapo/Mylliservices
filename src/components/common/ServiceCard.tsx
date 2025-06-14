@@ -1,3 +1,4 @@
+
 import { ReactNode, useState } from 'react';
 import { ArrowRight, LucideIcon } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
@@ -37,13 +38,13 @@ const ServiceCard = ({
   const renderIcon = () => {
     if (!icon) return null;
     
-    // Check if icon is a Lucide icon component (function/constructor)
+    // If it's a function (Lucide icon), render it as a component
     if (typeof icon === 'function') {
-      const IconComponent = icon as LucideIcon;
+      const IconComponent = icon;
       return <IconComponent size={24} />;
     }
     
-    // Otherwise render as ReactNode (already a valid React element)
+    // If it's already a React element, render it directly
     return icon;
   };
 
