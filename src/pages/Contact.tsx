@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User, Navigation, MapPinHouse, Compass } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -9,13 +10,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import RecallRequestForm from '@/components/common/RecallRequestForm';
 
 const ContactPage = () => {
-  // Updated opening hours - removed "Consultations Sur rendez-vous"
+  // Updated opening hours - always open
   const openingHours = [{
     day: "Lundi - Dimanche",
     hours: "24h/24 - 7j/7"
   }, {
     day: "Services d'urgence",
     hours: "Disponibles à tout moment"
+  }, {
+    day: "Consultations",
+    hours: "Sur rendez-vous"
   }];
 
   // Updated exact address and coordinates for Mylli Services
@@ -76,7 +80,7 @@ const ContactPage = () => {
             </div>
           </div>
           
-          {/* WhatsApp and Hours - Updated hours without consultations */}
+          {/* WhatsApp and Hours - Fixed WhatsApp logo and updated hours */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* WhatsApp - Fixed logo using proper SVG path */}
             <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl text-white p-8 shadow-lg transform transition-all duration-500 hover:shadow-2xl">
@@ -94,7 +98,7 @@ const ContactPage = () => {
               </a>
             </div>
             
-            {/* Opening Hours - Updated to remove consultations */}
+            {/* Opening Hours - Updated to always open */}
             <div className="bg-gradient-to-br from-mylli-light to-white rounded-2xl p-8 shadow-lg border border-mylli-primary/10">
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-4">
@@ -163,7 +167,7 @@ const ContactPage = () => {
                 
                 {/* Map Overlay Info */}
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-xl p-3 shadow-lg">
-                  <div className="text-xs text-mylli-gray">Local exacte</div>
+                  <div className="text-xs text-mylli-gray">Localisation exacte</div>
                   <div className="font-semibold text-mylli-dark">Infirmier à domicile Mylli Services</div>
                 </div>
               </div>
