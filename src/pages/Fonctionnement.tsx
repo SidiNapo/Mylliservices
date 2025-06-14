@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
+import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -43,22 +45,83 @@ const FonctionnementPage = () => {
   return <div>
       <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="particles" />
       
-      {/* Conseiller Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-mylli-primary/5 rounded-2xl p-8 animate-fade-in">
-              <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-1/3 mb-6 md:mb-0">
-                  <div className="w-48 h-48 rounded-full bg-white shadow-card border border-mylli-primary/10 flex items-center justify-center">
-                    <User size={80} className="text-mylli-primary" />
+      {/* Conseiller Section - Completely redesigned */}
+      <section className="section-padding bg-gradient-to-br from-mylli-primary/5 via-white to-mylli-secondary/5 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="absolute -top-4 -left-4 w-72 h-72 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-4 -right-4 w-96 h-96 bg-gradient-to-tl from-mylli-accent/10 to-mylli-primary/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary mb-6 mx-auto shadow-lg">
+                <Phone size={32} className="text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-mylli-dark">
+                Votre <span className="text-gradient bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">Conseiller Personnel</span>
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full mx-auto"></div>
+            </div>
+            
+            <div className="bg-white rounded-3xl shadow-2xl border border-mylli-primary/10 overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Image Section */}
+                <div className="relative bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 p-12 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-2xl blur-xl transform rotate-6"></div>
+                    <OptimizedImage
+                      src="/lovable-uploads/d10d1ec9-b6f9-4af2-bfd7-5a7d007496ee.png"
+                      alt="Conseiller Mylli Services - Soins à domicile"
+                      className="relative z-10 w-80 h-80 object-contain rounded-2xl"
+                    />
+                  </div>
+                  
+                  {/* Floating elements */}
+                  <div className="absolute top-8 left-8 w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                    <User size={24} className="text-mylli-primary" />
+                  </div>
+                  <div className="absolute bottom-8 right-8 w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                    <Phone size={24} className="text-mylli-secondary" />
                   </div>
                 </div>
-                <div className="md:w-2/3 md:pl-8">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-mylli-dark">VOTRE CONSEILLER MYLLI SERVICES</h2>
-                  <p className="text-lg text-mylli-gray">
-                    <strong>VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE AU SEIN DE NOTRE SOCIÉTÉ.</strong> IL EST À VOTRE ÉCOUTE ET À VOTRE DISPOSITION POUR ORGANISER LE BON DÉROULEMENT DES PRESTATIONS ET POUR RÉPONDRE À VOS QUESTIONS.
-                  </p>
+                
+                {/* Content Section */}
+                <div className="p-12 lg:p-16 flex flex-col justify-center">
+                  <div className="space-y-8">
+                    <div>
+                      <h3 className="text-3xl lg:text-4xl font-bold text-mylli-dark mb-6 leading-tight">
+                        VOTRE CONSEILLER 
+                        <span className="block text-mylli-primary">MYLLI SERVICES</span>
+                      </h3>
+                      
+                      <div className="space-y-6 text-lg text-mylli-gray leading-relaxed">
+                        <p className="font-semibold text-mylli-dark">
+                          VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE AU SEIN DE NOTRE SOCIÉTÉ.
+                        </p>
+                        <p>
+                          Il est à votre écoute et à votre disposition pour organiser le bon déroulement des prestations et pour répondre à toutes vos questions avec professionnalisme et bienveillance.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Key features */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-mylli-primary/5 to-mylli-secondary/5 rounded-xl">
+                        <div className="w-10 h-10 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center">
+                          <Phone size={18} className="text-white" />
+                        </div>
+                        <span className="font-medium text-mylli-dark">Disponible 24h/7j</span>
+                      </div>
+                      <div className="flex items-center space-x-3 p-4 bg-gradient-to-r from-mylli-secondary/5 to-mylli-accent/5 rounded-xl">
+                        <div className="w-10 h-10 bg-gradient-to-br from-mylli-secondary to-mylli-accent rounded-full flex items-center justify-center">
+                          <User size={18} className="text-white" />
+                        </div>
+                        <span className="font-medium text-mylli-dark">Suivi personnalisé</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
