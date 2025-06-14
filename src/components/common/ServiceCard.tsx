@@ -37,14 +37,14 @@ const ServiceCard = ({
   const renderIcon = () => {
     if (!icon) return null;
     
-    // Check if icon is a Lucide icon component
+    // Check if icon is a Lucide icon component (function)
     if (typeof icon === 'function') {
       const IconComponent = icon as LucideIcon;
       return <IconComponent />;
     }
     
     // Otherwise render as ReactNode
-    return icon;
+    return icon as ReactNode;
   };
 
   // Mobile-first base classes with better mobile sizing
