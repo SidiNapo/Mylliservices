@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SEOHead from '@/components/seo/SEOHead';
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ const HomePage = () => {
     {
       title: "Aide-soignant à domicile",
       description: "Soins d'hygiène, aide aux gestes quotidiens, surveillance médicale personnalisée.",
-      icon: Heart,
+      icon: <Heart className="h-8 w-8" />,
       features: ["Toilette et hygiène", "Aide aux repas", "Surveillance médicale", "Accompagnement personnalisé"],
       price: "À partir de 150 DH/heure",
       imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
@@ -24,7 +23,7 @@ const HomePage = () => {
     {
       title: "Infirmier à domicile",
       description: "Soins infirmiers spécialisés, injections, pansements, suivi médical à domicile.",
-      icon: Shield,
+      icon: <Shield className="h-8 w-8" />,
       features: ["Injections et perfusions", "Pansements complexes", "Surveillance post-opératoire", "Éducation thérapeutique"],
       price: "À partir de 200 DH/heure",
       imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png",
