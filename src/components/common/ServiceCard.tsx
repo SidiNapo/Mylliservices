@@ -1,11 +1,11 @@
 import { ReactNode, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, LucideIcon } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon?: ReactNode;
+  icon?: LucideIcon | ReactNode;
   image?: string;
   link: string;
   className?: string;
@@ -34,6 +34,19 @@ const ServiceCard = ({
     setDialogOpen(true);
   };
 
+  const renderIcon = () => {
+    if (!icon) return null;
+    
+    // Check if icon is a Lucide icon component
+    if (typeof icon === 'function') {
+      const IconComponent = icon as LucideIcon;
+      return <IconComponent />;
+    }
+    
+    // Otherwise render as ReactNode
+    return icon;
+  };
+
   // Mobile-first base classes with better mobile sizing
   const baseMobileClasses = "w-full min-h-[280px] sm:min-h-[320px] flex flex-col p-4 sm:p-6 relative";
   
@@ -43,9 +56,9 @@ const ServiceCard = ({
         <div className={`${baseMobileClasses} backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass transition-all duration-300 hover:shadow-lg group overflow-hidden ${className}`}>
           <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="relative flex flex-col h-full z-10">
-            {icon && (
+            {renderIcon() && (
               <div className="text-mylli-primary mb-4 transform transition-transform duration-300 group-hover:scale-110 text-2xl sm:text-3xl flex justify-center">
-                {icon}
+                {renderIcon()}
               </div>
             )}
             <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
@@ -87,12 +100,12 @@ const ServiceCard = ({
           <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
           
           <div className="flex flex-col h-full">
-            {icon && (
+            {renderIcon() && (
               <div className="mb-4 relative flex justify-center">
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                 <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 w-fit">
                   <div className="text-xl sm:text-2xl text-mylli-primary">
-                    {icon}
+                    {renderIcon()}
                   </div>
                 </div>
               </div>
@@ -144,9 +157,9 @@ const ServiceCard = ({
             </div>
           )}
           <div className="flex flex-col flex-grow">
-            {!image && icon && (
+            {!image && renderIcon() && (
               <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl flex justify-center">
-                {icon}
+                {renderIcon()}
               </div>
             )}
             <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
@@ -185,9 +198,9 @@ const ServiceCard = ({
       <>
         <div className={`${baseMobileClasses} border-b border-gray-200 hover:bg-gray-50 transition-colors bg-white rounded-lg ${className}`}>
           <div className="flex flex-col h-full">
-            {icon && (
+            {renderIcon() && (
               <div className="text-mylli-primary mb-3 text-2xl sm:text-3xl self-center">
-                {icon}
+                {renderIcon()}
               </div>
             )}
             <div className="flex flex-col h-full flex-grow">
@@ -228,9 +241,9 @@ const ServiceCard = ({
       <>
         <div className={`${baseMobileClasses} bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card transition-all duration-300 border border-mylli-primary/20 ${className}`}>
           <div className="flex flex-col h-full text-center">
-            {icon && (
+            {renderIcon() && (
               <div className="text-mylli-primary mb-4 text-3xl sm:text-4xl self-center">
-                {icon}
+                {renderIcon()}
               </div>
             )}
             <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight px-2">
@@ -267,9 +280,9 @@ const ServiceCard = ({
   return (
     <>
       <div className={`${baseMobileClasses} bg-white rounded-2xl shadow-card border border-gray-100 ${className}`}>
-        {icon && (
+        {renderIcon() && (
           <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl self-center">
-            {icon}
+            {renderIcon()}
           </div>
         )}
         <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
