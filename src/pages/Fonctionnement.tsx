@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
-import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -45,83 +43,22 @@ const FonctionnementPage = () => {
   return <div>
       <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="particles" />
       
-      {/* Modern Conseiller Section */}
-      <section className="section-padding bg-white overflow-hidden">
+      {/* Conseiller Section */}
+      <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="max-w-7xl mx-auto">
-            <div className="relative">
-              {/* Background Elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 via-mylli-secondary/3 to-mylli-accent/5 rounded-[3rem] transform rotate-1"></div>
-              <div className="absolute inset-0 bg-gradient-to-tl from-mylli-accent/10 via-transparent to-mylli-primary/10 rounded-[3rem] transform -rotate-1"></div>
-              
-              {/* Main Content */}
-              <div className="relative bg-white/90 backdrop-blur-sm rounded-[3rem] shadow-2xl border border-mylli-primary/10 p-8 md:p-12 lg:p-16">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  {/* Image Section */}
-                  <div className="relative lg:order-1">
-                    <div className="relative group">
-                      {/* Image Container with Advanced Styling */}
-                      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 p-8 transform transition-all duration-700 group-hover:scale-105">
-                        <div className="absolute inset-0 bg-gradient-to-tr from-mylli-primary/10 via-transparent to-mylli-accent/10 rounded-3xl"></div>
-                        <OptimizedImage
-                          src="/lovable-uploads/e717da92-69fc-4a43-8c95-4ee312582608.png"
-                          alt="Conseiller Mylli Services - Soins à domicile"
-                          className="w-full h-auto max-w-sm mx-auto relative z-10 filter drop-shadow-2xl"
-                        />
-                        {/* Floating Elements */}
-                        <div className="absolute top-4 right-4 w-16 h-16 bg-mylli-primary/20 rounded-full animate-pulse"></div>
-                        <div className="absolute bottom-8 left-8 w-8 h-8 bg-mylli-accent/30 rounded-full animate-bounce delay-300"></div>
-                      </div>
-                      
-                      {/* Decorative Ring */}
-                      <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 rounded-full blur-xl -z-10 animate-pulse"></div>
-                    </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-mylli-primary/5 rounded-2xl p-8 animate-fade-in">
+              <div className="flex flex-col md:flex-row items-center">
+                <div className="md:w-1/3 mb-6 md:mb-0">
+                  <div className="w-48 h-48 rounded-full bg-white shadow-card border border-mylli-primary/10 flex items-center justify-center">
+                    <User size={80} className="text-mylli-primary" />
                   </div>
-                  
-                  {/* Content Section */}
-                  <div className="lg:order-2 space-y-8">
-                    <div className="space-y-6">
-                      {/* Badge */}
-                      <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-mylli-primary/10 to-mylli-secondary/10 rounded-full border border-mylli-primary/20">
-                        <div className="w-2 h-2 bg-mylli-primary rounded-full mr-2 animate-pulse"></div>
-                        <span className="text-sm font-medium text-mylli-primary">Service Personnalisé</span>
-                      </div>
-                      
-                      {/* Title */}
-                      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                        <span className="text-mylli-dark">VOTRE CONSEILLER</span>
-                        <br />
-                        <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent">
-                          MYLLI SERVICES
-                        </span>
-                      </h2>
-                      
-                      {/* Description */}
-                      <div className="space-y-4">
-                        <p className="text-xl font-semibold text-mylli-dark leading-relaxed">
-                          VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE AU SEIN DE NOTRE SOCIÉTÉ.
-                        </p>
-                        <p className="text-lg text-mylli-gray leading-relaxed">
-                          Il est à votre écoute et à votre disposition pour organiser le bon déroulement des prestations et pour répondre à vos questions avec professionnalisme et bienveillance.
-                        </p>
-                      </div>
-                      
-                      {/* Features */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-6">
-                        {[
-                          "Écoute personnalisée",
-                          "Disponibilité 24h/7j",
-                          "Suivi rigoureux",
-                          "Accompagnement humain"
-                        ].map((feature, index) => (
-                          <div key={index} className="flex items-center space-x-3 p-3 bg-mylli-light/30 rounded-xl border border-mylli-primary/10">
-                            <div className="w-2 h-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full"></div>
-                            <span className="text-mylli-dark font-medium">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                </div>
+                <div className="md:w-2/3 md:pl-8">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-mylli-dark">VOTRE CONSEILLER MYLLI SERVICES</h2>
+                  <p className="text-lg text-mylli-gray">
+                    <strong>VOTRE CONSEILLER MYLLI SERVICES EST VOTRE INTERLOCUTEUR UNIQUE AU SEIN DE NOTRE SOCIÉTÉ.</strong> IL EST À VOTRE ÉCOUTE ET À VOTRE DISPOSITION POUR ORGANISER LE BON DÉROULEMENT DES PRESTATIONS ET POUR RÉPONDRE À VOS QUESTIONS.
+                  </p>
                 </div>
               </div>
             </div>
@@ -236,5 +173,4 @@ const FonctionnementPage = () => {
       </section>
     </div>;
 };
-
 export default FonctionnementPage;
