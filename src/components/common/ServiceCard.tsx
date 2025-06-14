@@ -34,7 +34,7 @@ const ServiceCard = ({
     setDialogOpen(true);
   };
 
-  const renderIcon = () => {
+  const renderIcon = (): ReactNode => {
     if (!icon) return null;
     
     // Check if icon is a Lucide icon component
@@ -56,7 +56,7 @@ const ServiceCard = ({
         <div className={`${baseMobileClasses} backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass transition-all duration-300 hover:shadow-lg group overflow-hidden ${className}`}>
           <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div className="relative flex flex-col h-full z-10">
-            {renderIcon() && (
+            {icon && (
               <div className="text-mylli-primary mb-4 transform transition-transform duration-300 group-hover:scale-110 text-2xl sm:text-3xl flex justify-center">
                 {renderIcon()}
               </div>
@@ -100,7 +100,7 @@ const ServiceCard = ({
           <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
           
           <div className="flex flex-col h-full">
-            {renderIcon() && (
+            {icon && (
               <div className="mb-4 relative flex justify-center">
                 <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                 <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 w-fit">
@@ -157,7 +157,7 @@ const ServiceCard = ({
             </div>
           )}
           <div className="flex flex-col flex-grow">
-            {!image && renderIcon() && (
+            {!image && icon && (
               <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl flex justify-center">
                 {renderIcon()}
               </div>
@@ -198,7 +198,7 @@ const ServiceCard = ({
       <>
         <div className={`${baseMobileClasses} border-b border-gray-200 hover:bg-gray-50 transition-colors bg-white rounded-lg ${className}`}>
           <div className="flex flex-col h-full">
-            {renderIcon() && (
+            {icon && (
               <div className="text-mylli-primary mb-3 text-2xl sm:text-3xl self-center">
                 {renderIcon()}
               </div>
@@ -241,7 +241,7 @@ const ServiceCard = ({
       <>
         <div className={`${baseMobileClasses} bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card transition-all duration-300 border border-mylli-primary/20 ${className}`}>
           <div className="flex flex-col h-full text-center">
-            {renderIcon() && (
+            {icon && (
               <div className="text-mylli-primary mb-4 text-3xl sm:text-4xl self-center">
                 {renderIcon()}
               </div>
@@ -280,7 +280,7 @@ const ServiceCard = ({
   return (
     <>
       <div className={`${baseMobileClasses} bg-white rounded-2xl shadow-card border border-gray-100 ${className}`}>
-        {renderIcon() && (
+        {icon && (
           <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl self-center">
             {renderIcon()}
           </div>
