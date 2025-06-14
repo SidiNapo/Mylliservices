@@ -1,3 +1,4 @@
+
 import React, { ReactNode } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -30,7 +31,7 @@ const ServiceDetailDialog = ({
     mixed: "from-mylli-primary via-mylli-secondary to-mylli-quaternary"
   };
 
-  const renderIcon = (): ReactNode => {
+  const renderIcon = () => {
     if (!icon) return null;
     
     // Check if icon is a Lucide icon component

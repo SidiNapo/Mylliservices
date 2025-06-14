@@ -34,7 +34,7 @@ const ServiceCard = ({
     setDialogOpen(true);
   };
 
-  const renderIcon = (): ReactNode => {
+  const renderIcon = () => {
     if (!icon) return null;
     
     // Check if icon is a Lucide icon component
