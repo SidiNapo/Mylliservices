@@ -33,14 +33,14 @@ const ServiceDetailDialog = ({
   const renderIcon = () => {
     if (!icon) return null;
     
-    // Check if icon is a Lucide icon component (function)
+    // Check if icon is a Lucide icon component (function/constructor)
     if (typeof icon === 'function') {
       const IconComponent = icon as LucideIcon;
-      return <IconComponent />;
+      return <IconComponent size={20} />;
     }
     
-    // Otherwise render as ReactNode
-    return icon as ReactNode;
+    // Otherwise render as ReactNode (already a valid React element)
+    return icon;
   };
 
   return (
