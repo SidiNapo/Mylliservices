@@ -7,42 +7,26 @@ import ServiceCard from '@/components/common/ServiceCard';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
-
 const ServicesPage = () => {
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
 
   // Main services with updated images
-  const mainServices = [
-    {
-      title: 'AIDE-SOIGNANT(E) À DOMICILE',
-      description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
-      image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
-      link: "/services/aide-soignant"
-    },
-    {
-      title: 'INFIRMIER(ÈRE) À DOMICILE',
-      description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
-      image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
-      link: "/services/infirmier"
-    }
-  ];
-
-  return (
-    <div>
-      <SEOHead 
-        title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
-        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
-        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" 
-        canonicalUrl="/services" 
-        structuredData={structuredData} 
-      />
+  const mainServices = [{
+    title: 'AIDE-SOIGNANT(E) À DOMICILE',
+    description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
+    image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
+    link: "/services/aide-soignant"
+  }, {
+    title: 'INFIRMIER(ÈRE) À DOMICILE',
+    description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
+    image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
+    link: "/services/infirmier"
+  }];
+  return <div>
+      <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
-      <PageBanner 
-        title="Nos Services" 
-        subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" 
-        variant="modern" 
-      />
+      <PageBanner title="Nos Services" subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" variant="modern" />
       
       {/* Introduction */}
       <section className="section-padding bg-white">
@@ -58,16 +42,10 @@ const ServicesPage = () => {
       {/* Main Services - Enhanced larger cards with bigger images */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
         <div className="container-custom">
-          <SectionHeading 
-            title="Nos Services Principaux" 
-            subtitle="Une gamme complète de services pour répondre à vos besoins" 
-            align="center"
-            className="mb-16" 
-          />
+          <SectionHeading title="Nos Services Principaux" subtitle="Une gamme complète de services pour répondre à vos besoins" align="center" className="mb-16" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
-            {mainServices.map((service, index) => (
-              <div key={index} className="group relative">
+            {mainServices.map((service, index) => <div key={index} className="group relative">
                 {/* Modern Glass Card Design - Much Larger */}
                 <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-white/50">
                   
@@ -79,11 +57,7 @@ const ServicesPage = () => {
                   
                   {/* Much Larger Image Container - Increased height significantly */}
                   <div className="relative h-96 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     
                     {/* Image Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
@@ -109,11 +83,7 @@ const ServicesPage = () => {
                     
                     {/* Quality Stars */}
                     <div className="flex items-center justify-center mb-8">
-                      <div className="flex items-center space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <CheckCircle key={i} size={20} className="text-mylli-secondary" />
-                        ))}
-                      </div>
+                      
                     </div>
                     
                     {/* Modern CTA Button */}
@@ -135,8 +105,7 @@ const ServicesPage = () => {
                 
                 {/* External Glow Effect */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 transform scale-0 group-hover:scale-105 transition-transform duration-700 -z-10 blur-xl"></div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -154,11 +123,7 @@ const ServicesPage = () => {
                 {/* Main image container */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
                   <div className="relative">
-                    <img 
-                      src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" 
-                      alt="Professionnel de santé exécutant une ordonnance médicale" 
-                      className="w-full h-80 object-cover rounded-xl"
-                    />
+                    <img src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" alt="Professionnel de santé exécutant une ordonnance médicale" className="w-full h-80 object-cover rounded-xl" />
                     
                     {/* Overlay with gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/20 via-transparent to-transparent rounded-xl"></div>
@@ -273,8 +238,6 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ServicesPage;
