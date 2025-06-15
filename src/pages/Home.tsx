@@ -172,7 +172,7 @@ const HomePage = () => {
     {
       icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
         <OptimizedImage 
-          src="/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png" 
+          src="/lovable-uploads/f54c979c-ff26-4f04-9411-da84f659d3c5.png" 
           alt="Équipe compétente" 
           width={80} 
           height={80} 
