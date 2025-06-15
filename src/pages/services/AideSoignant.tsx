@@ -1,11 +1,9 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -24,7 +22,6 @@ const AideSoignantPage = () => {
     title: "Accompagner et sécuriser le patient",
     iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }];
-
   return <div>
       <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
@@ -171,39 +168,7 @@ const AideSoignantPage = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-mylli-light to-white rounded-3xl p-8 mt-16 shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl">
-              <div className="flex items-start">
-                <div className="w-16 h-16 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-6 flex-shrink-0">
-                  <Clock size={32} className="text-mylli-primary" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-6 text-mylli-dark">Interventions ponctuelles</h3>
-                  <p className="text-lg text-mylli-gray mb-6">
-                    Nous proposons également des interventions ponctuelles pour:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
-                      <div className="flex items-center">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray">Remplacements temporaires de l'aidant principal</span>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
-                      <div className="flex items-center">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray">Périodes de convalescence après hospitalisation</span>
-                      </div>
-                    </div>
-                    <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100">
-                      <div className="flex items-center">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray">Accompagnement pour les rendez-vous médicaux</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -231,5 +196,4 @@ const AideSoignantPage = () => {
       </section>
     </div>;
 };
-
 export default AideSoignantPage;
