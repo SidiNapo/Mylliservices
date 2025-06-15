@@ -28,7 +28,7 @@ const InfirmierPage = () => {
   const nurseRoles = [{
     title: "Exécuter une ordonnance médicale",
     description: "Administration de traitements, préparation et administration d'injections, surveillance des effets secondaires.",
-    iconImage: "/lovable-uploads/bde9c2cf-6a1e-4994-bb87-13e3a1bc9321.png"
+    iconImage: "/lovable-uploads/b8378166-5f0c-4885-a490-0d24a2bdf1eb.png"
   }, {
     title: "Poser et surveiller les sondes",
     description: "Installation et maintenance des sondes urinaires, nasogastriques et autres dispositifs médicaux invasifs.",
@@ -40,7 +40,7 @@ const InfirmierPage = () => {
   }, {
     title: "Assurer la communication avec le médecin traitant",
     description: "Transmission régulière des informations sur l'évolution de l'état du patient, coordination des soins.",
-    iconImage: "/lovable-uploads/d2780d4e-04e6-4ff9-8a1f-a54048bb2eb8.png"
+    iconImage: "/lovable-uploads/2f756573-a96c-4061-998c-b25adfae324e.png"
   }, {
     title: "Rédiger un rapport quotidiennement",
     description: "Documentation détaillée des soins prodigués, des observations et de l'évolution du patient pour une traçabilité optimale.",
