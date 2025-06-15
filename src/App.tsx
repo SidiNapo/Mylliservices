@@ -1,68 +1,66 @@
 
-import React, { useEffect } from 'react';
+import { Suspense, lazy } from 'react';
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainLayout from "./components/layout/MainLayout";
-import HomePage from "./pages/Home";
-import ServicesPage from "./pages/Services";
-import FonctionnementPage from "./pages/Fonctionnement";
-import EquipePage from "./pages/Equipe";
-import AProposPage from "./pages/APropos";
-import ContactPage from "./pages/Contact";
-import AideSoignantPage from "./pages/services/AideSoignant";
-import InfirmierPage from "./pages/services/Infirmier";
-import ArticlesPage from "./pages/Articles";
-import ArticleDetail from "./pages/ArticleDetail";
-import CookiePolicy from "./pages/CookiePolicy";
-import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
-import NotFound from "./pages/NotFound";
-import { initEmailJS } from "./utils/emailjs";
-import CookieConsentManager from "./components/cookies/CookieConsentManager";
-import "./styles/global.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from 'react-helmet-async';
+import MainLayout from "@/components/layout/MainLayout";
+import { CookieConsentManager } from "@/components/cookies/CookieConsentManager";
+
+// Lazy load components
+const Home = lazy(() => import("@/pages/Home"));
+const Services = lazy(() => import("@/pages/Services"));
+const APropos = lazy(() => import("@/pages/APropos"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const Equipe = lazy(() => import("@/pages/Equipe"));
+const Fonctionnement = lazy(() => import("@/pages/Fonctionnement"));
+const Articles = lazy(() => import("@/pages/Articles"));
+const ArticleDetail = lazy(() => import("@/pages/ArticleDetail"));
+const Infirmier = lazy(() => import("@/pages/services/Infirmier"));
+const AideSoignant = lazy(() => import("@/pages/services/AideSoignant"));
+const PolitiqueConfidentialite = lazy(() => import("@/pages/PolitiqueConfidentialite"));
+const CookiePolicy = lazy(() => import("@/pages/CookiePolicy"));
+const MotDuPresident = lazy(() => import("@/pages/MotDuPresident"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-const App: React.FC = () => {
-  // Initialize EmailJS when the app loads
-  useEffect(() => {
-    try {
-      initEmailJS();
-      console.log("EmailJS initialized successfully");
-    } catch (error) {
-      console.error("Failed to initialize EmailJS:", error);
-    }
-  }, []);
-
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-            <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
-            <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
-            <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
-            <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
-            <Route path="/outils" element={<MainLayout><EquipePage /></MainLayout>} />
-            <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
-            <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
-            <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
-            <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
-            <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
-            <Route path="/politique-confidentialite" element={<MainLayout><PolitiqueConfidentialite /></MainLayout>} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
-          </Routes>
-          <CookieConsentManager />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Router>
+            <div className="min-h-screen bg-background">
+              <MainLayout>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/services/infirmier" element={<Infirmier />} />
+                    <Route path="/services/aide-soignant" element={<AideSoignant />} />
+                    <Route path="/a-propos" element={<APropos />} />
+                    <Route path="/equipe" element={<Equipe />} />
+                    <Route path="/fonctionnement" element={<Fonctionnement />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/articles" element={<Articles />} />
+                    <Route path="/articles/:slug" element={<ArticleDetail />} />
+                    <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+                    <Route path="/politique-cookies" element={<CookiePolicy />} />
+                    <Route path="/mot-du-president" element={<MotDuPresident />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
+              </MainLayout>
+              <CookieConsentManager />
+              <Toaster />
+            </div>
+          </Router>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
-};
+}
 
 export default App;

@@ -200,19 +200,19 @@ const PolitiqueConfidentialite = () => {
                     <div className="flex items-center justify-center space-x-4">
                       <Mail className="w-6 h-6 text-mylli-primary" />
                       <a 
-                        href="mailto:info@mylliservices.com" 
+                        href="mailto:contact@mylliservices.ma" 
                         className="text-lg text-mylli-primary hover:text-mylli-secondary transition-colors font-medium"
                       >
-                        info@mylliservices.com
+                        contact@mylliservices.ma
                       </a>
                     </div>
                     <div className="flex items-center justify-center space-x-4">
                       <Phone className="w-6 h-6 text-mylli-primary" />
                       <a 
-                        href="tel:+212661377438" 
+                        href="tel:+212600000000" 
                         className="text-lg text-mylli-primary hover:text-mylli-secondary transition-colors font-medium"
                       >
-                        +212 661 37 74 38
+                        +212 6 00 00 00 00
                       </a>
                     </div>
                     <p className="text-mylli-gray">
