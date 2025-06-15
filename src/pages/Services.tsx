@@ -56,7 +56,7 @@ const ServicesPage = () => {
         </div>
       </section>
       
-      {/* Main Services - Redesigned creative cards */}
+      {/* Main Services - Clean redesigned cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full">
@@ -78,9 +78,9 @@ const ServicesPage = () => {
                 {/* Animated background glow */}
                 <div className={`absolute -inset-8 bg-gradient-to-br ${service.gradient} rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700`}></div>
                 
-                {/* Main card container with creative shape */}
+                {/* Main card container with clean design */}
                 <div className="relative">
-                  {/* Creative border with animated gradient */}
+                  {/* Clean border with gradient */}
                   <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-[2.5rem] opacity-60 blur-sm transition-all duration-500 group-hover:opacity-100`}></div>
                   
                   <div className="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden transform group-hover:-translate-y-4 group-hover:rotate-1 transition-all duration-700">
@@ -93,18 +93,13 @@ const ServicesPage = () => {
                         className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" 
                       />
                       
-                      {/* Creative gradient overlay with animation */}
+                      {/* Clean gradient overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60 group-hover:opacity-40 transition-all duration-500`}></div>
                       
-                      {/* Floating geometric shapes */}
-                      <div className="absolute top-8 right-8 w-20 h-20 border-4 border-white/30 rounded-2xl transform rotate-12 group-hover:rotate-45 transition-all duration-700"></div>
-                      <div className="absolute top-16 right-16 w-8 h-8 bg-white/20 rounded-full animate-pulse"></div>
-                      
-                      {/* Dynamic title overlay with creative positioning */}
+                      {/* Clean title overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-8">
                         <div className="relative">
-                          {/* Creative background for title */}
-                          <div className="absolute -inset-4 bg-black/20 backdrop-blur-sm rounded-2xl transform skew-x-1"></div>
+                          <div className="absolute -inset-4 bg-black/20 backdrop-blur-sm rounded-2xl"></div>
                           <h3 className="relative text-2xl md:text-3xl font-bold text-white leading-tight transform group-hover:translate-x-2 transition-all duration-500">
                             {service.title}
                           </h3>
@@ -112,38 +107,30 @@ const ServicesPage = () => {
                       </div>
                     </div>
                     
-                    {/* Enhanced content section */}
+                    {/* Clean content section */}
                     <div className="p-8 relative">
-                      {/* Creative background pattern */}
-                      <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
-                        <div className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full transform rotate-45`}></div>
-                      </div>
-                      
                       <div className="relative">
                         <p className="text-mylli-gray text-lg md:text-xl mb-8 leading-relaxed">
                           {service.description}
                         </p>
                         
-                        {/* Creative features list with unique styling */}
+                        {/* Clean features list */}
                         <div className="space-y-4 mb-10">
                           {service.features.map((feature, idx) => (
                             <div key={idx} className="flex items-center space-x-4 group/feature">
                               <div className="relative">
                                 <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover/feature:scale-150 transition-all duration-300`}></div>
-                                <div className={`absolute -inset-2 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} opacity-20 group-hover/feature:opacity-40 transition-all duration-300`}></div>
                               </div>
                               <span className="text-mylli-dark font-medium text-lg group-hover/feature:translate-x-2 transition-all duration-300">{feature}</span>
                             </div>
                           ))}
                         </div>
                         
-                        {/* Creative CTA Button */}
+                        {/* Clean CTA Button */}
                         <Link to={service.link}>
                           <div className="relative group/button">
-                            {/* Button background with creative design */}
                             <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-2xl blur-sm opacity-70 group-hover/button:opacity-100 transition-all duration-300`}></div>
                             <button className={`relative w-full bg-gradient-to-r ${service.gradient} text-white py-5 px-8 rounded-2xl font-bold text-lg shadow-2xl transform group-hover/button:scale-[1.02] group-hover/button:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-4 overflow-hidden`}>
-                              {/* Animated background effect */}
                               <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
                               
                               <span className="relative z-10">Découvrir ce service</span>
@@ -153,10 +140,6 @@ const ServicesPage = () => {
                         </Link>
                       </div>
                     </div>
-                    
-                    {/* Creative decorative corner elements */}
-                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-tl from-white/30 to-transparent rounded-tl-[2rem] transform rotate-12"></div>
-                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-white/40 to-transparent rounded-br-[2rem] transform -rotate-12"></div>
                   </div>
                 </div>
               </div>
