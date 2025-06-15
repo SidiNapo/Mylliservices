@@ -48,11 +48,10 @@ const ServiceCard = ({
   const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
     e.preventDefault();
     
-    // If we have detailed description, open dialog
+    // If we have detailed description, open dialog, otherwise navigate to the link
     if (detailedDescription) {
       setDialogOpen(true);
     } else {
-      // Otherwise, navigate to the link
       navigate(link);
     }
   };
