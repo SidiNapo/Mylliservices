@@ -2,45 +2,34 @@ import { Award, CheckCircle, Shield, Users } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ParallaxSection from '@/components/common/ParallaxSection';
-
 const EquipePage = () => {
-  const values = [
-    {
-      title: "Professionnalisme",
-      description: "Nos intervenants sont sélectionnés pour leurs compétences techniques et leur rigueur. Ils suivent une formation continue pour maintenir le plus haut niveau de qualité.",
-      icon: <Shield size={40} strokeWidth={1.5} />,
-      color: "from-blue-500 to-purple-600",
-      bgGradient: "from-blue-500/10 to-purple-600/10"
-    },
-    {
-      title: "Respect de la dignité",
-      description: "Nous considérons chaque personne dans sa globalité et sa singularité. Le respect de la dignité et de l'intimité guide chacune de nos actions.",
-      icon: <Award size={40} strokeWidth={1.5} />,
-      color: "from-emerald-500 to-teal-600",
-      bgGradient: "from-emerald-500/10 to-teal-600/10"
-    },
-    {
-      title: "Empathie",
-      description: "La capacité à comprendre et partager les sentiments d'autrui est au cœur de notre approche. Nous accordons une attention particulière à la dimension émotionnelle.",
-      icon: <Users size={40} strokeWidth={1.5} />,
-      color: "from-pink-500 to-rose-600",
-      bgGradient: "from-pink-500/10 to-rose-600/10"
-    },
-    {
-      title: "Adaptabilité",
-      description: "Nous ajustons constamment nos services pour répondre aux besoins changeants de nos clients. La flexibilité est essentielle pour un accompagnement de qualité.",
-      icon: <CheckCircle size={40} strokeWidth={1.5} />,
-      color: "from-orange-500 to-red-600",
-      bgGradient: "from-orange-500/10 to-red-600/10"
-    }
-  ];
-  
-  return (
-    <div>
-      <PageBanner 
-        title="Nos Outils" 
-        subtitle="Des outils performants au service de votre bien-être"
-      />
+  const values = [{
+    title: "Professionnalisme",
+    description: "Nos intervenants sont sélectionnés pour leurs compétences techniques et leur rigueur. Ils suivent une formation continue pour maintenir le plus haut niveau de qualité.",
+    icon: <Shield size={40} strokeWidth={1.5} />,
+    color: "from-blue-500 to-purple-600",
+    bgGradient: "from-blue-500/10 to-purple-600/10"
+  }, {
+    title: "Respect de la dignité",
+    description: "Nous considérons chaque personne dans sa globalité et sa singularité. Le respect de la dignité et de l'intimité guide chacune de nos actions.",
+    icon: <Award size={40} strokeWidth={1.5} />,
+    color: "from-emerald-500 to-teal-600",
+    bgGradient: "from-emerald-500/10 to-teal-600/10"
+  }, {
+    title: "Empathie",
+    description: "La capacité à comprendre et partager les sentiments d'autrui est au cœur de notre approche. Nous accordons une attention particulière à la dimension émotionnelle.",
+    icon: <Users size={40} strokeWidth={1.5} />,
+    color: "from-pink-500 to-rose-600",
+    bgGradient: "from-pink-500/10 to-rose-600/10"
+  }, {
+    title: "Adaptabilité",
+    description: "Nous ajustons constamment nos services pour répondre aux besoins changeants de nos clients. La flexibilité est essentielle pour un accompagnement de qualité.",
+    icon: <CheckCircle size={40} strokeWidth={1.5} />,
+    color: "from-orange-500 to-red-600",
+    bgGradient: "from-orange-500/10 to-red-600/10"
+  }];
+  return <div>
+      <PageBanner title="Nos Outils" subtitle="Des outils performants au service de votre bien-être" />
       
       {/* Approach Section with Parallax - Updated with new image and modern design */}
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
@@ -48,19 +37,18 @@ const EquipePage = () => {
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{
+          animationDelay: '2s'
+        }}></div>
           
           {/* Grid pattern overlay */}
-          <div 
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `
+          <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
                 linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
               `,
-              backgroundSize: '60px 60px'
-            }}
-          ></div>
+          backgroundSize: '60px 60px'
+        }}></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -81,11 +69,7 @@ const EquipePage = () => {
                 
                 {/* Image with overlay effects */}
                 <div className="relative overflow-hidden rounded-2xl">
-                  <img 
-                    src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" 
-                    alt="Équipe médicale professionnelle - Le caractère des soignants" 
-                    className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105" 
-                  />
+                  <img src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" alt="Équipe médicale professionnelle - Le caractère des soignants" className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105" />
                   
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -103,7 +87,9 @@ const EquipePage = () => {
               
               {/* Floating decorative elements */}
               <div className="absolute top-1/4 -left-6 w-4 h-4 bg-mylli-accent/50 rounded-full animate-bounce-subtle opacity-70"></div>
-              <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-mylli-secondary/50 rounded-full animate-bounce-subtle opacity-70" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-mylli-secondary/50 rounded-full animate-bounce-subtle opacity-70" style={{
+              animationDelay: '1s'
+            }}></div>
             </div>
             
             {/* Right side - Content */}
@@ -117,19 +103,15 @@ const EquipePage = () => {
                 {/* Subtle pattern overlay */}
                 <div className="absolute inset-0 opacity-5">
                   <div className="absolute inset-0" style={{
-                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
-                    backgroundSize: '20px 20px'
-                  }}></div>
+                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
+                  backgroundSize: '20px 20px'
+                }}></div>
                 </div>
                 
                 {/* Content */}
                 <div className="relative z-10">
                   {/* Decorative header */}
-                  <div className="flex items-center mb-8">
-                    <div className="w-12 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full mr-4"></div>
-                    <div className="w-6 h-1 bg-gradient-to-r from-mylli-secondary to-mylli-accent rounded-full mr-2"></div>
-                    <div className="w-3 h-1 bg-mylli-accent/50 rounded-full"></div>
-                  </div>
+                  
                   
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
                     <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent animate-text-gradient bg-[length:200%_auto]">
@@ -154,13 +136,9 @@ const EquipePage = () => {
                   {/* Enhanced call-to-action elements */}
                   <div className="mt-10 flex items-center space-x-4">
                     <div className="flex -space-x-2">
-                      {[1, 2, 3].map((i) => (
-                        <div 
-                          key={i}
-                          className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary border-2 border-white shadow-lg animate-pulse"
-                          style={{ animationDelay: `${i * 0.3}s` }}
-                        ></div>
-                      ))}
+                      {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary border-2 border-white shadow-lg animate-pulse" style={{
+                      animationDelay: `${i * 0.3}s`
+                    }}></div>)}
                     </div>
                     <div className="h-8 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
                     <span className="text-mylli-dark font-semibold">Notre engagement qualité</span>
@@ -185,11 +163,7 @@ const EquipePage = () => {
       {/* Selection Process - Modern design */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
-          <SectionHeading 
-            title="Notre Processus de Sélection"
-            subtitle="Une approche rigoureuse pour garantir l'excellence de nos intervenants"
-            variant="modern"
-          />
+          <SectionHeading title="Notre Processus de Sélection" subtitle="Une approche rigoureuse pour garantir l'excellence de nos intervenants" variant="modern" />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
@@ -256,11 +230,7 @@ const EquipePage = () => {
       {/* Training Section - Much Larger cards with bigger images */}
       <section className="py-24 bg-white">
         <div className="container-custom">
-          <SectionHeading 
-            title="Formation et Évaluation Continue"
-            subtitle="Un programme complet pour maintenir l'excellence"
-            variant="gradient"
-          />
+          <SectionHeading title="Formation et Évaluation Continue" subtitle="Un programme complet pour maintenir l'excellence" variant="gradient" />
           
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -276,11 +246,7 @@ const EquipePage = () => {
                   
                   {/* Much Larger Image container - Increased height significantly */}
                   <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" 
-                      alt="Formation technique - Équipe médicale en formation" 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
+                    <img src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" alt="Formation technique - Équipe médicale en formation" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
                     {/* Status indicator - bottom left */}
@@ -329,11 +295,7 @@ const EquipePage = () => {
                   
                   {/* Much Larger Image container - Increase height significantly */}
                   <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" 
-                      alt="Formation relationnelle - Équipe médicale professionnelle" 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
+                    <img src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" alt="Formation relationnelle - Équipe médicale professionnelle" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
                     {/* Status indicator - bottom left */}
@@ -439,20 +401,21 @@ const EquipePage = () => {
           {/* Floating geometric shapes */}
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{
+          animationDelay: '2s'
+        }}></div>
+          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{
+          animationDelay: '1s'
+        }}></div>
           
           {/* Grid pattern overlay */}
-          <div 
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `
+          <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `
                 linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
               `,
-              backgroundSize: '60px 60px'
-            }}
-          ></div>
+          backgroundSize: '60px 60px'
+        }}></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -478,12 +441,9 @@ const EquipePage = () => {
           {/* Creative Values Grid */}
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className="group relative"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
+              {values.map((value, index) => <div key={index} className="group relative" style={{
+              animationDelay: `${index * 0.2}s`
+            }}>
                   {/* Main Card with glass morphism */}
                   <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl overflow-hidden">
                     
@@ -531,13 +491,14 @@ const EquipePage = () => {
                     
                     {/* Floating particles effect */}
                     <div className="absolute top-4 right-4 w-2 h-2 bg-mylli-accent/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle"></div>
-                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{
+                  animationDelay: '0.5s'
+                }}></div>
                   </div>
                   
                   {/* Enhanced shadow effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 scale-95`}></div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             {/* Bottom decorative section */}
@@ -545,13 +506,9 @@ const EquipePage = () => {
               <div className="inline-flex items-center justify-center p-6 bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
                 <div className="flex items-center space-x-4">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div 
-                        key={i}
-                        className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i-1]?.color} animate-pulse`}
-                        style={{ animationDelay: `${i * 0.2}s` }}
-                      ></div>
-                    ))}
+                    {[1, 2, 3, 4].map(i => <div key={i} className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i - 1]?.color} animate-pulse`} style={{
+                    animationDelay: `${i * 0.2}s`
+                  }}></div>)}
                   </div>
                   <div className="h-6 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
                   <p className="text-mylli-dark font-semibold text-lg">
@@ -570,8 +527,6 @@ const EquipePage = () => {
           </svg>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default EquipePage;
