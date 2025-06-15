@@ -8,6 +8,7 @@ import { format, parseISO } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { ShareData } from '@/types/article';
 import { toast } from 'sonner';
+import SafeHtmlRenderer from '@/components/common/SafeHtmlRenderer';
 
 const ArticleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -129,10 +130,10 @@ const ArticleDetail = () => {
               />
             </div>
             
-            {/* Article Content */}
-            <div 
-              className="prose prose-lg max-w-none prose-headings:text-mylli-dark prose-p:text-mylli-gray prose-a:text-mylli-primary prose-a:no-underline hover:prose-a:text-mylli-primary-dark prose-a:transition-colors" 
-              dangerouslySetInnerHTML={{ __html: article.content }} 
+            {/* Article Content - Now using SafeHtmlRenderer */}
+            <SafeHtmlRenderer 
+              htmlContent={article.content}
+              className="prose prose-lg max-w-none prose-headings:text-mylli-dark prose-p:text-mylli-gray prose-a:text-mylli-primary prose-a:no-underline hover:prose-a:text-mylli-primary-dark prose-a:transition-colors"
             />
             
             {/* Share Article */}
