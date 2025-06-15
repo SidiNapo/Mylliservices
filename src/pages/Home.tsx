@@ -299,30 +299,12 @@ const HomePage = () => {
               <div className="text-center lg:text-left">
                 <header>
                   <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
-                    <div className="block mb-4">
-                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white rounded-lg shadow-lg text-mylli-dark font-black animate-flash-white">
-                        NOUS
-                      </span>
-                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white rounded-lg shadow-lg text-mylli-dark font-black animate-flash-white" style={{animationDelay: '0.2s'}}>
-                        SOMMES
-                      </span>
-                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white rounded-lg shadow-lg text-mylli-dark font-black animate-flash-white" style={{animationDelay: '0.4s'}}>
-                        LÀ
-                      </span>
-                    </div>
-                    <div className="block">
-                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white rounded-lg shadow-lg text-mylli-dark font-black animate-flash-white" style={{animationDelay: '0.6s'}}>
-                        POUR
-                      </span>
-                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-white/90 backdrop-blur-sm border-2 border-white rounded-lg shadow-lg text-mylli-dark font-black animate-flash-white" style={{animationDelay: '0.8s'}}>
-                        VOUS
-                      </span>
-                    </div>
-                    <div className="block mt-2">
-                      <span className="inline-block relative mx-2 my-1 px-6 py-3 bg-white backdrop-blur-sm border-4 border-white rounded-xl shadow-2xl text-mylli-secondary font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl animate-flash-white-strong" style={{animationDelay: '1s'}}>
-                        AIDER!
-                      </span>
-                    </div>
+                    <span className="block text-white animate-pulse mb-2">
+                      <span className="animate-pulse" style={{animationDuration: '1.5s'}}>NOUS SOMMES LÀ POUR VOUS</span>
+                    </span>
+                    <span className="block text-white animate-pulse">
+                      <span className="animate-pulse" style={{animationDuration: '1.5s', animationDelay: '0.3s'}}>AIDER!</span>
+                    </span>
                   </h1>
                   
                   <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700;900&display=swap');
 
 @tailwind base;
@@ -94,51 +93,6 @@
   
   .brand-name .services {
     color: #029edd;
-  }
-
-  /* Clean White Flash Animations */
-  @keyframes flash-white {
-    0% {
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      transform: scale(1);
-    }
-    50% {
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 60px rgba(255, 255, 255, 0.8);
-      transform: scale(1.05);
-    }
-    100% {
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-      transform: scale(1);
-    }
-  }
-
-  @keyframes flash-white-strong {
-    0% {
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-      transform: scale(1);
-    }
-    50% {
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 50px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 0.9), 0 0 150px rgba(255, 255, 255, 0.7);
-      transform: scale(1.1);
-    }
-    100% {
-      background: rgba(255, 255, 255, 1);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-      transform: scale(1);
-    }
-  }
-
-  .animate-flash-white {
-    animation: flash-white 1.5s ease-in-out infinite;
-  }
-
-  .animate-flash-white-strong {
-    animation: flash-white-strong 1.2s ease-in-out infinite;
   }
 }
 
