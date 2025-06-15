@@ -1,4 +1,3 @@
-
 import { Award, CheckCircle, Shield, Users } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -126,7 +125,7 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Training Section - Modern design with uploaded images */}
+      {/* Training Section - Much Larger cards with bigger images */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <SectionHeading 
@@ -136,8 +135,8 @@ const EquipePage = () => {
           />
           
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Formation technique card with first uploaded image */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              {/* Formation technique card - Much larger */}
               <div className="group relative">
                 <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
                   
@@ -147,38 +146,29 @@ const EquipePage = () => {
                   {/* Top decorative bar */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
                   
-                  {/* Image container */}
-                  <div className="relative h-64 overflow-hidden">
+                  {/* Much Larger Image container - Increased height significantly */}
+                  <div className="relative h-80 overflow-hidden">
                     <img 
                       src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" 
                       alt="Formation technique - Équipe médicale en formation" 
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
-                    {/* Floating icon badge */}
-                    <div className="absolute top-4 right-4 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      <Award size={28} className="text-mylli-primary" />
-                    </div>
-                    
-                    {/* Status indicator */}
-                    <div className="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white text-sm font-semibold rounded-full shadow-md">
-                      Formation Premium
+                    {/* Status indicator - bottom left */}
+                    <div className="absolute bottom-4 left-4 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-full shadow-md flex items-center">
+                      <div className="w-3 h-3 bg-white rounded-full animate-pulse mr-2"></div>
+                      Formation Active
                     </div>
                   </div>
                   
-                  {/* Content section */}
-                  <div className="relative p-8">
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-4">
-                        <Award size={24} className="text-mylli-primary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300">
-                        Formation technique
-                      </h3>
-                    </div>
+                  {/* Content section - Enhanced spacing */}
+                  <div className="relative p-10">
+                    <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300 mb-8">
+                      Formation technique
+                    </h3>
                     
-                    <ul className="space-y-4">
+                    <ul className="space-y-6">
                       <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
                         <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
                         <span className="text-mylli-gray font-medium">Formations spécifiques aux pathologies courantes</span>
@@ -199,7 +189,7 @@ const EquipePage = () => {
                 </div>
               </div>
               
-              {/* Formation relationnelle card with second uploaded image */}
+              {/* Formation relationnelle card - Much larger */}
               <div className="group relative">
                 <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
                   
@@ -209,38 +199,29 @@ const EquipePage = () => {
                   {/* Top decorative bar */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-secondary via-mylli-accent to-mylli-quaternary"></div>
                   
-                  {/* Image container */}
-                  <div className="relative h-64 overflow-hidden">
+                  {/* Much Larger Image container - Increase height significantly */}
+                  <div className="relative h-80 overflow-hidden">
                     <img 
                       src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" 
                       alt="Formation relationnelle - Équipe médicale professionnelle" 
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
-                    {/* Floating icon badge */}
-                    <div className="absolute top-4 right-4 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                      <Users size={28} className="text-mylli-secondary" />
-                    </div>
-                    
-                    {/* Status indicator */}
-                    <div className="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-mylli-secondary to-mylli-accent text-white text-sm font-semibold rounded-full shadow-md">
+                    {/* Status indicator - bottom left */}
+                    <div className="absolute bottom-4 left-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold rounded-full shadow-md flex items-center">
+                      <div className="w-3 h-3 bg-white rounded-full animate-pulse mr-2"></div>
                       Formation Excellence
                     </div>
                   </div>
                   
-                  {/* Content section */}
-                  <div className="relative p-8">
-                    <div className="flex items-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-4">
-                        <Users size={24} className="text-mylli-secondary" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-mylli-secondary transition-colors duration-300">
-                        Formation relationnelle
-                      </h3>
-                    </div>
+                  {/* Content section - Enhanced spacing */}
+                  <div className="relative p-10">
+                    <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-secondary transition-colors duration-300 mb-8">
+                      Formation relationnelle
+                    </h3>
                     
-                    <ul className="space-y-4">
+                    <ul className="space-y-6">
                       <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
                         <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
                         <span className="text-mylli-gray font-medium">Développement des compétences en communication</span>
