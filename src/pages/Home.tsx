@@ -5,7 +5,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import SectionHeading from '@/components/common/SectionHeading';
 import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import OptimizedImage from '@/components/OptimizedImage';
+import OptimizedImage from '@/components/seo/OptimizedImage';
 
 const Home = () => {
   const [selectedFeature, setSelectedFeature] = useState(null);
@@ -25,7 +25,7 @@ const Home = () => {
     title: "Une équipe compétente pour un service de qualité",
     description: "Accompagnement personnalisé et suivi régulier pour garantir votre entière satisfaction.",
     link: "/equipe",
-    detailedDescription: "Une équipe compétente pour un service de qualité\n\nNotre force réside dans la qualité de nos intervenants. Chaque membre de notre équipe est soigneusement sélectionné, formé et accompagné pour offrir un service d'exception. Nos professionnels – infirmières, aides-soignantes, auxiliaires de vie – possèdent les compétences techniques et humaines nécessaires pour répondre à tous vos besoins.\n\nNous privilégions une approche globale qui combine expertise médicale, soutien moral et respect de la personne. Nos équipes sont formées régulièrement aux dernières pratiques et technologies pour garantir des soins toujours plus efficaces et adaptés.\n\nChaque intervention fait l'objet d'un suivi personnalisé pour s'assurer de votre entière satisfaction et ajuster si nécessaire notre accompagnement à l'évolution de vos besoins."
+    detailedDescription: "Une équipe compétente pour un service de qualité\n\nNotre force réside dans la qualité de nos intervenants. Chaque membre de notre équipe est soigneusement sélectionné, formé et accompagné pour offrir un service d'exception. Nos professionnels – infirmières, aides-soignants, auxiliaires de vie – possèdent les compétences techniques et humaines nécessaires pour répondre à tous vos besoins.\n\nNous privilégions une approche globale qui combine expertise médicale, soutien moral et respect de la personne. Nos équipes sont formées régulièrement aux dernières pratiques et technologies pour garantir des soins toujours plus efficaces et adaptés.\n\nChaque intervention fait l'objet d'un suivi personnalisé pour s'assurer de votre entière satisfaction et ajuster si nécessaire notre accompagnement à l'évolution de vos besoins."
   }];
 
   const testimonials = [

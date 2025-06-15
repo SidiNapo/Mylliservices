@@ -1,4 +1,3 @@
-
 import { Suspense, lazy } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from "@/components/layout/MainLayout";
-import { CookieConsentManager } from "@/components/cookies/CookieConsentManager";
+import CookieConsentManager from "@/components/cookies/CookieConsentManager";
 
 // Lazy load components
 const Home = lazy(() => import("@/pages/Home"));
