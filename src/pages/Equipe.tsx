@@ -126,7 +126,7 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Training Section - Modern design */}
+      {/* Training Section - Modern design with uploaded images */}
       <section className="py-24 bg-white">
         <div className="container-custom">
           <SectionHeading 
@@ -135,98 +135,183 @@ const EquipePage = () => {
             variant="gradient"
           />
           
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gradient-to-br from-mylli-primary/10 to-white rounded-3xl shadow-lg p-8 transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-xl">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-mylli-primary/15 flex items-center justify-center mr-4">
-                    <Award size={32} className="text-mylli-primary" />
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Formation technique card with first uploaded image */}
+              <div className="group relative">
+                <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+                  
+                  {/* Background gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 via-mylli-secondary/5 to-mylli-accent/5"></div>
+                  
+                  {/* Top decorative bar */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
+                  
+                  {/* Image container */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" 
+                      alt="Formation technique - Équipe médicale en formation" 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    
+                    {/* Floating icon badge */}
+                    <div className="absolute top-4 right-4 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Award size={28} className="text-mylli-primary" />
+                    </div>
+                    
+                    {/* Status indicator */}
+                    <div className="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white text-sm font-semibold rounded-full shadow-md">
+                      Formation Premium
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-mylli-dark">Formation technique</h3>
+                  
+                  {/* Content section */}
+                  <div className="relative p-8">
+                    <div className="flex items-center mb-6">
+                      <div className="w-12 h-12 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-4">
+                        <Award size={24} className="text-mylli-primary" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300">
+                        Formation technique
+                      </h3>
+                    </div>
+                    
+                    <ul className="space-y-4">
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Formations spécifiques aux pathologies courantes</span>
+                      </li>
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Mise à jour des connaissances médicales</span>
+                      </li>
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Formation aux gestes d'urgence et premiers secours</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Decorative corner elements */}
+                  <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-tl from-mylli-primary/20 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <ul className="space-y-4">
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Formations spécifiques aux pathologies courantes</span>
-                  </li>
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Mise à jour des connaissances médicales</span>
-                  </li>
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Formation aux gestes d'urgence et premiers secours</span>
-                  </li>
-                </ul>
               </div>
               
-              <div className="bg-gradient-to-br from-mylli-secondary/10 to-white rounded-3xl shadow-lg p-8 transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-xl">
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-mylli-secondary/15 flex items-center justify-center mr-4">
-                    <Users size={32} className="text-mylli-secondary" />
+              {/* Formation relationnelle card with second uploaded image */}
+              <div className="group relative">
+                <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
+                  
+                  {/* Background gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-secondary/5 via-mylli-accent/5 to-mylli-quaternary/5"></div>
+                  
+                  {/* Top decorative bar */}
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-secondary via-mylli-accent to-mylli-quaternary"></div>
+                  
+                  {/* Image container */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" 
+                      alt="Formation relationnelle - Équipe médicale professionnelle" 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    
+                    {/* Floating icon badge */}
+                    <div className="absolute top-4 right-4 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <Users size={28} className="text-mylli-secondary" />
+                    </div>
+                    
+                    {/* Status indicator */}
+                    <div className="absolute top-4 left-4 px-4 py-2 bg-gradient-to-r from-mylli-secondary to-mylli-accent text-white text-sm font-semibold rounded-full shadow-md">
+                      Formation Excellence
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-mylli-dark">Formation relationnelle</h3>
+                  
+                  {/* Content section */}
+                  <div className="relative p-8">
+                    <div className="flex items-center mb-6">
+                      <div className="w-12 h-12 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-4">
+                        <Users size={24} className="text-mylli-secondary" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-mylli-secondary transition-colors duration-300">
+                        Formation relationnelle
+                      </h3>
+                    </div>
+                    
+                    <ul className="space-y-4">
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Développement des compétences en communication</span>
+                      </li>
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Gestion des situations difficiles ou conflictuelles</span>
+                      </li>
+                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
+                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
+                        <span className="text-mylli-gray font-medium">Accompagnement de la fin de vie et soutien aux familles</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Decorative corner elements */}
+                  <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-tl from-mylli-secondary/20 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
-                <ul className="space-y-4">
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Développement des compétences en communication</span>
-                  </li>
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Gestion des situations difficiles ou conflictuelles</span>
-                  </li>
-                  <li className="flex items-start p-3 bg-white rounded-lg shadow-sm">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Accompagnement de la fin de vie et soutien aux familles</span>
-                  </li>
-                </ul>
               </div>
             </div>
             
-            <div className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-white to-gray-50 shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl">
-              <h3 className="text-2xl font-bold mb-8 text-mylli-dark text-center">Évaluation et suivi</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-lg">
+            {/* Évaluation et suivi section - Enhanced styling */}
+            <div className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-white via-gray-50 to-white shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
+              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-full blur-2xl"></div>
+              
+              <h3 className="text-3xl font-bold mb-8 text-mylli-dark text-center bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
+                Évaluation et suivi
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
                   <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-2">
-                      <span className="text-mylli-primary font-bold text-sm">A</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-primary/10 to-mylli-primary/20 flex items-center justify-center mr-3">
+                      <span className="text-mylli-primary font-bold">A</span>
                     </div>
                     Évaluation régulière
                   </h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Contrôles de qualité mensuels</span>
                     </li>
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Visites surprises sur le terrain</span>
                     </li>
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Évaluation des compétences techniques</span>
                     </li>
                   </ul>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-lg">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
                   <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
-                    <div className="w-8 h-8 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-2">
-                      <span className="text-mylli-secondary font-bold text-sm">B</span>
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-secondary/10 to-mylli-secondary/20 flex items-center justify-center mr-3">
+                      <span className="text-mylli-secondary font-bold">B</span>
                     </div>
                     Retours clients
                   </h4>
                   <ul className="space-y-3">
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Enquêtes de satisfaction régulières</span>
                     </li>
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Entretiens avec les patients et les familles</span>
                     </li>
-                    <li className="flex items-start">
+                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
                       <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
                       <span className="text-mylli-gray">Système de recueil des suggestions d'amélioration</span>
                     </li>
