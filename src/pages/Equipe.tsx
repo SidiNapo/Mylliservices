@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Users, Heart, Award, Shield, Clock, CheckCircle, Star, Target, Zap, BookOpen } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -68,7 +67,7 @@ const EquipePage: React.FC = () => {
           <SectionHeading
             title="Une Équipe d'Exception"
             subtitle="Chez Mylli Services, nous croyons que la qualité des soins commence par la qualité humaine de nos équipes. Nos professionnels allient compétence technique et bienveillance."
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
@@ -193,7 +192,7 @@ const EquipePage: React.FC = () => {
           <SectionHeading
             title="Qualifications & Compétences"
             subtitle="Nos équipes maintiennent un niveau d'excellence grâce à une formation continue et rigoureuse."
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
