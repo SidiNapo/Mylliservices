@@ -1,453 +1,239 @@
-import { Award, CheckCircle, Shield, Users } from 'lucide-react';
-import PageBanner from '@/components/common/PageBanner';
-import SectionHeading from '@/components/common/SectionHeading';
-import ParallaxSection from '@/components/common/ParallaxSection';
 
-const EquipePage = () => {
-  const values = [
+import React from 'react';
+import { Users, Heart, Award, Shield, Clock, CheckCircle, Star, Target, Zap, BookOpen } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import PageBanner from "@/components/common/PageBanner";
+import SectionHeading from "@/components/common/SectionHeading";
+import OptimizedImage from "@/components/seo/OptimizedImage";
+
+const EquipePage: React.FC = () => {
+  const teamValues = [
     {
-      title: "Professionnalisme",
-      description: "Nos intervenants sont sélectionnés pour leurs compétences techniques et leur rigueur. Ils suivent une formation continue pour maintenir le plus haut niveau de qualité.",
-      icon: <Shield size={40} strokeWidth={1.5} />,
-      color: "from-blue-500 to-purple-600",
-      bgGradient: "from-blue-500/10 to-purple-600/10"
-    },
-    {
-      title: "Respect de la dignité",
-      description: "Nous considérons chaque personne dans sa globalité et sa singularité. Le respect de la dignité et de l'intimité guide chacune de nos actions.",
-      icon: <Award size={40} strokeWidth={1.5} />,
-      color: "from-emerald-500 to-teal-600",
-      bgGradient: "from-emerald-500/10 to-teal-600/10"
-    },
-    {
+      icon: Heart,
       title: "Empathie",
-      description: "La capacité à comprendre et partager les sentiments d'autrui est au cœur de notre approche. Nous accordons une attention particulière à la dimension émotionnelle.",
-      icon: <Users size={40} strokeWidth={1.5} />,
-      color: "from-pink-500 to-rose-600",
-      bgGradient: "from-pink-500/10 to-rose-600/10"
+      description: "Comprendre et partager les émotions de nos patients pour un accompagnement humain."
     },
     {
-      title: "Adaptabilité",
-      description: "Nous ajustons constamment nos services pour répondre aux besoins changeants de nos clients. La flexibilité est essentielle pour un accompagnement de qualité.",
-      icon: <CheckCircle size={40} strokeWidth={1.5} />,
-      color: "from-orange-500 to-red-600",
-      bgGradient: "from-orange-500/10 to-red-600/10"
+      icon: Shield,
+      title: "Fiabilité",
+      description: "Une présence constante et un service de qualité sur lequel vous pouvez compter."
+    },
+    {
+      icon: Star,
+      title: "Excellence",
+      description: "Recherche permanente de la perfection dans chaque geste de soin."
+    },
+    {
+      icon: Clock,
+      title: "Ponctualité",
+      description: "Respect des horaires et engagement dans la continuité des soins."
     }
   ];
-  
+
+  const qualifications = [
+    {
+      icon: Award,
+      title: "Formation Continue",
+      description: "Nos équipes suivent régulièrement des formations pour rester à la pointe des pratiques médicales."
+    },
+    {
+      icon: CheckCircle,
+      title: "Certifications",
+      description: "Tous nos soignants possèdent les diplômes et certifications requis par la réglementation."
+    },
+    {
+      icon: Target,
+      title: "Spécialisations",
+      description: "Chaque membre de l'équipe développe des compétences spécifiques selon les besoins."
+    },
+    {
+      icon: Zap,
+      title: "Réactivité",
+      description: "Capacité d'adaptation rapide aux situations d'urgence et aux besoins changeants."
+    }
+  ];
+
   return (
     <div>
       <PageBanner 
-        title="Nos Outils" 
-        subtitle="Des outils performants au service de votre bien-être"
+        title="Notre Équipe" 
+        subtitle="Des professionnels dévoués à votre service" 
+        variant="modern"
       />
-      
-      {/* Approach Section with Parallax */}
-      <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1500673922987-e212871fec22"
-        height="auto"
-        className="py-24"
-      >
+
+      {/* Introduction Section */}
+      <section className="section-padding bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/30">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white bg-opacity-90 backdrop-blur-xl rounded-3xl shadow-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-mylli-dark bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
-                LE CARACTÈRE DES SOIGNANTS EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT
-              </h2>
-              <p className="text-xl text-mylli-gray">
-                Chez Mylli Services, nous sommes convaincus que la qualité des soins dépend autant des compétences techniques que des qualités humaines des intervenants. C'est pourquoi nous accordons une importance particulière au recrutement et à la formation continue de notre équipe.
-              </p>
-            </div>
-          </div>
-        </div>
-      </ParallaxSection>
-      
-      {/* Selection Process - Modern design */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Notre Processus de Sélection"
-            subtitle="Une approche rigoureuse pour garantir l'excellence de nos intervenants"
-            variant="modern"
+          <SectionHeading
+            title="Une Équipe d'Exception"
+            subtitle="Chez Mylli Services, nous croyons que la qualité des soins commence par la qualité humaine de nos équipes. Nos professionnels allient compétence technique et bienveillance."
+            centered
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
-              <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-primary h-full">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-3">
-                    <span className="text-mylli-primary font-bold">1</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {teamValues.map((value, index) => (
+              <Card key={index} className="group hover:shadow-hover transition-all duration-300 border-0 bg-white/70 backdrop-blur-sm">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mylli-primary to-mylli-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <value.icon className="w-8 h-8 text-white" />
                   </div>
-                  Recrutement rigoureux
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Vérification des qualifications professionnelles et des diplômes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Contrôle des références et de l'expérience professionnelle</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Entretiens approfondis pour évaluer les compétences techniques</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Mises en situation pratiques pour tester les réactions</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
-              <div className="bg-gradient-to-br from-white to-mylli-secondary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-secondary h-full">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-3">
-                    <span className="text-mylli-secondary font-bold">2</span>
-                  </div>
-                  Évaluation des qualités humaines
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Évaluation de l'empathie et des capacités d'écoute</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Analyse de la patience et de la bienveillance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Vérification de l'équilibre émotionnel et capacité à gérer le stress</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Évaluation de la capacité d'adaptation aux différentes situations</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                  <h3 className="text-xl font-bold text-mylli-dark mb-3">{value.title}</h3>
+                  <p className="text-mylli-gray leading-relaxed">{value.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
-      
-      {/* Training Section - Much Larger cards with bigger images */}
-      <section className="py-24 bg-white">
+
+      {/* Character Section with Image */}
+      <section className="section-padding bg-gradient-to-br from-mylli-light/50 via-white to-blue-50/30 relative overflow-hidden">
         <div className="container-custom">
-          <SectionHeading 
-            title="Formation et Évaluation Continue"
-            subtitle="Un programme complet pour maintenir l'excellence"
-            variant="gradient"
-          />
-          
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              {/* Formation technique card - Much larger */}
-              <div className="group relative">
-                <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
-                  
-                  {/* Background gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 via-mylli-secondary/5 to-mylli-accent/5"></div>
-                  
-                  {/* Top decorative bar */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
-                  
-                  {/* Much Larger Image container - Increased height significantly */}
-                  <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" 
-                      alt="Formation technique - Équipe médicale en formation" 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                    
-                    {/* Status indicator - bottom left */}
-                    <div className="absolute bottom-4 left-4 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-full shadow-md flex items-center">
-                      <div className="w-3 h-3 bg-white rounded-full animate-pulse mr-2"></div>
-                      Formation Active
-                    </div>
-                  </div>
-                  
-                  {/* Content section - Enhanced spacing */}
-                  <div className="relative p-10">
-                    <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300 mb-8">
-                      Formation technique
-                    </h3>
-                    
-                    <ul className="space-y-6">
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Formations spécifiques aux pathologies courantes</span>
-                      </li>
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Mise à jour des connaissances médicales</span>
-                      </li>
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-primary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Formation aux gestes d'urgence et premiers secours</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  {/* Decorative corner elements */}
-                  <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-tl from-mylli-primary/20 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Content Side */}
+            <div className="order-2 lg:order-1">
+              <SectionHeading
+                title="LE CARACTÈRE DES SOIGNANTS EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT"
+                subtitle="Notre philosophie repose sur l'équilibre parfait entre expertise technique et qualités humaines exceptionnelles."
+              />
               
-              {/* Formation relationnelle card - Much larger */}
-              <div className="group relative">
-                <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-white/20">
-                  
-                  {/* Background gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-secondary/5 via-mylli-accent/5 to-mylli-quaternary/5"></div>
-                  
-                  {/* Top decorative bar */}
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-secondary via-mylli-accent to-mylli-quaternary"></div>
-                  
-                  {/* Much Larger Image container - Increase height significantly */}
-                  <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" 
-                      alt="Formation relationnelle - Équipe médicale professionnelle" 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                    
-                    {/* Status indicator - bottom left */}
-                    <div className="absolute bottom-4 left-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 text-white text-sm font-semibold rounded-full shadow-md flex items-center">
-                      <div className="w-3 h-3 bg-white rounded-full animate-pulse mr-2"></div>
-                      Formation Excellence
-                    </div>
+              <div className="space-y-6 mt-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary to-mylli-accent rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                    <Heart className="w-6 h-6 text-white" />
                   </div>
-                  
-                  {/* Content section - Enhanced spacing */}
-                  <div className="relative p-10">
-                    <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-secondary transition-colors duration-300 mb-8">
-                      Formation relationnelle
-                    </h3>
-                    
-                    <ul className="space-y-6">
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Développement des compétences en communication</span>
-                      </li>
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Gestion des situations difficiles ou conflictuelles</span>
-                      </li>
-                      <li className="flex items-start p-4 bg-gradient-to-r from-white to-gray-50 rounded-xl shadow-sm border border-gray-100/50 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md">
-                        <CheckCircle size={20} className="text-mylli-secondary mt-0.5 mr-3 flex-shrink-0" />
-                        <span className="text-mylli-gray font-medium">Accompagnement de la fin de vie et soutien aux familles</span>
-                      </li>
-                    </ul>
+                  <div>
+                    <h4 className="text-lg font-semibold text-mylli-dark mb-2">Bienveillance Authentique</h4>
+                    <p className="text-mylli-gray">Chaque soignant est sélectionné pour sa capacité naturelle à créer un lien de confiance et de réconfort.</p>
                   </div>
-                  
-                  {/* Decorative corner elements */}
-                  <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-tl from-mylli-secondary/20 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Évaluation et suivi section - Enhanced styling */}
-            <div className="mt-16 p-8 rounded-3xl bg-gradient-to-br from-white via-gray-50 to-white shadow-xl border border-mylli-primary/10 transform transition-all duration-500 hover:shadow-2xl relative overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-full blur-2xl"></div>
-              
-              <h3 className="text-3xl font-bold mb-8 text-mylli-dark text-center bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
-                Évaluation et suivi
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
-                  <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-primary/10 to-mylli-primary/20 flex items-center justify-center mr-3">
-                      <span className="text-mylli-primary font-bold">A</span>
-                    </div>
-                    Évaluation régulière
-                  </h4>
-                  <ul className="space-y-3">
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Contrôles de qualité mensuels</span>
-                    </li>
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Visites surprises sur le terrain</span>
-                    </li>
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-primary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Évaluation des compétences techniques</span>
-                    </li>
-                  </ul>
                 </div>
                 
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
-                  <h4 className="text-xl font-bold mb-4 text-mylli-dark flex items-center">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-mylli-secondary/10 to-mylli-secondary/20 flex items-center justify-center mr-3">
-                      <span className="text-mylli-secondary font-bold">B</span>
-                    </div>
-                    Retours clients
-                  </h4>
-                  <ul className="space-y-3">
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Enquêtes de satisfaction régulières</span>
-                    </li>
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Entretiens avec les patients et les familles</span>
-                    </li>
-                    <li className="flex items-start p-3 rounded-lg bg-gradient-to-r from-gray-50 to-white border border-gray-100">
-                      <CheckCircle size={18} className="text-mylli-secondary mt-0.5 mr-2 flex-shrink-0" />
-                      <span className="text-mylli-gray">Système de recueil des suggestions d'amélioration</span>
-                    </li>
-                  </ul>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-mylli-secondary to-mylli-tertiary rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-mylli-dark mb-2">Intelligence Émotionnelle</h4>
+                    <p className="text-mylli-gray">Nos équipes savent adapter leur approche selon la personnalité et les besoins de chaque patient.</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-br from-mylli-accent to-mylli-quaternary rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                    <BookOpen className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-mylli-dark mb-2">Formation Humaine</h4>
+                    <p className="text-mylli-gray">Au-delà des compétences techniques, nous formons nos équipes à l'écoute active et à la communication thérapeutique.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Values Section - Completely redesigned with modern creative styling */}
-      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
-        {/* Animated background elements */}
-        <div className="absolute inset-0">
-          {/* Floating geometric shapes */}
-          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
-          
-          {/* Grid pattern overlay */}
-          <div 
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '60px 60px'
-            }}
-          ></div>
-        </div>
-
-        <div className="container-custom relative z-10">
-          {/* Enhanced Section Heading */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center justify-center p-3 bg-white/40 backdrop-blur-md rounded-full border border-white/30 mb-6 shadow-lg">
-              <div className="w-3 h-3 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full animate-pulse mr-2"></div>
-              <span className="text-sm font-semibold text-mylli-dark tracking-wider uppercase">Nos Principes</span>
-            </div>
             
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
-              <span className="bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-secondary bg-clip-text text-transparent animate-text-gradient bg-[length:200%_auto]">
-                Nos Valeurs
-              </span>
-              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full"></div>
-            </h2>
-            
-            <p className="text-xl text-mylli-gray max-w-3xl mx-auto leading-relaxed">
-              Des principes fondamentaux qui définissent notre identité et guident chacune de nos actions au quotidien
-            </p>
-          </div>
-          
-          {/* Creative Values Grid */}
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className="group relative"
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  {/* Main Card with glass morphism */}
-                  <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl overflow-hidden">
+            {/* Image Side */}
+            <div className="order-1 lg:order-2 relative">
+              <div className="relative">
+                {/* Decorative background elements */}
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-gradient-to-br from-mylli-primary/20 to-mylli-accent/20 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-mylli-secondary/20 to-mylli-tertiary/20 rounded-full blur-xl"></div>
+                
+                {/* Main image container */}
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-2 shadow-soft hover:shadow-hover transition-all duration-500 group">
+                  <div className="relative overflow-hidden rounded-2xl">
+                    <OptimizedImage
+                      src="/lovable-uploads/dc75ef76-411e-4208-ad9c-330e88f44581.png"
+                      alt="Équipe médicale professionnelle avec stéthoscopes et tenue médicale"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                      priority
+                    />
                     
-                    {/* Animated background gradient */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${value.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
-                    
-                    {/* Glowing border effect */}
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
-                    
-                    {/* Content */}
-                    <div className="relative z-10">
-                      {/* Icon Container with creative styling */}
-                      <div className="flex items-start mb-6">
-                        <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} p-4 shadow-lg transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110`}>
-                          <div className="text-white transform transition-transform duration-500 group-hover:scale-110">
-                            {value.icon}
-                          </div>
-                          
-                          {/* Glowing effect behind icon */}
-                          <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`}></div>
-                        </div>
-                        
-                        {/* Decorative elements */}
-                        <div className="flex-1 pl-6">
-                          <div className="flex items-center mb-2">
-                            <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-mylli-primary group-hover:to-mylli-secondary group-hover:bg-clip-text transition-all duration-500">
-                              {value.title}
-                            </h3>
-                            <div className="ml-3 w-2 h-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-                          </div>
-                          
-                          {/* Animated underline */}
-                          <div className="w-0 h-0.5 bg-gradient-to-r from-mylli-primary to-mylli-secondary group-hover:w-16 transition-all duration-500 mb-4 rounded-full"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Description with enhanced typography */}
-                      <p className="text-mylli-gray leading-relaxed text-lg transform transition-all duration-500 group-hover:text-mylli-dark">
-                        {value.description}
-                      </p>
-                      
-                      {/* Interactive bottom accent */}
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-mylli-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    </div>
-                    
-                    {/* Floating particles effect */}
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-mylli-accent/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle"></div>
-                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{ animationDelay: '0.5s' }}></div>
+                    {/* Overlay with gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                   
-                  {/* Enhanced shadow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 scale-95`}></div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Bottom decorative section */}
-            <div className="text-center">
-              <div className="inline-flex items-center justify-center p-6 bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
-                <div className="flex items-center space-x-4">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div 
-                        key={i}
-                        className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i-1]?.color} animate-pulse`}
-                        style={{ animationDelay: `${i * 0.2}s` }}
-                      ></div>
-                    ))}
+                  {/* Floating badge */}
+                  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2 shadow-soft">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-sm font-medium text-mylli-dark">Équipe Certifiée</span>
+                    </div>
                   </div>
-                  <div className="h-6 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
-                  <p className="text-mylli-dark font-semibold text-lg">
-                    Des valeurs qui font la différence
-                  </p>
+                </div>
+                
+                {/* Stats cards */}
+                <div className="absolute -left-6 bottom-8 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-soft border border-white/50">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-mylli-primary">100%</div>
+                    <div className="text-xs text-mylli-gray font-medium">Diplômés</div>
+                  </div>
+                </div>
+                
+                <div className="absolute -right-4 top-12 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-soft border border-white/50">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-mylli-secondary">24/7</div>
+                    <div className="text-xs text-mylli-gray font-medium">Disponibles</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        {/* Bottom wave decoration */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-          <svg className="relative block w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="white" fillOpacity="0.1"></path>
-          </svg>
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-mylli-primary/5 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-mylli-accent/5 to-transparent rounded-full blur-3xl"></div>
+      </section>
+
+      {/* Qualifications Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom">
+          <SectionHeading
+            title="Qualifications & Compétences"
+            subtitle="Nos équipes maintiennent un niveau d'excellence grâce à une formation continue et rigoureuse."
+            centered
+          />
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {qualifications.map((qual, index) => (
+              <Card key={index} className="group hover:shadow-hover transition-all duration-300 border-0 bg-gradient-to-br from-white to-gray-50/50">
+                <CardContent className="p-6 text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-mylli-secondary to-mylli-tertiary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <qual.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-mylli-dark mb-3">{qual.title}</h3>
+                  <p className="text-mylli-gray leading-relaxed">{qual.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-br from-mylli-primary via-mylli-accent to-mylli-quaternary text-white relative overflow-hidden">
+        <div className="container-custom relative z-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Rejoignez Notre Équipe d'Exception
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Si vous partagez nos valeurs et souhaitez contribuer à améliorer la qualité de vie de nos patients, nous serions ravis de vous rencontrer.
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-white text-mylli-primary hover:bg-gray-100 font-semibold px-8 py-4 rounded-full shadow-soft hover:shadow-hover transition-all duration-300"
+            >
+              Postuler Maintenant
+            </Button>
+          </div>
+        </div>
+        
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/10 via-transparent to-white/5"></div>
         </div>
       </section>
     </div>
