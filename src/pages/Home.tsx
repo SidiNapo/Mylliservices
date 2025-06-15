@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -785,8 +784,7 @@ const HomePage = () => {
                     bg: 'mylli-secondary/5'
                   },
                   professional: {
-                    gradient: 'from-mylli-quatern
-ary to-mylli-accent',
+                    gradient: 'from-mylli-quaternary to-mylli-accent',
                     accent: 'mylli-quaternary',
                     bg: 'mylli-quaternary/5'
                   }
