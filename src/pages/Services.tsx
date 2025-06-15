@@ -18,7 +18,6 @@ const ServicesPage = () => {
     description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
     image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
     link: "/services/aide-soignant",
-    icon: <User className="text-white" size={32} />,
     gradient: "from-mylli-primary via-mylli-quaternary to-mylli-accent",
     features: ["Soins personnalisés", "Accompagnement quotidien", "Suivi médical"]
   }, {
@@ -26,7 +25,6 @@ const ServicesPage = () => {
     description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
     image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
     link: "/services/infirmier",
-    icon: <Heart className="text-white" size={32} />,
     gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
     features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
   }];
@@ -58,9 +56,15 @@ const ServicesPage = () => {
         </div>
       </section>
       
-      {/* Main Services - Redesigned modern cards */}
-      <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
-        <div className="container-custom">
+      {/* Main Services - Redesigned creative cards */}
+      <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-1/4 left-10 w-72 h-72 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-br from-mylli-accent/5 to-mylli-quaternary/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
           <SectionHeading 
             title="Nos Services Principaux" 
             subtitle="Une gamme complète de services pour répondre à vos besoins" 
@@ -68,85 +72,96 @@ const ServicesPage = () => {
             className="mb-20" 
           />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto">
             {mainServices.map((service, index) => (
               <div key={index} className="group relative">
-                {/* Background gradient glow */}
-                <div className={`absolute -inset-4 bg-gradient-to-br ${service.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-500`}></div>
+                {/* Animated background glow */}
+                <div className={`absolute -inset-8 bg-gradient-to-br ${service.gradient} rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700`}></div>
                 
-                {/* Main card container */}
-                <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500 border border-white/50">
+                {/* Main card container with creative shape */}
+                <div className="relative">
+                  {/* Creative border with animated gradient */}
+                  <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-[2.5rem] opacity-60 blur-sm transition-all duration-500 group-hover:opacity-100`}></div>
                   
-                  {/* Image section with overlay */}
-                  <div className="relative h-80 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
-                    />
+                  <div className="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden transform group-hover:-translate-y-4 group-hover:rotate-1 transition-all duration-700">
                     
-                    {/* Gradient overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-80`}></div>
-                    
-                    {/* Floating icon */}
-                    <div className="absolute top-6 right-6">
-                      <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 transform group-hover:rotate-12 transition-all duration-500">
-                        {service.icon}
-                      </div>
-                    </div>
-                    
-                    {/* Service badge */}
-                    <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-semibold text-mylli-dark">Service Premium</span>
-                      </div>
-                    </div>
-                    
-                    {/* Bottom title overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-bold text-white mb-2 transform group-hover:translate-x-2 transition-all duration-300">
-                        {service.title}
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  {/* Content section */}
-                  <div className="p-8">
-                    <p className="text-mylli-gray text-lg mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    
-                    {/* Features list */}
-                    <div className="grid grid-cols-1 gap-3 mb-8">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
-                          <span className="text-mylli-dark font-medium">{feature}</span>
+                    {/* Enhanced image section */}
+                    <div className="relative h-96 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" 
+                      />
+                      
+                      {/* Creative gradient overlay with animation */}
+                      <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60 group-hover:opacity-40 transition-all duration-500`}></div>
+                      
+                      {/* Floating geometric shapes */}
+                      <div className="absolute top-8 right-8 w-20 h-20 border-4 border-white/30 rounded-2xl transform rotate-12 group-hover:rotate-45 transition-all duration-700"></div>
+                      <div className="absolute top-16 right-16 w-8 h-8 bg-white/20 rounded-full animate-pulse"></div>
+                      
+                      {/* Dynamic title overlay with creative positioning */}
+                      <div className="absolute bottom-0 left-0 right-0 p-8">
+                        <div className="relative">
+                          {/* Creative background for title */}
+                          <div className="absolute -inset-4 bg-black/20 backdrop-blur-sm rounded-2xl transform skew-x-1"></div>
+                          <h3 className="relative text-2xl md:text-3xl font-bold text-white leading-tight transform group-hover:translate-x-2 transition-all duration-500">
+                            {service.title}
+                          </h3>
                         </div>
-                      ))}
+                      </div>
                     </div>
                     
-                    {/* CTA Button */}
-                    <Link to={service.link}>
-                      <button className={`w-full bg-gradient-to-r ${service.gradient} text-white py-4 px-8 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-3 group`}>
-                        <span>En savoir plus</span>
-                        <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform duration-300" />
-                      </button>
-                    </Link>
+                    {/* Enhanced content section */}
+                    <div className="p-8 relative">
+                      {/* Creative background pattern */}
+                      <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
+                        <div className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-full transform rotate-45`}></div>
+                      </div>
+                      
+                      <div className="relative">
+                        <p className="text-mylli-gray text-lg md:text-xl mb-8 leading-relaxed">
+                          {service.description}
+                        </p>
+                        
+                        {/* Creative features list with unique styling */}
+                        <div className="space-y-4 mb-10">
+                          {service.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center space-x-4 group/feature">
+                              <div className="relative">
+                                <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover/feature:scale-150 transition-all duration-300`}></div>
+                                <div className={`absolute -inset-2 w-7 h-7 rounded-full bg-gradient-to-r ${service.gradient} opacity-20 group-hover/feature:opacity-40 transition-all duration-300`}></div>
+                              </div>
+                              <span className="text-mylli-dark font-medium text-lg group-hover/feature:translate-x-2 transition-all duration-300">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Creative CTA Button */}
+                        <Link to={service.link}>
+                          <div className="relative group/button">
+                            {/* Button background with creative design */}
+                            <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-2xl blur-sm opacity-70 group-hover/button:opacity-100 transition-all duration-300`}></div>
+                            <button className={`relative w-full bg-gradient-to-r ${service.gradient} text-white py-5 px-8 rounded-2xl font-bold text-lg shadow-2xl transform group-hover/button:scale-[1.02] group-hover/button:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-4 overflow-hidden`}>
+                              {/* Animated background effect */}
+                              <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
+                              
+                              <span className="relative z-10">Découvrir ce service</span>
+                              <ArrowRight size={24} className="relative z-10 transform group-hover/button:translate-x-2 group-hover/button:scale-110 transition-all duration-300" />
+                            </button>
+                          </div>
+                        </Link>
+                      </div>
+                    </div>
+                    
+                    {/* Creative decorative corner elements */}
+                    <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-tl from-white/30 to-transparent rounded-tl-[2rem] transform rotate-12"></div>
+                    <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-white/40 to-transparent rounded-br-[2rem] transform -rotate-12"></div>
                   </div>
-                  
-                  {/* Decorative elements */}
-                  <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-tl from-white/20 to-transparent rounded-tl-3xl"></div>
-                  <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-white/30 to-transparent rounded-br-3xl"></div>
                 </div>
               </div>
             ))}
           </div>
-          
-          {/* Additional decorative elements */}
-          <div className="absolute top-1/2 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute top-1/4 right-10 w-24 h-24 bg-gradient-to-br from-mylli-accent/10 to-mylli-quaternary/10 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
         </div>
       </section>
       
