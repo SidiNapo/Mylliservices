@@ -18,6 +18,7 @@ import ArticlesPage from "./pages/Articles";
 import ArticleDetail from "./pages/ArticleDetail";
 import CookiePolicy from "./pages/CookiePolicy";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import MotDuPresident from "./pages/MotDuPresident";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
 import { preloadCriticalImages } from "./utils/imageOptimization";
@@ -67,6 +68,7 @@ const App: React.FC = () => {
             <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
             <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
             <Route path="/politique-confidentialite" element={<MainLayout><PolitiqueConfidentialite /></MainLayout>} />
+            <Route path="/mot-du-president" element={<MainLayout><MotDuPresident /></MainLayout>} />
             <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
           </Routes>
           <CookieConsentManager />
