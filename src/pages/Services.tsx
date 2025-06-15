@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -17,12 +18,14 @@ const ServicesPage = () => {
     title: 'AIDE-SOIGNANT(E) À DOMICILE',
     description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
     image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
-    link: "/services/aide-soignant"
+    link: "/services/aide-soignant",
+    icon: <User className="text-mylli-primary" size={32} />
   }, {
     title: 'INFIRMIER(ÈRE) À DOMICILE',
     description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
     image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
-    link: "/services/infirmier"
+    link: "/services/infirmier",
+    icon: <Heart className="text-mylli-primary" size={32} />
   }];
 
   return (
@@ -52,7 +55,7 @@ const ServicesPage = () => {
         </div>
       </section>
       
-      {/* Main Services - Enhanced larger cards with bigger images */}
+      {/* Main Services - Using ServiceCard components */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
         <div className="container-custom">
           <SectionHeading 
@@ -62,73 +65,18 @@ const ServicesPage = () => {
             className="mb-16" 
           />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {mainServices.map((service, index) => (
-              <div key={index} className="group relative">
-                {/* Modern Glass Card Design - Much Larger */}
-                <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl border border-white/50">
-                  
-                  {/* Gradient Background Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 via-mylli-secondary/5 to-mylli-accent/5 opacity-60"></div>
-                  
-                  {/* Top Decorative Element */}
-                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
-                  
-                  {/* Much Larger Image Container - Increased height significantly */}
-                  <div className="relative h-96 overflow-hidden">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" 
-                    />
-                    
-                    {/* Image Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                    
-                    {/* Status Badge - Availability */}
-                    <div className="absolute bottom-4 left-4 px-4 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white text-sm font-semibold rounded-full shadow-lg flex items-center">
-                      <div className="w-3 h-3 bg-white rounded-full animate-pulse mr-2"></div>
-                      Disponible 24h/7j
-                    </div>
-                  </div>
-                  
-                  {/* Content Section - Enhanced spacing */}
-                  <div className="relative p-10 bg-white/90 backdrop-blur-sm">
-                    {/* Title with Modern Typography */}
-                    <h3 className="text-3xl font-bold mb-6 text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300 leading-tight">
-                      {service.title}
-                    </h3>
-                    
-                    {/* Description */}
-                    <p className="text-mylli-gray mb-8 text-lg leading-relaxed">
-                      {service.description}
-                    </p>
-                    
-                    {/* Quality Stars */}
-                    <div className="flex items-center justify-center mb-8">
-                      
-                    </div>
-                    
-                    {/* Modern CTA Button with Link */}
-                    <Button asChild className="w-full bg-gradient-to-r from-mylli-primary to-mylli-secondary hover:from-mylli-secondary hover:to-mylli-primary text-white font-semibold py-4 px-6 rounded-xl shadow-lg transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl group/btn border-0">
-                      <Link to={service.link} className="flex items-center justify-center">
-                        En savoir plus
-                        <ArrowRight size={18} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Link>
-                    </Button>
-                  </div>
-                  
-                  {/* Decorative Corner Elements */}
-                  <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                  
-                  {/* Subtle Border Glow */}
-                  <div className="absolute inset-0 rounded-3xl border border-gradient-to-r from-mylli-primary/10 via-mylli-secondary/10 to-mylli-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-                
-                {/* External Glow Effect */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 transform scale-0 group-hover:scale-105 transition-transform duration-700 -z-10 blur-xl"></div>
-              </div>
+              <ServiceCard
+                key={index}
+                title={service.title}
+                description={service.description}
+                image={service.image}
+                link={service.link}
+                icon={service.icon}
+                style="modern"
+                className="transform hover:-translate-y-2 transition-all duration-500"
+              />
             ))}
           </div>
         </div>
