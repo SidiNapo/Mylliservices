@@ -91,7 +91,7 @@ const SectionHeading = ({
 
   return <div className={`${alignmentClasses[align]} mb-12 md:mb-16 ${className}`}>
       {renderTitle()}
-      {subtitle && <p className="section-subtitle max-w-3xl animate-fade-in mx-auto mt-4 px-4">
+      {subtitle && <p className={`section-subtitle max-w-3xl animate-fade-in mt-4 leading-relaxed ${align === 'left' ? 'text-left' : align === 'right' ? 'text-right ml-auto' : 'text-center mx-auto'}`}>
           {subtitle}
         </p>}
       {children}
