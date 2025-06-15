@@ -1,4 +1,3 @@
-
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User, Navigation, MapPinHouse, Compass } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -17,9 +16,6 @@ const ContactPage = () => {
   }, {
     day: "Services d'urgence",
     hours: "Disponibles à tout moment"
-  }, {
-    day: "Consultations",
-    hours: "Sur rendez-vous"
   }];
 
   // Updated exact address and coordinates for Mylli Services
