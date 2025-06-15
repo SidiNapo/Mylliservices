@@ -1,6 +1,5 @@
-
 import { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
 
@@ -28,6 +27,7 @@ const ServiceCard = ({
   detailedDescription
 }: ServiceCardProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const navigate = useNavigate();
   
   const colorClasses = {
     primary: 'from-mylli-primary to-mylli-quaternary',
@@ -46,9 +46,15 @@ const ServiceCard = ({
   };
 
   const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
-    if (!detailedDescription) return; // Only proceed if we have detailed content
     e.preventDefault();
-    setDialogOpen(true);
+    
+    // If we have detailed description, open dialog
+    if (detailedDescription) {
+      setDialogOpen(true);
+    } else {
+      // Otherwise, navigate to the link
+      navigate(link);
+    }
   };
   
   if (style === 'glass') {
