@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -391,7 +392,7 @@ const HomePage = () => {
         </section>
         
         {/* Feature Section */}
-        <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30" aria-labelledby="features-heading">
+        <section className="py-12 md:py-20 relative overflow-hidden bg-gradient-to-b from-white to-mylli-light/30" aria-labelledby="features-heading">
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-mylli-primary/5 to-transparent rounded-full transform translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-mylli-secondary/5 to-transparent rounded-full transform -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
@@ -405,18 +406,18 @@ const HomePage = () => {
             <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{animationDelay: '2s'}}></div>
           </div>
         
-          <div className="container-custom relative z-10">
-            <header className="max-w-2xl mx-auto mb-16">
+          <div className="container-custom relative z-10 px-4 md:px-6">
+            <header className="max-w-2xl mx-auto mb-12 md:mb-16">
               <SectionHeading title="Des services Sur mesure pour vous accompagner a domicile" variant="animated" highlightText="Sur mesure" className="text-center" id="features-heading" />
             </header>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
               {features.map((feature, index) => (
                 <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
-                  <div className="bg-white rounded-3xl shadow-2xl border border-gray-50 p-8 h-full flex flex-col transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl hover:border-mylli-primary/20 group relative overflow-hidden">
-                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-br from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-br from-mylli-quaternary to-mylli-accent'} rounded-3xl`}></div>
+                  <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl border border-gray-50 p-6 md:p-8 h-full flex flex-col transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl hover:border-mylli-primary/20 group relative overflow-hidden min-h-[400px] md:min-h-[450px]">
+                    <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-br from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-br from-mylli-quaternary to-mylli-accent'} rounded-2xl md:rounded-3xl`}></div>
                     
-                    <div className="flex justify-center mb-8 relative z-10">
+                    <div className="flex justify-center mb-6 md:mb-8 relative z-10">
                       <div className={`relative group-hover:scale-110 transition-transform duration-500 ${feature.color === 'primary' ? 'drop-shadow-lg' : feature.color === 'secondary' ? 'drop-shadow-lg' : 'drop-shadow-lg'}`}>
                         {feature.icon}
                         <div className={`absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-mylli-primary' : feature.color === 'secondary' ? 'bg-mylli-secondary' : 'bg-mylli-quaternary'}`}></div>
@@ -424,40 +425,40 @@ const HomePage = () => {
                     </div>
                     
                     <div className="flex-grow flex flex-col relative z-10">
-                      <h3 className={`text-xl font-bold mb-4 text-center ${feature.color === 'primary' ? 'text-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary' : 'text-mylli-quaternary'} group-hover:text-mylli-dark transition-colors duration-300`}>
+                      <h3 className={`text-lg md:text-xl font-bold mb-3 md:mb-4 text-center ${feature.color === 'primary' ? 'text-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary' : 'text-mylli-quaternary'} group-hover:text-mylli-dark transition-colors duration-300`}>
                         {feature.title}
                       </h3>
                       
-                      <p className="text-mylli-gray text-center mb-6 flex-grow leading-relaxed group-hover:text-mylli-dark transition-colors duration-300">
+                      <p className="text-mylli-gray text-center mb-6 flex-grow leading-relaxed group-hover:text-mylli-dark transition-colors duration-300 text-sm md:text-base">
                         {feature.description}
                       </p>
                       
-                      <div className="mt-auto">
-                        <button onClick={() => setSelectedFeature(index)} className={`w-full text-center font-semibold flex items-center justify-center py-3 px-6 rounded-xl border transition-all duration-300 ${feature.color === 'primary' ? 'text-mylli-primary border-mylli-primary/20 hover:bg-mylli-primary hover:text-white hover:border-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary border-mylli-secondary/20 hover:bg-mylli-secondary hover:text-white hover:border-mylli-secondary' : 'text-mylli-quaternary border-mylli-quaternary/20 hover:bg-mylli-quaternary hover:text-white hover:border-mylli-quaternary'} hover:shadow-lg hover:scale-105`}>
+                      <div className="mt-auto pb-2">
+                        <button onClick={() => setSelectedFeature(index)} className={`w-full text-center font-semibold flex items-center justify-center py-3 px-4 md:px-6 rounded-xl border transition-all duration-300 text-sm md:text-base ${feature.color === 'primary' ? 'text-mylli-primary border-mylli-primary/20 hover:bg-mylli-primary hover:text-white hover:border-mylli-primary' : feature.color === 'secondary' ? 'text-mylli-secondary border-mylli-secondary/20 hover:bg-mylli-secondary hover:text-white hover:border-mylli-secondary' : 'text-mylli-quaternary border-mylli-quaternary/20 hover:bg-mylli-quaternary hover:text-white hover:border-mylli-quaternary'} hover:shadow-lg hover:scale-105`}>
                           En savoir plus
-                          <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                          <ArrowRight size={14} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
                       </div>
                     </div>
                     
-                    <div className={`absolute bottom-0 left-0 w-full h-2 ${feature.color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-3xl`}></div>
+                    <div className={`absolute bottom-0 left-0 w-full h-2 ${feature.color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left rounded-b-2xl md:rounded-b-3xl`}></div>
                     
-                    <div className={`absolute top-0 right-0 w-20 h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                    <div className={`absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-2xl md:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="mt-16 text-center">
-              <Link to="/services" className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group mx-0">
+            <div className="mt-12 md:mt-16 text-center px-4">
+              <Link to="/services" className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white font-medium transform transition-all duration-300 hover:scale-105 hover:shadow-neon group mx-0 text-sm md:text-base">
                 <span className="mr-2">Découvrir nos services</span>
-                <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
           
           <div className="absolute bottom-0 left-0 w-full">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-16 text-white">
               <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V100C69,91.27,141.43,76.12,213.33,66.11Z" fill="currentColor"></path>
             </svg>
           </div>
@@ -921,40 +922,40 @@ const HomePage = () => {
       {/* Feature Details Modal */}
       {selectedFeature !== null && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in">
-            <div className={`relative p-8 ${features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'}`}>
-              <button onClick={() => setSelectedFeature(null)} className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full">
-                <X size={24} />
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in mx-4">
+            <div className={`relative p-6 md:p-8 ${features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'}`}>
+              <button onClick={() => setSelectedFeature(null)} className="absolute top-4 md:top-6 right-4 md:right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full">
+                <X size={20} />
               </button>
               
-              <div className="flex items-center gap-6">
-                <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
                   {features[selectedFeature].icon}
                 </div>
-                <div>
-                  <h2 className="text-3xl font-bold text-white mb-2">
+                <div className="text-center md:text-left">
+                  <h2 className="text-xl md:text-3xl font-bold text-white mb-2">
                     {features[selectedFeature].title}
                   </h2>
-                  <p className="text-white/90 text-lg">
+                  <p className="text-white/90 text-base md:text-lg">
                     {features[selectedFeature].description}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-8 overflow-y-auto max-h-[60vh]">
-              <div className="prose prose-lg max-w-none">
+            <div className="p-6 md:p-8 overflow-y-auto max-h-[60vh]">
+              <div className="prose prose-sm md:prose-lg max-w-none">
                 {formatDetailedDescription(features[selectedFeature].detailedDescription)}
               </div>
               
-              <div className="mt-8 flex gap-4 justify-end">
-                <Button variant="outline" onClick={() => setSelectedFeature(null)} className="px-6 py-3">
+              <div className="mt-6 md:mt-8 flex flex-col md:flex-row gap-3 md:gap-4 justify-end">
+                <Button variant="outline" onClick={() => setSelectedFeature(null)} className="px-4 md:px-6 py-2 md:py-3 text-sm md:text-base">
                   Fermer
                 </Button>
-                <Button asChild className={`px-6 py-3 ${features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' : 'bg-mylli-quaternary hover:bg-mylli-accent'}`}>
+                <Button asChild className={`px-4 md:px-6 py-2 md:py-3 text-sm md:text-base ${features[selectedFeature].color === 'primary' ? 'bg-mylli-primary hover:bg-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-mylli-secondary hover:bg-mylli-secondary' : 'bg-mylli-quaternary hover:bg-mylli-accent'}`}>
                   <Link to="/contact">
                     Contactez-nous
-                    <ArrowRight size={16} className="ml-2" />
+                    <ArrowRight size={14} className="ml-2" />
                   </Link>
                 </Button>
               </div>
