@@ -139,3 +139,52 @@ export const generateServicePageStructuredData = () => {
     ]
   };
 };
+
+export const generateTeamPageStructuredData = () => {
+  const baseOrganization = generateOrganizationData();
+  
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      baseOrganization,
+      {
+        "@type": "WebPage",
+        "@id": "https://mylliservices.com/outils",
+        "url": "https://mylliservices.com/outils",
+        "name": "Nos Outils - Formation et sélection de l'équipe",
+        "description": "Découvrez nos processus de sélection rigoureux et nos programmes de formation continue pour garantir des soins de qualité exceptionnelle.",
+        "isPartOf": {
+          "@id": "https://mylliservices.com"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://mylliservices.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Nos Outils",
+              "item": "https://mylliservices.com/outils"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Centre de Formation Mylli Services",
+        "description": "Programme de formation continue pour nos professionnels de santé",
+        "parentOrganization": baseOrganization,
+        "educationalCredentialAwarded": [
+          "Formation technique spécialisée",
+          "Formation relationnelle",
+          "Certification aux gestes d'urgence"
+        ]
+      }
+    ]
+  };
+};

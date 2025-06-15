@@ -47,7 +47,7 @@ const Header = () => {
     },
     {
       name: 'Nos Outils',
-      path: '/equipe'
+      path: '/outils'
     },
     {
       name: 'À Propos',
