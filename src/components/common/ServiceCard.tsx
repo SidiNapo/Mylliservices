@@ -1,4 +1,6 @@
+
 import { ReactNode, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import ServiceDetailDialog from './ServiceDetailDialog';
 
@@ -27,43 +29,43 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   
-  const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
-    if (!detailedDescription) return;
-    e.preventDefault();
-    e.stopPropagation();
-    setDialogOpen(true);
+  const colorClasses = {
+    primary: 'from-mylli-primary to-mylli-quaternary',
+    secondary: 'from-mylli-secondary to-mylli-tertiary',
+    accent: 'from-mylli-accent to-mylli-quaternary',
+    mixed: 'from-mylli-primary via-mylli-secondary to-mylli-quaternary'
+  };
+  
+  const cardStyles = {
+    default: `card-service flex flex-col h-full ${className}`,
+    modern: `card-service flex flex-col h-full relative overflow-hidden group ${className}`,
+    minimal: `p-6 border-b border-gray-200 hover:bg-gray-50 transition-colors h-full ${className}`,
+    featured: `bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card p-6 transition-all duration-300 border border-mylli-primary/20 h-full ${className}`,
+    glass: `backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass p-6 transition-all duration-300 hover:shadow-lg h-full group ${className}`,
+    '3d': `relative bg-white rounded-2xl shadow-soft p-6 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg h-full group overflow-hidden ${className}`
   };
 
-  // Mobile-first base classes with better mobile sizing
-  const baseMobileClasses = "w-full min-h-[280px] sm:min-h-[320px] flex flex-col p-4 sm:p-6 relative";
+  const handleEnSavoirPlusClick = (e: React.MouseEvent) => {
+    if (!detailedDescription) return; // Only proceed if we have detailed content
+    e.preventDefault();
+    setDialogOpen(true);
+  };
   
   if (style === 'glass') {
     return (
-      <>
-        <div className={`${baseMobileClasses} backdrop-blur-md bg-white/60 rounded-2xl border border-white/30 shadow-glass transition-all duration-300 hover:shadow-lg group overflow-hidden ${className}`}>
-          <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <div className="relative flex flex-col h-full z-10">
-            {icon && (
-              <div className="text-mylli-primary mb-4 transform transition-transform duration-300 group-hover:scale-110 text-2xl sm:text-3xl flex justify-center">
-                {icon}
-              </div>
-            )}
-            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
-              {title}
-            </h3>
-            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
-              {description}
-            </p>
-            <button 
-              onClick={handleEnSavoirPlusClick} 
-              className="mt-auto w-full inline-flex items-center justify-center px-4 py-3 sm:py-4 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white text-sm sm:text-base font-medium transform transition-all duration-300 group-hover:scale-105 shadow-sm min-h-[44px] sm:min-h-[48px]"
-            >
-              En savoir plus 
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+      <div className={cardStyles[style]}>
+        <div className="absolute -inset-0.5 bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="relative flex flex-col h-full z-10">
+          {icon && <div className="text-mylli-primary mb-5 transform transition-transform duration-300 group-hover:scale-110">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="mt-auto inline-flex items-center justify-center px-4 py-2 rounded-full bg-gradient-to-r from-mylli-primary to-mylli-quaternary text-white transform transition-all duration-300 group-hover:scale-105 shadow-sm"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
-        
         {detailedDescription && (
           <ServiceDetailDialog 
             isOpen={dialogOpen}
@@ -75,44 +77,37 @@ const ServiceCard = ({
             link={link}
           />
         )}
-      </>
+      </div>
     );
   }
   
   if (style === '3d') {
     return (
-      <>
-        <div className={`${baseMobileClasses} bg-white rounded-2xl shadow-soft transition-all duration-500 transform hover:-translate-y-2 hover:shadow-lg group overflow-hidden ${className}`}>
-          <div className="absolute top-0 left-0 w-full h-full transform -rotate-6 scale-95 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-          <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
-          
-          <div className="flex flex-col h-full">
-            {icon && (
-              <div className="mb-4 relative flex justify-center">
-                <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
-                <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 w-fit">
-                  <div className="text-xl sm:text-2xl text-mylli-primary">
-                    {icon}
-                  </div>
-                </div>
+      <div className={cardStyles[style]}>
+        {/* 3D effects with pseudo-elements */}
+        <div className="absolute top-0 left-0 w-full h-full transform -rotate-6 scale-95 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 rounded-2xl -z-10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+        <div className="absolute top-0 right-0 w-3 h-full bg-gradient-to-b from-mylli-primary to-mylli-quaternary transform translate-x-full group-hover:translate-x-0 transition-all duration-300 rounded-r-lg"></div>
+        
+        <div className="flex flex-col h-full">
+          {icon && (
+            <div className="mb-5 relative">
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-br from-mylli-primary/20 to-mylli-quaternary/20 blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <div className="relative bg-white rounded-full p-3 shadow-sm transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                {icon}
               </div>
-            )}
-            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1 leading-tight text-center px-2">
-              {title}
-            </h3>
-            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
-              {description}
-            </p>
-            <button 
-              onClick={handleEnSavoirPlusClick} 
-              className="w-full flex items-center justify-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2 px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
-            >
-              En savoir plus 
-              <ArrowRight size={16} className="ml-2 transform transition-all duration-300 group-hover:translate-x-1" />
-            </button>
-            
-            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl"></div>
-          </div>
+            </div>
+          )}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark transition-all duration-300 group-hover:translate-x-1">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="flex items-center text-mylli-primary font-medium transition-all duration-300 group-hover:translate-x-2"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1 transform transition-all duration-300 group-hover:translate-x-1" />
+          </button>
+          
+          {/* Decorative corner element */}
+          <div className="absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl"></div>
         </div>
         
         {detailedDescription && (
@@ -126,43 +121,32 @@ const ServiceCard = ({
             link={link}
           />
         )}
-      </>
+      </div>
     );
   }
   
   if (style === 'modern') {
     return (
-      <>
-        <div className={`${baseMobileClasses} group bg-white rounded-2xl shadow-card ${className}`}>
-          {image && (
-            <div className="h-32 sm:h-40 mb-4 overflow-hidden rounded-xl">
-              <img 
-                src={image} 
-                alt={title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-              />
-            </div>
-          )}
-          <div className="flex flex-col flex-grow">
-            {!image && icon && (
-              <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl flex justify-center">
-                {icon}
-              </div>
-            )}
-            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
-              {title}
-            </h3>
-            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
-              {description}
-            </p>
-            <button 
-              onClick={handleEnSavoirPlusClick} 
-              className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
-            >
-              En savoir plus 
-              <ArrowRight size={16} className="ml-2" />
-            </button>
+      <div className={cardStyles[style]}>
+        {image && (
+          <div className="h-48 mb-6 overflow-hidden">
+            <img 
+              src={image} 
+              alt={title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+            />
           </div>
+        )}
+        <div className="p-6 flex flex-col flex-grow bg-white">
+          {!image && icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick} 
+            className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors group-hover:translate-x-1 duration-300 mt-auto"
+          >
+            En savoir plus <ArrowRight size={16} className="ml-1" />
+          </button>
         </div>
         
         {detailedDescription && (
@@ -176,74 +160,23 @@ const ServiceCard = ({
             link={link}
           />
         )}
-      </>
+      </div>
     );
   }
   
   if (style === 'minimal') {
     return (
-      <>
-        <div className={`${baseMobileClasses} border-b border-gray-200 hover:bg-gray-50 transition-colors bg-white rounded-lg ${className}`}>
+      <div className={cardStyles[style]}>
+        <div className="flex items-start h-full">
+          {icon && <div className="text-mylli-primary mr-4">{icon}</div>}
           <div className="flex flex-col h-full">
-            {icon && (
-              <div className="text-mylli-primary mb-3 text-2xl sm:text-3xl self-center">
-                {icon}
-              </div>
-            )}
-            <div className="flex flex-col h-full flex-grow">
-              <h3 className="text-base sm:text-lg font-bold mb-2 text-mylli-dark leading-tight text-center px-2">
-                {title}
-              </h3>
-              <p className="text-xs sm:text-sm text-mylli-gray mb-4 flex-grow leading-relaxed text-center px-2">
-                {description}
-              </p>
-              <button 
-                onClick={handleEnSavoirPlusClick} 
-                className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
-              >
-                En savoir plus 
-                <ArrowRight size={16} className="ml-2" />
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        {detailedDescription && (
-          <ServiceDetailDialog 
-            isOpen={dialogOpen}
-            onClose={() => setDialogOpen(false)}
-            title={title}
-            description={detailedDescription || description}
-            icon={icon}
-            color={color}
-            link={link}
-          />
-        )}
-      </>
-    );
-  }
-  
-  if (style === 'featured') {
-    return (
-      <>
-        <div className={`${baseMobileClasses} bg-gradient-to-br from-white to-mylli-light rounded-2xl shadow-card transition-all duration-300 border border-mylli-primary/20 ${className}`}>
-          <div className="flex flex-col h-full text-center">
-            {icon && (
-              <div className="text-mylli-primary mb-4 text-3xl sm:text-4xl self-center">
-                {icon}
-              </div>
-            )}
-            <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight px-2">
-              {title}
-            </h3>
-            <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed px-2">
-              {description}
-            </p>
+            <h3 className="text-lg font-bold mb-2 text-mylli-dark">{title}</h3>
+            <p className="text-mylli-gray mb-3 flex-grow">{description}</p>
             <button 
-              onClick={handleEnSavoirPlusClick}
-              className="btn-primary text-center w-full mt-auto py-3 sm:py-4 text-sm sm:text-base font-medium rounded-lg min-h-[44px] sm:min-h-[48px]"
+              onClick={handleEnSavoirPlusClick} 
+              className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
             >
-              En savoir plus
+              En savoir plus <ArrowRight size={16} className="ml-1" />
             </button>
           </div>
         </div>
@@ -259,33 +192,52 @@ const ServiceCard = ({
             link={link}
           />
         )}
-      </>
+      </div>
+    );
+  }
+  
+  if (style === 'featured') {
+    return (
+      <div className={cardStyles[style]}>
+        <div className="flex flex-col h-full">
+          {icon && <div className="text-mylli-primary mb-4 text-4xl">{icon}</div>}
+          <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+          <p className="text-mylli-gray mb-6 flex-grow">{description}</p>
+          <button 
+            onClick={handleEnSavoirPlusClick}
+            className="btn-primary text-center w-full mt-auto"
+          >
+            En savoir plus
+          </button>
+        </div>
+        
+        {detailedDescription && (
+          <ServiceDetailDialog 
+            isOpen={dialogOpen}
+            onClose={() => setDialogOpen(false)}
+            title={title}
+            description={detailedDescription || description}
+            icon={icon}
+            color={color}
+            link={link}
+          />
+        )}
+      </div>
     );
   }
 
   // Default style
   return (
-    <>
-      <div className={`${baseMobileClasses} bg-white rounded-2xl shadow-card border border-gray-100 ${className}`}>
-        {icon && (
-          <div className="text-mylli-primary mb-4 text-2xl sm:text-3xl self-center">
-            {icon}
-          </div>
-        )}
-        <h3 className="text-base sm:text-lg font-bold mb-3 text-mylli-dark leading-tight text-center px-2">
-          {title}
-        </h3>
-        <p className="text-xs sm:text-sm text-mylli-gray mb-6 flex-grow leading-relaxed text-center px-2">
-          {description}
-        </p>
-        <button 
-          onClick={handleEnSavoirPlusClick}
-          className="w-full flex items-center justify-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto px-4 py-3 sm:py-4 rounded-lg bg-mylli-primary/5 text-sm sm:text-base min-h-[44px] sm:min-h-[48px]"
-        >
-          En savoir plus 
-          <ArrowRight size={16} className="ml-2" />
-        </button>
-      </div>
+    <div className={cardStyles.default}>
+      {icon && <div className="text-mylli-primary mb-4">{icon}</div>}
+      <h3 className="text-xl font-bold mb-3 text-mylli-dark">{title}</h3>
+      <p className="text-mylli-gray mb-4 flex-grow">{description}</p>
+      <button 
+        onClick={handleEnSavoirPlusClick}
+        className="flex items-center text-mylli-primary font-medium hover:text-mylli-dark transition-colors mt-auto"
+      >
+        En savoir plus <ArrowRight size={16} className="ml-1" />
+      </button>
       
       {detailedDescription && (
         <ServiceDetailDialog 
@@ -298,7 +250,7 @@ const ServiceCard = ({
           link={link}
         />
       )}
-    </>
+    </div>
   );
 };
 
