@@ -23,11 +23,32 @@ import { initEmailJS } from "./utils/emailjs";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
 import "./styles/global.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+    },
+  },
+});
 
 const App: React.FC = () => {
-  // Initialize EmailJS when the app loads
+  // Preload critical resources and initialize services
   useEffect(() => {
+    // Preload critical images
+    const preloadImages = [
+      '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png',
+    ];
+    
+    preloadImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+
+    // Initialize EmailJS
     try {
       initEmailJS();
       console.log("EmailJS initialized successfully");
@@ -55,7 +76,6 @@ const App: React.FC = () => {
             <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
             <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
             <Route path="/politique-confidentialite" element={<MainLayout><PolitiqueConfidentialite /></MainLayout>} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
           </Routes>
           <CookieConsentManager />
