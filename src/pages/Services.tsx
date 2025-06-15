@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -12,27 +13,26 @@ const ServicesPage = () => {
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
 
-  // Main services
+  // Main services with updated images
   const mainServices = [
     {
       title: 'AIDE-SOIGNANT(E) À DOMICILE',
       description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
       icon: <User size={36} className="text-mylli-primary" />,
-      image: "/lovable-uploads/e748290e-2458-434c-a64d-54bbe3bf52f0.png",
+      image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
       link: "/services/aide-soignant"
     },
     {
       title: 'INFIRMIER(ÈRE) À DOMICILE',
       description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
       icon: <Heart size={36} className="text-mylli-primary" />,
-      image: "/lovable-uploads/9bf34643-8906-46d2-8de6-63cbd35a7929.png",
+      image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
       link: "/services/infirmier"
     }
   ];
 
   return (
     <div>
-      {/* ... keep existing code (SEO Head) */}
       <SEOHead 
         title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
         description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
@@ -41,7 +41,6 @@ const ServicesPage = () => {
         structuredData={structuredData} 
       />
       
-      {/* ... keep existing code (PageBanner and Introduction sections) */}
       <PageBanner 
         title="Nos Services" 
         subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" 
@@ -59,40 +58,90 @@ const ServicesPage = () => {
         </div>
       </section>
       
-      {/* Main Services */}
-      <section className="section-padding bg-gray-50">
+      {/* Main Services - Enhanced Modern Design */}
+      <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
         <div className="container-custom">
           <SectionHeading 
             title="Nos Services Principaux" 
             subtitle="Une gamme complète de services pour répondre à vos besoins" 
-            align="left"
-            className="max-w-2xl" 
+            align="center"
+            className="mb-16" 
           />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {mainServices.map((service, index) => (
-              <div key={index} className="card-service flex flex-col h-full relative overflow-hidden group animate-fade-in">
-                {service.image && (
-                  <div className="h-48 mb-6 overflow-hidden">
+              <div key={index} className="group relative">
+                {/* Modern Card with Enhanced Styling */}
+                <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-700 hover:-translate-y-6 hover:shadow-3xl border border-gray-100/50 backdrop-blur-sm">
+                  {/* Gradient Background Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 via-transparent to-mylli-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Image Container with Advanced Effects */}
+                  <div className="relative h-80 overflow-hidden">
+                    {/* Image */}
                     <img 
                       src={service.image} 
                       alt={service.title} 
-                      className="w-full h-full transition-transform duration-500 group-hover:scale-110 object-scale-down" 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" 
                     />
+                    
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    
+                    {/* Floating Icon Badge */}
+                    <div className="absolute top-6 right-6 w-16 h-16 bg-white/95 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                      {service.icon}
+                    </div>
+                    
+                    {/* Service Category Badge */}
+                    <div className="absolute top-6 left-6 px-4 py-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white text-sm font-bold rounded-full shadow-lg backdrop-blur-sm">
+                      Service Premium
+                    </div>
+                    
+                    {/* Bottom Info Overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white/95 to-transparent backdrop-blur-sm">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                          <span className="text-sm font-medium text-mylli-dark">Disponible 24h/7j</span>
+                        </div>
+                        <div className="flex items-center space-x-1">
+                          {[...Array(5)].map((_, i) => (
+                            <CheckCircle key={i} size={12} className="text-mylli-secondary" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                )}
-                <div className="p-6 flex flex-col flex-grow bg-white">
-                  {!service.image && service.icon && (
-                    <div className="text-mylli-primary mb-4">{service.icon}</div>
-                  )}
-                  <h3 className="text-xl font-bold mb-3 text-mylli-dark">{service.title}</h3>
-                  <p className="text-mylli-gray mb-4 flex-grow">{service.description}</p>
-                  <Button asChild className="btn-primary mt-auto">
-                    <Link to={service.link}>
-                      En savoir plus
-                    </Link>
-                  </Button>
+                  
+                  {/* Content Section */}
+                  <div className="relative p-8">
+                    <h3 className="text-2xl font-bold mb-4 text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-mylli-gray mb-8 text-lg leading-relaxed">
+                      {service.description}
+                    </p>
+                    
+                    {/* Enhanced CTA Button */}
+                    <Button asChild className="w-full bg-gradient-to-r from-mylli-primary to-mylli-secondary hover:from-mylli-secondary hover:to-mylli-primary text-white font-bold py-4 px-8 rounded-2xl shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl group/btn">
+                      <Link to={service.link} className="flex items-center justify-center">
+                        En savoir plus
+                        <ArrowRight size={20} className="ml-2 transition-transform duration-300 group-hover/btn:translate-x-2" />
+                      </Link>
+                    </Button>
+                  </div>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  {/* Border Glow Effect */}
+                  <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-sm"></div>
                 </div>
+                
+                {/* External Shadow Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 transform scale-0 group-hover:scale-110 transition-transform duration-700 -z-20 blur-2xl"></div>
               </div>
             ))}
           </div>
