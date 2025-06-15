@@ -42,25 +42,145 @@ const EquipePage = () => {
         subtitle="Des outils performants au service de votre bien-être"
       />
       
-      {/* Approach Section with Parallax */}
-      <ParallaxSection
-        backgroundImage="https://images.unsplash.com/photo-1500673922987-e212871fec22"
-        height="auto"
-        className="py-24"
-      >
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white bg-opacity-90 backdrop-blur-xl rounded-3xl shadow-2xl p-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-mylli-dark bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
-                LE CARACTÈRE DES SOIGNANTS EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT
-              </h2>
-              <p className="text-xl text-mylli-gray">
-                Chez Mylli Services, nous sommes convaincus que la qualité des soins dépend autant des compétences techniques que des qualités humaines des intervenants. C'est pourquoi nous accordons une importance particulière au recrutement et à la formation continue de notre équipe.
-              </p>
+      {/* Approach Section with Parallax - Updated with new image and modern design */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          
+          {/* Grid pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px'
+            }}
+          ></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+            
+            {/* Left side - Image with modern styling */}
+            <div className="relative group">
+              {/* Decorative background elements */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-700"></div>
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-mylli-primary/30 to-transparent rounded-full blur-xl opacity-40"></div>
+              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-tl from-mylli-secondary/30 to-transparent rounded-full blur-xl opacity-40"></div>
+              
+              {/* Main image container */}
+              <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/30 transform transition-all duration-700 group-hover:scale-[1.02] group-hover:-translate-y-2">
+                
+                {/* Glowing border effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                
+                {/* Image with overlay effects */}
+                <div className="relative overflow-hidden rounded-2xl">
+                  <img 
+                    src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" 
+                    alt="Équipe médicale professionnelle - Le caractère des soignants" 
+                    className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105" 
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Corner accent */}
+                  <div className="absolute top-4 right-4 w-3 h-3 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full animate-pulse"></div>
+                </div>
+                
+                {/* Professional badge */}
+                <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white text-sm font-semibold rounded-full shadow-xl flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  <span>Excellence Professionnelle</span>
+                </div>
+              </div>
+              
+              {/* Floating decorative elements */}
+              <div className="absolute top-1/4 -left-6 w-4 h-4 bg-mylli-accent/50 rounded-full animate-bounce-subtle opacity-70"></div>
+              <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-mylli-secondary/50 rounded-full animate-bounce-subtle opacity-70" style={{ animationDelay: '1s' }}></div>
+            </div>
+            
+            {/* Right side - Content */}
+            <div className="relative">
+              {/* Background decoration */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-xl"></div>
+              
+              {/* Enhanced content container */}
+              <div className="bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-12 border border-white/30 relative overflow-hidden">
+                
+                {/* Subtle pattern overlay */}
+                <div className="absolute inset-0 opacity-5">
+                  <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
+                    backgroundSize: '20px 20px'
+                  }}></div>
+                </div>
+                
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Decorative header */}
+                  <div className="flex items-center mb-8">
+                    <div className="w-12 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full mr-4"></div>
+                    <div className="w-6 h-1 bg-gradient-to-r from-mylli-secondary to-mylli-accent rounded-full mr-2"></div>
+                    <div className="w-3 h-1 bg-mylli-accent/50 rounded-full"></div>
+                  </div>
+                  
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+                    <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent animate-text-gradient bg-[length:200%_auto]">
+                      LE CARACTÈRE DES SOIGNANTS
+                    </span>
+                    <br />
+                    <span className="text-mylli-dark">
+                      EST AUSSI IMPORTANT QUE LES CONNAISSANCES QU'ILS POSSÈDENT
+                    </span>
+                  </h2>
+                  
+                  <div className="space-y-6">
+                    <p className="text-xl text-mylli-gray leading-relaxed">
+                      Chez Mylli Services, nous sommes convaincus que la qualité des soins dépend autant des compétences techniques que des qualités humaines des intervenants.
+                    </p>
+                    
+                    <p className="text-lg text-mylli-gray leading-relaxed">
+                      C'est pourquoi nous accordons une importance particulière au recrutement et à la formation continue de notre équipe, en privilégiant l'empathie, le professionnalisme et l'excellence humaine.
+                    </p>
+                  </div>
+                  
+                  {/* Enhanced call-to-action elements */}
+                  <div className="mt-10 flex items-center space-x-4">
+                    <div className="flex -space-x-2">
+                      {[1, 2, 3].map((i) => (
+                        <div 
+                          key={i}
+                          className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary border-2 border-white shadow-lg animate-pulse"
+                          style={{ animationDelay: `${i * 0.3}s` }}
+                        ></div>
+                      ))}
+                    </div>
+                    <div className="h-8 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
+                    <span className="text-mylli-dark font-semibold">Notre engagement qualité</span>
+                  </div>
+                </div>
+                
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-mylli-primary/50 to-transparent"></div>
+              </div>
             </div>
           </div>
         </div>
-      </ParallaxSection>
+        
+        {/* Bottom wave decoration */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+          <svg className="relative block w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="white" fillOpacity="0.1"></path>
+          </svg>
+        </div>
+      </section>
       
       {/* Selection Process - Modern design */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50">
