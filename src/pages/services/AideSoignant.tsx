@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -22,52 +23,157 @@ const AideSoignantPage = () => {
     title: "Accompagner et sécuriser le patient",
     iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }];
-  return <div>
-      <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
+
+  return (
+    <div>
+      <PageBanner 
+        title="AIDE-SOIGNANT(E) À DOMICILE" 
+        subtitle="Préservation de l'autonomie et accompagnement quotidien" 
+      />
       
-      {/* Introduction - Centered and Modern design */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="relative mb-16">
-              <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/5 via-transparent to-mylli-secondary/5 rounded-3xl"></div>
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-12 border border-mylli-primary/10">
-                <div className="flex justify-center mb-8">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center shadow-lg">
-                    <User size={40} className="text-white" />
-                  </div>
-                </div>
+      {/* Enhanced Introduction Section with Modern Creative Design */}
+      <section className="py-32 relative overflow-hidden">
+        {/* Advanced Background with Multiple Layers */}
+        <div className="absolute inset-0">
+          {/* Primary gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-mylli-light/20 to-gray-50"></div>
+          
+          {/* Animated floating elements */}
+          <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-mylli-accent/8 to-mylli-quaternary/8 rounded-full blur-3xl animate-float delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-mylli-primary/5 via-transparent to-mylli-secondary/5 rounded-full blur-3xl"></div>
+          
+          {/* Decorative geometric shapes */}
+          <div className="absolute top-16 right-20 w-32 h-32 border-4 border-mylli-primary/20 rounded-3xl transform rotate-12 animate-pulse"></div>
+          <div className="absolute bottom-16 left-20 w-24 h-24 border-2 border-mylli-secondary/20 rounded-2xl transform -rotate-12 animate-pulse delay-500"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
+          <div className="max-w-7xl mx-auto">
+            {/* Main Content Container with Creative Layout */}
+            <div className="relative">
+              {/* Creative background container */}
+              <div className="absolute -inset-12 bg-gradient-to-r from-white/90 via-white/95 to-white/90 backdrop-blur-sm rounded-[3rem] shadow-2xl border border-mylli-primary/10 transform rotate-1"></div>
+              <div className="absolute -inset-8 bg-gradient-to-br from-mylli-primary/5 via-transparent to-mylli-secondary/5 rounded-[2.5rem] blur-xl"></div>
+              
+              {/* Main content */}
+              <div className="relative bg-white/95 backdrop-blur-sm rounded-[2.5rem] shadow-xl border border-white/50 p-16">
                 
-                <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
-                  Un accompagnement quotidien personnalisé
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                  <div className="space-y-6">
-                    <p className="text-lg text-mylli-gray leading-relaxed">
-                      Tout en stimulant et préservant l'autonomie du malade, l'aide-soignant accomplit différents actes de la vie quotidienne : aide au lever et au coucher, aide au transfert du malade, aide à la toilette et à l'habillage, administration des repas, changement de la literie…
-                    </p>
-                    <p className="text-lg text-mylli-gray leading-relaxed">
-                      Il accompagne cette personne dans les activités de sa vie quotidienne, il contribue à son bien-être et à lui faire recouvrer, dans la mesure du possible, son autonomie.
-                    </p>
+                {/* Enhanced Header with Icon */}
+                <div className="text-center mb-16">
+                  <div className="flex justify-center mb-10">
+                    <div className="relative group">
+                      {/* Icon container with multiple layers */}
+                      <div className="absolute -inset-4 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-all duration-500"></div>
+                      <div className="absolute -inset-2 bg-gradient-to-br from-mylli-primary/50 to-mylli-secondary/50 rounded-full blur-lg opacity-40"></div>
+                      <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                        <User size={48} className="text-white transform group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      
+                      {/* Floating mini icons */}
+                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-mylli-accent rounded-full flex items-center justify-center shadow-lg animate-bounce">
+                        <Heart size={16} className="text-white" />
+                      </div>
+                      <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-mylli-quaternary rounded-full flex items-center justify-center shadow-lg animate-pulse">
+                        <CheckCircle size={12} className="text-white" />
+                      </div>
+                    </div>
                   </div>
                   
-                  <div className="space-y-6">
-                    <p className="text-lg text-mylli-gray leading-relaxed">
-                      L'aide-soignant réalise des soins liés aux fonctions d'entretien et de continuité de la vie visant à compenser partiellement ou totalement un manque ou une diminution de l'autonomie de la personne.
-                    </p>
-                    <p className="text-lg text-mylli-gray leading-relaxed">
-                      Son rôle s'inscrit dans une approche globale de la personne soignée et prend en compte la dimension relationnelle des soins.
-                    </p>
-                    <p className="text-lg text-mylli-gray leading-relaxed">
-                      Le service d'aide-soignant assure les gardes de jour, de nuit ou de 24h/24h.
-                    </p>
+                  {/* Enhanced Title with Creative Typography */}
+                  <h2 className="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                    <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-primary bg-clip-text text-transparent animate-text-gradient">
+                      Un accompagnement quotidien
+                    </span>
+                    <br />
+                    <span className="text-mylli-dark relative">
+                      personnalisé
+                      {/* Decorative underline */}
+                      <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-mylli-accent to-mylli-quaternary rounded-full"></div>
+                    </span>
+                  </h2>
+                </div>
+                
+                {/* Enhanced Content Grid with Creative Cards */}
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-16">
+                  
+                  {/* Left Column - Creative Card Design */}
+                  <div className="space-y-8">
+                    <div className="group relative">
+                      {/* Card background with creative shape */}
+                      <div className="absolute -inset-4 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-3xl transform rotate-2 group-hover:rotate-1 transition-all duration-500"></div>
+                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-mylli-primary/20 transform group-hover:-translate-y-2 transition-all duration-500">
+                        
+                        {/* Decorative corner element */}
+                        <div className="absolute top-4 right-4 w-16 h-16 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-2xl transform rotate-12"></div>
+                        
+                        <p className="text-lg text-mylli-gray leading-relaxed relative z-10">
+                          Tout en stimulant et préservant l'autonomie du malade, l'aide-soignant accomplit différents actes de la vie quotidienne : aide au lever et au coucher, aide au transfert du malade, aide à la toilette et à l'habillage, administration des repas, changement de la literie…
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-tl from-mylli-accent/10 to-mylli-quaternary/10 rounded-3xl transform -rotate-1 group-hover:rotate-0 transition-all duration-500"></div>
+                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-mylli-accent/20 transform group-hover:-translate-y-2 transition-all duration-500">
+                        
+                        {/* Decorative side element */}
+                        <div className="absolute left-4 top-4 w-2 h-20 bg-gradient-to-b from-mylli-accent to-mylli-quaternary rounded-full"></div>
+                        
+                        <p className="text-lg text-mylli-gray leading-relaxed pl-8">
+                          Il accompagne cette personne dans les activités de sa vie quotidienne, il contribue à son bien-être et à lui faire recouvrer, dans la mesure du possible, son autonomie.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Right Column - Enhanced Creative Cards */}
+                  <div className="space-y-8">
+                    <div className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-bl from-mylli-secondary/10 to-mylli-primary/10 rounded-3xl transform rotate-1 group-hover:-rotate-1 transition-all duration-500"></div>
+                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-mylli-secondary/20 transform group-hover:-translate-y-2 transition-all duration-500">
+                        
+                        {/* Creative floating element */}
+                        <div className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-br from-mylli-secondary to-mylli-primary rounded-full shadow-lg flex items-center justify-center">
+                          <Star size={20} className="text-white" />
+                        </div>
+                        
+                        <p className="text-lg text-mylli-gray leading-relaxed">
+                          L'aide-soignant réalise des soins liés aux fonctions d'entretien et de continuité de la vie visant à compenser partiellement ou totalement un manque ou une diminution de l'autonomie de la personne.
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="group relative">
+                      <div className="absolute -inset-4 bg-gradient-to-tr from-mylli-quaternary/10 to-mylli-accent/10 rounded-3xl transform -rotate-2 group-hover:rotate-1 transition-all duration-500"></div>
+                      <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-mylli-quaternary/20 transform group-hover:-translate-y-2 transition-all duration-500">
+                        
+                        {/* Decorative pattern */}
+                        <div className="absolute bottom-4 left-4 grid grid-cols-3 gap-1">
+                          <div className="w-2 h-2 bg-mylli-quaternary/30 rounded-full"></div>
+                          <div className="w-2 h-2 bg-mylli-accent/30 rounded-full"></div>
+                          <div className="w-2 h-2 bg-mylli-quaternary/30 rounded-full"></div>
+                        </div>
+                        
+                        <p className="text-lg text-mylli-gray leading-relaxed mb-6">
+                          Son rôle s'inscrit dans une approche globale de la personne soignée et prend en compte la dimension relationnelle des soins.
+                        </p>
+                        
+                        {/* Highlighted service info */}
+                        <div className="bg-gradient-to-r from-mylli-primary/10 to-mylli-secondary/10 rounded-2xl p-6 border border-mylli-primary/20">
+                          <p className="text-lg text-mylli-dark font-medium">
+                            Le service d'aide-soignant assure les gardes de <span className="font-bold text-mylli-primary">jour</span>, de <span className="font-bold text-mylli-secondary">nuit</span> ou de <span className="font-bold text-mylli-accent">24h/24h</span>.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
-                {/* Decorative elements */}
-                <div className="absolute -top-6 -right-6 w-12 h-12 rounded-full bg-mylli-primary/10 animate-pulse"></div>
-                <div className="absolute -bottom-4 -left-4 w-8 h-8 rounded-full bg-mylli-secondary/10 animate-pulse delay-1000"></div>
+                {/* Enhanced Bottom Decorative Elements */}
+                <div className="absolute -bottom-8 -left-8 w-16 h-16 rounded-full bg-mylli-primary/10 animate-pulse"></div>
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 rounded-full bg-mylli-secondary/10 animate-pulse delay-1000"></div>
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-mylli-accent/10 animate-pulse delay-500"></div>
               </div>
             </div>
           </div>
@@ -194,6 +300,8 @@ const AideSoignantPage = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default AideSoignantPage;
