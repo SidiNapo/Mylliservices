@@ -15,18 +15,20 @@ const HomePage = () => {
     {
       title: "Aide-soignant à domicile",
       description: "Soins d'hygiène, aide aux gestes quotidiens, surveillance médicale personnalisée.",
-      icon: Heart,
+      icon: <Heart />,
       features: ["Toilette et hygiène", "Aide aux repas", "Surveillance médicale", "Accompagnement personnalisé"],
       price: "À partir de 150 DH/heure",
-      imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png"
+      imageUrl: "/lovable-uploads/5531d2d4-87fe-4d47-88ad-6db5fc66be70.png",
+      link: "/contact"
     },
     {
       title: "Infirmier à domicile",
       description: "Soins infirmiers spécialisés, injections, pansements, suivi médical à domicile.",
-      icon: Shield,
+      icon: <Shield />,
       features: ["Injections et perfusions", "Pansements complexes", "Surveillance post-opératoire", "Éducation thérapeutique"],
       price: "À partir de 200 DH/heure",
-      imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png"
+      imageUrl: "/lovable-uploads/609a7402-4f73-4888-bedd-2256c3fbd997.png",
+      link: "/contact"
     }
   ];
 
@@ -34,23 +36,23 @@ const HomePage = () => {
     {
       name: "Fatima Bennani",
       location: "Casablanca",
-      text: "Service exceptionnel ! L'équipe est très professionnelle et bienveillante. Ma mère se sent en sécurité.",
+      quote: "Service exceptionnel ! L'équipe est très professionnelle et bienveillante. Ma mère se sent en sécurité.",
       rating: 5,
-      avatar: "/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png"
+      image: "/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png"
     },
     {
       name: "Ahmed Alami",
       location: "Rabat",
-      text: "Mylli Service a transformé notre quotidien. Des soins de qualité dans le confort de notre foyer.",
+      quote: "Mylli Service a transformé notre quotidien. Des soins de qualité dans le confort de notre foyer.",
       rating: 5,
-      avatar: "/lovable-uploads/c787f2aa-80fe-4009-8468-b57881b297a9.png"
+      image: "/lovable-uploads/c787f2aa-80fe-4009-8468-b57881b297a9.png"
     },
     {
       name: "Aicha Benjelloun",
       location: "Marrakech",
-      text: "Une équipe formidable, toujours à l'écoute. Je recommande vivement leurs services.",
+      quote: "Une équipe formidable, toujours à l'écoute. Je recommande vivement leurs services.",
       rating: 5,
-      avatar: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
+      image: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
     }
   ];
 
@@ -212,7 +214,7 @@ const HomePage = () => {
       >
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
-            Pourquoi Choisir <BrandName className="text-mylli-quaternary" /> ?
+            Pourquoi Choisir <BrandName /> ?
           </h2>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
