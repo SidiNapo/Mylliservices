@@ -44,7 +44,7 @@ const FonctionnementPage = () => {
   }];
   return (
     <div>
-      <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="particles" />
+      <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="modern" />
       
       {/* Redesigned Conseiller Section */}
       <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden relative">

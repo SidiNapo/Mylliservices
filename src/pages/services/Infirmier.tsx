@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, Clock, File, Phone, Clipboard, Syringe, Hospital, Calendar, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -62,7 +61,7 @@ const InfirmierPage = () => {
 
   return <div className="pb-12">
       {/* Banner */}
-      <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="particles" />
+      <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="modern" />
       
       {/* Description Section - Centered and Unique */}
       <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
