@@ -9,11 +9,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    watch: {
-      usePolling: true,
-      interval: 1000,
-      ignored: ['**/node_modules/**', '**/.git/**']
-    },
     headers: {
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'DENY',
@@ -31,10 +26,6 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  optimizeDeps: {
-    include: ['react', 'react-dom'],
-    exclude: ['@vite/client', '@vite/env']
-  },
   build: {
     rollupOptions: {
       output: {
@@ -45,13 +36,13 @@ export default defineConfig(({ mode }) => ({
         }
       }
     },
-    sourcemap: false,
-    minify: mode === 'production' ? 'terser' : false,
-    terserOptions: mode === 'production' ? {
+    sourcemap: false, // Disable sourcemaps in production for security
+    minify: 'terser',
+    terserOptions: {
       compress: {
-        drop_console: true,
+        drop_console: true, // Remove console logs in production
         drop_debugger: true
       }
-    } : undefined
+    }
   }
 }));
