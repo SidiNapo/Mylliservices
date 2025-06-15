@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700;900&display=swap');
 
 @tailwind base;
@@ -355,27 +356,28 @@
     }
   }
 
-  /* Strong White Flash Animation */
+  /* Enhanced White Flash Animation */
   .flash-white-strong {
-    animation: flash-white-strong 3s ease-in-out infinite;
+    animation: flash-white-enhanced 4s ease-in-out infinite;
   }
 
-  @keyframes flash-white-strong {
-    0%, 70%, 100% {
+  @keyframes flash-white-enhanced {
+    0%, 75%, 100% {
       color: white;
       text-shadow: 
-        0 0 5px rgba(255, 255, 255, 0.2),
-        0 0 10px rgba(255, 255, 255, 0.1);
+        0 0 5px rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.2);
       transform: scale(1);
+      filter: brightness(1);
     }
-    35% {
+    37.5% {
       color: #ffffff;
       text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.7),
-        0 0 25px rgba(255, 255, 255, 0.5),
-        0 0 35px rgba(255, 255, 255, 0.3);
-      transform: scale(1.015);
-      filter: brightness(1.2);
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 25px rgba(255, 255, 255, 0.6),
+        0 0 35px rgba(255, 255, 255, 0.4);
+      transform: scale(1.02);
+      filter: brightness(1.3);
     }
   }
 }
