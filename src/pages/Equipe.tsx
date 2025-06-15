@@ -8,22 +8,30 @@ const EquipePage = () => {
     {
       title: "Professionnalisme",
       description: "Nos intervenants sont sélectionnés pour leurs compétences techniques et leur rigueur. Ils suivent une formation continue pour maintenir le plus haut niveau de qualité.",
-      icon: <Shield size={40} strokeWidth={1.5} />
+      icon: <Shield size={40} strokeWidth={1.5} />,
+      color: "from-blue-500 to-purple-600",
+      bgGradient: "from-blue-500/10 to-purple-600/10"
     },
     {
       title: "Respect de la dignité",
       description: "Nous considérons chaque personne dans sa globalité et sa singularité. Le respect de la dignité et de l'intimité guide chacune de nos actions.",
-      icon: <Award size={40} strokeWidth={1.5} />
+      icon: <Award size={40} strokeWidth={1.5} />,
+      color: "from-emerald-500 to-teal-600",
+      bgGradient: "from-emerald-500/10 to-teal-600/10"
     },
     {
       title: "Empathie",
       description: "La capacité à comprendre et partager les sentiments d'autrui est au cœur de notre approche. Nous accordons une attention particulière à la dimension émotionnelle.",
-      icon: <Users size={40} strokeWidth={1.5} />
+      icon: <Users size={40} strokeWidth={1.5} />,
+      color: "from-pink-500 to-rose-600",
+      bgGradient: "from-pink-500/10 to-rose-600/10"
     },
     {
       title: "Adaptabilité",
       description: "Nous ajustons constamment nos services pour répondre aux besoins changeants de nos clients. La flexibilité est essentielle pour un accompagnement de qualité.",
-      icon: <CheckCircle size={40} strokeWidth={1.5} />
+      icon: <CheckCircle size={40} strokeWidth={1.5} />,
+      color: "from-orange-500 to-red-600",
+      bgGradient: "from-orange-500/10 to-red-600/10"
     }
   ];
   
@@ -304,37 +312,142 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Values Section - Modern glass cards */}
-      <section className="py-24 bg-gradient-to-r from-mylli-primary to-mylli-dark">
-        <div className="container-custom">
-          <SectionHeading 
-            title="Nos Valeurs"
-            subtitle="Des principes qui guident notre travail au quotidien"
-            variant="modern"
-            className="text-white"
-            highlightColor="white"
-          />
+      {/* Values Section - Completely redesigned with modern creative styling */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
           
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Grid pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '60px 60px'
+            }}
+          ></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          {/* Enhanced Section Heading */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center p-3 bg-white/40 backdrop-blur-md rounded-full border border-white/30 mb-6 shadow-lg">
+              <div className="w-3 h-3 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full animate-pulse mr-2"></div>
+              <span className="text-sm font-semibold text-mylli-dark tracking-wider uppercase">Nos Principes</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
+              <span className="bg-gradient-to-r from-mylli-dark via-mylli-primary to-mylli-secondary bg-clip-text text-transparent animate-text-gradient bg-[length:200%_auto]">
+                Nos Valeurs
+              </span>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full"></div>
+            </h2>
+            
+            <p className="text-xl text-mylli-gray max-w-3xl mx-auto leading-relaxed">
+              Des principes fondamentaux qui définissent notre identité et guident chacune de nos actions au quotidien
+            </p>
+          </div>
+          
+          {/* Creative Values Grid */}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
               {values.map((value, index) => (
                 <div 
                   key={index}
-                  className="bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-lg transform transition-all duration-500 hover:translate-y-[-5px] hover:shadow-2xl hover:bg-white/15"
+                  className="group relative"
+                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                  <div className="flex items-start">
-                    <div className="w-16 h-16 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mr-6 transform transition-all duration-500 group-hover:rotate-12">
-                      <div className="text-white">{value.icon}</div>
+                  {/* Main Card with glass morphism */}
+                  <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl overflow-hidden">
+                    
+                    {/* Animated background gradient */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${value.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`}></div>
+                    
+                    {/* Glowing border effect */}
+                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10">
+                      {/* Icon Container with creative styling */}
+                      <div className="flex items-start mb-6">
+                        <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${value.color} p-4 shadow-lg transform transition-all duration-500 group-hover:rotate-12 group-hover:scale-110`}>
+                          <div className="text-white transform transition-transform duration-500 group-hover:scale-110">
+                            {value.icon}
+                          </div>
+                          
+                          {/* Glowing effect behind icon */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500 -z-10`}></div>
+                        </div>
+                        
+                        {/* Decorative elements */}
+                        <div className="flex-1 pl-6">
+                          <div className="flex items-center mb-2">
+                            <h3 className="text-2xl font-bold text-mylli-dark group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-mylli-primary group-hover:to-mylli-secondary group-hover:bg-clip-text transition-all duration-500">
+                              {value.title}
+                            </h3>
+                            <div className="ml-3 w-2 h-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                          </div>
+                          
+                          {/* Animated underline */}
+                          <div className="w-0 h-0.5 bg-gradient-to-r from-mylli-primary to-mylli-secondary group-hover:w-16 transition-all duration-500 mb-4 rounded-full"></div>
+                        </div>
+                      </div>
+                      
+                      {/* Description with enhanced typography */}
+                      <p className="text-mylli-gray leading-relaxed text-lg transform transition-all duration-500 group-hover:text-mylli-dark">
+                        {value.description}
+                      </p>
+                      
+                      {/* Interactive bottom accent */}
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-mylli-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold mb-4 text-white">{value.title}</h3>
-                      <p className="text-white/80 text-lg">{value.description}</p>
-                    </div>
+                    
+                    {/* Floating particles effect */}
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-mylli-accent/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle"></div>
+                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{ animationDelay: '0.5s' }}></div>
                   </div>
+                  
+                  {/* Enhanced shadow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 scale-95`}></div>
                 </div>
               ))}
             </div>
+            
+            {/* Bottom decorative section */}
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center p-6 bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
+                <div className="flex items-center space-x-4">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div 
+                        key={i}
+                        className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i-1]?.color} animate-pulse`}
+                        style={{ animationDelay: `${i * 0.2}s` }}
+                      ></div>
+                    ))}
+                  </div>
+                  <div className="h-6 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
+                  <p className="text-mylli-dark font-semibold text-lg">
+                    Des valeurs qui font la différence
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+        
+        {/* Bottom wave decoration */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+          <svg className="relative block w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="white" fillOpacity="0.1"></path>
+          </svg>
         </div>
       </section>
     </div>
