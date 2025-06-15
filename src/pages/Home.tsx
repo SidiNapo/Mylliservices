@@ -299,11 +299,11 @@ const HomePage = () => {
               <div className="text-center lg:text-left">
                 <header>
                   <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
-                    <span className="block text-white animate-pulse-glow mb-2">
-                      NOUS SOMMES LÀ POUR VOUS
+                    <span className="block text-white animate-pulse mb-2">
+                      <span className="animate-pulse" style={{animationDuration: '1.5s'}}>NOUS SOMMES LÀ POUR VOUS</span>
                     </span>
-                    <span className="block text-white animate-pulse-glow">
-                      AIDER!
+                    <span className="block text-white animate-pulse">
+                      <span className="animate-pulse" style={{animationDuration: '1.5s', animationDelay: '0.3s'}}>AIDER!</span>
                     </span>
                   </h1>
                   
