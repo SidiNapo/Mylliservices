@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -19,13 +18,17 @@ const ServicesPage = () => {
     description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
     image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
     link: "/services/aide-soignant",
-    icon: <User className="text-mylli-primary" size={32} />
+    icon: <User className="text-white" size={32} />,
+    gradient: "from-mylli-primary via-mylli-quaternary to-mylli-accent",
+    features: ["Soins personnalisés", "Accompagnement quotidien", "Suivi médical"]
   }, {
     title: 'INFIRMIER(ÈRE) À DOMICILE',
     description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
     image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
     link: "/services/infirmier",
-    icon: <Heart className="text-mylli-primary" size={32} />
+    icon: <Heart className="text-white" size={32} />,
+    gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
+    features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
   }];
 
   return (
@@ -55,30 +58,95 @@ const ServicesPage = () => {
         </div>
       </section>
       
-      {/* Main Services - Using ServiceCard components */}
+      {/* Main Services - Redesigned modern cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
         <div className="container-custom">
           <SectionHeading 
             title="Nos Services Principaux" 
             subtitle="Une gamme complète de services pour répondre à vos besoins" 
             align="center" 
-            className="mb-16" 
+            className="mb-20" 
           />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
             {mainServices.map((service, index) => (
-              <ServiceCard
-                key={index}
-                title={service.title}
-                description={service.description}
-                image={service.image}
-                link={service.link}
-                icon={service.icon}
-                style="modern"
-                className="transform hover:-translate-y-2 transition-all duration-500"
-              />
+              <div key={index} className="group relative">
+                {/* Background gradient glow */}
+                <div className={`absolute -inset-4 bg-gradient-to-br ${service.gradient} rounded-3xl blur-2xl opacity-20 group-hover:opacity-30 transition-all duration-500`}></div>
+                
+                {/* Main card container */}
+                <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden transform group-hover:-translate-y-2 transition-all duration-500 border border-white/50">
+                  
+                  {/* Image section with overlay */}
+                  <div className="relative h-80 overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    
+                    {/* Gradient overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-80`}></div>
+                    
+                    {/* Floating icon */}
+                    <div className="absolute top-6 right-6">
+                      <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/30 transform group-hover:rotate-12 transition-all duration-500">
+                        {service.icon}
+                      </div>
+                    </div>
+                    
+                    {/* Service badge */}
+                    <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-semibold text-mylli-dark">Service Premium</span>
+                      </div>
+                    </div>
+                    
+                    {/* Bottom title overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-2xl font-bold text-white mb-2 transform group-hover:translate-x-2 transition-all duration-300">
+                        {service.title}
+                      </h3>
+                    </div>
+                  </div>
+                  
+                  {/* Content section */}
+                  <div className="p-8">
+                    <p className="text-mylli-gray text-lg mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+                    
+                    {/* Features list */}
+                    <div className="grid grid-cols-1 gap-3 mb-8">
+                      {service.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center space-x-3">
+                          <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                          <span className="text-mylli-dark font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <Link to={service.link}>
+                      <button className={`w-full bg-gradient-to-r ${service.gradient} text-white py-4 px-8 rounded-2xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 flex items-center justify-center space-x-3 group`}>
+                        <span>En savoir plus</span>
+                        <ArrowRight size={20} className="transform group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </Link>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className="absolute -bottom-2 -right-2 w-20 h-20 bg-gradient-to-tl from-white/20 to-transparent rounded-tl-3xl"></div>
+                  <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-white/30 to-transparent rounded-br-3xl"></div>
+                </div>
+              </div>
             ))}
           </div>
+          
+          {/* Additional decorative elements */}
+          <div className="absolute top-1/2 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute top-1/4 right-10 w-24 h-24 bg-gradient-to-br from-mylli-accent/10 to-mylli-quaternary/10 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
         </div>
       </section>
       
