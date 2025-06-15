@@ -8,11 +8,11 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
-import { generateHomePageStructuredData } from '@/utils/structuredData';
+import { generateHomepageStructuredData } from '@/utils/structuredData';
 
 const HomePage = () => {
   // Generate structured data for home page
-  const structuredData = generateHomePageStructuredData();
+  const structuredData = generateHomepageStructuredData();
 
   const testimonials = [
     {
@@ -90,8 +90,8 @@ const HomePage = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
-              <BrandName className="text-white mb-4 block" />
-              <span className="bg-gradient-to-r from-white via-mylli-quaternary to-white bg-clip-text text-transparent">
+              <BrandName />
+              <span className="bg-gradient-to-r from-white via-mylli-quaternary to-white bg-clip-text text-transparent block mt-4">
                 Votre bien-être à domicile
               </span>
             </h1>
@@ -166,7 +166,6 @@ const HomePage = () => {
               title="Aide-Soignant(e) à Domicile"
               description="Assistance personnalisée pour les activités quotidiennes, soins d'hygiène et accompagnement bienveillant."
               image="/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png"
-              features={["Soins d'hygiène corporelle", "Aide à la mobilité", "Accompagnement moral", "Surveillance générale"]}
               link="/services/aide-soignant"
               className="animate-fade-in-up"
             />
@@ -175,7 +174,6 @@ const HomePage = () => {
               title="Infirmier(ère) à Domicile"
               description="Soins médicaux professionnels incluant injections, pansements et suivi médical rigoureux."
               image="/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png"
-              features={["Injections et perfusions", "Pansements complexes", "Suivi post-opératoire", "Éducation thérapeutique"]}
               link="/services/infirmier"
               className="animate-fade-in-up delay-200"
             />
