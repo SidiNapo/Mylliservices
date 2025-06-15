@@ -299,12 +299,59 @@ const HomePage = () => {
               <div className="text-center lg:text-left">
                 <header>
                   <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
-                    <span className="block text-white animate-pulse mb-2">
-                      <span className="animate-pulse" style={{animationDuration: '1.5s'}}>NOUS SOMMES LÀ POUR VOUS</span>
-                    </span>
-                    <span className="block text-white animate-pulse">
-                      <span className="animate-pulse" style={{animationDuration: '1.5s', animationDelay: '0.3s'}}>AIDER!</span>
-                    </span>
+                    <div className="block mb-4">
+                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg animate-pulse text-white font-black" style={{
+                        animation: 'flash-strong 0.8s infinite alternate, glow 1.5s infinite alternate',
+                        textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6)',
+                        boxShadow: '0 0 30px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2)'
+                      }}>
+                        NOUS
+                      </span>
+                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg animate-pulse text-white font-black" style={{
+                        animation: 'flash-strong 0.9s infinite alternate, glow 1.6s infinite alternate',
+                        animationDelay: '0.1s',
+                        textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6)',
+                        boxShadow: '0 0 30px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2)'
+                      }}>
+                        SOMMES
+                      </span>
+                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg animate-pulse text-white font-black" style={{
+                        animation: 'flash-strong 0.7s infinite alternate, glow 1.4s infinite alternate',
+                        animationDelay: '0.2s',
+                        textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6)',
+                        boxShadow: '0 0 30px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2)'
+                      }}>
+                        LÀ
+                      </span>
+                    </div>
+                    <div className="block">
+                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg animate-pulse text-white font-black" style={{
+                        animation: 'flash-strong 1.0s infinite alternate, glow 1.7s infinite alternate',
+                        animationDelay: '0.3s',
+                        textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6)',
+                        boxShadow: '0 0 30px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2)'
+                      }}>
+                        POUR
+                      </span>
+                      <span className="inline-block relative mx-2 my-1 px-4 py-2 bg-gradient-to-r from-white/20 to-white/10 backdrop-blur-sm border border-white/30 rounded-lg shadow-lg animate-pulse text-white font-black" style={{
+                        animation: 'flash-strong 0.6s infinite alternate, glow 1.3s infinite alternate',
+                        animationDelay: '0.4s',
+                        textShadow: '0 0 20px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.6)',
+                        boxShadow: '0 0 30px rgba(255,255,255,0.4), inset 0 0 30px rgba(255,255,255,0.2)'
+                      }}>
+                        VOUS
+                      </span>
+                    </div>
+                    <div className="block mt-2">
+                      <span className="inline-block relative mx-2 my-1 px-6 py-3 bg-gradient-to-r from-mylli-secondary/30 to-mylli-primary/30 backdrop-blur-sm border-2 border-mylli-secondary/60 rounded-xl shadow-2xl animate-pulse text-mylli-secondary font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{
+                        animation: 'flash-mega 0.5s infinite alternate, pulse-mega 1.2s infinite alternate',
+                        animationDelay: '0.5s',
+                        textShadow: '0 0 30px rgba(255, 7, 7, 0.9), 0 0 60px rgba(255, 7, 7, 0.7), 0 0 90px rgba(255, 7, 7, 0.5)',
+                        boxShadow: '0 0 50px rgba(255, 7, 7, 0.6), inset 0 0 50px rgba(255, 7, 7, 0.3), 0 0 100px rgba(255, 7, 7, 0.4)'
+                      }}>
+                        AIDER!
+                      </span>
+                    </div>
                   </h1>
                   
                   <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
