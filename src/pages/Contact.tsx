@@ -1,3 +1,4 @@
+
 import { Phone, Mail, MapPin, Clock, AlertCircle, Send, MessageSquare, User, Navigation, MapPinHouse, Compass } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -9,13 +10,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import RecallRequestForm from '@/components/common/RecallRequestForm';
 
 const ContactPage = () => {
-  // Updated opening hours - removed consultations
+  // Updated opening hours - always open
   const openingHours = [{
     day: "Lundi - Dimanche",
     hours: "24h/24 - 7j/7"
   }, {
     day: "Services d'urgence",
     hours: "Disponibles à tout moment"
+  }, {
+    day: "Consultations",
+    hours: "Sur rendez-vous"
   }];
 
   // Updated exact address and coordinates for Mylli Services
