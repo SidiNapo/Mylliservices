@@ -1,4 +1,6 @@
 
+import { preloadCriticalImages, optimizeImageUrl } from './imageOptimization';
+
 // SEO utility functions
 
 export const generateSitemap = (routes: string[]) => {
@@ -42,12 +44,8 @@ export const preloadCriticalResources = () => {
   fontLink.as = 'style';
   document.head.appendChild(fontLink);
   
-  // Preload critical images
-  const logoLink = document.createElement('link');
-  logoLink.rel = 'preload';
-  logoLink.href = '/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png';
-  logoLink.as = 'image';
-  document.head.appendChild(logoLink);
+  // Use the new image optimization system
+  preloadCriticalImages();
 };
 
 export const measureCoreWebVitals = () => {

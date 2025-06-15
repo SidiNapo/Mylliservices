@@ -20,6 +20,7 @@ import CookiePolicy from "./pages/CookiePolicy";
 import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
+import { preloadCriticalImages } from "./utils/imageOptimization";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
 import "./styles/global.css";
 
@@ -35,18 +36,8 @@ const queryClient = new QueryClient({
 const App: React.FC = () => {
   // Preload critical resources and initialize services
   useEffect(() => {
-    // Preload critical images
-    const preloadImages = [
-      '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png',
-    ];
-    
-    preloadImages.forEach(src => {
-      const link = document.createElement('link');
-      link.rel = 'preload';
-      link.as = 'image';
-      link.href = src;
-      document.head.appendChild(link);
-    });
+    // Preload critical images with optimization
+    preloadCriticalImages();
 
     // Initialize EmailJS
     try {
