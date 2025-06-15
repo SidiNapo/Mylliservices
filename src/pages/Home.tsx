@@ -51,21 +51,21 @@ const HomePage = () => {
   const testimonials = [
     {
       name: "Fatima B.",
-      quote: "Un service exceptionnel ! L'équipe de Mylli Services a pris soin de ma mère avec une grande bienveillance. Je recommande vivement leurs services.",
+      text: "Un service exceptionnel ! L'équipe de Mylli Services a pris soin de ma mère avec une grande bienveillance. Je recommande vivement leurs services.",
       rating: 5,
-      title: "Casablanca"
+      location: "Casablanca"
     },
     {
       name: "Mohammed A.",
-      quote: "Professionnalisme et humanité caractérisent cette équipe. Mon père se sent en sécurité et bien accompagné au quotidien.",
+      text: "Professionnalisme et humanité caractérisent cette équipe. Mon père se sent en sécurité et bien accompagné au quotidien.",
       rating: 5,
-      title: "Rabat"
+      location: "Rabat"
     },
     {
       name: "Aicha K.",
-      quote: "Mylli Services a transformé notre quotidien. Des professionnels compétents et à l'écoute de nos besoins spécifiques.",
+      text: "Mylli Services a transformé notre quotidien. Des professionnels compétents et à l'écoute de nos besoins spécifiques.",
       rating: 5,
-      title: "Mohammedia"
+      location: "Mohammedia"
     }
   ];
 
@@ -209,9 +209,9 @@ const HomePage = () => {
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
-                quote={testimonial.quote}
+                text={testimonial.text}
                 rating={testimonial.rating}
-                title={testimonial.title}
+                location={testimonial.location}
               />
             ))}
           </div>
