@@ -1,3 +1,4 @@
+
 // SEO structured data utility functions
 
 export const generateOrganizationData = () => ({
@@ -134,6 +135,80 @@ export const generateServicePageStructuredData = () => {
           "Soins infirmiers à domicile",
           "Garde-malade jour et nuit",
           "Exécution d'ordonnance médicale"
+        ]
+      }
+    ]
+  };
+};
+
+export const generateTeamPageStructuredData = () => {
+  const baseOrganization = generateOrganizationData();
+  
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      baseOrganization,
+      {
+        "@type": "WebPage",
+        "@id": "https://mylliservices.com/equipe",
+        "url": "https://mylliservices.com/equipe",
+        "name": "Notre Équipe - Professionnels de santé qualifiés",
+        "description": "Découvrez notre équipe de professionnels de santé qualifiés : médecins, infirmiers, aides-soignants. Formation continue et expertise reconnue.",
+        "isPartOf": {
+          "@id": "https://mylliservices.com"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://mylliservices.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Équipe",
+              "item": "https://mylliservices.com/equipe"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "Organization",
+        "name": "Équipe Mylli Services",
+        "description": "Notre équipe de professionnels de santé qualifiés et expérimentés",
+        "parentOrganization": baseOrganization,
+        "employee": [
+          {
+            "@type": "Person",
+            "name": "Dr. Sarah Bennani",
+            "jobTitle": "Directrice Médicale",
+            "description": "Spécialisée dans les soins à domicile et la coordination médicale",
+            "worksFor": baseOrganization
+          },
+          {
+            "@type": "Person",
+            "name": "Fatima El Amrani",
+            "jobTitle": "Infirmière Coordinatrice",
+            "description": "Experte en soins complexes et formation du personnel soignant",
+            "worksFor": baseOrganization
+          },
+          {
+            "@type": "Person",
+            "name": "Mohamed Tazi",
+            "jobTitle": "Aide-Soignant Senior",
+            "description": "Spécialisé dans l'aide aux personnes âgées et dépendantes",
+            "worksFor": baseOrganization
+          },
+          {
+            "@type": "Person",
+            "name": "Aicha Benjelloun",
+            "jobTitle": "Psychologue",
+            "description": "Accompagnement psychologique des patients et des familles",
+            "worksFor": baseOrganization
+          }
         ]
       }
     ]
