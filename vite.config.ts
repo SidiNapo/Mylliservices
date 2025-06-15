@@ -36,11 +36,11 @@ export default defineConfig(({ mode }) => ({
         }
       }
     },
-    sourcemap: false, // Disable sourcemaps in production for security
+    sourcemap: false,
     minify: 'terser',
     terserOptions: {
       compress: {
-        drop_console: true, // Remove console logs in production
+        drop_console: true,
         drop_debugger: true
       }
     }
