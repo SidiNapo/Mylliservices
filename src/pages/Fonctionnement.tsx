@@ -1,13 +1,10 @@
-import React from 'react';
-import { Clock, Users, Heart, CheckCircle, ArrowRight, Phone, Star, ChevronDown, User, Calendar, Check, Shield, Target, Zap, HelpCircle } from 'lucide-react';
-import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import { User, Calendar, Check, Phone, HelpCircle, Shield, Heart, Award, Users, Target, Star, Zap } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
-import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -73,35 +70,9 @@ const FonctionnementPage = () => {
     question: "Comment sont gérées les urgences?",
     answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
   }];
-  return (
-    <div>
-      <SEOHead 
-        title="Comment Fonctionne Mylli Services | Accompagnement à Domicile Personnalisé" 
-        description="Découvrez les 4 étapes de notre accompagnement personnalisé : rencontre à domicile, proposition sur mesure, présentation de l'intervenant et suivi de votre satisfaction avec Mylli Services." 
-        keywords="fonctionnement aide à domicile, processus Mylli Services, accompagnement personnalisé, étapes soins à domicile"
-        canonicalUrl="/fonctionnement" 
-      />
+  return <div>
+      <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="modern" />
       
-      <PageBanner 
-        title="Notre Fonctionnement" 
-        subtitle="Un accompagnement personnalisé en 4 étapes simples pour garantir votre satisfaction" 
-        variant="modern" 
-      />
-
-      {/* Introduction */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6">
-              Processus Mylli Services : fonctionnement aide à domicile
-            </h1>
-            <p className="text-mylli-gray text-xl leading-relaxed">
-              Notre accompagnement personnalisé suit un processus rigoureux en 4 étapes pour assurer la qualité de nos soins à domicile et votre entière satisfaction.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Redesigned Conseiller Section */}
       <section className="section-padding bg-gradient-to-br from-blue-50 via-white to-cyan-50 overflow-hidden relative">
         {/* Background decorative elements */}
@@ -191,7 +162,7 @@ const FonctionnementPage = () => {
                   <div className={`absolute -inset-2 bg-gradient-to-r ${step.gradient} rounded-3xl blur opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                   
                   {/* Main card */}
-                  <div className="relative h-full bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/20 group-hover:border-mylli-primary/20">
+                  <div className="relative h-full bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-mylli-primary/20">
                     
                     {/* Animated top border */}
                     <div className={`h-2 bg-gradient-to-r ${step.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
@@ -307,6 +278,9 @@ const FonctionnementPage = () => {
                           <div className={`w-20 h-20 bg-gradient-to-br ${engagement.gradient} rounded-3xl flex items-center justify-center shadow-2xl transform group-hover:rotate-12 group-hover:scale-125 transition-all duration-700`}>
                             <IconComponent size={32} className="text-white" />
                           </div>
+                          
+                          {/* Floating decorative element */}
+                          
                         </div>
                         
                         {/* Title with sophisticated hover effects */}
@@ -417,8 +391,6 @@ const FonctionnementPage = () => {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default FonctionnementPage;

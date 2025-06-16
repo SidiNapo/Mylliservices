@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -33,9 +32,9 @@ const ServicesPage = () => {
   return (
     <div>
       <SEOHead 
-        title="Nos Services d'Aide et de Soins à Domicile | Mylli Services Casablanca" 
-        description="Découvrez la gamme complète de services Mylli Services : aide-soignant, infirmier à domicile, accompagnement personnalisé pour les maladies chroniques, Alzheimer, Parkinson, AVC, soins palliatifs." 
-        keywords="aide-soignant à domicile, infirmier à domicile, soins Alzheimer, soins Parkinson, soins AVC, soins palliatifs, accompagnement maladies chroniques, services d'aide à domicile" 
+        title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
+        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
+        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" 
         canonicalUrl="/services" 
         structuredData={structuredData} 
       />
@@ -50,11 +49,8 @@ const ServicesPage = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <h1 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6">
-              Services d'aide-soignant à domicile et infirmier à domicile
-            </h1>
             <p className="text-mylli-gray text-xl">
-              Des professionnels qualifiés pour l'accompagnement des maladies chroniques, soins Alzheimer, soins Parkinson, soins AVC et soins palliatifs.
+              Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
             </p>
           </div>
         </div>
@@ -216,11 +212,11 @@ const ServicesPage = () => {
                 
                 <div className="relative">
                   <h2 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6 leading-tight">
-                    Exécution d'ordonnance médicale et accompagnement maladies chroniques
+                    Exécution d'ordonnance médicale
                   </h2>
                   
                   <p className="text-mylli-gray mb-6 text-lg leading-relaxed">
-                    Nos professionnels de santé assurent le suivi rigoureux des prescriptions médicales pour les soins Alzheimer, Parkinson, AVC et autres pathologies. Ce service comprend l'administration correcte des médicaments, le suivi des traitements, les injections, pansements et soins palliatifs prescrits par le médecin.
+                    Nos professionnels de santé assurent le suivi rigoureux des prescriptions médicales. Ce service comprend l'administration correcte des médicaments, le suivi des traitements, les injections, pansements et autres soins prescrits par le médecin.
                   </p>
                   
                   <ul className="space-y-4 mb-8">
@@ -228,25 +224,25 @@ const ServicesPage = () => {
                       <div className="flex-shrink-0 mt-1">
                         <CheckCircle size={20} className="text-mylli-secondary mr-3" />
                       </div>
-                      <span className="text-mylli-gray">Administration de médicaments selon les prescriptions pour soins Alzheimer et Parkinson</span>
+                      <span className="text-mylli-gray">Administration de médicaments selon les prescriptions</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 mt-1">
                         <CheckCircle size={20} className="text-mylli-secondary mr-3" />
                       </div>
-                      <span className="text-mylli-gray">Surveillance des effets secondaires dans l'accompagnement des maladies chroniques</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
-                      </div>
-                      <span className="text-mylli-gray">Soins AVC et soins palliatifs adaptés à chaque patient</span>
+                      <span className="text-mylli-gray">Surveillance des effets secondaires et interactions médicamenteuses</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 mt-1">
                         <CheckCircle size={20} className="text-mylli-secondary mr-3" />
                       </div>
                       <span className="text-mylli-gray">Communication régulière avec le médecin traitant</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 mt-1">
+                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
+                      </div>
+                      <span className="text-mylli-gray">Tenue d'un dossier médical précis et à jour</span>
                     </li>
                   </ul>
                   
