@@ -32,7 +32,7 @@ const Footer = () => {
               <a href="https://twitter.com/mylliservices" aria-label="Twitter/X" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Twitter size={18} className="text-mylli-primary" />
               </a>
-              <a href="https://linkedin.com/company/mylliservices" aria-label="LinkedIn" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
+              <a href="https://www.linkedin.com/company/mylli-services/?originalSubdomain=ma" aria-label="LinkedIn" className="w-9 h-9 bg-mylli-primary/10 hover:bg-mylli-primary/20 rounded-full flex items-center justify-center transition-colors">
                 <Linkedin size={18} className="text-mylli-primary" />
               </a>
             </div>
