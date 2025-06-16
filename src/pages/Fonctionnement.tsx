@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Clock, Users, Heart, CheckCircle, ArrowRight, Phone, Star, ChevronDown, User, Calendar, Check, Shield, Target, Zap, HelpCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -308,9 +307,6 @@ const FonctionnementPage = () => {
                           <div className={`w-20 h-20 bg-gradient-to-br ${engagement.gradient} rounded-3xl flex items-center justify-center shadow-2xl transform group-hover:rotate-12 group-hover:scale-125 transition-all duration-700`}>
                             <IconComponent size={32} className="text-white" />
                           </div>
-                          
-                          {/* Floating decorative element */}
-                          
                         </div>
                         
                         {/* Title with sophisticated hover effects */}
