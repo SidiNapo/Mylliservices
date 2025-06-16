@@ -1,7 +1,9 @@
+
 import React from 'react';
-import { Clock, Users, Heart, CheckCircle, ArrowRight, Phone, Star, ChevronDown } from 'lucide-react';
+import { Clock, Users, Heart, CheckCircle, ArrowRight, Phone, Star, ChevronDown, User, Calendar, Check, Shield, Target, Zap, HelpCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import SEOHead from '@/components/seo/SEOHead';

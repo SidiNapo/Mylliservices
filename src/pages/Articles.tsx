@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Calendar, User, ArrowRight, Clock, Tag } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -52,8 +53,8 @@ const ArticlesPage = () => {
               <div key={article.slug} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                 <Link to={`/articles/${article.slug}`}>
                   <img 
-                    src={article.image} 
-                    alt={article.title} 
+                    src={article.imageSrc} 
+                    alt={article.imageAlt} 
                     className="w-full h-64 object-cover object-center" 
                   />
                   <div className="p-6">
@@ -62,7 +63,7 @@ const ArticlesPage = () => {
                     <div className="flex items-center justify-between text-sm text-mylli-gray">
                       <div className="flex items-center">
                         <Calendar size={16} className="mr-2" />
-                        <span>{article.date}</span>
+                        <span>{article.publishedDate}</span>
                       </div>
                       <div className="flex items-center">
                         <User size={16} className="mr-2" />
