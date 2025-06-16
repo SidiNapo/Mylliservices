@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { User, Calendar, Check, Phone, HelpCircle, Shield, Heart, Award, Users, Target, Star, Zap } from 'lucide-react';
+import { User, Calendar, Check, Phone, HelpCircle, Shield, Heart, Award, Users, Target, Star, Zap, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
+
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -162,7 +163,7 @@ const FonctionnementPage = () => {
                   <div className={`absolute -inset-2 bg-gradient-to-r ${step.gradient} rounded-3xl blur opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                   
                   {/* Main card */}
-                  <div className="relative h-full bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 group-hover:border-mylli-primary/20">
+                  <div className="relative h-full bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-white/20 group-hover:border-mylli-primary/20">
                     
                     {/* Animated top border */}
                     <div className={`h-2 bg-gradient-to-r ${step.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
@@ -354,6 +355,278 @@ const FonctionnementPage = () => {
         </div>
       </section>
       
+      {/* Ultra Modern FAQ Section */}
+      <section className="py-32 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+        {/* Enhanced animated background */}
+        <div className="absolute inset-0 opacity-20">
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-mylli-primary/30 to-mylli-secondary/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }}></div>
+          <div className="absolute bottom-32 right-16 w-96 h-96 bg-gradient-to-tl from-mylli-accent/25 to-mylli-quaternary/25 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s', animationDuration: '10s' }}></div>
+          <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-gradient-to-r from-mylli-secondary/20 to-mylli-primary/20 rounded-full blur-2xl animate-pulse-soft"></div>
+          
+          {/* Animated grid overlay */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJtIDQwIDAgbCAwIDQwIG0gLTQwIDAgbCA0MCAwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] animate-background-pan opacity-30"></div>
+        </div>
+        
+        <div className="container-custom relative z-10">
+          {/* Enhanced section header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center space-x-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-2xl flex items-center justify-center shadow-2xl animate-bounce-subtle">
+                <HelpCircle size={24} className="text-white" />
+              </div>
+              <div className="w-2 h-2 bg-gradient-to-r from-mylli-accent to-mylli-quaternary rounded-full animate-pulse-soft"></div>
+              <div className="w-3 h-3 bg-gradient-to-r from-mylli-secondary to-mylli-accent rounded-full animate-pulse-soft" style={{ animationDelay: '0.5s' }}></div>
+            </div>
+            
+            <h2 className="text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+              <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent animate-text-gradient">
+                Questions Fréquentes
+              </span>
+            </h2>
+            
+            <p className="text-xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
+              Des réponses claires et détaillées à vos interrogations les plus courantes
+            </p>
+            
+            {/* Decorative elements */}
+            <div className="flex justify-center items-center space-x-4 mt-8">
+              <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-mylli-primary to-transparent"></div>
+              <Sparkles size={20} className="text-mylli-accent animate-pulse-soft" />
+              <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-mylli-secondary to-transparent"></div>
+            </div>
+          </div>
+          
+          {/* Ultra Modern FAQ Container */}
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="w-full space-y-6">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`} 
+                  className="group relative transform transition-all duration-700 hover:scale-[1.02]"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  {/* Glow effect */}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                  
+                  {/* Main card */}
+                  <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden group-hover:border-mylli-primary/40 transition-all duration-700">
+                    
+                    {/* Animated background pattern */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-mylli-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    
+                    {/* Enhanced trigger */}
+                    <AccordionTrigger className="px-8 py-6 hover:no-underline group/trigger relative">
+                      <div className="flex items-center justify-between w-full text-left">
+                        <div className="flex items-center space-x-4">
+                          {/* Question number with sophisticated styling */}
+                          <div className="w-10 h-10 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center shadow-lg group-hover/trigger:scale-110 group-hover/trigger:rotate-12 transition-all duration-500">
+                            <span className="text-sm font-bold text-white">{String(index + 1).padStart(2, '0')}</span>
+                          </div>
+                          
+                          {/* Question text */}
+                          <h3 className="text-xl font-semibold text-white group-hover/trigger:text-blue-100 transition-colors duration-500 pr-8">
+                            {faq.question}
+                          </h3>
+                        </div>
+                        
+                        {/* Custom chevron with enhanced styling */}
+                        <div className="flex items-center space-x-3">
+                          <div className="w-8 h-8 bg-gradient-to-r from-mylli-accent to-mylli-quaternary rounded-full flex items-center justify-center shadow-lg group-hover/trigger:shadow-xl transition-all duration-500">
+                            <ChevronDown size={16} className="text-white transition-transform duration-500 group-data-[state=open]/trigger:rotate-180" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Hover line effect */}
+                      <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent transform scale-x-0 group-hover/trigger:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    </AccordionTrigger>
+                    
+                    {/* Enhanced content */}
+                    <AccordionContent className="px-8 pb-8 pt-2">
+                      <div className="relative">
+                        {/* Content background */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary/5 to-mylli-secondary/5 rounded-2xl"></div>
+                        
+                        <div className="relative flex items-start space-x-4">
+                          {/* Decorative icon */}
+                          <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full flex items-center justify-center mt-1">
+                            <Star size={14} className="text-mylli-accent" />
+                          </div>
+                          
+                          {/* Answer text */}
+                          <p className="text-blue-100/90 leading-relaxed text-lg">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </div>
+                </AccordionItem>
+              ))}
+            </Accordion>
+            
+            {/* Additional help section */}
+            <div className="mt-16 text-center">
+              <div className="relative inline-block group">
+                <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse-soft"></div>
+                <div className="relative bg-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/20 group-hover:border-mylli-primary/40 transition-all duration-500">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-mylli-accent to-mylli-quaternary rounded-full flex items-center justify-center shadow-2xl animate-float">
+                      <Phone size={28} className="text-white" />
+                    </div>
+                  </div>
+                  <h4 className="text-2xl font-bold text-white mb-3">Une autre question ?</h4>
+                  <p className="text-blue-100/80 mb-6 max-w-md mx-auto">
+                    Notre équipe est là pour répondre à toutes vos interrogations
+                  </p>
+                  <Link to="/contact">
+                    <Button className="btn-primary group relative overflow-hidden shadow-lg hover:shadow-2xl">
+                      <span className="relative z-10 flex items-center">
+                        Nous contacter
+                        <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-mylli-secondary to-mylli-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Ultra Modern CTA Section */}
+      <section className="py-32 bg-gradient-to-br from-mylli-primary via-mylli-secondary to-mylli-dark relative overflow-hidden">
+        {/* Advanced background effects */}
+        <div className="absolute inset-0">
+          {/* Animated mesh gradient */}
+          <div className="absolute inset-0 bg-mesh-gradient opacity-20 animate-background-pan"></div>
+          
+          {/* Floating orbs */}
+          <div className="absolute top-20 left-20 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-float" style={{ animationDuration: '12s' }}></div>
+          <div className="absolute bottom-20 right-20 w-64 h-64 bg-mylli-accent/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '-4s', animationDuration: '10s' }}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-mylli-quaternary/10 rounded-full blur-3xl animate-pulse-soft"></div>
+          
+          {/* Geometric patterns */}
+          <div className="absolute top-32 right-32 w-24 h-24 border-2 border-white/20 rounded-lg rotate-45 animate-spin-slow"></div>
+          <div className="absolute bottom-40 left-40 w-16 h-16 border border-mylli-accent/30 rounded-full animate-pulse-soft"></div>
+        </div>
+        
+        <div className="container-custom text-center relative z-10">
+          {/* Enhanced header */}
+          <div className="mb-12">
+            <div className="inline-flex items-center justify-center space-x-3 mb-8">
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-xl rounded-3xl flex items-center justify-center shadow-2xl animate-bounce-subtle border border-white/30">
+                <Zap size={32} className="text-white" />
+              </div>
+              <div className="flex space-x-2">
+                {[...Array(3)].map((_, i) => (
+                  <div 
+                    key={i} 
+                    className="w-3 h-3 bg-white/40 rounded-full animate-pulse-soft" 
+                    style={{ animationDelay: `${i * 0.3}s` }}
+                  ></div>
+                ))}
+              </div>
+            </div>
+            
+            <h2 className="text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+              <span className="inline-block animate-wave mr-4">👋</span>
+              <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-200 bg-clip-text text-transparent animate-text-gradient">
+                Prêt à commencer?
+              </span>
+            </h2>
+          </div>
+          
+          {/* Enhanced description */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <p className="text-2xl text-white/90 leading-relaxed mb-8 font-light">
+              Prenez rendez-vous pour une première rencontre sans engagement. 
+              <br className="hidden md:block" />
+              Nous serons heureux de vous écouter et de vous proposer des solutions adaptées à votre situation.
+            </p>
+            
+            {/* Key benefits */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {[
+                { icon: Shield, text: "Consultation gratuite", color: "from-mylli-accent to-mylli-quaternary" },
+                { icon: Heart, text: "Sans engagement", color: "from-white/20 to-white/40" },
+                { icon: Target, text: "Solutions sur mesure", color: "from-mylli-quaternary to-mylli-accent" }
+              ].map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div 
+                    key={index} 
+                    className="group relative transform transition-all duration-500 hover:scale-110"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <div className={`absolute -inset-2 bg-gradient-to-r ${benefit.color} rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
+                    <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 group-hover:border-white/40 transition-all duration-500">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${benefit.color} rounded-xl flex items-center justify-center mb-4 mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-500`}>
+                        <IconComponent size={24} className="text-white" />
+                      </div>
+                      <p className="text-white font-medium">{benefit.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* Enhanced CTA Button */}
+          <div className="relative inline-block group">
+            {/* Multiple glow layers */}
+            <div className="absolute -inset-6 bg-gradient-to-r from-white/30 via-mylli-accent/30 to-white/30 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-pulse-soft"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-mylli-quaternary/40 to-mylli-accent/40 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <Link to="/contact">
+              <Button className="relative bg-white text-mylli-primary hover:text-mylli-dark px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-500 group overflow-hidden border-2 border-white/20 hover:border-white/40">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-blue-50 to-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left"></div>
+                
+                {/* Button content */}
+                <span className="relative z-10 flex items-center">
+                  <Calendar size={24} className="mr-3 group-hover:rotate-12 transition-transform duration-500" />
+                  Prendre rendez-vous
+                  <div className="ml-3 flex space-x-1">
+                    {[...Array(3)].map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="w-2 h-2 bg-current rounded-full opacity-0 group-hover:opacity-100 animate-bounce-subtle" 
+                        style={{ animationDelay: `${i * 0.2}s` }}
+                      ></div>
+                    ))}
+                  </div>
+                </span>
+                
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Contact information */}
+          <div className="mt-12 flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 text-white/80">
+            <div className="flex items-center space-x-2">
+              <Phone size={18} />
+              <span>Appel gratuit</span>
+            </div>
+            <div className="hidden md:block w-1 h-1 bg-white/40 rounded-full"></div>
+            <div className="flex items-center space-x-2">
+              <Clock size={18} />
+              <span>Disponible 24h/24</span>
+            </div>
+            <div className="hidden md:block w-1 h-1 bg-white/40 rounded-full"></div>
+            <div className="flex items-center space-x-2">
+              <Award size={18} />
+              <span>Service premium</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
       {/* FAQ Section */}
       <section className="section-padding bg-gray-50">
         <div className="container-custom">
@@ -393,4 +666,5 @@ const FonctionnementPage = () => {
       </section>
     </div>;
 };
+
 export default FonctionnementPage;
