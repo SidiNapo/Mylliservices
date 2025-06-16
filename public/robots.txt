@@ -7,7 +7,7 @@ Allow: /
 # Disallow: /private/
 
 # Sitemap location
-Sitemap: https://mylliservices.com/sitemap.xml
+Sitemap: https://mylli-home-care-oasis.vercel.app/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
@@ -22,5 +22,5 @@ Allow: /
 User-agent: Twitterbot
 Allow: /
 
-User-agent: facebookexternalhit
+User-agent: facebookexternalscraper
 Allow: /

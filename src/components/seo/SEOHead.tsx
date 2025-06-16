@@ -17,7 +17,7 @@ interface SEOHeadProps {
 const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
-  keywords = 'aide à domicile, soins à domicile, Casablanca, infirmier, aide-soignant, garde-malade',
+  keywords = 'aide à domicile Casablanca, soins à domicile Maroc, accompagnement personnes âgées, assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral, soutien relationnel, services Mylli',
   canonicalUrl,
   ogImage = '/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png',
   ogType = 'website',
@@ -25,7 +25,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   nofollow = false,
   structuredData
 }) => {
-  const baseUrl = 'https://mylliservices.com'; // Replace with your actual domain
+  const baseUrl = 'https://mylli-home-care-oasis.vercel.app';
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 

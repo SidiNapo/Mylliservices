@@ -4,7 +4,7 @@ import { preloadCriticalImages, optimizeImageUrl } from './imageOptimization';
 // SEO utility functions
 
 export const generateSitemap = (routes: string[]) => {
-  const baseUrl = 'https://mylliservices.com';
+  const baseUrl = 'https://mylli-home-care-oasis.vercel.app';
   const currentDate = new Date().toISOString().split('T')[0];
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -58,5 +58,18 @@ export const measureCoreWebVitals = () => {
     });
     
     observer.observe({ entryTypes: ['measure', 'paint', 'largest-contentful-paint'] });
+  }
+};
+
+// SEO redirect helper for old URLs
+export const handleLegacyRedirects = () => {
+  const currentUrl = window.location.href;
+  const oldDomain = 'mylliservices.com';
+  const newDomain = 'mylli-home-care-oasis.vercel.app';
+  
+  // If coming from old domain, redirect to new domain
+  if (currentUrl.includes(oldDomain)) {
+    const newUrl = currentUrl.replace(oldDomain, newDomain);
+    window.location.replace(newUrl);
   }
 };
