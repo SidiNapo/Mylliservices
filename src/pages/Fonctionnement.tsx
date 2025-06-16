@@ -5,7 +5,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const FonctionnementPage = () => {
   const steps = [{
     id: "rencontre",
@@ -36,55 +35,42 @@ const FonctionnementPage = () => {
     details: ["Visites de contrôle régulières", "Appels de suivi pour recueillir vos impressions", "Ajustement du service selon vos retours", "Communication constante entre vous, l'intervenant et notre équipe"],
     gradient: "from-mylli-quaternary to-mylli-primary"
   }];
-
-  const engagements = [
-    {
-      title: "Une relation contractuelle claire",
-      description: "Tous nos engagements sont formalisés par écrit. Nous vous assurons une transparence totale sur nos prestations, nos tarifs et les modalités d'intervention.",
-      icon: Shield,
-      gradient: "from-mylli-primary to-mylli-secondary",
-      bgPattern: "radial-gradient(circle at 20% 80%, rgba(0, 119, 192, 0.1) 0%, transparent 50%)"
-    },
-    {
-      title: "Des exigences déontologiques élevées",
-      description: "Nos intervenants respectent une charte déontologique stricte garantissant le respect, la dignité et la confidentialité dans toutes nos interactions.",
-      icon: Heart,
-      gradient: "from-mylli-secondary to-mylli-accent",
-      bgPattern: "radial-gradient(circle at 80% 20%, rgba(224, 46, 49, 0.1) 0%, transparent 50%)"
-    },
-    {
-      title: "Une personnalisation des prestations",
-      description: "Chaque service est adapté à votre situation particulière. Nous prenons en compte vos habitudes, vos préférences et vos contraintes pour vous offrir un accompagnement sur mesure.",
-      icon: Target,
-      gradient: "from-mylli-accent to-mylli-quaternary",
-      bgPattern: "radial-gradient(circle at 50% 50%, rgba(0, 153, 232, 0.1) 0%, transparent 50%)"
-    },
-    {
-      title: "Un suivi individualisé",
-      description: "Votre conseiller personnel assure un suivi régulier pour garantir votre satisfaction et ajuster nos services en fonction de l'évolution de vos besoins.",
-      icon: Users,
-      gradient: "from-mylli-quaternary to-mylli-primary",
-      bgPattern: "radial-gradient(circle at 70% 30%, rgba(12, 170, 255, 0.1) 0%, transparent 50%)"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "Comment modifier le planning?",
-      answer: "Vous pouvez modifier votre planning en contactant directement votre conseiller personnel par téléphone ou par email, idéalement 48h à l'avance. Pour les ajustements réguliers, une simple notification nous suffit. Pour les changements majeurs, nous organiserons une nouvelle visite pour réévaluer vos besoins."
-    },
-    {
-      question: "Que faire en cas d'absence de l'intervenant?",
-      answer: "En cas d'absence prévue de votre intervenant, nous vous proposons systématiquement un remplaçant avec un profil similaire. Pour les absences imprévues, notre service d'urgence est disponible 24h/24 pour trouver une solution rapide. Nous vous garantissons toujours une continuité de service."
-    },
-    {
-      question: "Comment sont gérées les urgences?",
-      answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
-    }
-  ];
-
-  return (
-    <div>
+  const engagements = [{
+    title: "Une relation contractuelle claire",
+    description: "Tous nos engagements sont formalisés par écrit. Nous vous assurons une transparence totale sur nos prestations, nos tarifs et les modalités d'intervention.",
+    icon: Shield,
+    gradient: "from-mylli-primary to-mylli-secondary",
+    bgPattern: "radial-gradient(circle at 20% 80%, rgba(0, 119, 192, 0.1) 0%, transparent 50%)"
+  }, {
+    title: "Des exigences déontologiques élevées",
+    description: "Nos intervenants respectent une charte déontologique stricte garantissant le respect, la dignité et la confidentialité dans toutes nos interactions.",
+    icon: Heart,
+    gradient: "from-mylli-secondary to-mylli-accent",
+    bgPattern: "radial-gradient(circle at 80% 20%, rgba(224, 46, 49, 0.1) 0%, transparent 50%)"
+  }, {
+    title: "Une personnalisation des prestations",
+    description: "Chaque service est adapté à votre situation particulière. Nous prenons en compte vos habitudes, vos préférences et vos contraintes pour vous offrir un accompagnement sur mesure.",
+    icon: Target,
+    gradient: "from-mylli-accent to-mylli-quaternary",
+    bgPattern: "radial-gradient(circle at 50% 50%, rgba(0, 153, 232, 0.1) 0%, transparent 50%)"
+  }, {
+    title: "Un suivi individualisé",
+    description: "Votre conseiller personnel assure un suivi régulier pour garantir votre satisfaction et ajuster nos services en fonction de l'évolution de vos besoins.",
+    icon: Users,
+    gradient: "from-mylli-quaternary to-mylli-primary",
+    bgPattern: "radial-gradient(circle at 70% 30%, rgba(12, 170, 255, 0.1) 0%, transparent 50%)"
+  }];
+  const faqs = [{
+    question: "Comment modifier le planning?",
+    answer: "Vous pouvez modifier votre planning en contactant directement votre conseiller personnel par téléphone ou par email, idéalement 48h à l'avance. Pour les ajustements réguliers, une simple notification nous suffit. Pour les changements majeurs, nous organiserons une nouvelle visite pour réévaluer vos besoins."
+  }, {
+    question: "Que faire en cas d'absence de l'intervenant?",
+    answer: "En cas d'absence prévue de votre intervenant, nous vous proposons systématiquement un remplaçant avec un profil similaire. Pour les absences imprévues, notre service d'urgence est disponible 24h/24 pour trouver une solution rapide. Nous vous garantissons toujours une continuité de service."
+  }, {
+    question: "Comment sont gérées les urgences?",
+    answer: "Nous disposons d'un service d'urgence disponible 24h/24, 7j/7. Un numéro spécial vous est communiqué lors de la mise en place des services. Notre équipe d'astreinte peut intervenir rapidement ou coordonner l'intervention des services d'urgence si nécessaire."
+  }];
+  return <div>
       <PageBanner title="Notre Fonctionnement" subtitle="Un accompagnement personnalisé en 4 étapes" variant="modern" />
       
       {/* Redesigned Conseiller Section */}
@@ -106,14 +92,7 @@ const FonctionnementPage = () => {
                     {/* Decorative background */}
                     <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-3xl blur-lg transform rotate-3"></div>
                     <div className="relative bg-white rounded-2xl p-6 shadow-xl">
-                      <OptimizedImage
-                        src="/lovable-uploads/1a734acd-93c2-4f7b-88a3-fa8c91f19cc0.png"
-                        alt="Conseiller Mylli Services - Professionnel de santé à domicile"
-                        width={280}
-                        height={280}
-                        className="w-full h-auto rounded-xl"
-                        priority={true}
-                      />
+                      <OptimizedImage src="/lovable-uploads/1a734acd-93c2-4f7b-88a3-fa8c91f19cc0.png" alt="Conseiller Mylli Services - Professionnel de santé à domicile" width={280} height={280} className="w-full h-auto rounded-xl" priority={true} />
                     </div>
                   </div>
                 </div>
@@ -172,20 +151,13 @@ const FonctionnementPage = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Notre Processus en 4 Étapes" 
-            subtitle="Un accompagnement structuré et personnalisé pour répondre à vos besoins" 
-            variant="gradient"
-          />
+          <SectionHeading title="Notre Processus en 4 Étapes" subtitle="Un accompagnement structuré et personnalisé pour répondre à vos besoins" variant="gradient" />
           
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {steps.map((step, index) => (
-                <div 
-                  key={step.id} 
-                  className="group relative transform transition-all duration-700 hover:translate-y-[-8px]"
-                  style={{ animationDelay: `${index * 0.15}s` }}
-                >
+              {steps.map((step, index) => <div key={step.id} className="group relative transform transition-all duration-700 hover:translate-y-[-8px]" style={{
+              animationDelay: `${index * 0.15}s`
+            }}>
                   {/* Animated background glow */}
                   <div className={`absolute -inset-2 bg-gradient-to-r ${step.gradient} rounded-3xl blur opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
                   
@@ -225,29 +197,22 @@ const FonctionnementPage = () => {
                       
                       {/* Enhanced details list */}
                       <ul className="space-y-3">
-                        {step.details.map((detail, i) => (
-                          <li key={i} className="flex items-start group/item">
+                        {step.details.map((detail, i) => <li key={i} className="flex items-start group/item">
                             <div className="flex-shrink-0 mt-1 mr-3">
                               <div className={`w-6 h-6 bg-gradient-to-br ${step.gradient} rounded-full flex items-center justify-center shadow-sm group-hover/item:scale-110 transition-transform duration-300`}>
                                 <Check size={12} className="text-white" />
                               </div>
                             </div>
                             <span className="text-mylli-gray group-hover/item:text-mylli-dark transition-colors duration-300">{detail}</span>
-                          </li>
-                        ))}
+                          </li>)}
                       </ul>
                       
                       {/* Interactive bottom section */}
                       <div className="flex items-center justify-between pt-6 mt-6 border-t border-gray-100 group-hover:border-mylli-primary/20 transition-colors duration-500">
                         <div className="flex space-x-1">
-                          {[...Array(5)].map((_, i) => (
-                            <Star 
-                              key={i} 
-                              size={14} 
-                              className="text-yellow-400 fill-current opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
-                              style={{ transitionDelay: `${i * 0.1}s` }}
-                            />
-                          ))}
+                          {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-current opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{
+                        transitionDelay: `${i * 0.1}s`
+                      }} />)}
                         </div>
                         
                         {/* Animated arrow */}
@@ -260,8 +225,7 @@ const FonctionnementPage = () => {
                     {/* Hover effect overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-mylli-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -271,29 +235,26 @@ const FonctionnementPage = () => {
       <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
         {/* Enhanced background decorative elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-32 left-20 w-96 h-96 rounded-full border-2 border-mylli-primary animate-spin-slow" style={{ animationDuration: '30s' }}></div>
-          <div className="absolute bottom-40 right-32 w-64 h-64 rounded-full border border-mylli-secondary animate-spin-slow" style={{ animationDuration: '25s', animationDirection: 'reverse' }}></div>
+          <div className="absolute top-32 left-20 w-96 h-96 rounded-full border-2 border-mylli-primary animate-spin-slow" style={{
+          animationDuration: '30s'
+        }}></div>
+          <div className="absolute bottom-40 right-32 w-64 h-64 rounded-full border border-mylli-secondary animate-spin-slow" style={{
+          animationDuration: '25s',
+          animationDirection: 'reverse'
+        }}></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full border border-mylli-accent/30 animate-pulse-soft"></div>
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Nos Engagements" 
-            subtitle="Des valeurs fortes qui guident chacune de nos actions avec un professionnalisme exemplaire" 
-            variant="gradient"
-            highlightText="Nos Engagements"
-          />
+          <SectionHeading title="Nos Engagements" subtitle="Des valeurs fortes qui guident chacune de nos actions avec un professionnalisme exemplaire" variant="gradient" highlightText="Nos Engagements" />
           
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {engagements.map((engagement, index) => {
-                const IconComponent = engagement.icon;
-                return (
-                  <div 
-                    key={index} 
-                    className="group relative transform transition-all duration-700 hover:translate-y-[-12px] hover:scale-105"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
+              const IconComponent = engagement.icon;
+              return <div key={index} className="group relative transform transition-all duration-700 hover:translate-y-[-12px] hover:scale-105" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                     {/* Multiple layered backgrounds for extreme depth */}
                     <div className={`absolute -inset-3 bg-gradient-to-r ${engagement.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-25 transition-all duration-700`}></div>
                     <div className="absolute -inset-1 bg-gradient-to-br from-white/80 to-gray-50/80 rounded-2xl blur opacity-30"></div>
@@ -302,10 +263,9 @@ const FonctionnementPage = () => {
                     <div className="relative h-full bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-700 overflow-hidden border border-white/50 group-hover:border-mylli-primary/30">
                       
                       {/* Dynamic background pattern */}
-                      <div 
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                        style={{ background: engagement.bgPattern }}
-                      ></div>
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" style={{
+                    background: engagement.bgPattern
+                  }}></div>
                       
                       {/* Animated top border with gradient flow */}
                       <div className={`h-2 bg-gradient-to-r ${engagement.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left`}></div>
@@ -320,9 +280,7 @@ const FonctionnementPage = () => {
                           </div>
                           
                           {/* Floating decorative element */}
-                          <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 animate-float" style={{ animationDelay: '0.5s' }}>
-                            <Award size={20} className="text-mylli-primary" />
-                          </div>
+                          
                         </div>
                         
                         {/* Title with sophisticated hover effects */}
@@ -343,13 +301,10 @@ const FonctionnementPage = () => {
                         <div className="flex items-center justify-between pt-6 mt-6 border-t border-gray-200 group-hover:border-mylli-primary/30 transition-colors duration-500">
                           {/* Animated quality indicators */}
                           <div className="flex space-x-2">
-                            {[...Array(4)].map((_, i) => (
-                              <div 
-                                key={i}
-                                className={`w-3 h-3 rounded-full bg-gradient-to-r ${engagement.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-soft`}
-                                style={{ transitionDelay: `${i * 0.1}s`, animationDelay: `${i * 0.2}s` }}
-                              ></div>
-                            ))}
+                            {[...Array(4)].map((_, i) => <div key={i} className={`w-3 h-3 rounded-full bg-gradient-to-r ${engagement.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-soft`} style={{
+                          transitionDelay: `${i * 0.1}s`,
+                          animationDelay: `${i * 0.2}s`
+                        }}></div>)}
                           </div>
                           
                           {/* Interactive action indicator */}
@@ -363,9 +318,8 @@ const FonctionnementPage = () => {
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-mylli-primary/2 to-mylli-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
                       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-mylli-accent/10 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
             
             {/* Enhanced call to action section */}
@@ -407,8 +361,7 @@ const FonctionnementPage = () => {
           
           <div className="max-w-3xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="mb-4 bg-white rounded-lg shadow-soft">
+              {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="mb-4 bg-white rounded-lg shadow-soft">
                   <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-50 rounded-lg text-mylli-dark">
                     <div className="flex items-center text-left">
                       <HelpCircle size={20} className="text-mylli-primary mr-3 flex-shrink-0" />
@@ -418,8 +371,7 @@ const FonctionnementPage = () => {
                   <AccordionContent className="px-6 pb-4 pt-1 text-mylli-gray">
                     {faq.answer}
                   </AccordionContent>
-                </AccordionItem>
-              ))}
+                </AccordionItem>)}
             </Accordion>
           </div>
         </div>
@@ -439,8 +391,6 @@ const FonctionnementPage = () => {
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default FonctionnementPage;
