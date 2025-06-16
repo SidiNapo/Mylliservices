@@ -1,53 +1,46 @@
-
 import { ArrowLeft, Quote, Heart, Award, Clock, Users, Calendar, Building, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import SEOHead from '@/components/seo/SEOHead';
-
 const MotDuPresident = () => {
-  return (
-    <>
-      <SEOHead 
-        title="Mot du Président - Mylli Services | Vision et Engagement" 
-        description="Découvrez le message personnel du Président de Mylli Services sur notre mission d'accompagnement à domicile et notre engagement envers la dignité humaine." 
-        keywords="mot du président, Mylli Services, fondateur, vision, mission, accompagnement domicile" 
-        canonicalUrl="/mot-du-president" 
-      />
+  return <>
+      <SEOHead title="Mot du Président - Mylli Services | Vision et Engagement" description="Découvrez le message personnel du Président de Mylli Services sur notre mission d'accompagnement à domicile et notre engagement envers la dignité humaine." keywords="mot du président, Mylli Services, fondateur, vision, mission, accompagnement domicile" canonicalUrl="/mot-du-president" />
       
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
         {/* Header Navigation */}
-        <div className="container-custom pt-24 pb-8">
-          <Button asChild variant="outline" className="mb-8 hover:bg-mylli-primary/10 border-mylli-primary/20">
-            <Link to="/" className="flex items-center gap-2">
-              <ArrowLeft size={18} />
-              Retour à l'accueil
-            </Link>
-          </Button>
-        </div>
+        
 
         {/* Advanced Background Elements */}
         <div className="absolute inset-0 opacity-10">
           {/* Animated geometric shapes */}
-          <div className="absolute top-20 left-20 w-64 h-64 rounded-full border-2 border-mylli-primary animate-spin-slow" style={{animationDuration: '30s'}}></div>
-          <div className="absolute bottom-32 right-32 w-48 h-48 rounded-full border border-mylli-secondary animate-spin-slow" style={{animationDuration: '25s', animationDirection: 'reverse'}}></div>
-          <div className="absolute top-1/2 left-1/4 w-32 h-32 rounded-full border border-mylli-accent animate-pulse-soft" style={{animationDuration: '4s'}}></div>
+          <div className="absolute top-20 left-20 w-64 h-64 rounded-full border-2 border-mylli-primary animate-spin-slow" style={{
+          animationDuration: '30s'
+        }}></div>
+          <div className="absolute bottom-32 right-32 w-48 h-48 rounded-full border border-mylli-secondary animate-spin-slow" style={{
+          animationDuration: '25s',
+          animationDirection: 'reverse'
+        }}></div>
+          <div className="absolute top-1/2 left-1/4 w-32 h-32 rounded-full border border-mylli-accent animate-pulse-soft" style={{
+          animationDuration: '4s'
+        }}></div>
           
           {/* Floating gradient orbs */}
-          <div className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 blur-3xl -top-48 -left-48 animate-float" style={{animationDuration: '6s'}}></div>
-          <div className="absolute w-80 h-80 rounded-full bg-gradient-to-l from-mylli-accent/20 to-mylli-quaternary/20 blur-3xl -bottom-40 -right-40 animate-float" style={{animationDuration: '8s', animationDelay: '2s'}}></div>
+          <div className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 blur-3xl -top-48 -left-48 animate-float" style={{
+          animationDuration: '6s'
+        }}></div>
+          <div className="absolute w-80 h-80 rounded-full bg-gradient-to-l from-mylli-accent/20 to-mylli-quaternary/20 blur-3xl -bottom-40 -right-40 animate-float" style={{
+          animationDuration: '8s',
+          animationDelay: '2s'
+        }}></div>
         </div>
         
         {/* Grid pattern overlay */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJtIDQwIDAgbCAwIDQwIG0gLTQwIDAgbCA0MCAwIiBzdHJva2U9IiMwMDc3QzAiIHN0cm9rZS13aWR0aD0iMC41IiBvcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-20"></div>
         
         <div className="container-custom relative z-10 py-32">
-          <SectionHeading 
-            title="Le Mot du Fondateur"
-            variant="modern"
-            className="mb-20"
-          />
+          <SectionHeading title="Le Mot du Fondateur" variant="modern" className="mb-20" />
           
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -62,11 +55,7 @@ const MotDuPresident = () => {
                   {/* Main image container with 3D transform */}
                   <div className="relative bg-white rounded-3xl p-3 shadow-2xl transform group-hover:scale-105 group-hover:rotate-y-6 transition-all duration-700 border border-gray-100">
                     <div className="relative overflow-hidden rounded-2xl">
-                      <img 
-                        src="/lovable-uploads/6614d6c0-17b6-4417-b39c-a959be53d239.png" 
-                        alt="M. HARAKAT, Fondateur de Mylli Services" 
-                        className="w-80 h-96 object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
-                      />
+                      <img src="/lovable-uploads/6614d6c0-17b6-4417-b39c-a959be53d239.png" alt="M. HARAKAT, Fondateur de Mylli Services" className="w-80 h-96 object-cover object-top transform group-hover:scale-110 transition-transform duration-700" />
                       {/* Sophisticated overlay gradients */}
                       <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/30 via-transparent to-transparent"></div>
                       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-mylli-primary/10"></div>
@@ -249,35 +238,8 @@ const MotDuPresident = () => {
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
 
         {/* Call to Action */}
-        <section className="bg-gradient-to-r from-mylli-primary/10 to-mylli-secondary/10 py-16 relative z-10">
-          <div className="container-custom px-4 md:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-mylli-dark mb-6">
-                Prêt à découvrir nos services ?
-              </h3>
-              <p className="text-mylli-gray text-lg mb-8 max-w-2xl mx-auto">
-                Contactez-nous dès aujourd'hui pour un accompagnement personnalisé et professionnel à domicile.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:from-mylli-primary hover:to-mylli-primary-dark">
-                  <Link to="/contact">
-                    Nous contacter
-                  </Link>
-                </Button>
-                
-                <Button asChild variant="outline" className="border-mylli-primary/20 hover:bg-mylli-primary/10">
-                  <Link to="/services">
-                    Découvrir nos services
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+        
       </div>
-    </>
-  );
+    </>;
 };
-
 export default MotDuPresident;
