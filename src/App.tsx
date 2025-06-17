@@ -25,23 +25,22 @@ function App() {
     <SecurityProvider>
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <CookieConsentManager>
+          <HelmetProvider>
+            <CookieConsentManager />
             <Toaster />
-            <HelmetProvider>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/apropos" element={<AproposPage />} />
-                <Route path="/fonctionnement" element={<FonctionnementPage />} />
-                <Route path="/outils" element={<OutilsPage />} />
-                <Route path="/services/aide-soignant" element={<AideSoignantPage />} />
-                <Route path="/services/infirmier" element={<InfirmierPage />} />
-                <Route path="/articles" element={<ArticlesPage />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </HelmetProvider>
-          </CookieConsentManager>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/apropos" element={<AproposPage />} />
+              <Route path="/fonctionnement" element={<FonctionnementPage />} />
+              <Route path="/outils" element={<OutilsPage />} />
+              <Route path="/services/aide-soignant" element={<AideSoignantPage />} />
+              <Route path="/services/infirmier" element={<InfirmierPage />} />
+              <Route path="/articles" element={<ArticlesPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </HelmetProvider>
         </QueryClientProvider>
       </BrowserRouter>
     </SecurityProvider>
