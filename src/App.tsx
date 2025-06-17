@@ -1,19 +1,20 @@
+
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
-import CookieConsentManager from '@/components/common/CookieConsentManager';
-import HomePage from '@/pages/HomePage';
-import ServicesPage from '@/pages/ServicesPage';
-import ContactPage from '@/pages/ContactPage';
-import AproposPage from '@/pages/AproposPage';
-import FonctionnementPage from '@/pages/FonctionnementPage';
-import OutilsPage from '@/pages/OutilsPage';
-import AideSoignantPage from '@/pages/AideSoignantPage';
-import InfirmierPage from '@/pages/InfirmierPage';
-import ArticlesPage from '@/pages/ArticlesPage';
+import CookieConsentManager from '@/components/cookies/CookieConsentManager';
+import HomePage from '@/pages/Home';
+import ServicesPage from '@/pages/Services';
+import ContactPage from '@/pages/Contact';
+import AproposPage from '@/pages/APropos';
+import FonctionnementPage from '@/pages/Fonctionnement';
+import OutilsPage from '@/pages/Articles';
+import AideSoignantPage from '@/pages/services/AideSoignant';
+import InfirmierPage from '@/pages/services/Infirmier';
+import ArticlesPage from '@/pages/Articles';
 import SEOHead from '@/components/seo/SEOHead';
-import NotFoundPage from '@/pages/NotFoundPage';
+import NotFoundPage from '@/pages/NotFound';
 import { HelmetProvider } from 'react-helmet-async';
 import SecurityProvider from '@/components/security/SecurityProvider';
 
