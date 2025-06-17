@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -23,6 +22,8 @@ import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
 import { preloadCriticalImages } from "./utils/imageOptimization";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
+import SecurityDashboard from "./components/security/SecurityDashboard";
+import { securitySession } from "./utils/securitySession";
 import "./styles/global.css";
 
 const queryClient = new QueryClient({
@@ -37,6 +38,9 @@ const queryClient = new QueryClient({
 const App: React.FC = () => {
   // Preload critical resources and initialize services
   useEffect(() => {
+    // Initialize security session
+    securitySession.initializeSession();
+    
     // Preload critical images with optimization
     preloadCriticalImages();
 
@@ -72,6 +76,7 @@ const App: React.FC = () => {
             <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
           </Routes>
           <CookieConsentManager />
+          <SecurityDashboard />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
