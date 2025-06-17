@@ -1,50 +1,81 @@
 
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from '@/components/ui/toaster';
-import CookieConsentManager from '@/components/cookies/CookieConsentManager';
-import HomePage from '@/pages/Home';
-import ServicesPage from '@/pages/Services';
-import ContactPage from '@/pages/Contact';
-import AproposPage from '@/pages/APropos';
-import FonctionnementPage from '@/pages/Fonctionnement';
-import OutilsPage from '@/pages/Articles';
-import AideSoignantPage from '@/pages/services/AideSoignant';
-import InfirmierPage from '@/pages/services/Infirmier';
-import ArticlesPage from '@/pages/Articles';
-import SEOHead from '@/components/seo/SEOHead';
-import NotFoundPage from '@/pages/NotFound';
-import { HelmetProvider } from 'react-helmet-async';
-import SecurityProvider from '@/components/security/SecurityProvider';
+import React, { useEffect } from 'react';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import HomePage from "./pages/Home";
+import ServicesPage from "./pages/Services";
+import FonctionnementPage from "./pages/Fonctionnement";
+import EquipePage from "./pages/Equipe";
+import AProposPage from "./pages/APropos";
+import ContactPage from "./pages/Contact";
+import AideSoignantPage from "./pages/services/AideSoignant";
+import InfirmierPage from "./pages/services/Infirmier";
+import ArticlesPage from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
+import CookiePolicy from "./pages/CookiePolicy";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import MotDuPresident from "./pages/MotDuPresident";
+import NotFound from "./pages/NotFound";
+import { initEmailJS } from "./utils/emailjs";
+import { preloadCriticalImages } from "./utils/imageOptimization";
+import CookieConsentManager from "./components/cookies/CookieConsentManager";
+import "./styles/global.css";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      gcTime: 10 * 60 * 1000, // 10 minutes
+    },
+  },
+});
 
-function App() {
+const App: React.FC = () => {
+  // Preload critical resources and initialize services
+  useEffect(() => {
+    // Preload critical images with optimization
+    preloadCriticalImages();
+
+    // Initialize EmailJS
+    try {
+      initEmailJS();
+      console.log("EmailJS initialized successfully");
+    } catch (error) {
+      console.error("Failed to initialize EmailJS:", error);
+    }
+  }, []);
+
   return (
-    <SecurityProvider>
-      <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
-          <HelmetProvider>
-            <CookieConsentManager />
-            <Toaster />
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/apropos" element={<AproposPage />} />
-              <Route path="/fonctionnement" element={<FonctionnementPage />} />
-              <Route path="/outils" element={<OutilsPage />} />
-              <Route path="/services/aide-soignant" element={<AideSoignantPage />} />
-              <Route path="/services/infirmier" element={<InfirmierPage />} />
-              <Route path="/articles" element={<ArticlesPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </HelmetProvider>
-        </QueryClientProvider>
-      </BrowserRouter>
-    </SecurityProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+            <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
+            <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
+            <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
+            <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
+            <Route path="/outils" element={<MainLayout><EquipePage /></MainLayout>} />
+            <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
+            <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
+            <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
+            <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
+            <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
+            <Route path="/politique-confidentialite" element={<MainLayout><PolitiqueConfidentialite /></MainLayout>} />
+            <Route path="/mot-du-president" element={<MainLayout><MotDuPresident /></MainLayout>} />
+            <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
+          </Routes>
+          <CookieConsentManager />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
