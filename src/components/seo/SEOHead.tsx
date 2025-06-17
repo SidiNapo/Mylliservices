@@ -17,15 +17,15 @@ interface SEOHeadProps {
 const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
-  keywords = 'aide à domicile, soins à domicile, Casablanca, infirmier, aide-soignant, garde-malade',
+  keywords = 'soins domicile casablanca, infirmier domicile casablanca, aide soignant domicile casablanca, garde malade casablanca, soins infirmiers domicile, mylli services casablanca, aide domicile personnes agees, infirmier nuit casablanca, garde malade 24h casablanca, soins palliatifs domicile, assistance medicale domicile, infirmier liberal casablanca',
   canonicalUrl,
-  ogImage = '/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png',
+  ogImage = '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png',
   ogType = 'website',
   noindex = false,
   nofollow = false,
   structuredData
 }) => {
-  const baseUrl = 'https://mylliservices.com'; // Replace with your actual domain
+  const baseUrl = 'https://mylliservices.com';
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 
@@ -39,18 +39,37 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Canonical URL */}
       {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
       
-      {/* Robots Meta */}
-      <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} />
+      {/* Advanced SEO Meta */}
+      <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:160,max-image-preview:large,max-video-preview:30`} />
+      <meta name="googlebot" content="index,follow" />
+      <meta name="bingbot" content="index,follow" />
+      <meta name="language" content="fr-MA" />
+      <meta name="author" content="Mylli Services Casablanca" />
+      <meta name="publisher" content="Mylli Services" />
+      <meta name="copyright" content="Mylli Services 2024" />
+      <meta name="revisit-after" content="7 days" />
+      <meta name="rating" content="general" />
+      
+      {/* Geo Meta Tags */}
+      <meta name="geo.region" content="MA-06" />
+      <meta name="geo.placename" content="Casablanca, Morocco" />
+      <meta name="geo.position" content="33.5731;-7.5898" />
+      <meta name="ICBM" content="33.5731, -7.5898" />
+      <meta name="distribution" content="local" />
+      <meta name="coverage" content="Casablanca" />
       
       {/* Open Graph Tags */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
       <meta property="og:image" content={fullOgImage} />
-      <meta property="og:image:alt" content="Mylli Services - Aide à domicile professionnelle" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
       {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
-      <meta property="og:site_name" content="Mylli Services" />
-      <meta property="og:locale" content="fr_FR" />
+      <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
+      <meta property="og:locale" content="fr_MA" />
+      <meta property="og:locale:alternate" content="ar_MA" />
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -58,15 +77,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
-      <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle" />
+      <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
       
-      {/* Additional SEO Meta Tags */}
-      <meta name="author" content="Mylli Services" />
-      <meta name="language" content="French" />
-      <meta name="geo.region" content="MA-CAS" />
-      <meta name="geo.placename" content="Casablanca" />
-      <meta name="geo.position" content="33.5731;-7.5898" />
-      <meta name="ICBM" content="33.5731, -7.5898" />
+      {/* Hreflang */}
+      <link rel="alternate" hreflang="fr-ma" href={fullCanonicalUrl || baseUrl} />
+      <link rel="alternate" hreflang="x-default" href={fullCanonicalUrl || baseUrl} />
       
       {/* Structured Data */}
       {structuredData && (
