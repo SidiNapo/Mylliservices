@@ -79,9 +79,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="twitter:image" content={fullOgImage} />
       <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
       
-      {/* Hreflang */}
-      <link rel="alternate" hreflang="fr-ma" href={fullCanonicalUrl || baseUrl} />
-      <link rel="alternate" hreflang="x-default" href={fullCanonicalUrl || baseUrl} />
+      {/* Hreflang - Using hrefLang for React */}
+      <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl || baseUrl} />
+      <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl || baseUrl} />
       
       {/* Structured Data */}
       {structuredData && (
