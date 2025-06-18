@@ -2,6 +2,7 @@ import { Award, CheckCircle, Shield, Users } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import ParallaxSection from '@/components/common/ParallaxSection';
+
 const EquipePage = () => {
   const values = [{
     title: "Professionnalisme",
@@ -28,8 +29,13 @@ const EquipePage = () => {
     color: "from-orange-500 to-red-600",
     bgGradient: "from-orange-500/10 to-red-600/10"
   }];
-  return <div>
-      <PageBanner title="Nos Outils" subtitle="Des outils performants au service de votre bien-être" />
+
+  return (
+    <div>
+      <PageBanner 
+        title="Nos Outils" 
+        subtitle="Des outils performants au service de votre bien-être"
+      />
       
       {/* Approach Section with Parallax - Updated with new image and modern design */}
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
@@ -37,18 +43,16 @@ const EquipePage = () => {
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{
-          animationDelay: '2s'
-        }}></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
           
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-              `,
-          backgroundSize: '60px 60px'
-        }}></div>
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -69,7 +73,11 @@ const EquipePage = () => {
                 
                 {/* Image with overlay effects */}
                 <div className="relative overflow-hidden rounded-2xl">
-                  <img src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" alt="Équipe médicale professionnelle - Le caractère des soignants" className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105" />
+                  <img 
+                    src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" 
+                    alt="Équipe médicale professionnelle - Le caractère des soignants"
+                    className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105"
+                  />
                   
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -87,9 +95,7 @@ const EquipePage = () => {
               
               {/* Floating decorative elements */}
               <div className="absolute top-1/4 -left-6 w-4 h-4 bg-mylli-accent/50 rounded-full animate-bounce-subtle opacity-70"></div>
-              <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-mylli-secondary/50 rounded-full animate-bounce-subtle opacity-70" style={{
-              animationDelay: '1s'
-            }}></div>
+              <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-mylli-secondary/50 rounded-full animate-bounce-subtle opacity-70" style={{animationDelay: '1s'}}></div>
             </div>
             
             {/* Right side - Content */}
@@ -103,16 +109,13 @@ const EquipePage = () => {
                 {/* Subtle pattern overlay */}
                 <div className="absolute inset-0 opacity-5">
                   <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
-                  backgroundSize: '20px 20px'
-                }}></div>
+                    backgroundImage: `radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0)`,
+                    backgroundSize: '20px 20px'
+                  }}></div>
                 </div>
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Decorative header */}
-                  
-                  
                   <h2 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
                     <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent animate-text-gradient bg-[length:200%_auto]">
                       LE CARACTÈRE DES SOIGNANTS
@@ -136,9 +139,13 @@ const EquipePage = () => {
                   {/* Enhanced call-to-action elements */}
                   <div className="mt-10 flex items-center space-x-4">
                     <div className="flex -space-x-2">
-                      {[1, 2, 3].map(i => <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary border-2 border-white shadow-lg animate-pulse" style={{
-                      animationDelay: `${i * 0.3}s`
-                    }}></div>)}
+                      {[1, 2, 3].map((i) => (
+                        <div 
+                          key={i} 
+                          className="w-8 h-8 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary border-2 border-white shadow-lg animate-pulse" 
+                          style={{animationDelay: `${i * 0.3}s`}}
+                        ></div>
+                      ))}
                     </div>
                     <div className="h-8 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
                     <span className="text-mylli-dark font-semibold">Notre engagement qualité</span>
@@ -160,70 +167,243 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Selection Process - Modern design */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container-custom">
-          <SectionHeading title="Notre Processus de Sélection" subtitle="Une approche rigoureuse pour garantir l'excellence de nos intervenants" variant="modern" />
+      {/* Selection Process - Completely redesigned with modern, unique styling */}
+      <section className="relative py-32 overflow-hidden bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30">
+        {/* Floating background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-16 left-20 w-24 h-24 bg-gradient-to-br from-mylli-primary/15 to-mylli-secondary/15 rounded-full blur-xl animate-float"></div>
+          <div className="absolute bottom-20 right-16 w-32 h-32 bg-gradient-to-br from-mylli-accent/15 to-mylli-quaternary/15 rounded-full blur-2xl animate-pulse-soft"></div>
+          <div className="absolute top-1/2 left-1/3 w-20 h-20 bg-gradient-to-br from-purple-400/10 to-pink-400/10 rounded-full blur-lg animate-float" style={{animationDelay: '1.5s'}}></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          {/* Enhanced Section Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center p-3 bg-white/60 backdrop-blur-md rounded-full border border-white/40 mb-6 shadow-lg">
+              <div className="w-3 h-3 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full animate-pulse mr-2"></div>
+              <span className="text-sm font-semibold text-mylli-dark tracking-wider uppercase">Excellence & Rigueur</span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 relative">
+              <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent">
+                Notre Processus
+              </span>
+              <br />
+              <span className="text-mylli-dark">de Sélection</span>
+              <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-mylli-primary to-mylli-secondary rounded-full"></div>
+            </h2>
+            
+            <p className="text-xl text-mylli-gray max-w-3xl mx-auto leading-relaxed">
+              Une approche rigoureuse et méthodique pour garantir l'excellence de nos intervenants à chaque étape
+            </p>
+          </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
-              <div className="bg-gradient-to-br from-white to-mylli-primary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-primary h-full">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-primary/10 flex items-center justify-center mr-3">
-                    <span className="text-mylli-primary font-bold">1</span>
+          {/* Modern Process Cards */}
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              
+              {/* Card 1 - Recrutement rigoureux */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl border border-white/30">
+                  
+                  {/* Gradient top bar */}
+                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-primary to-mylli-secondary"></div>
+                  
+                  {/* Content */}
+                  <div className="p-10">
+                    {/* Header with icon */}
+                    <div className="flex items-center mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-mylli-primary to-mylli-secondary p-4 shadow-lg transform transition-all duration-300 group-hover:rotate-6 group-hover:scale-110">
+                        <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center text-white font-bold text-lg">
+                          1
+                        </div>
+                      </div>
+                      <div className="ml-6">
+                        <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-primary transition-colors duration-300">
+                          Recrutement rigoureux
+                        </h3>
+                        <div className="w-0 h-0.5 bg-gradient-to-r from-mylli-primary to-mylli-secondary group-hover:w-24 transition-all duration-500 mt-2 rounded-full"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Enhanced list items */}
+                    <ul className="space-y-5">
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Vérification des qualifications professionnelles et des diplômes
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Contrôle des références et de l'expérience professionnelle
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Entretiens approfondis pour évaluer les compétences techniques
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Mises en situation pratiques pour tester les réactions
+                        </span>
+                      </li>
+                    </ul>
                   </div>
-                  Recrutement rigoureux
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Vérification des qualifications professionnelles et des diplômes</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Contrôle des références et de l'expérience professionnelle</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Entretiens approfondis pour évaluer les compétences techniques</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-primary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Mises en situation pratiques pour tester les réactions</span>
-                  </li>
-                </ul>
+                  
+                  {/* Bottom accent with floating particles */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-mylli-primary/60 to-transparent"></div>
+                  <div className="absolute top-6 right-6 w-2 h-2 bg-mylli-primary/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                </div>
+              </div>
+              
+              {/* Card 2 - Évaluation des qualités humaines */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-mylli-secondary/20 to-mylli-accent/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500"></div>
+                
+                <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl border border-white/30">
+                  
+                  {/* Gradient top bar */}
+                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-secondary to-mylli-accent"></div>
+                  
+                  {/* Content */}
+                  <div className="p-10">
+                    {/* Header with icon */}
+                    <div className="flex items-center mb-8">
+                      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-mylli-secondary to-mylli-accent p-4 shadow-lg transform transition-all duration-300 group-hover:rotate-6 group-hover:scale-110">
+                        <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center text-white font-bold text-lg">
+                          2
+                        </div>
+                      </div>
+                      <div className="ml-6">
+                        <h3 className="text-3xl font-bold text-mylli-dark group-hover:text-mylli-secondary transition-colors duration-300">
+                          Évaluation des qualités humaines
+                        </h3>
+                        <div className="w-0 h-0.5 bg-gradient-to-r from-mylli-secondary to-mylli-accent group-hover:w-24 transition-all duration-500 mt-2 rounded-full"></div>
+                      </div>
+                    </div>
+                    
+                    {/* Enhanced list items */}
+                    <ul className="space-y-5">
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Évaluation de l'empathie et des capacités d'écoute
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Analyse de la patience et de la bienveillance
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Vérification de l'équilibre émotionnel et capacité à gérer le stress
+                        </span>
+                      </li>
+                      
+                      <li className="group/item flex items-start p-4 rounded-xl bg-gradient-to-r from-white/50 to-gray-50/50 border border-gray-100/50 shadow-sm transform transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:bg-white/80">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-mylli-secondary to-mylli-accent flex items-center justify-center mr-4 mt-0.5 shadow-sm">
+                          <CheckCircle size={14} className="text-white" />
+                        </div>
+                        <span className="text-mylli-gray font-medium group-hover/item:text-mylli-dark transition-colors duration-200">
+                          Évaluation de la capacité d'adaptation aux différentes situations
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  {/* Bottom accent with floating particles */}
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-mylli-secondary/60 to-transparent"></div>
+                  <div className="absolute top-6 right-6 w-2 h-2 bg-mylli-secondary/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                </div>
               </div>
             </div>
             
-            <div className="transform transition-all duration-500 hover:translate-y-[-10px] hover:shadow-xl">
-              <div className="bg-gradient-to-br from-white to-mylli-secondary/5 rounded-3xl shadow-lg p-8 border-t-4 border-mylli-secondary h-full">
-                <h3 className="text-2xl font-bold mb-6 text-mylli-dark flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-mylli-secondary/10 flex items-center justify-center mr-3">
-                    <span className="text-mylli-secondary font-bold">2</span>
+            {/* Bottom Summary Card */}
+            <div className="mt-16 relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/10 via-mylli-secondary/10 to-mylli-accent/10 rounded-3xl blur-xl"></div>
+              
+              <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-2xl p-12 border border-white/40 overflow-hidden">
+                {/* Top decorative bar */}
+                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent"></div>
+                
+                {/* Floating background decoration */}
+                <div className="absolute -top-4 -right-4 w-32 h-32 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-full blur-2xl"></div>
+                
+                <div className="text-center relative z-10">
+                  <div className="inline-flex items-center justify-center p-4 bg-white/60 backdrop-blur-md rounded-full border border-white/40 mb-8 shadow-lg">
+                    <Shield className="w-6 h-6 text-mylli-primary mr-3" />
+                    <span className="text-lg font-bold text-mylli-dark">Garantie Excellence</span>
                   </div>
-                  Évaluation des qualités humaines
-                </h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Évaluation de l'empathie et des capacités d'écoute</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Analyse de la patience et de la bienveillance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Vérification de l'équilibre émotionnel et capacité à gérer le stress</span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle size={20} className="text-mylli-secondary mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-mylli-gray">Évaluation de la capacité d'adaptation aux différentes situations</span>
-                  </li>
-                </ul>
+                  
+                  <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-mylli-primary to-mylli-secondary bg-clip-text text-transparent">
+                    Un processus rigoureux pour votre sérénité
+                  </h3>
+                  
+                  <p className="text-xl text-mylli-gray max-w-4xl mx-auto leading-relaxed mb-8">
+                    Chaque intervenant Mylli Services passe par ce processus de sélection complet, garantissant ainsi un niveau d'excellence constant dans nos prestations. Votre confiance est notre priorité.
+                  </p>
+                  
+                  {/* Stats or highlights */}
+                  <div className="flex justify-center items-center space-x-8">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-mylli-primary mb-2">100%</div>
+                      <div className="text-sm text-mylli-gray font-medium">Vérifiés</div>
+                    </div>
+                    <div className="h-12 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-mylli-secondary mb-2">24h</div>
+                      <div className="text-sm text-mylli-gray font-medium">Évaluation</div>
+                    </div>
+                    <div className="h-12 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-mylli-accent mb-2">5★</div>
+                      <div className="text-sm text-mylli-gray font-medium">Excellence</div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Bottom decorative elements */}
+                <div className="absolute bottom-4 left-8 w-3 h-3 bg-mylli-primary/30 rounded-full animate-pulse"></div>
+                <div className="absolute bottom-8 right-12 w-2 h-2 bg-mylli-secondary/30 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Bottom decorative wave */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+          <svg className="relative block w-full h-20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" fill="white" fillOpacity="0.1"></path>
+          </svg>
         </div>
       </section>
       
@@ -401,21 +581,17 @@ const EquipePage = () => {
           {/* Floating geometric shapes */}
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
-          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{
-          animationDelay: '2s'
-        }}></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{
-          animationDelay: '1s'
-        }}></div>
+          <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{animationDelay: '1s'}}}></div>
           
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `
-                linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
-              `,
-          backgroundSize: '60px 60px'
-        }}></div>
+            backgroundImage: `
+              linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '60px 60px'
+          }}></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -441,9 +617,7 @@ const EquipePage = () => {
           {/* Creative Values Grid */}
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {values.map((value, index) => <div key={index} className="group relative" style={{
-              animationDelay: `${index * 0.2}s`
-            }}>
+              {values.map((value, index) => <div key={index} className="group relative" style={{animationDelay: `${index * 0.2}s`}}>
                   {/* Main Card with glass morphism */}
                   <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl overflow-hidden">
                     
@@ -491,9 +665,7 @@ const EquipePage = () => {
                     
                     {/* Floating particles effect */}
                     <div className="absolute top-4 right-4 w-2 h-2 bg-mylli-accent/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle"></div>
-                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{
-                  animationDelay: '0.5s'
-                }}></div>
+                    <div className="absolute bottom-8 left-8 w-1.5 h-1.5 bg-mylli-secondary/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 animate-bounce-subtle" style={{animationDelay: '0.5s'}}></div>
                   </div>
                   
                   {/* Enhanced shadow effect */}
@@ -506,9 +678,7 @@ const EquipePage = () => {
               <div className="inline-flex items-center justify-center p-6 bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
                 <div className="flex items-center space-x-4">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map(i => <div key={i} className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i - 1]?.color} animate-pulse`} style={{
-                    animationDelay: `${i * 0.2}s`
-                  }}></div>)}
+                    {[1, 2, 3, 4].map(i => <div key={i} className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i - 1]?.color} animate-pulse`} style={{animationDelay: `${i * 0.2}s`}}></div>)}
                   </div>
                   <div className="h-6 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
                   <p className="text-mylli-dark font-semibold text-lg">
@@ -527,6 +697,8 @@ const EquipePage = () => {
           </svg>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default EquipePage;
