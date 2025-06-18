@@ -37,7 +37,7 @@ const EquipePage = () => {
         subtitle="Des outils performants au service de votre bien-être"
       />
       
-      {/* Approach Section with Parallax - Updated with new image and modern design */}
+      {/* Approach Section with Parallax */}
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
         {/* Animated background elements */}
         <div className="absolute inset-0">
@@ -167,7 +167,7 @@ const EquipePage = () => {
         </div>
       </section>
       
-      {/* Selection Process - Completely redesigned with modern, unique styling */}
+      {/* Selection Process - Redesigned with modern styling */}
       <section className="relative py-32 overflow-hidden bg-gradient-to-br from-white via-gray-50/50 to-blue-50/30">
         {/* Floating background elements */}
         <div className="absolute inset-0">
@@ -582,7 +582,7 @@ const EquipePage = () => {
           <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-full blur-xl animate-float"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-mylli-accent/20 to-mylli-quaternary/20 rounded-full blur-lg animate-pulse-soft"></div>
           <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-purple-400/15 to-pink-400/15 rounded-full blur-2xl animate-float" style={{animationDelay: '2s'}}></div>
-          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{animationDelay: '1s'}}}></div>
+          <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
           
           {/* Grid pattern overlay */}
           <div className="absolute inset-0 opacity-5" style={{
@@ -617,7 +617,8 @@ const EquipePage = () => {
           {/* Creative Values Grid */}
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-              {values.map((value, index) => <div key={index} className="group relative" style={{animationDelay: `${index * 0.2}s`}}>
+              {values.map((value, index) => (
+                <div key={index} className="group relative" style={{animationDelay: `${index * 0.2}s`}}>
                   {/* Main Card with glass morphism */}
                   <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl transform transition-all duration-700 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-3xl overflow-hidden">
                     
@@ -670,7 +671,8 @@ const EquipePage = () => {
                   
                   {/* Enhanced shadow effect */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 -z-10 scale-95`}></div>
-                </div>)}
+                </div>
+              ))}
             </div>
             
             {/* Bottom decorative section */}
@@ -678,7 +680,9 @@ const EquipePage = () => {
               <div className="inline-flex items-center justify-center p-6 bg-white/60 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl">
                 <div className="flex items-center space-x-4">
                   <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map(i => <div key={i} className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i - 1]?.color} animate-pulse`} style={{animationDelay: `${i * 0.2}s`}}></div>)}
+                    {[1, 2, 3, 4].map(i => (
+                      <div key={i} className={`w-4 h-4 rounded-full bg-gradient-to-br ${values[i - 1]?.color} animate-pulse`} style={{animationDelay: `${i * 0.2}s`}}></div>
+                    ))}
                   </div>
                   <div className="h-6 w-px bg-gradient-to-b from-transparent via-mylli-primary to-transparent"></div>
                   <p className="text-mylli-dark font-semibold text-lg">
