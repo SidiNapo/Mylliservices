@@ -87,7 +87,8 @@ export const getResponsiveSizes = (
 // Critical images that should be preloaded
 export const getCriticalImages = (): string[] => {
   return [
-    '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png', // Logo
+    '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png', // New favicon/logo
+    '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png', // Original logo
     '/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png', // Hero image
   ];
 };

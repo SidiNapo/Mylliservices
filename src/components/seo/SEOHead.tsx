@@ -19,7 +19,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   description,
   keywords = 'soins domicile casablanca, infirmier domicile casablanca, aide soignant domicile casablanca, garde malade casablanca, soins infirmiers domicile, mylli services casablanca, aide domicile personnes agees, infirmier nuit casablanca, garde malade 24h casablanca, soins palliatifs domicile, assistance medicale domicile, infirmier liberal casablanca',
   canonicalUrl,
-  ogImage = '/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png',
+  ogImage = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
   ogType = 'website',
   noindex = false,
   nofollow = false,
@@ -38,6 +38,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       
       {/* Canonical URL */}
       {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
+      
+      {/* Favicon System */}
+      <link rel="icon" type="image/png" sizes="32x32" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
       
       {/* Advanced SEO Meta */}
       <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:160,max-image-preview:large,max-video-preview:30`} />

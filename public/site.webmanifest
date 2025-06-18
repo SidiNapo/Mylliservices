@@ -1,0 +1,117 @@
+
+{
+  "name": "Mylli Services - Soins à Domicile Casablanca",
+  "short_name": "Mylli Services",
+  "description": "Services professionnels de soins à domicile à Casablanca depuis 2014. Infirmier qualifié, aide-soignant expert, garde malade 24h/24.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0077C0",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr-MA",
+  "categories": ["health", "medical", "healthcare"],
+  "icons": [
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "120x120",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "57x57",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contactez-nous",
+      "short_name": "Contact",
+      "description": "Contactez Mylli Services pour vos besoins de soins à domicile",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Nos Services",
+      "short_name": "Services",
+      "description": "Découvrez nos services de soins à domicile",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
