@@ -28,6 +28,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const baseUrl = 'https://mylliservices.com';
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
+  
+  // Cache busting timestamp for iOS
+  const cacheBuster = `?v=${Date.now()}&seo=true`;
 
   return (
     <Helmet>
@@ -39,10 +42,10 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Canonical URL */}
       {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
       
-      {/* Favicon System */}
-      <link rel="icon" type="image/png" sizes="32x32" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
-      <link rel="icon" type="image/png" sizes="16x16" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
-      <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
+      {/* Favicon System with Cache Busting */}
+      <link rel="icon" type="image/png" sizes="32x32" href={`/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png${cacheBuster}`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png${cacheBuster}`} />
+      <link rel="apple-touch-icon" sizes="180x180" href={`/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png${cacheBuster}`} />
       
       {/* Advanced SEO Meta */}
       <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:160,max-image-preview:large,max-video-preview:30`} />

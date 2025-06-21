@@ -33,13 +33,48 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
 
-    <!-- COMPREHENSIVE FAVICON IMPLEMENTATION -->
-    <!-- Standard favicon -->
+    <!-- AGGRESSIVE iOS FAVICON CACHE BUSTING -->
+    <script>
+      // Generate unique timestamp for iOS cache busting
+      const timestamp = new Date().getTime();
+      const faviconUrl = `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${timestamp}&ios=true`;
+      
+      // Remove all existing favicon links
+      const existingFavicons = document.querySelectorAll('link[rel*="icon"]');
+      existingFavicons.forEach(link => link.remove());
+      
+      // Create new favicon links with timestamp
+      const createFaviconLink = (rel, sizes, href) => {
+        const link = document.createElement('link');
+        link.rel = rel;
+        if (sizes) link.sizes = sizes;
+        link.href = href;
+        link.type = 'image/png';
+        document.head.appendChild(link);
+      };
+      
+      // Standard favicons with cache busting
+      createFaviconLink('icon', '32x32', faviconUrl);
+      createFaviconLink('icon', '16x16', faviconUrl);
+      createFaviconLink('shortcut icon', null, faviconUrl);
+      
+      // iOS specific apple-touch-icons with aggressive cache busting
+      const iosSizes = ['180x180', '152x152', '144x144', '120x120', '114x114', '76x76', '72x72', '60x60', '57x57'];
+      iosSizes.forEach(size => {
+        createFaviconLink('apple-touch-icon', size, `${faviconUrl}&size=${size}`);
+      });
+      
+      // Default apple-touch-icon
+      createFaviconLink('apple-touch-icon', null, `${faviconUrl}&default=true`);
+    </script>
+
+    <!-- COMPREHENSIVE FAVICON IMPLEMENTATION WITH CACHE BUSTING -->
+    <!-- These will be replaced by the script above, but kept for fallback -->
     <link rel="icon" type="image/png" sizes="32x32" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <link rel="shortcut icon" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     
-    <!-- Apple Touch Icons for iOS devices -->
+    <!-- Apple Touch Icons for iOS devices with cache busting -->
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <link rel="apple-touch-icon" sizes="144x144" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
@@ -63,11 +98,11 @@
     <meta name="msapplication-wide310x150logo" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <meta name="msapplication-square310x310logo" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     
-    <!-- Web App Manifest -->
-    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Web App Manifest with cache busting -->
+    <link rel="manifest" href="/site.webmanifest?v=2024" />
     
     <!-- Browser Configuration -->
-    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="msapplication-config" content="/browserconfig.xml?v=2024" />
 
     <!-- OPEN GRAPH DOMINATION -->
     <meta property="og:type" content="business.business" />

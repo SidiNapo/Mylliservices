@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -20,7 +21,7 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import MotDuPresident from "./pages/MotDuPresident";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
-import { preloadCriticalImages } from "./utils/imageOptimization";
+import { preloadCriticalImages, forceIOSFaviconRefresh } from "./utils/imageOptimization";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
 import SecurityDashboard from "./components/security/SecurityDashboard";
 import { securitySession } from "./utils/securitySession";
@@ -40,6 +41,9 @@ const App: React.FC = () => {
   useEffect(() => {
     // Initialize security session
     securitySession.initializeSession();
+    
+    // Force iOS favicon refresh for cache busting
+    forceIOSFaviconRefresh();
     
     // Preload critical images with optimization
     preloadCriticalImages();
