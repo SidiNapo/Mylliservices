@@ -32,123 +32,45 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
 
-    <!-- ULTIMATE iOS FAVICON CACHE BUSTING SYSTEM -->
+    <!-- CONTROLLED iOS FAVICON SYSTEM - No Auto-Refresh -->
     <script>
-      // Generate multiple unique cache busters for iOS
-      const timestamp = new Date().getTime();
-      const randomBuster = Math.random().toString(36).substring(7);
-      const deployVersion = '2024_v2';
-      const cacheBuster = `v=${timestamp}&r=${randomBuster}&d=${deployVersion}&ios_force=true`;
-      
-      // Base favicon URL with new image
-      const newFaviconBase = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png';
-      
-      // Remove ALL existing favicon and icon links aggressively
-      const removeAllIcons = () => {
-        const selectors = [
-          'link[rel*="icon"]',
-          'link[rel*="apple-touch-icon"]',
-          'link[rel="shortcut icon"]',
-          'meta[name="msapplication-TileImage"]',
-          'meta[name*="msapplication"]'
-        ];
+      // Only run favicon setup once per session to prevent loops
+      if (!sessionStorage.getItem('favicon_setup_done')) {
+        console.log('🔧 Setting up initial favicon system...');
         
-        selectors.forEach(selector => {
-          document.querySelectorAll(selector).forEach(element => {
-            element.remove();
-          });
-        });
-      };
-      
-      // Force remove existing icons immediately
-      removeAllIcons();
-      
-      // Create new favicon link with aggressive cache busting
-      const createFaviconLink = (rel, sizes, type = 'image/png') => {
-        const link = document.createElement('link');
-        link.rel = rel;
-        if (sizes) link.sizes = sizes;
-        link.type = type;
-        link.href = `${newFaviconBase}?${cacheBuster}&size=${sizes || 'default'}`;
+        const timestamp = new Date().getTime();
+        const randomBuster = Math.random().toString(36).substring(7);
+        const deployVersion = '2024_v2';
+        const cacheBuster = `v=${timestamp}&r=${randomBuster}&d=${deployVersion}&ios_force=true`;
         
-        // Add additional iOS-specific attributes
-        if (rel.includes('apple')) {
-          link.setAttribute('data-ios-updated', timestamp);
-        }
+        // Base favicon URL with new image
+        const newFaviconBase = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png';
         
-        document.head.appendChild(link);
-        return link;
-      };
-      
-      // Create comprehensive favicon system for all devices
-      setTimeout(() => {
-        // Standard favicons with extreme cache busting
-        createFaviconLink('icon', '16x16');
-        createFaviconLink('icon', '32x32');
-        createFaviconLink('shortcut icon');
+        // Create basic favicon without aggressive refresh
+        const createBasicFavicon = () => {
+          const link = document.createElement('link');
+          link.rel = 'icon';
+          link.type = 'image/png';
+          link.href = `${newFaviconBase}?${cacheBuster}`;
+          document.head.appendChild(link);
+        };
         
-        // iOS Apple Touch Icons - all sizes with cache busting
-        const iosSizes = ['180x180', '167x167', '152x152', '144x144', '120x120', '114x114', '76x76', '72x72', '60x60', '57x57'];
-        iosSizes.forEach(size => {
-          createFaviconLink('apple-touch-icon', size);
-        });
+        // Add basic favicon immediately
+        createBasicFavicon();
         
-        // Default apple touch icon
-        createFaviconLink('apple-touch-icon');
-        
-        // Android/Chrome icons
-        createFaviconLink('icon', '192x192');
-        createFaviconLink('icon', '512x512');
-        
-        // Force iOS to refresh by manipulating DOM
-        if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-          // iOS-specific favicon refresh technique
-          const metaRefresh = document.createElement('meta');
-          metaRefresh.setAttribute('http-equiv', 'refresh');
-          metaRefresh.setAttribute('content', '0');
-          document.head.appendChild(metaRefresh);
-          
-          setTimeout(() => {
-            metaRefresh.remove();
-          }, 100);
-          
-          // Force page reload for iOS browsers (only on first visit)
-          if (!sessionStorage.getItem('ios_favicon_refreshed')) {
-            sessionStorage.setItem('ios_favicon_refreshed', 'true');
-            // Add a subtle visual indicator that favicon is updating
-            console.log('Updating favicon for iOS...');
-          }
-        }
-      }, 100);
-      
-      // Additional iOS-specific meta tags for PWA behavior
-      const addIOSMeta = () => {
-        const metas = [
-          { name: 'apple-mobile-web-app-capable', content: 'yes' },
-          { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
-          { name: 'apple-mobile-web-app-title', content: 'Mylli Services' },
-          { name: 'apple-touch-fullscreen', content: 'yes' },
-          { name: 'format-detection', content: 'telephone=no' }
-        ];
-        
-        metas.forEach(({ name, content }) => {
-          const meta = document.createElement('meta');
-          meta.name = name;
-          meta.content = content;
-          document.head.appendChild(meta);
-        });
-      };
-      
-      addIOSMeta();
+        // Mark as done to prevent re-running
+        sessionStorage.setItem('favicon_setup_done', 'true');
+        console.log('✅ Basic favicon setup completed');
+      }
     </script>
 
-    <!-- Web App Manifest with aggressive cache busting -->
-    <link rel="manifest" href="/site.webmanifest?v=2024_v2&force_ios=true" />
+    <!-- Web App Manifest with cache busting -->
+    <link rel="manifest" href="/site.webmanifest?v=2024_v2&controlled=true" />
     
-    <!-- Browser Configuration with cache busting -->
-    <meta name="msapplication-config" content="/browserconfig.xml?v=2024_v2&force_ios=true" />
+    <!-- Browser Configuration -->
+    <meta name="msapplication-config" content="/browserconfig.xml?v=2024_v2&controlled=true" />
     
-    <!-- Microsoft Tiles with new favicon -->
+    <!-- Microsoft Tiles -->
     <meta name="msapplication-TileImage" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true" />
     <meta name="msapplication-TileColor" content="#0077C0" />
 
@@ -207,7 +129,7 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     
-    <!-- Preload critical resources with cache busting -->
+    <!-- Preload critical resources -->
     <link rel="preload" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&preload=true" as="image" />
 
     <!-- LOCAL BUSINESS SCHEMA - RANK #1 WEAPON -->

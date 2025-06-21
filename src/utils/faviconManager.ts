@@ -10,6 +10,9 @@ export interface FaviconConfig {
 export class FaviconManager {
   private config: FaviconConfig;
   private cacheBuster: string;
+  private hasInitialized: boolean = false;
+  private static refreshCount = 0;
+  private static readonly MAX_REFRESHES = 1;
 
   constructor(config: FaviconConfig) {
     this.config = config;
@@ -53,7 +56,7 @@ export class FaviconManager {
     const sizeParam = sizes ? `&size=${sizes}` : '';
     link.href = `${this.config.baseUrl}?${this.cacheBuster}${sizeParam}`;
     
-    // Add iOS-specific attributes
+    // Add iOS-specific attributes without causing refresh loops
     if (rel.includes('apple') && this.isIOS()) {
       link.setAttribute('data-ios-updated', Date.now().toString());
       link.setAttribute('data-cache-buster', this.cacheBuster);
@@ -63,7 +66,15 @@ export class FaviconManager {
   }
 
   public updateFavicons(): void {
+    // Prevent multiple updates
+    if (this.hasInitialized || FaviconManager.refreshCount >= FaviconManager.MAX_REFRESHES) {
+      console.log('🔄 Favicon update skipped - already initialized or max refreshes reached');
+      return;
+    }
+
     console.log('🔄 Updating favicons with aggressive cache busting...');
+    FaviconManager.refreshCount++;
+    this.hasInitialized = true;
     
     // Remove all existing favicons
     this.removeAllExistingFavicons();
@@ -98,9 +109,10 @@ export class FaviconManager {
       // Add all favicons to head
       document.head.appendChild(fragment);
       
-      // iOS-specific refresh techniques
-      if (this.isIOS()) {
+      // iOS-specific refresh techniques (only once)
+      if (this.isIOS() && !sessionStorage.getItem('ios_favicon_refreshed')) {
         this.forceIOSRefresh();
+        sessionStorage.setItem('ios_favicon_refreshed', 'true');
       }
       
       console.log('✅ Favicons updated successfully');
@@ -108,19 +120,9 @@ export class FaviconManager {
   }
 
   private forceIOSRefresh(): void {
-    console.log('🍎 Applying iOS-specific favicon refresh techniques...');
+    console.log('🍎 Applying iOS-specific favicon refresh techniques (one-time only)...');
     
-    // Technique 1: Force a micro-refresh
-    const metaRefresh = document.createElement('meta');
-    metaRefresh.setAttribute('http-equiv', 'refresh');
-    metaRefresh.setAttribute('content', '0');
-    document.head.appendChild(metaRefresh);
-    
-    setTimeout(() => {
-      metaRefresh.remove();
-    }, 50);
-    
-    // Technique 2: Add iOS-specific meta tags
+    // Only add iOS-specific meta tags without forcing refresh
     const iosMetaTags = [
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
@@ -140,11 +142,11 @@ export class FaviconManager {
       document.head.appendChild(meta);
     });
     
-    // Technique 3: Manipulate manifest cache
+    // Update manifest cache buster (only once)
     const manifestLink = document.querySelector('link[rel="manifest"]') as HTMLLinkElement;
-    if (manifestLink) {
+    if (manifestLink && !manifestLink.href.includes('ios_refreshed=true')) {
       const originalHref = manifestLink.href;
-      manifestLink.href = `${originalHref.split('?')[0]}?${this.cacheBuster}`;
+      manifestLink.href = `${originalHref.split('?')[0]}?${this.cacheBuster}&ios_refreshed=true`;
     }
   }
 

@@ -43,7 +43,7 @@ const App: React.FC = () => {
     // Initialize security session
     securitySession.initializeSession();
     
-    // Initialize favicon manager with aggressive iOS cache busting
+    // Initialize favicon manager with aggressive iOS cache busting (only once)
     initializeFaviconManager();
     
     // Preload critical images with optimization
@@ -57,15 +57,25 @@ const App: React.FC = () => {
       console.error("Failed to initialize EmailJS:", error);
     }
 
-    // Additional iOS-specific favicon refresh on app load
+    // iOS-specific favicon refresh - only on first visit, not on every load
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      console.log("🍎 iOS device detected - ensuring favicon refresh...");
+      console.log("🍎 iOS device detected - checking favicon status...");
       
-      // Force favicon refresh after a short delay
-      setTimeout(() => {
-        const { updateFavicons } = require("./utils/faviconManager");
-        updateFavicons();
-      }, 1000);
+      // Only refresh if not already done in this session
+      if (!sessionStorage.getItem('ios_favicon_initialized')) {
+        console.log("🔄 First iOS visit - initializing favicon refresh...");
+        sessionStorage.setItem('ios_favicon_initialized', 'true');
+        
+        // Single favicon refresh after a delay
+        setTimeout(() => {
+          if (!sessionStorage.getItem('ios_favicon_refreshed')) {
+            const { updateFavicons } = require("./utils/faviconManager");
+            updateFavicons();
+          }
+        }, 1500);
+      } else {
+        console.log("✅ iOS favicon already initialized in this session");
+      }
     }
   }, []);
 
