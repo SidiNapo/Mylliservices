@@ -1,6 +1,6 @@
 
-// COMPLETE REBUILD - iOS Safari Favicon Fix System
-// This system ensures the correct Mylli Services favicon displays consistently
+// ULTIMATE iOS Safari Favicon Fix System
+// This system ensures the correct Mylli Services favicon displays on iOS Safari
 
 export interface FaviconConfig {
   baseUrl: string;
@@ -11,8 +11,8 @@ export class FaviconManager {
   private config: FaviconConfig;
   private hasInitialized: boolean = false;
   private static instance: FaviconManager | null = null;
-  private refreshAttempts: number = 0;
-  private maxRefreshAttempts: number = 3;
+  private iosRefreshAttempts: number = 0;
+  private maxIosRefreshAttempts: number = 2;
 
   constructor(config: FaviconConfig) {
     this.config = config;
@@ -28,11 +28,12 @@ export class FaviconManager {
     return FaviconManager.instance;
   }
 
-  private generateUltimateCacheBuster(): string {
+  private generateIOSCacheBuster(): string {
     const timestamp = Date.now();
     const random = Math.random().toString(36).substring(2, 15);
-    const sessionId = Math.random().toString(36).substring(2, 10);
-    return `v=${this.config.version}&t=${timestamp}&r=${random}&s=${sessionId}&force=true`;
+    const sessionId = sessionStorage.getItem('ios-favicon-session') || Math.random().toString(36).substring(2, 10);
+    sessionStorage.setItem('ios-favicon-session', sessionId);
+    return `v=${this.config.version}&t=${timestamp}&r=${random}&s=${sessionId}&ios=true&ultimate=true`;
   }
 
   private isIOS(): boolean {
@@ -40,40 +41,53 @@ export class FaviconManager {
   }
 
   private isSafari(): boolean {
-    return /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+    return /Safari/.test(navigator.userAgent) && !/Chrome|CriOS|FxiOS/.test(navigator.userAgent);
   }
 
   private removeAllExistingFavicons(): void {
-    console.log('🗑️ Removing ALL existing favicon elements...');
+    console.log('🗑️ Removing ALL existing favicon elements for iOS...');
     
-    // Comprehensive list of all possible favicon selectors
     const selectors = [
       'link[rel*="icon"]',
       'link[rel*="apple-touch-icon"]',
       'link[rel="shortcut icon"]',
       'link[rel="apple-touch-icon-precomposed"]',
-      'meta[name="msapplication-TileImage"]',
-      'link[type="image/x-icon"]',
-      'link[type="image/png"]',
-      'link[type="image/gif"]',
-      'link[type="image/jpeg"]'
+      'meta[name="msapplication-TileImage"]'
     ];
     
     selectors.forEach(selector => {
       const elements = document.querySelectorAll(selector);
       elements.forEach(element => {
-        console.log(`🗑️ Removing: ${element.outerHTML}`);
+        console.log(`🗑️ Removing: ${element.getAttribute('rel')} ${element.getAttribute('sizes') || 'default'}`);
         element.remove();
       });
     });
 
-    // Force DOM cleanup
-    setTimeout(() => {
-      console.log('✅ All old favicon elements removed');
-    }, 100);
+    console.log('✅ All old favicon elements removed');
   }
 
-  private createFaviconElement(rel: string, sizes?: string, type: string = 'image/png'): HTMLLinkElement {
+  private createIOSAppleTouchIcon(sizes?: string): HTMLLinkElement {
+    const link = document.createElement('link');
+    link.rel = 'apple-touch-icon';
+    
+    if (sizes) {
+      link.setAttribute('sizes', sizes);
+    }
+    
+    const cacheBuster = this.generateIOSCacheBuster();
+    const sizeParam = sizes ? `&size=${sizes}` : '&size=180x180';
+    const finalUrl = `${this.config.baseUrl}?${cacheBuster}${sizeParam}&apple=true`;
+    
+    link.href = finalUrl;
+    link.setAttribute('data-mylli-ios-favicon', 'true');
+    link.setAttribute('data-version', this.config.version);
+    
+    console.log(`🍎 Created iOS apple-touch-icon: ${sizes || 'default'} -> ${finalUrl}`);
+    
+    return link;
+  }
+
+  private createStandardFavicon(rel: string, sizes?: string, type: string = 'image/png'): HTMLLinkElement {
     const link = document.createElement('link');
     link.rel = rel;
     link.type = type;
@@ -82,86 +96,81 @@ export class FaviconManager {
       link.setAttribute('sizes', sizes);
     }
     
-    const cacheBuster = this.generateUltimateCacheBuster();
+    const cacheBuster = this.generateIOSCacheBuster();
     const sizeParam = sizes ? `&size=${sizes}` : '';
-    const finalUrl = `${this.config.baseUrl}?${cacheBuster}${sizeParam}`;
+    const finalUrl = `${this.config.baseUrl}?${cacheBuster}${sizeParam}&standard=true`;
     
     link.href = finalUrl;
     link.setAttribute('data-mylli-favicon', 'true');
     link.setAttribute('data-version', this.config.version);
     
-    console.log(`✨ Created favicon: ${rel} ${sizes || 'default'} -> ${finalUrl}`);
+    console.log(`✨ Created standard favicon: ${rel} ${sizes || 'default'} -> ${finalUrl}`);
     
     return link;
   }
 
-  public ultimateRebuildFavicons(): void {
-    // Prevent multiple rebuilds within short timeframe
-    if (this.hasInitialized && this.refreshAttempts >= this.maxRefreshAttempts) {
-      console.log('🛑 Max refresh attempts reached, skipping rebuild');
+  public ultimateIOSFaviconFix(): void {
+    // Check if we've exceeded iOS refresh attempts
+    if (this.iosRefreshAttempts >= this.maxIosRefreshAttempts) {
+      console.log('🛑 Max iOS refresh attempts reached');
       return;
     }
 
-    this.refreshAttempts++;
-    console.log(`🔄 ULTIMATE FAVICON REBUILD - Attempt ${this.refreshAttempts}/${this.maxRefreshAttempts}`);
+    this.iosRefreshAttempts++;
+    console.log(`🍎 ULTIMATE iOS FAVICON FIX - Attempt ${this.iosRefreshAttempts}/${this.maxIosRefreshAttempts}`);
     
     // Step 1: Nuclear removal of all existing favicons
     this.removeAllExistingFavicons();
     
-    // Step 2: Wait for DOM cleanup, then rebuild
+    // Step 2: Wait for DOM cleanup, then rebuild with iOS-specific handling
     setTimeout(() => {
-      console.log('🚀 Building new favicon system...');
+      console.log('🚀 Building iOS-optimized favicon system...');
       
       const fragment = document.createDocumentFragment();
       
-      // Standard favicons with aggressive cache busting
-      fragment.appendChild(this.createFaviconElement('icon', '16x16'));
-      fragment.appendChild(this.createFaviconElement('icon', '32x32'));
-      fragment.appendChild(this.createFaviconElement('icon', '48x48'));
-      fragment.appendChild(this.createFaviconElement('icon', '64x64'));
-      fragment.appendChild(this.createFaviconElement('shortcut icon'));
+      // iOS Apple Touch Icons - CRITICAL for iOS Safari (in order of importance)
+      fragment.appendChild(this.createIOSAppleTouchIcon()); // Default 180x180
+      fragment.appendChild(this.createIOSAppleTouchIcon('180x180')); // iPhone 6 Plus, iPhone X, iPhone XS, iPhone XS Max
+      fragment.appendChild(this.createIOSAppleTouchIcon('152x152')); // iPad mini, iPad Air
+      fragment.appendChild(this.createIOSAppleTouchIcon('144x144')); // IE10 Metro tile
+      fragment.appendChild(this.createIOSAppleTouchIcon('120x120')); // iPhone 6, iPhone 6s, iPhone 7, iPhone 8
+      fragment.appendChild(this.createIOSAppleTouchIcon('114x114')); // iPhone 4, iPhone 4s (Retina)
+      fragment.appendChild(this.createIOSAppleTouchIcon('76x76'));   // iPad
+      fragment.appendChild(this.createIOSAppleTouchIcon('72x72'));   // iPad (non-Retina)
+      fragment.appendChild(this.createIOSAppleTouchIcon('60x60'));   // iPhone (non-Retina)
+      fragment.appendChild(this.createIOSAppleTouchIcon('57x57'));   // iPhone (original)
       
-      // iOS/Apple specific icons - CRITICAL for iOS Safari
-      const appleSizes = [
-        '57x57', '60x60', '72x72', '76x76', '114x114', '120x120', 
-        '144x144', '152x152', '167x167', '180x180', '1024x1024'
-      ];
-      
-      appleSizes.forEach(size => {
-        fragment.appendChild(this.createFaviconElement('apple-touch-icon', size));
-      });
-      
-      // Default apple touch icon (most important for iOS)
-      fragment.appendChild(this.createFaviconElement('apple-touch-icon'));
+      // Standard favicons for other browsers
+      fragment.appendChild(this.createStandardFavicon('icon', '32x32'));
+      fragment.appendChild(this.createStandardFavicon('icon', '16x16'));
+      fragment.appendChild(this.createStandardFavicon('shortcut icon'));
       
       // Android/Chrome icons
-      fragment.appendChild(this.createFaviconElement('icon', '192x192'));
-      fragment.appendChild(this.createFaviconElement('icon', '256x256'));
-      fragment.appendChild(this.createFaviconElement('icon', '384x384'));
-      fragment.appendChild(this.createFaviconElement('icon', '512x512'));
+      fragment.appendChild(this.createStandardFavicon('icon', '192x192'));
+      fragment.appendChild(this.createStandardFavicon('icon', '512x512'));
       
       // Add all to head at once
       document.head.appendChild(fragment);
       
-      console.log('✅ New favicon system installed');
+      console.log('✅ iOS-optimized favicon system installed');
       
-      // Step 3: iOS/Safari specific handling
+      // Step 3: iOS-specific meta tag updates
       if (this.isIOS() || this.isSafari()) {
-        this.applySafariSpecificFixes();
+        this.applyIOSSpecificFixes();
       }
       
       this.hasInitialized = true;
       
-    }, 250); // Longer delay for iOS
+    }, this.isIOS() ? 500 : 250); // Longer delay for iOS
   }
 
-  private applySafariSpecificFixes(): void {
-    console.log('🍎 Applying Safari/iOS specific fixes...');
+  private applyIOSSpecificFixes(): void {
+    console.log('🍎 Applying iOS-specific favicon fixes...');
     
-    // Update web app meta tags with new cache buster
-    const cacheBuster = this.generateUltimateCacheBuster();
+    const cacheBuster = this.generateIOSCacheBuster();
     
-    const metaUpdates = [
+    // Update iOS web app meta tags
+    const iosMetaUpdates = [
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
       { name: 'apple-mobile-web-app-title', content: 'Mylli Services' },
@@ -169,60 +178,86 @@ export class FaviconManager {
       { name: 'application-name', content: 'Mylli Services' }
     ];
     
-    metaUpdates.forEach(({ name, content }) => {
-      let meta = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
-      if (meta) {
-        meta.remove();
+    iosMetaUpdates.forEach(({ name, content }) => {
+      // Remove existing meta tag
+      const existingMeta = document.querySelector(`meta[name="${name}"]`);
+      if (existingMeta) {
+        existingMeta.remove();
       }
       
-      meta = document.createElement('meta');
+      // Create new meta tag
+      const meta = document.createElement('meta');
       meta.name = name;
       meta.content = content;
-      meta.setAttribute('data-mylli-meta', 'true');
+      meta.setAttribute('data-mylli-ios-meta', 'true');
       document.head.appendChild(meta);
     });
     
-    // Update manifest link with aggressive cache busting
+    // Update manifest link for iOS
     const manifestLink = document.querySelector('link[rel="manifest"]') as HTMLLinkElement;
     if (manifestLink) {
       manifestLink.href = `/site.webmanifest?${cacheBuster}`;
     }
     
-    // Force browser to recognize changes
+    // iOS-specific force refresh technique
     if (this.isIOS()) {
       setTimeout(() => {
-        console.log('🔄 Forcing iOS favicon refresh...');
-        // Add a temporary meta tag to force iOS to re-read favicon
+        console.log('🔄 Forcing iOS Safari favicon refresh...');
+        
+        // Create a temporary meta refresh to force iOS to re-read favicons
         const tempMeta = document.createElement('meta');
-        tempMeta.name = 'apple-touch-icon-refresh';
-        tempMeta.content = Date.now().toString();
+        tempMeta.setAttribute('http-equiv', 'refresh');
+        tempMeta.content = '0;url=' + window.location.href + '#ios-favicon-refresh';
         document.head.appendChild(tempMeta);
         
         setTimeout(() => {
           tempMeta.remove();
-        }, 1000);
-      }, 500);
+          // Remove the hash from URL
+          if (window.location.hash === '#ios-favicon-refresh') {
+            history.replaceState('', document.title, window.location.pathname + window.location.search);
+          }
+        }, 100);
+        
+      }, 1000);
     }
     
-    console.log('✅ Safari/iOS fixes applied');
+    console.log('✅ iOS-specific fixes applied');
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing Ultimate Favicon Manager...');
+    console.log('🎯 Initializing Ultimate iOS Favicon Manager...');
     
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => this.ultimateRebuildFavicons(), 100);
+        setTimeout(() => this.ultimateIOSFaviconFix(), 200);
       });
     } else {
-      setTimeout(() => this.ultimateRebuildFavicons(), 100);
+      setTimeout(() => this.ultimateIOSFaviconFix(), 200);
     }
     
-    // Also handle visibility change to refresh when switching tabs/windows
+    // Handle visibility change for iOS Safari tab switching
     document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && (this.isIOS() || this.isSafari())) {
-        console.log('👀 Page became visible, refreshing favicons for Safari/iOS...');
-        setTimeout(() => this.ultimateRebuildFavicons(), 200);
+      if (!document.hidden && this.isIOS() && this.isSafari()) {
+        console.log('👀 iOS Safari tab became visible, refreshing favicons...');
+        setTimeout(() => {
+          // Only refresh if we haven't reached max attempts
+          if (this.iosRefreshAttempts < this.maxIosRefreshAttempts) {
+            this.ultimateIOSFaviconFix();
+          }
+        }, 300);
+      }
+    });
+    
+    // Handle page focus for iOS
+    window.addEventListener('focus', () => {
+      if (this.isIOS() && this.isSafari()) {
+        console.log('🔍 iOS Safari gained focus, checking favicon...');
+        setTimeout(() => {
+          // Only refresh if we haven't reached max attempts
+          if (this.iosRefreshAttempts < this.maxIosRefreshAttempts) {
+            this.ultimateIOSFaviconFix();
+          }
+        }, 500);
       }
     });
   }
@@ -230,5 +265,5 @@ export class FaviconManager {
 
 // Export singleton and utility functions
 export const faviconManager = FaviconManager.getInstance();
-export const rebuildFavicons = () => faviconManager.ultimateRebuildFavicons();
+export const rebuildIOSFavicons = () => faviconManager.ultimateIOSFaviconFix();
 export const initializeFaviconManager = () => faviconManager.initialize();

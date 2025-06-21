@@ -1,4 +1,3 @@
-
 // Image optimization utilities - ULTIMATE rebuild for new favicon system
 
 export interface ImageOptimizationOptions {
@@ -92,18 +91,20 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with the ULTIMATE favicon system
+// Critical images with iOS-optimized favicon system
 export const getCriticalImages = (): string[] => {
   const timestamp = Date.now();
   const version = '2024_final_rebuild';
   const random = Math.random().toString(36).substring(7);
+  const iosParam = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&ios=true' : '';
+  
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&r=${random}&critical=true&ultimate=true`, // ULTIMATE favicon/logo
-    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&r=${random}&critical=true&ultimate=true`, // Hero image
+    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&r=${random}&critical=true${iosParam}`, // iOS-optimized favicon/logo
+    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&r=${random}&critical=true${iosParam}`, // Hero image
   ];
 };
 
-// Preload critical images with the ULTIMATE favicon
+// Preload critical images with iOS favicon optimization
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -113,8 +114,14 @@ export const preloadCriticalImages = (): void => {
     link.as = 'image';
     link.href = src;
     link.setAttribute('data-mylli-preload', 'true');
+    
+    // Add iOS-specific attributes for favicon preloading
+    if (src.includes('2fd660e3-872f-4057-81ba-00574e031c9a.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      link.setAttribute('data-ios-favicon', 'true');
+    }
+    
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with ULTIMATE favicon system');
+  console.log('✅ Critical images preloaded with iOS favicon optimization');
 };
