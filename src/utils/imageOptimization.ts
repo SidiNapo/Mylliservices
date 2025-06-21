@@ -1,5 +1,4 @@
-
-// Image optimization utilities
+// Image optimization utilities - rebuilt for new favicon system
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -42,7 +41,7 @@ export const optimizeImageUrl = (
     return `${src}?${params.toString()}`;
   }
 
-  // Handle Lovable uploads
+  // Handle Lovable uploads with new cache busting system
   if (src.includes('lovable-uploads')) {
     const params = new URLSearchParams();
     params.set('w', width.toString());
@@ -53,7 +52,7 @@ export const optimizeImageUrl = (
     }
     
     if (cacheBuster) {
-      params.set('v', '2024_v2');
+      params.set('v', '2024_rebuild');
       params.set('t', Date.now().toString());
     }
     
@@ -91,18 +90,17 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images that should be preloaded with aggressive cache busting
+// Critical images with the NEW favicon system
 export const getCriticalImages = (): string[] => {
   const timestamp = Date.now();
-  const version = '2024_v2';
+  const version = '2024_rebuild';
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&critical=true&ios_force=true`, // New favicon/logo
-    `/lovable-uploads/822dc05d-7510-491a-b864-fb87997f7aa0.png?v=${version}&t=${timestamp}&critical=true`, // Original logo
+    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&critical=true`, // NEW favicon/logo
     `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&critical=true`, // Hero image
   ];
 };
 
-// Preload critical images with aggressive cache busting
+// Preload critical images with the NEW favicon
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -113,14 +111,6 @@ export const preloadCriticalImages = (): void => {
     link.href = src;
     document.head.appendChild(link);
   });
-};
-
-// Legacy function for backward compatibility - now redirects to new favicon manager
-export const forceIOSFaviconRefresh = (): void => {
-  console.log('⚠️ forceIOSFaviconRefresh is deprecated. Use FaviconManager instead.');
   
-  // Import and use the new favicon manager
-  import('./faviconManager').then(({ updateFavicons }) => {
-    updateFavicons();
-  });
+  console.log('✅ Critical images preloaded with new favicon system');
 };

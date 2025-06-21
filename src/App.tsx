@@ -38,15 +38,17 @@ const queryClient = new QueryClient({
 });
 
 const App: React.FC = () => {
-  // Preload critical resources and initialize services
   useEffect(() => {
+    console.log('🚀 Initializing Mylli Services application...');
+    
     // Initialize security session
     securitySession.initializeSession();
     
-    // Initialize favicon manager with aggressive iOS cache busting (only once)
+    // Initialize the REBUILT favicon system (ONLY ONCE)
+    console.log('🔧 Initializing REBUILT favicon system...');
     initializeFaviconManager();
     
-    // Preload critical images with optimization
+    // Preload critical images
     preloadCriticalImages();
 
     // Initialize EmailJS
@@ -57,26 +59,7 @@ const App: React.FC = () => {
       console.error("Failed to initialize EmailJS:", error);
     }
 
-    // iOS-specific favicon refresh - only on first visit, not on every load
-    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      console.log("🍎 iOS device detected - checking favicon status...");
-      
-      // Only refresh if not already done in this session
-      if (!sessionStorage.getItem('ios_favicon_initialized')) {
-        console.log("🔄 First iOS visit - initializing favicon refresh...");
-        sessionStorage.setItem('ios_favicon_initialized', 'true');
-        
-        // Single favicon refresh after a delay
-        setTimeout(() => {
-          if (!sessionStorage.getItem('ios_favicon_refreshed')) {
-            const { updateFavicons } = require("./utils/faviconManager");
-            updateFavicons();
-          }
-        }, 1500);
-      } else {
-        console.log("✅ iOS favicon already initialized in this session");
-      }
-    }
+    console.log('✅ Application initialization complete');
   }, []);
 
   return (

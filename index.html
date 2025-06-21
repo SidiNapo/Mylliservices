@@ -32,46 +32,18 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
 
-    <!-- CONTROLLED iOS FAVICON SYSTEM - No Auto-Refresh -->
-    <script>
-      // Only run favicon setup once per session to prevent loops
-      if (!sessionStorage.getItem('favicon_setup_done')) {
-        console.log('🔧 Setting up initial favicon system...');
-        
-        const timestamp = new Date().getTime();
-        const randomBuster = Math.random().toString(36).substring(7);
-        const deployVersion = '2024_v2';
-        const cacheBuster = `v=${timestamp}&r=${randomBuster}&d=${deployVersion}&ios_force=true`;
-        
-        // Base favicon URL with new image
-        const newFaviconBase = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png';
-        
-        // Create basic favicon without aggressive refresh
-        const createBasicFavicon = () => {
-          const link = document.createElement('link');
-          link.rel = 'icon';
-          link.type = 'image/png';
-          link.href = `${newFaviconBase}?${cacheBuster}`;
-          document.head.appendChild(link);
-        };
-        
-        // Add basic favicon immediately
-        createBasicFavicon();
-        
-        // Mark as done to prevent re-running
-        sessionStorage.setItem('favicon_setup_done', 'true');
-        console.log('✅ Basic favicon setup completed');
-      }
-    </script>
+    <!-- REBUILT FAVICON SYSTEM - NO OLD FAVICONS HERE -->
+    <!-- All favicon management is now handled by the JavaScript faviconManager -->
+    <!-- This ensures iOS Safari gets the latest favicon without conflicts -->
 
-    <!-- Web App Manifest with cache busting -->
-    <link rel="manifest" href="/site.webmanifest?v=2024_v2&controlled=true" />
+    <!-- Web App Manifest with new cache busting -->
+    <link rel="manifest" href="/site.webmanifest?v=2024_rebuild&controlled=true" />
     
     <!-- Browser Configuration -->
-    <meta name="msapplication-config" content="/browserconfig.xml?v=2024_v2&controlled=true" />
+    <meta name="msapplication-config" content="/browserconfig.xml?v=2024_rebuild&controlled=true" />
     
-    <!-- Microsoft Tiles -->
-    <meta name="msapplication-TileImage" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true" />
+    <!-- Microsoft Tiles with new favicon -->
+    <meta name="msapplication-TileImage" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&ms=true" />
     <meta name="msapplication-TileColor" content="#0077C0" />
 
     <!-- OPEN GRAPH DOMINATION -->
@@ -82,7 +54,7 @@
     <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
     <meta property="og:locale" content="fr_MA" />
     <meta property="og:locale:alternate" content="ar_MA" />
-    <meta property="og:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2" />
+    <meta property="og:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mylli Services - Soins à domicile Casablanca - Infirmier et aide-soignant professionnel" />
@@ -91,7 +63,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Soins à Domicile Casablanca | #1 Infirmier Aide-Soignant" />
     <meta name="twitter:description" content="★★★★★ Services soins domicile Casablanca depuis 2014. Infirmier, aide-soignant, garde malade 24h/24." />
-    <meta name="twitter:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2" />
+    <meta name="twitter:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild" />
     <meta name="twitter:image:alt" content="Mylli Services Casablanca - Soins à domicile professionnels" />
 
     <!-- CANONICAL & HREFLANG -->
@@ -129,8 +101,8 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&preload=true" as="image" />
+    <!-- Preload critical resources with new favicon -->
+    <link rel="preload" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&preload=true" as="image" />
 
     <!-- LOCAL BUSINESS SCHEMA - RANK #1 WEAPON -->
     <script type="application/ld+json">

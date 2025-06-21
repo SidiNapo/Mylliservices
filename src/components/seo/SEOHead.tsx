@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -29,8 +28,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
   
-  // Aggressive cache busting for iOS
-  const cacheBuster = `?v=2024_v2&t=${Date.now()}&seo=true&ios_force=true`;
+  // Use the new rebuild cache buster
+  const cacheBuster = `?v=2024_rebuild&t=${Date.now()}&seo=true`;
 
   return (
     <Helmet>
