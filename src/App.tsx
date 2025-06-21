@@ -44,14 +44,24 @@ const App: React.FC = () => {
     // Initialize security session
     securitySession.initializeSession();
     
-    // STEP 1: Initialize the stable iOS favicon system
+    // STEP 1: Clean URL fragments first
+    const cleanURL = () => {
+      if (window.location.hash.includes('ios-favicon-refresh')) {
+        const baseURL = window.location.href.split('#')[0];
+        window.history.replaceState(null, '', baseURL);
+        console.log('✅ URL fragments cleaned on app initialization');
+      }
+    };
+    cleanURL();
+    
+    // STEP 2: Initialize the stable iOS favicon system
     console.log('🍎 Launching stable iOS favicon system...');
     initializeFaviconManager();
     
-    // STEP 2: Preload critical images
+    // STEP 3: Preload critical images
     preloadCriticalImages();
 
-    // STEP 3: Initialize EmailJS
+    // STEP 4: Initialize EmailJS
     try {
       initEmailJS();
       console.log("✅ EmailJS initialized successfully");

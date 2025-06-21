@@ -13,8 +13,8 @@ export class FaviconManager {
   private isRefreshing: boolean = false;
   private lastRefreshTime: number = 0;
   private refreshCount: number = 0;
-  private readonly MAX_REFRESHES = 3;
-  private readonly MIN_REFRESH_INTERVAL = 5000; // 5 seconds minimum between refreshes
+  private readonly MAX_REFRESHES = 2; // Reduced from 3 to 2
+  private readonly MIN_REFRESH_INTERVAL = 8000; // Increased to 8 seconds
   private static instance: FaviconManager | null = null;
 
   constructor(config: FaviconConfig) {
@@ -63,6 +63,21 @@ export class FaviconManager {
       this.refreshCount < this.MAX_REFRESHES &&
       timeSinceLastRefresh > this.MIN_REFRESH_INTERVAL
     );
+  }
+
+  private cleanURL(): void {
+    // Clean up URL fragments to prevent accumulation of #ios-favicon-refresh
+    if (window.location.hash.includes('ios-favicon-refresh')) {
+      console.log('🧹 Cleaning URL fragments...');
+      
+      // Remove all ios-favicon-refresh fragments
+      const cleanURL = window.location.href.split('#')[0];
+      
+      // Use replaceState to clean URL without triggering page reload
+      window.history.replaceState(null, '', cleanURL);
+      
+      console.log('✅ URL cleaned:', cleanURL);
+    }
   }
 
   private removeAllExistingFavicons(): void {
@@ -129,10 +144,13 @@ export class FaviconManager {
     this.refreshCount++;
     this.lastRefreshTime = Date.now();
     
-    // Step 1: Clean existing favicons
+    // Step 1: Clean URL fragments first
+    this.cleanURL();
+    
+    // Step 2: Clean existing favicons
     this.removeAllExistingFavicons();
     
-    // Step 2: Create new favicon elements
+    // Step 3: Create new favicon elements
     const fragment = document.createDocumentFragment();
     
     // iOS Apple Touch Icons (most important for iOS Safari)
@@ -150,10 +168,10 @@ export class FaviconManager {
     // Add all to head
     document.head.appendChild(fragment);
     
-    // Step 3: Apply iOS-specific meta tags
+    // Step 4: Apply iOS-specific meta tags
     this.updateIOSMetaTags();
     
-    console.log('✅ iOS favicons installed');
+    console.log('✅ iOS favicons installed with clean URL');
     this.isRefreshing = false;
     this.hasInitialized = true;
   }
@@ -177,18 +195,21 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing iOS-safe Favicon Manager...');
+    console.log('🎯 Initializing iOS-safe Favicon Manager with URL cleanup...');
+    
+    // Clean URL immediately on initialization
+    this.cleanURL();
     
     // Initial setup
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => this.setupIOSFavicons(), 500);
+        setTimeout(() => this.setupIOSFavicons(), 1000);
       });
     } else {
-      setTimeout(() => this.setupIOSFavicons(), 500);
+      setTimeout(() => this.setupIOSFavicons(), 1000);
     }
     
-    // Handle visibility change for iOS Safari tab switching - with throttling
+    // Handle visibility change for iOS Safari tab switching - with strict throttling
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden && this.isIOS() && this.isSafari() && this.canRefresh()) {
         console.log('👀 iOS Safari tab became visible, checking favicon...');
@@ -196,11 +217,11 @@ export class FaviconManager {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
           }
-        }, 1000);
+        }, 2000); // Increased delay
       }
     });
     
-    // Handle page focus for iOS - with throttling
+    // Handle page focus for iOS - with strict throttling
     window.addEventListener('focus', () => {
       if (this.isIOS() && this.isSafari() && this.canRefresh()) {
         console.log('🔍 iOS Safari gained focus, checking favicon...');
@@ -208,7 +229,7 @@ export class FaviconManager {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
           }
-        }, 1500);
+        }, 3000); // Increased delay
       }
     });
   }
@@ -220,6 +241,11 @@ export class FaviconManager {
     this.isRefreshing = false;
     console.log('🔄 Favicon refresh limits reset');
   }
+
+  // Public method to manually clean URL
+  public cleanURLFragments(): void {
+    this.cleanURL();
+  }
 }
 
 // Export singleton and utility functions
@@ -227,3 +253,4 @@ export const faviconManager = FaviconManager.getInstance();
 export const setupIOSFavicons = () => faviconManager.setupIOSFavicons();
 export const initializeFaviconManager = () => faviconManager.initialize();
 export const resetFaviconLimits = () => faviconManager.resetRefreshLimits();
+export const cleanURLFragments = () => faviconManager.cleanURLFragments();

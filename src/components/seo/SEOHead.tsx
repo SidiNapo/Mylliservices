@@ -31,7 +31,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   
   // Use stable cache buster to prevent infinite updates
   const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-  const stableCacheBuster = `?v=2024_final_stable&session=${sessionId}&seo=true`;
+  const stableCacheBuster = `?v=2024_final_stable&session=${sessionId}&og=true`;
 
   return (
     <Helmet>
@@ -62,7 +62,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="distribution" content="local" />
       <meta name="coverage" content="Casablanca" />
       
-      {/* Open Graph Tags with stable favicon */}
+      {/* Open Graph Tags with Mylli Services logo */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
@@ -70,18 +70,25 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
+      <meta property="og:image:type" content="image/png" />
       {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
       <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
       <meta property="og:locale" content="fr_MA" />
       <meta property="og:locale:alternate" content="ar_MA" />
       
-      {/* Twitter Card Tags with stable favicon */}
+      {/* Twitter Card Tags with Mylli Services logo */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mylli_services" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${fullOgImage}${stableCacheBuster}`} />
       <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
+      <meta name="twitter:creator" content="@mylli_services" />
+      
+      {/* Additional Social Media Meta Tags */}
+      <meta property="fb:app_id" content="mylli-services-app" />
+      <meta name="thumbnail" content={`${fullOgImage}${stableCacheBuster}`} />
+      <meta name="image" content={`${fullOgImage}${stableCacheBuster}`} />
       
       {/* Hreflang - Using hrefLang for React */}
       <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl || baseUrl} />
