@@ -47,7 +47,7 @@ export class FaviconManager {
     link.type = type;
     
     if (sizes) {
-      link.sizes = sizes;
+      link.setAttribute('sizes', sizes);
     }
     
     const sizeParam = sizes ? `&size=${sizes}` : '';
