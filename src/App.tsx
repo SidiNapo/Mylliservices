@@ -39,13 +39,13 @@ const queryClient = new QueryClient({
 
 const App: React.FC = () => {
   useEffect(() => {
-    console.log('🚀 Initializing Mylli Services application with ULTIMATE iOS favicon system...');
+    console.log('🚀 Initializing Mylli Services application with stable iOS favicon system...');
     
     // Initialize security session
     securitySession.initializeSession();
     
-    // STEP 1: Initialize the ULTIMATE iOS favicon system FIRST
-    console.log('🍎 Launching ULTIMATE iOS favicon fix system...');
+    // STEP 1: Initialize the stable iOS favicon system
+    console.log('🍎 Launching stable iOS favicon system...');
     initializeFaviconManager();
     
     // STEP 2: Preload critical images
@@ -59,7 +59,7 @@ const App: React.FC = () => {
       console.error("❌ Failed to initialize EmailJS:", error);
     }
 
-    console.log('✅ Application initialization complete with iOS favicon system');
+    console.log('✅ Application initialization complete with stable iOS favicon system');
   }, []);
 
   return (

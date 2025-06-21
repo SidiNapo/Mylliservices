@@ -29,8 +29,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
   
-  // Use the ULTIMATE rebuild cache buster
-  const ultimateCacheBuster = `?v=2024_final_rebuild&t=${Date.now()}&seo=true&ultimate=true&r=${Math.random().toString(36).substring(7)}`;
+  // Use stable cache buster to prevent infinite updates
+  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
+  const stableCacheBuster = `?v=2024_final_stable&session=${sessionId}&seo=true`;
 
   return (
     <Helmet>
@@ -61,11 +62,11 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="distribution" content="local" />
       <meta name="coverage" content="Casablanca" />
       
-      {/* Open Graph Tags with ULTIMATE favicon */}
+      {/* Open Graph Tags with stable favicon */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:image" content={`${fullOgImage}${ultimateCacheBuster}`} />
+      <meta property="og:image" content={`${fullOgImage}${stableCacheBuster}`} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
@@ -74,12 +75,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:locale" content="fr_MA" />
       <meta property="og:locale:alternate" content="ar_MA" />
       
-      {/* Twitter Card Tags with ULTIMATE favicon */}
+      {/* Twitter Card Tags with stable favicon */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mylli_services" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${fullOgImage}${ultimateCacheBuster}`} />
+      <meta name="twitter:image" content={`${fullOgImage}${stableCacheBuster}`} />
       <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
       
       {/* Hreflang - Using hrefLang for React */}

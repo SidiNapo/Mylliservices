@@ -1,4 +1,4 @@
-// Image optimization utilities - ULTIMATE rebuild for new favicon system
+// Image optimization utilities - Stable version for iOS
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -41,7 +41,7 @@ export const optimizeImageUrl = (
     return `${src}?${params.toString()}`;
   }
 
-  // Handle Lovable uploads with ULTIMATE cache busting system
+  // Handle Lovable uploads with stable cache busting
   if (src.includes('lovable-uploads')) {
     const params = new URLSearchParams();
     params.set('w', width.toString());
@@ -52,9 +52,10 @@ export const optimizeImageUrl = (
     }
     
     if (cacheBuster) {
-      params.set('v', '2024_final_rebuild');
-      params.set('t', Date.now().toString());
-      params.set('ultimate', 'true');
+      // Use stable session-based cache busting
+      const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
+      params.set('v', '2024_final_stable');
+      params.set('session', sessionId);
     }
     
     return `${src}?${params.toString()}`;
@@ -91,20 +92,19 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with iOS-optimized favicon system
+// Critical images with stable iOS favicon system
 export const getCriticalImages = (): string[] => {
-  const timestamp = Date.now();
-  const version = '2024_final_rebuild';
-  const random = Math.random().toString(36).substring(7);
-  const iosParam = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&ios=true' : '';
+  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
+  const version = '2024_final_stable';
+  const iosParam = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&ios=stable' : '';
   
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&r=${random}&critical=true${iosParam}`, // iOS-optimized favicon/logo
-    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&r=${random}&critical=true${iosParam}`, // Hero image
+    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
+    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
   ];
 };
 
-// Preload critical images with iOS favicon optimization
+// Preload critical images with stable iOS favicon optimization
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -123,5 +123,5 @@ export const preloadCriticalImages = (): void => {
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with iOS favicon optimization');
+  console.log('✅ Critical images preloaded with stable iOS favicon optimization');
 };
