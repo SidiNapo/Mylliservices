@@ -13,40 +13,40 @@
   "categories": ["health", "medical", "healthcare"],
   "icons": [
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&manifest=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&manifest=true&size=192",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&manifest=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&manifest=true&size=512",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&apple=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&apple=true&size=180",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "apple touch icon"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&apple=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&apple=true&size=152",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&apple=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&apple=true&size=120",
       "sizes": "120x120",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&standard=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&standard=true&size=32",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&standard=true",
+      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&standard=true&size=16",
       "sizes": "16x16",
       "type": "image/png"
     }
@@ -59,7 +59,7 @@
       "url": "/contact",
       "icons": [
         {
-          "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_rebuild&shortcut=true",
+          "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&shortcut=true&size=96",
           "sizes": "96x96"
         }
       ]

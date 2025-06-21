@@ -1,4 +1,5 @@
-// Image optimization utilities - rebuilt for new favicon system
+
+// Image optimization utilities - ULTIMATE rebuild for new favicon system
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -41,7 +42,7 @@ export const optimizeImageUrl = (
     return `${src}?${params.toString()}`;
   }
 
-  // Handle Lovable uploads with new cache busting system
+  // Handle Lovable uploads with ULTIMATE cache busting system
   if (src.includes('lovable-uploads')) {
     const params = new URLSearchParams();
     params.set('w', width.toString());
@@ -52,8 +53,9 @@ export const optimizeImageUrl = (
     }
     
     if (cacheBuster) {
-      params.set('v', '2024_rebuild');
+      params.set('v', '2024_final_rebuild');
       params.set('t', Date.now().toString());
+      params.set('ultimate', 'true');
     }
     
     return `${src}?${params.toString()}`;
@@ -90,17 +92,18 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with the NEW favicon system
+// Critical images with the ULTIMATE favicon system
 export const getCriticalImages = (): string[] => {
   const timestamp = Date.now();
-  const version = '2024_rebuild';
+  const version = '2024_final_rebuild';
+  const random = Math.random().toString(36).substring(7);
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&critical=true`, // NEW favicon/logo
-    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&critical=true`, // Hero image
+    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&t=${timestamp}&r=${random}&critical=true&ultimate=true`, // ULTIMATE favicon/logo
+    `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&t=${timestamp}&r=${random}&critical=true&ultimate=true`, // Hero image
   ];
 };
 
-// Preload critical images with the NEW favicon
+// Preload critical images with the ULTIMATE favicon
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -109,8 +112,9 @@ export const preloadCriticalImages = (): void => {
     link.rel = 'preload';
     link.as = 'image';
     link.href = src;
+    link.setAttribute('data-mylli-preload', 'true');
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with new favicon system');
+  console.log('✅ Critical images preloaded with ULTIMATE favicon system');
 };
