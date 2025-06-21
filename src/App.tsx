@@ -21,7 +21,8 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import MotDuPresident from "./pages/MotDuPresident";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
-import { preloadCriticalImages, forceIOSFaviconRefresh } from "./utils/imageOptimization";
+import { preloadCriticalImages } from "./utils/imageOptimization";
+import { initializeFaviconManager } from "./utils/faviconManager";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
 import SecurityDashboard from "./components/security/SecurityDashboard";
 import { securitySession } from "./utils/securitySession";
@@ -42,8 +43,8 @@ const App: React.FC = () => {
     // Initialize security session
     securitySession.initializeSession();
     
-    // Force iOS favicon refresh for cache busting
-    forceIOSFaviconRefresh();
+    // Initialize favicon manager with aggressive iOS cache busting
+    initializeFaviconManager();
     
     // Preload critical images with optimization
     preloadCriticalImages();
@@ -54,6 +55,17 @@ const App: React.FC = () => {
       console.log("EmailJS initialized successfully");
     } catch (error) {
       console.error("Failed to initialize EmailJS:", error);
+    }
+
+    // Additional iOS-specific favicon refresh on app load
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      console.log("🍎 iOS device detected - ensuring favicon refresh...");
+      
+      // Force favicon refresh after a short delay
+      setTimeout(() => {
+        const { updateFavicons } = require("./utils/faviconManager");
+        updateFavicons();
+      }, 1000);
     }
   }, []);
 

@@ -26,7 +26,6 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   
   // SEO optimizations
   useEffect(() => {
-    // SEO optimizations
     preloadCriticalResources();
     measureCoreWebVitals();
   }, []);

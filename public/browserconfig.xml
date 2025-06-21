@@ -3,10 +3,10 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024&ms=true"/>
-      <square150x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024&ms=true"/>
-      <wide310x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024&ms=true"/>
-      <square310x310logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024&ms=true"/>
+      <square70x70logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true&ios_force=true"/>
+      <square150x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true&ios_force=true"/>
+      <wide310x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true&ios_force=true"/>
+      <square310x310logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_v2&ms=true&ios_force=true"/>
       <TileColor>#0077C0</TileColor>
     </tile>
     <notification>
