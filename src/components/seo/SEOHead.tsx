@@ -19,7 +19,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   description,
   keywords = 'soins domicile casablanca, infirmier domicile casablanca, aide soignant domicile casablanca, garde malade casablanca, soins infirmiers domicile, mylli services casablanca, aide domicile personnes agees, infirmier nuit casablanca, garde malade 24h casablanca, soins palliatifs domicile, assistance medicale domicile, infirmier liberal casablanca',
   canonicalUrl,
-  ogImage = '/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png', // Updated to new healthcare logo
+  ogImage = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
   ogType = 'website',
   noindex = false,
   nofollow = false,
@@ -58,7 +58,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="distribution" content="local" />
       <meta name="coverage" content="Casablanca" />
       
-      {/* Open Graph Tags with new healthcare logo */}
+      {/* Open Graph Tags with Mylli Services logo */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
@@ -72,7 +72,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:locale" content="fr_MA" />
       <meta property="og:locale:alternate" content="ar_MA" />
       
-      {/* Twitter Card Tags with new healthcare logo */}
+      {/* Twitter Card Tags with Mylli Services logo */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mylli_services" />
       <meta name="twitter:title" content={title} />
@@ -90,17 +90,12 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl || baseUrl} />
       <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl || baseUrl} />
       
-      {/* iOS-specific favicon meta tags for window switching with new healthcare logo */}
+      {/* iOS-specific favicon meta tags for window switching */}
       <link rel="apple-touch-icon" href={fullOgImage} />
       <link rel="apple-touch-icon" sizes="180x180" href={fullOgImage} />
       <link rel="apple-touch-icon" sizes="152x152" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="144x144" href={fullOgImage} />
       <link rel="apple-touch-icon" sizes="120x120" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="114x114" href={fullOgImage} />
       <link rel="apple-touch-icon" sizes="76x76" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="72x72" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="60x60" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="57x57" href={fullOgImage} />
       
       {/* Structured Data */}
       {structuredData && (

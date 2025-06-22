@@ -3,10 +3,10 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png?v=2024_healthcare_optimized&ms=true&size=70"/>
-      <square150x150logo src="/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png?v=2024_healthcare_optimized&ms=true&size=150"/>
-      <wide310x150logo src="/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png?v=2024_healthcare_optimized&ms=true&size=310x150"/>
-      <square310x310logo src="/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png?v=2024_healthcare_optimized&ms=true&size=310"/>
+      <square70x70logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=70"/>
+      <square150x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=150"/>
+      <wide310x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=310x150"/>
+      <square310x310logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=310"/>
       <TileColor>#0077C0</TileColor>
     </tile>
     <notification>
