@@ -32,28 +32,28 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
 
-    <!-- ⚠️ CRITICAL: NO STATIC FAVICON LINKS HERE ⚠️ -->
-    <!-- ALL FAVICON MANAGEMENT IS NOW HANDLED BY THE ULTIMATE iOS FAVICON MANAGER -->
-    <!-- This ensures iOS Safari gets the latest favicon without conflicts -->
+    <!-- ⚠️ CRITICAL: ALL FAVICON MANAGEMENT IS NOW HANDLED DYNAMICALLY ⚠️ -->
+    <!-- This ensures clean URLs and proper iOS Safari favicon display -->
+    <!-- NO STATIC FAVICON LINKS TO PREVENT URL FRAGMENT ISSUES -->
 
-    <!-- iOS-Specific Web App Meta Tags (will be updated by favicon manager) -->
+    <!-- iOS-Specific Web App Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="Mylli Services" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="application-name" content="Mylli Services" />
 
-    <!-- Web App Manifest with iOS cache busting -->
-    <link rel="manifest" href="/site.webmanifest?v=2024_final_stable&ios=true" />
+    <!-- Web App Manifest - CLEAN URL -->
+    <link rel="manifest" href="/site.webmanifest" />
     
-    <!-- Browser Configuration with iOS cache busting -->
-    <meta name="msapplication-config" content="/browserconfig.xml?v=2024_final_stable&ios=true" />
+    <!-- Browser Configuration - CLEAN URL -->
+    <meta name="msapplication-config" content="/browserconfig.xml" />
     
-    <!-- Microsoft Tiles with Mylli Services favicon -->
-    <meta name="msapplication-TileImage" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&ms=true&ios=true" />
+    <!-- Microsoft Tiles with Clean Mylli Services favicon -->
+    <meta name="msapplication-TileImage" content="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <meta name="msapplication-TileColor" content="#0077C0" />
 
-    <!-- OPEN GRAPH DOMINATION with Mylli Services logo -->
+    <!-- OPEN GRAPH DOMINATION with Clean Mylli Services logo URLs -->
     <meta property="og:type" content="business.business" />
     <meta property="og:title" content="Soins à Domicile Casablanca | #1 Infirmier Aide-Soignant 24h | Mylli Services" />
     <meta property="og:description" content="★★★★★ Leader des soins à domicile Casablanca depuis 2014. Infirmier qualifié, aide-soignant expert, garde malade 24h/24. Plus de 10 ans d'expérience." />
@@ -61,26 +61,26 @@
     <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
     <meta property="og:locale" content="fr_MA" />
     <meta property="og:locale:alternate" content="ar_MA" />
-    <meta property="og:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&og=true&ios=true" />
+    <meta property="og:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mylli Services - Soins à domicile Casablanca - Infirmier et aide-soignant professionnel" />
     <meta property="og:image:type" content="image/png" />
 
-    <!-- TWITTER CARD POWER with Mylli Services logo -->
+    <!-- TWITTER CARD POWER with Clean Mylli Services logo -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Soins à Domicile Casablanca | #1 Infirmier Aide-Soignant" />
     <meta name="twitter:description" content="★★★★★ Services soins domicile Casablanca depuis 2014. Infirmier, aide-soignant, garde malade 24h/24." />
-    <meta name="twitter:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&twitter=true&ios=true" />
+    <meta name="twitter:image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
     <meta name="twitter:image:alt" content="Mylli Services Casablanca - Soins à domicile professionnels" />
     <meta name="twitter:site" content="@mylli_services" />
     <meta name="twitter:creator" content="@mylli_services" />
 
-    <!-- Additional Social Media Meta for better link previews -->
-    <meta name="thumbnail" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&thumbnail=true" />
-    <meta name="image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&preview=true" />
+    <!-- Additional Social Media Meta for Clean Link Previews -->
+    <meta name="thumbnail" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
+    <meta name="image" content="https://mylliservices.com/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" />
 
-    <!-- CANONICAL & HREFLANG -->
+    <!-- CANONICAL & HREFLANG - CLEAN URLS -->
     <link rel="canonical" href="https://mylliservices.com/" />
     <link rel="alternate" hrefLang="fr-ma" href="https://mylliservices.com/" />
     <link rel="alternate" hrefLang="x-default" href="https://mylliservices.com/" />
@@ -110,8 +110,8 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     
-    <!-- Preload critical favicon resource with iOS cache busting -->
-    <link rel="preload" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_stable&preload=true&ios=true" as="image" />
+    <!-- Preload critical favicon resource - CLEAN URL -->
+    <link rel="preload" href="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png" as="image" />
 
     <!-- LOCAL BUSINESS SCHEMA - RANK #1 WEAPON -->
     <script type="application/ld+json">

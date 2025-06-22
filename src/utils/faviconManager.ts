@@ -1,6 +1,6 @@
 
-// ULTIMATE iOS Safari Favicon Fix System - NO INFINITE LOOPS
-// This system ensures the correct Mylli Services favicon displays on iOS Safari
+// ULTIMATE iOS Safari Favicon Fix System - NO URL FRAGMENTS
+// This system ensures the correct Mylli Services favicon displays without breaking URLs
 
 export interface FaviconConfig {
   baseUrl: string;
@@ -13,8 +13,8 @@ export class FaviconManager {
   private isRefreshing: boolean = false;
   private lastRefreshTime: number = 0;
   private refreshCount: number = 0;
-  private readonly MAX_REFRESHES = 2; // Reduced from 3 to 2
-  private readonly MIN_REFRESH_INTERVAL = 8000; // Increased to 8 seconds
+  private readonly MAX_REFRESHES = 2;
+  private readonly MIN_REFRESH_INTERVAL = 8000;
   private static instance: FaviconManager | null = null;
 
   constructor(config: FaviconConfig) {
@@ -32,7 +32,7 @@ export class FaviconManager {
   }
 
   private generateStableCacheBuster(): string {
-    // Use stable cache buster to prevent infinite updates
+    // Use stable cache buster to prevent infinite updates - NO URL FRAGMENTS
     const sessionId = this.getOrCreateSessionId();
     return `v=${this.config.version}&session=${sessionId}&ios=stable`;
   }
@@ -66,17 +66,22 @@ export class FaviconManager {
   }
 
   private cleanURL(): void {
-    // Clean up URL fragments to prevent accumulation of #ios-favicon-refresh
-    if (window.location.hash.includes('ios-favicon-refresh')) {
-      console.log('🧹 Cleaning URL fragments...');
+    // CRITICAL: Clean up ALL URL fragments to prevent accumulation
+    const currentUrl = window.location.href;
+    
+    if (currentUrl.includes('#') || currentUrl.includes('%23')) {
+      console.log('🧹 Cleaning broken URL fragments...');
       
-      // Remove all ios-favicon-refresh fragments
-      const cleanURL = window.location.href.split('#')[0];
+      // Remove ALL hash fragments and encoded fragments
+      let cleanURL = currentUrl.split('#')[0];
+      cleanURL = cleanURL.replace(/%23[^&]*/g, '');
+      cleanURL = cleanURL.replace(/ios-favicon-refresh/g, '');
       
       // Use replaceState to clean URL without triggering page reload
       window.history.replaceState(null, '', cleanURL);
       
-      console.log('✅ URL cleaned:', cleanURL);
+      console.log('✅ URL cleaned from:', currentUrl);
+      console.log('✅ URL cleaned to:', cleanURL);
     }
   }
 
@@ -144,7 +149,7 @@ export class FaviconManager {
     this.refreshCount++;
     this.lastRefreshTime = Date.now();
     
-    // Step 1: Clean URL fragments first
+    // Step 1: Clean URL fragments FIRST - CRITICAL
     this.cleanURL();
     
     // Step 2: Clean existing favicons
@@ -195,9 +200,9 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing iOS-safe Favicon Manager with URL cleanup...');
+    console.log('🎯 Initializing URL-safe Favicon Manager with emergency cleanup...');
     
-    // Clean URL immediately on initialization
+    // CRITICAL: Clean URL immediately on initialization
     this.cleanURL();
     
     // Initial setup
@@ -217,7 +222,7 @@ export class FaviconManager {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
           }
-        }, 2000); // Increased delay
+        }, 2000);
       }
     });
     
@@ -229,7 +234,7 @@ export class FaviconManager {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
           }
-        }, 3000); // Increased delay
+        }, 3000);
       }
     });
   }
@@ -242,7 +247,7 @@ export class FaviconManager {
     console.log('🔄 Favicon refresh limits reset');
   }
 
-  // Public method to manually clean URL
+  // Public method to manually clean URL - CRITICAL FEATURE
   public cleanURLFragments(): void {
     this.cleanURL();
   }

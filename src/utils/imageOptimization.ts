@@ -1,4 +1,5 @@
-// Image optimization utilities - Stable version for iOS
+
+// Image optimization utilities - Clean URL version
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -41,7 +42,7 @@ export const optimizeImageUrl = (
     return `${src}?${params.toString()}`;
   }
 
-  // Handle Lovable uploads with stable cache busting
+  // Handle Lovable uploads with CLEAN cache busting (no URL fragments)
   if (src.includes('lovable-uploads')) {
     const params = new URLSearchParams();
     params.set('w', width.toString());
@@ -52,9 +53,9 @@ export const optimizeImageUrl = (
     }
     
     if (cacheBuster) {
-      // Use stable session-based cache busting
+      // Use clean session-based cache busting - NO FRAGMENTS
       const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-      params.set('v', '2024_final_stable');
+      params.set('v', '2024_final_clean');
       params.set('session', sessionId);
     }
     
@@ -92,11 +93,12 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with stable iOS favicon system
+// Critical images with CLEAN URLs - NO FRAGMENTS
 export const getCriticalImages = (): string[] => {
   const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-  const version = '2024_final_stable';
-  const iosParam = /iPad|iPhone|iPod/.test(navigator.userAgent) ? '&ios=stable' : '';
+  const version = '2024_final_clean';
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const iosParam = isIOS ? '&ios=stable' : '';
   
   return [
     `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
@@ -104,7 +106,7 @@ export const getCriticalImages = (): string[] => {
   ];
 };
 
-// Preload critical images with stable iOS favicon optimization
+// Preload critical images with CLEAN URLs
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -115,7 +117,7 @@ export const preloadCriticalImages = (): void => {
     link.href = src;
     link.setAttribute('data-mylli-preload', 'true');
     
-    // Add iOS-specific attributes for favicon preloading
+    // Add iOS-specific attributes for favicon preloading - NO FRAGMENTS
     if (src.includes('2fd660e3-872f-4057-81ba-00574e031c9a.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
       link.setAttribute('data-ios-favicon', 'true');
     }
@@ -123,5 +125,5 @@ export const preloadCriticalImages = (): void => {
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with stable iOS favicon optimization');
+  console.log('✅ Critical images preloaded with clean URLs');
 };
