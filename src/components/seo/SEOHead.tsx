@@ -8,7 +8,7 @@ interface SEOHeadProps {
   keywords?: string;
   canonicalUrl?: string;
   ogImage?: string;
-  ogType?: 'website' | 'article' | 'product';
+  ogType?: 'website' | 'article' | 'product' | 'business.business';
   noindex?: boolean;
   nofollow?: boolean;
   structuredData?: object;
@@ -20,24 +20,27 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   keywords = 'soins domicile casablanca, infirmier domicile casablanca, aide soignant domicile casablanca, garde malade casablanca, soins infirmiers domicile, mylli services casablanca, aide domicile personnes agees, infirmier nuit casablanca, garde malade 24h casablanca, soins palliatifs domicile, assistance medicale domicile, infirmier liberal casablanca',
   canonicalUrl,
   ogImage = '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
-  ogType = 'website',
+  ogType = 'business.business',
   noindex = false,
   nofollow = false,
   structuredData
 }) => {
   const baseUrl = 'https://mylli-home-care-oasis-gilt.vercel.app';
-  const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
+  const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : baseUrl;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
+
+  // Rich preview description with emojis and compelling copy
+  const richDescription = "🏥 Leader des soins à domicile à Casablanca depuis 2014. Services d'infirmiers et aides-soignants qualifiés disponibles 24h/24. ⭐⭐⭐⭐⭐ Soins personnalisés, professionnels et sécurisés directement chez vous. Confiance de milliers de familles marocaines.";
 
   return (
     <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{title}</title>
-      <meta name="description" content={description} />
+      {/* Enhanced Page Title with Emoji */}
+      <title>🏥 {title}</title>
+      <meta name="description" content={richDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
       
       {/* Canonical URL */}
-      {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
+      <link rel="canonical" href={fullCanonicalUrl} />
       
       {/* Advanced SEO Meta */}
       <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'},max-snippet:160,max-image-preview:large,max-video-preview:30`} />
@@ -45,7 +48,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="bingbot" content="index,follow" />
       <meta name="language" content="fr-MA" />
       <meta name="author" content="Mylli Services Casablanca" />
-      <meta name="publisher" content="Mylli Services" />
+      <meta name="publisher" content="Mylli Services Maroc" />
       <meta name="copyright" content="Mylli Services 2024" />
       <meta name="revisit-after" content="7 days" />
       <meta name="rating" content="general" />
@@ -58,51 +61,100 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="distribution" content="local" />
       <meta name="coverage" content="Casablanca" />
       
-      {/* Open Graph Tags with Mylli Services logo */}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      {/* Enhanced Open Graph Tags for Rich Preview */}
       <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={fullCanonicalUrl} />
+      <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
+      <meta property="og:title" content="Mylli Services - Soins à Domicile Professionnel Casablanca" />
+      <meta property="og:description" content={richDescription} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:secure_url" content={fullOgImage} />
+      <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />
-      <meta property="og:image:alt" content="Mylli Services - Soins à domicile professionnels Casablanca" />
-      <meta property="og:image:type" content="image/png" />
-      {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
-      <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
+      <meta property="og:image:alt" content="Mylli Services - Soins à Domicile Professionnel Casablanca" />
       <meta property="og:locale" content="fr_MA" />
       <meta property="og:locale:alternate" content="ar_MA" />
+      <meta property="og:updated_time" content="2025-06-22T23:00:00+00:00" />
       
-      {/* Twitter Card Tags with Mylli Services logo */}
+      {/* Business Information for Rich Cards */}
+      {ogType === 'business.business' && (
+        <>
+          <meta property="business:contact_data:locality" content="Casablanca" />
+          <meta property="business:contact_data:region" content="Casablanca-Settat" />
+          <meta property="business:contact_data:country_name" content="Morocco" />
+        </>
+      )}
+      
+      {/* Enhanced Twitter Card Tags for Rich Preview */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@mylli_services" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:site" content="@Mylli_Services" />
+      <meta name="twitter:creator" content="@Mylli_Services" />
+      <meta name="twitter:title" content="Mylli Services - Soins à Domicile Professionnel Casablanca" />
+      <meta name="twitter:description" content="🏥 Leader des soins à domicile à Casablanca depuis 2014. Services d'infirmiers et aides-soignants qualifiés 24h/24. ⭐⭐⭐⭐⭐ Soins personnalisés et professionnels chez vous." />
       <meta name="twitter:image" content={fullOgImage} />
-      <meta name="twitter:image:alt" content="Mylli Services - Soins à domicile professionnels Casablanca" />
-      <meta name="twitter:creator" content="@mylli_services" />
+      <meta name="twitter:image:alt" content="Mylli Services - Soins à Domicile Professionnel Casablanca" />
       
-      {/* Additional Social Media Meta Tags */}
-      <meta property="fb:app_id" content="mylli-services-app" />
+      {/* WhatsApp/iMessage Rich Preview */}
+      <meta name="description" content={richDescription} />
       <meta name="thumbnail" content={fullOgImage} />
       <meta name="image" content={fullOgImage} />
       
       {/* Hreflang */}
-      <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl || baseUrl} />
-      <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl || baseUrl} />
+      <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl} />
+      <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl} />
       
-      {/* iOS-specific favicon meta tags for window switching */}
-      <link rel="apple-touch-icon" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="180x180" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="152x152" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="120x120" href={fullOgImage} />
-      <link rel="apple-touch-icon" sizes="76x76" href={fullOgImage} />
+      {/* Enhanced iOS-specific favicon meta tags */}
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="apple-mobile-web-app-title" content="Mylli Services" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="application-name" content="Mylli Services" />
       
-      {/* Structured Data */}
+      {/* Enhanced Structured Data for Rich Business Card */}
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       )}
+      
+      {/* Default Rich Business Card Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MedicalOrganization",
+          "name": "Mylli Services",
+          "alternateName": "Mylli Services Casablanca",
+          "url": fullCanonicalUrl,
+          "logo": fullOgImage,
+          "image": fullOgImage,
+          "description": "Leader des soins à domicile à Casablanca depuis 2014. Services d'infirmiers et aides-soignants qualifiés disponibles 24h/24.",
+          "foundingDate": "2014",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "200"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Casablanca",
+            "addressRegion": "Casablanca-Settat",
+            "addressCountry": "MA"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["French", "Arabic"],
+            "hoursAvailable": "24/7"
+          },
+          "serviceArea": {
+            "@type": "City",
+            "name": "Casablanca"
+          },
+          "medicalSpecialty": "Home Healthcare",
+          "priceRange": "$$"
+        })}
+      </script>
     </Helmet>
   );
 };

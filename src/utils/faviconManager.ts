@@ -1,7 +1,5 @@
 
-// iOS Safari Favicon Manager - Clean URL Implementation
-// Ensures proper favicon display on iOS without breaking URLs
-
+// iOS Safari Favicon Manager - Enhanced for Window Switching
 export interface FaviconConfig {
   baseUrl: string;
   version: string;
@@ -13,9 +11,11 @@ export class FaviconManager {
   private isRefreshing: boolean = false;
   private lastRefreshTime: number = 0;
   private refreshCount: number = 0;
-  private readonly MAX_REFRESHES = 3;
-  private readonly MIN_REFRESH_INTERVAL = 5000;
+  private readonly MAX_REFRESHES = 5;
+  private readonly MIN_REFRESH_INTERVAL = 2000;
   private static instance: FaviconManager | null = null;
+  private visibilityChangeHandler: (() => void) | null = null;
+  private focusHandler: (() => void) | null = null;
 
   constructor(config: FaviconConfig) {
     this.config = config;
@@ -25,19 +25,10 @@ export class FaviconManager {
     if (!FaviconManager.instance) {
       FaviconManager.instance = new FaviconManager({
         baseUrl: '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
-        version: '2024_ios_stable'
+        version: '2024_safari_stable'
       });
     }
     return FaviconManager.instance;
-  }
-
-  private generateSessionId(): string {
-    let sessionId = sessionStorage.getItem('mylli-favicon-session');
-    if (!sessionId) {
-      sessionId = `ios_${Date.now()}_stable`;
-      sessionStorage.setItem('mylli-favicon-session', sessionId);
-    }
-    return sessionId;
   }
 
   private isIOS(): boolean {
@@ -62,11 +53,9 @@ export class FaviconManager {
   private cleanURL(): void {
     const currentUrl = window.location.href;
     
-    // Check for any unwanted hash fragments
     if (currentUrl.includes('#') || currentUrl.includes('%23')) {
       console.log('🧹 Cleaning URL fragments...');
       
-      // Extract clean base URL without any fragments
       let cleanURL = currentUrl.split('#')[0];
       cleanURL = cleanURL.replace(/%23[^&]*/g, '');
       cleanURL = cleanURL.replace(/ios-favicon-refresh/g, '');
@@ -75,7 +64,6 @@ export class FaviconManager {
       cleanURL = cleanURL.replace(/[?&]ios=[^&]*/g, '');
       cleanURL = cleanURL.replace(/[?&]$/, '');
       
-      // Use replaceState to avoid page reload
       window.history.replaceState(null, '', cleanURL);
       console.log('✅ URL cleaned to:', cleanURL);
     }
@@ -83,23 +71,22 @@ export class FaviconManager {
 
   private removeExistingFavicons(): void {
     const selectors = [
-      'link[rel*="icon"]',
-      'link[rel*="apple-touch-icon"]',
-      'link[rel="shortcut icon"]'
+      'link[rel*="icon"]:not([data-static])',
+      'link[rel*="apple-touch-icon"]:not([data-static])',
+      'link[rel="shortcut icon"]:not([data-static])'
     ];
     
     selectors.forEach(selector => {
       const elements = document.querySelectorAll(selector);
       elements.forEach(element => {
-        if (element.getAttribute('data-mylli-favicon') || 
-            element.getAttribute('data-mylli-ios-favicon')) {
+        if (element.getAttribute('data-mylli-dynamic')) {
           element.remove();
         }
       });
     });
   }
 
-  private createFaviconElement(rel: string, sizes?: string): HTMLLinkElement {
+  private createFaviconElement(rel: string, sizes?: string, forceRefresh: boolean = false): HTMLLinkElement {
     const link = document.createElement('link');
     link.rel = rel;
     
@@ -107,21 +94,26 @@ export class FaviconManager {
       link.setAttribute('sizes', sizes);
     }
     
-    // Use clean URL without cache busters to prevent fragment accumulation
-    link.href = this.config.baseUrl;
+    // Use clean URL with Safari-specific cache busting only when needed
+    let href = this.config.baseUrl;
+    if (forceRefresh && this.isSafari()) {
+      href += `?safari=${Date.now()}`;
+    }
+    link.href = href;
+    
+    link.setAttribute('data-mylli-dynamic', 'true');
     
     if (rel.includes('apple-touch-icon')) {
-      link.setAttribute('data-mylli-ios-favicon', 'true');
+      link.type = 'image/png';
     } else {
-      link.setAttribute('data-mylli-favicon', 'true');
       link.type = 'image/png';
     }
     
     return link;
   }
 
-  public setupIOSFavicons(): void {
-    if (!this.canRefresh()) {
+  public setupIOSFavicons(forceRefresh: boolean = false): void {
+    if (!forceRefresh && !this.canRefresh()) {
       console.log('🛑 iOS favicon refresh throttled');
       return;
     }
@@ -138,20 +130,20 @@ export class FaviconManager {
     // Step 2: Clean existing dynamic favicons
     this.removeExistingFavicons();
     
-    // Step 3: Create new favicon elements
+    // Step 3: Create new favicon elements with Safari optimization
     const fragment = document.createDocumentFragment();
     
-    // iOS Apple Touch Icons for window switching
-    fragment.appendChild(this.createFaviconElement('apple-touch-icon')); // Default 180x180
-    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '180x180'));
-    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '152x152'));
-    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '120x120'));
-    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '76x76'));
+    // iOS Apple Touch Icons for window switching - prioritized order
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '180x180', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '152x152', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '120x120', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '76x76', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '', forceRefresh)); // Default
     
     // Standard favicons for fallback
-    fragment.appendChild(this.createFaviconElement('icon', '32x32'));
-    fragment.appendChild(this.createFaviconElement('icon', '16x16'));
-    fragment.appendChild(this.createFaviconElement('shortcut icon'));
+    fragment.appendChild(this.createFaviconElement('icon', '32x32', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('icon', '16x16', forceRefresh));
+    fragment.appendChild(this.createFaviconElement('shortcut icon', '', forceRefresh));
     
     // Add all to head
     document.head.appendChild(fragment);
@@ -184,7 +176,7 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing clean favicon system...');
+    console.log('🎯 Initializing enhanced favicon system...');
     
     // Clean URL immediately
     this.cleanURL();
@@ -192,33 +184,54 @@ export class FaviconManager {
     // Initial setup
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => this.setupIOSFavicons(), 1000);
+        setTimeout(() => this.setupIOSFavicons(), 500);
       });
     } else {
-      setTimeout(() => this.setupIOSFavicons(), 1000);
+      setTimeout(() => this.setupIOSFavicons(), 500);
     }
     
-    // Handle visibility change for iOS Safari (throttled)
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden && this.isIOS() && this.isSafari() && this.canRefresh()) {
-        setTimeout(() => {
-          if (this.canRefresh()) {
-            this.setupIOSFavicons();
-          }
-        }, 2000);
+    // Enhanced Safari window switching detection
+    if (this.isSafari()) {
+      // Remove existing listeners
+      if (this.visibilityChangeHandler) {
+        document.removeEventListener('visibilitychange', this.visibilityChangeHandler);
       }
-    });
-    
-    // Handle window focus for iOS (throttled)
-    window.addEventListener('focus', () => {
-      if (this.isIOS() && this.isSafari() && this.canRefresh()) {
-        setTimeout(() => {
-          if (this.canRefresh()) {
-            this.setupIOSFavicons();
-          }
-        }, 3000);
+      if (this.focusHandler) {
+        window.removeEventListener('focus', this.focusHandler);
       }
-    });
+
+      // Create new throttled handlers
+      this.visibilityChangeHandler = () => {
+        if (!document.hidden && this.canRefresh()) {
+          setTimeout(() => {
+            if (this.canRefresh()) {
+              this.setupIOSFavicons(true);
+            }
+          }, 1000);
+        }
+      };
+
+      this.focusHandler = () => {
+        if (this.canRefresh()) {
+          setTimeout(() => {
+            if (this.canRefresh()) {
+              this.setupIOSFavicons(true);
+            }
+          }, 1500);
+        }
+      };
+
+      // Add listeners
+      document.addEventListener('visibilitychange', this.visibilityChangeHandler);
+      window.addEventListener('focus', this.focusHandler);
+      
+      // Safari-specific: Page show event (back/forward navigation)
+      window.addEventListener('pageshow', () => {
+        if (this.canRefresh()) {
+          setTimeout(() => this.setupIOSFavicons(true), 2000);
+        }
+      });
+    }
   }
 
   public resetRefreshLimits(): void {
@@ -231,11 +244,20 @@ export class FaviconManager {
   public cleanURLFragments(): void {
     this.cleanURL();
   }
+
+  public destroy(): void {
+    if (this.visibilityChangeHandler) {
+      document.removeEventListener('visibilitychange', this.visibilityChangeHandler);
+    }
+    if (this.focusHandler) {
+      window.removeEventListener('focus', this.focusHandler);
+    }
+  }
 }
 
 // Export singleton and utility functions
 export const faviconManager = FaviconManager.getInstance();
-export const setupIOSFavicons = () => faviconManager.setupIOSFavicons();
+export const setupIOSFavicons = (forceRefresh?: boolean) => faviconManager.setupIOSFavicons(forceRefresh);
 export const initializeFaviconManager = () => faviconManager.initialize();
 export const resetFaviconLimits = () => faviconManager.resetRefreshLimits();
 export const cleanURLFragments = () => faviconManager.cleanURLFragments();
