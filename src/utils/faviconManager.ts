@@ -1,6 +1,6 @@
 
-// ULTIMATE iOS Safari Favicon Fix System - NO URL FRAGMENTS
-// This system ensures the correct Mylli Services favicon displays without breaking URLs
+// iOS Safari Favicon Manager - Clean URL Implementation
+// Ensures proper favicon display on iOS without breaking URLs
 
 export interface FaviconConfig {
   baseUrl: string;
@@ -13,8 +13,8 @@ export class FaviconManager {
   private isRefreshing: boolean = false;
   private lastRefreshTime: number = 0;
   private refreshCount: number = 0;
-  private readonly MAX_REFRESHES = 2;
-  private readonly MIN_REFRESH_INTERVAL = 8000;
+  private readonly MAX_REFRESHES = 3;
+  private readonly MIN_REFRESH_INTERVAL = 5000;
   private static instance: FaviconManager | null = null;
 
   constructor(config: FaviconConfig) {
@@ -25,22 +25,16 @@ export class FaviconManager {
     if (!FaviconManager.instance) {
       FaviconManager.instance = new FaviconManager({
         baseUrl: '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
-        version: '2024_final_stable'
+        version: '2024_ios_stable'
       });
     }
     return FaviconManager.instance;
   }
 
-  private generateStableCacheBuster(): string {
-    // Use stable cache buster to prevent infinite updates - NO URL FRAGMENTS
-    const sessionId = this.getOrCreateSessionId();
-    return `v=${this.config.version}&session=${sessionId}&ios=stable`;
-  }
-
-  private getOrCreateSessionId(): string {
+  private generateSessionId(): string {
     let sessionId = sessionStorage.getItem('mylli-favicon-session');
     if (!sessionId) {
-      sessionId = `ios_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
+      sessionId = `ios_${Date.now()}_stable`;
       sessionStorage.setItem('mylli-favicon-session', sessionId);
     }
     return sessionId;
@@ -66,28 +60,28 @@ export class FaviconManager {
   }
 
   private cleanURL(): void {
-    // CRITICAL: Clean up ALL URL fragments to prevent accumulation
     const currentUrl = window.location.href;
     
+    // Check for any unwanted hash fragments
     if (currentUrl.includes('#') || currentUrl.includes('%23')) {
-      console.log('🧹 Cleaning broken URL fragments...');
+      console.log('🧹 Cleaning URL fragments...');
       
-      // Remove ALL hash fragments and encoded fragments
+      // Extract clean base URL without any fragments
       let cleanURL = currentUrl.split('#')[0];
       cleanURL = cleanURL.replace(/%23[^&]*/g, '');
       cleanURL = cleanURL.replace(/ios-favicon-refresh/g, '');
+      cleanURL = cleanURL.replace(/[?&]v=[^&]*/g, '');
+      cleanURL = cleanURL.replace(/[?&]session=[^&]*/g, '');
+      cleanURL = cleanURL.replace(/[?&]ios=[^&]*/g, '');
+      cleanURL = cleanURL.replace(/[?&]$/, '');
       
-      // Use replaceState to clean URL without triggering page reload
+      // Use replaceState to avoid page reload
       window.history.replaceState(null, '', cleanURL);
-      
-      console.log('✅ URL cleaned from:', currentUrl);
       console.log('✅ URL cleaned to:', cleanURL);
     }
   }
 
-  private removeAllExistingFavicons(): void {
-    console.log('🗑️ Cleaning existing favicons for iOS...');
-    
+  private removeExistingFavicons(): void {
     const selectors = [
       'link[rel*="icon"]',
       'link[rel*="apple-touch-icon"]',
@@ -97,49 +91,38 @@ export class FaviconManager {
     selectors.forEach(selector => {
       const elements = document.querySelectorAll(selector);
       elements.forEach(element => {
-        if (element.getAttribute('data-mylli-favicon') || element.getAttribute('data-mylli-ios-favicon')) {
+        if (element.getAttribute('data-mylli-favicon') || 
+            element.getAttribute('data-mylli-ios-favicon')) {
           element.remove();
         }
       });
     });
   }
 
-  private createIOSAppleTouchIcon(sizes?: string): HTMLLinkElement {
-    const link = document.createElement('link');
-    link.rel = 'apple-touch-icon';
-    
-    if (sizes) {
-      link.setAttribute('sizes', sizes);
-    }
-    
-    const cacheBuster = this.generateStableCacheBuster();
-    const sizeParam = sizes ? `&size=${sizes}` : '&size=180x180';
-    link.href = `${this.config.baseUrl}?${cacheBuster}${sizeParam}`;
-    link.setAttribute('data-mylli-ios-favicon', 'true');
-    
-    return link;
-  }
-
-  private createStandardFavicon(rel: string, sizes?: string): HTMLLinkElement {
+  private createFaviconElement(rel: string, sizes?: string): HTMLLinkElement {
     const link = document.createElement('link');
     link.rel = rel;
-    link.type = 'image/png';
     
     if (sizes) {
       link.setAttribute('sizes', sizes);
     }
     
-    const cacheBuster = this.generateStableCacheBuster();
-    const sizeParam = sizes ? `&size=${sizes}` : '';
-    link.href = `${this.config.baseUrl}?${cacheBuster}${sizeParam}`;
-    link.setAttribute('data-mylli-favicon', 'true');
+    // Use clean URL without cache busters to prevent fragment accumulation
+    link.href = this.config.baseUrl;
+    
+    if (rel.includes('apple-touch-icon')) {
+      link.setAttribute('data-mylli-ios-favicon', 'true');
+    } else {
+      link.setAttribute('data-mylli-favicon', 'true');
+      link.type = 'image/png';
+    }
     
     return link;
   }
 
   public setupIOSFavicons(): void {
     if (!this.canRefresh()) {
-      console.log('🛑 iOS favicon refresh blocked - too frequent or max attempts reached');
+      console.log('🛑 iOS favicon refresh throttled');
       return;
     }
 
@@ -149,34 +132,34 @@ export class FaviconManager {
     this.refreshCount++;
     this.lastRefreshTime = Date.now();
     
-    // Step 1: Clean URL fragments FIRST - CRITICAL
+    // Step 1: Clean URL first
     this.cleanURL();
     
-    // Step 2: Clean existing favicons
-    this.removeAllExistingFavicons();
+    // Step 2: Clean existing dynamic favicons
+    this.removeExistingFavicons();
     
     // Step 3: Create new favicon elements
     const fragment = document.createDocumentFragment();
     
-    // iOS Apple Touch Icons (most important for iOS Safari)
-    fragment.appendChild(this.createIOSAppleTouchIcon()); // Default 180x180
-    fragment.appendChild(this.createIOSAppleTouchIcon('180x180'));
-    fragment.appendChild(this.createIOSAppleTouchIcon('152x152'));
-    fragment.appendChild(this.createIOSAppleTouchIcon('120x120'));
-    fragment.appendChild(this.createIOSAppleTouchIcon('76x76'));
+    // iOS Apple Touch Icons for window switching
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon')); // Default 180x180
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '180x180'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '152x152'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '120x120'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '76x76'));
     
-    // Standard favicons for other browsers and iOS fallback
-    fragment.appendChild(this.createStandardFavicon('icon', '32x32'));
-    fragment.appendChild(this.createStandardFavicon('icon', '16x16'));
-    fragment.appendChild(this.createStandardFavicon('shortcut icon'));
+    // Standard favicons for fallback
+    fragment.appendChild(this.createFaviconElement('icon', '32x32'));
+    fragment.appendChild(this.createFaviconElement('icon', '16x16'));
+    fragment.appendChild(this.createFaviconElement('shortcut icon'));
     
     // Add all to head
     document.head.appendChild(fragment);
     
-    // Step 4: Apply iOS-specific meta tags
+    // Step 4: Update iOS meta tags
     this.updateIOSMetaTags();
     
-    console.log('✅ iOS favicons installed with clean URL');
+    console.log('✅ iOS favicons installed successfully');
     this.isRefreshing = false;
     this.hasInitialized = true;
   }
@@ -184,8 +167,9 @@ export class FaviconManager {
   private updateIOSMetaTags(): void {
     const metaUpdates = [
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
-      { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-      { name: 'apple-mobile-web-app-title', content: 'Mylli Services' }
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+      { name: 'apple-mobile-web-app-title', content: 'Mylli Services' },
+      { name: 'theme-color', content: '#8B5A8C' }
     ];
     
     metaUpdates.forEach(({ name, content }) => {
@@ -200,9 +184,9 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing URL-safe Favicon Manager with emergency cleanup...');
+    console.log('🎯 Initializing clean favicon system...');
     
-    // CRITICAL: Clean URL immediately on initialization
+    // Clean URL immediately
     this.cleanURL();
     
     // Initial setup
@@ -214,10 +198,9 @@ export class FaviconManager {
       setTimeout(() => this.setupIOSFavicons(), 1000);
     }
     
-    // Handle visibility change for iOS Safari tab switching - with strict throttling
+    // Handle visibility change for iOS Safari (throttled)
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden && this.isIOS() && this.isSafari() && this.canRefresh()) {
-        console.log('👀 iOS Safari tab became visible, checking favicon...');
         setTimeout(() => {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
@@ -226,10 +209,9 @@ export class FaviconManager {
       }
     });
     
-    // Handle page focus for iOS - with strict throttling
+    // Handle window focus for iOS (throttled)
     window.addEventListener('focus', () => {
       if (this.isIOS() && this.isSafari() && this.canRefresh()) {
-        console.log('🔍 iOS Safari gained focus, checking favicon...');
         setTimeout(() => {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
@@ -239,7 +221,6 @@ export class FaviconManager {
     });
   }
 
-  // Public method to reset refresh limits if needed
   public resetRefreshLimits(): void {
     this.refreshCount = 0;
     this.lastRefreshTime = 0;
@@ -247,7 +228,6 @@ export class FaviconManager {
     console.log('🔄 Favicon refresh limits reset');
   }
 
-  // Public method to manually clean URL - CRITICAL FEATURE
   public cleanURLFragments(): void {
     this.cleanURL();
   }

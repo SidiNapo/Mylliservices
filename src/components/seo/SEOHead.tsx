@@ -25,13 +25,9 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   nofollow = false,
   structuredData
 }) => {
-  const baseUrl = 'https://mylliservices.com';
+  const baseUrl = 'https://mylli-home-care-oasis-gilt.vercel.app';
   const fullCanonicalUrl = canonicalUrl ? `${baseUrl}${canonicalUrl}` : undefined;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
-  
-  // Use clean URLs without fragments - CRITICAL FIX
-  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-  const cleanCacheBuster = `?v=2024_final_clean&session=${sessionId}`;
 
   return (
     <Helmet>
@@ -40,7 +36,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       
-      {/* Canonical URL - CLEAN */}
+      {/* Canonical URL */}
       {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
       
       {/* Advanced SEO Meta */}
@@ -62,37 +58,44 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta name="distribution" content="local" />
       <meta name="coverage" content="Casablanca" />
       
-      {/* Open Graph Tags with Clean Mylli Services logo */}
+      {/* Open Graph Tags with Mylli Services logo */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:image" content={`${fullOgImage}${cleanCacheBuster}`} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
-      <meta property="og:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
+      <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
+      <meta property="og:image:alt" content="Mylli Services - Soins à domicile professionnels Casablanca" />
       <meta property="og:image:type" content="image/png" />
       {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
       <meta property="og:site_name" content="Mylli Services - Soins à Domicile Casablanca" />
       <meta property="og:locale" content="fr_MA" />
       <meta property="og:locale:alternate" content="ar_MA" />
       
-      {/* Twitter Card Tags with Clean Mylli Services logo */}
+      {/* Twitter Card Tags with Mylli Services logo */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@mylli_services" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${fullOgImage}${cleanCacheBuster}`} />
-      <meta name="twitter:image:alt" content="Mylli Services - Aide à domicile professionnelle Casablanca" />
+      <meta name="twitter:image" content={fullOgImage} />
+      <meta name="twitter:image:alt" content="Mylli Services - Soins à domicile professionnels Casablanca" />
       <meta name="twitter:creator" content="@mylli_services" />
       
-      {/* Additional Social Media Meta Tags - CLEAN URLS */}
+      {/* Additional Social Media Meta Tags */}
       <meta property="fb:app_id" content="mylli-services-app" />
-      <meta name="thumbnail" content={`${fullOgImage}${cleanCacheBuster}`} />
-      <meta name="image" content={`${fullOgImage}${cleanCacheBuster}`} />
+      <meta name="thumbnail" content={fullOgImage} />
+      <meta name="image" content={fullOgImage} />
       
-      {/* Hreflang - Using clean URLs */}
+      {/* Hreflang */}
       <link rel="alternate" hrefLang="fr-ma" href={fullCanonicalUrl || baseUrl} />
       <link rel="alternate" hrefLang="x-default" href={fullCanonicalUrl || baseUrl} />
+      
+      {/* iOS-specific favicon meta tags for window switching */}
+      <link rel="apple-touch-icon" href={fullOgImage} />
+      <link rel="apple-touch-icon" sizes="180x180" href={fullOgImage} />
+      <link rel="apple-touch-icon" sizes="152x152" href={fullOgImage} />
+      <link rel="apple-touch-icon" sizes="120x120" href={fullOgImage} />
+      <link rel="apple-touch-icon" sizes="76x76" href={fullOgImage} />
       
       {/* Structured Data */}
       {structuredData && (
