@@ -5,53 +5,78 @@
   "description": "Leader des soins à domicile Casablanca. Services d'infirmier et aide-soignant professionnels 24h/24. Soins de qualité à domicile depuis 2014.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#8B5A8C",
-  "theme_color": "#8B5A8C",
+  "background_color": "#0077C0",
+  "theme_color": "#0077C0",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "fr-MA",
   "categories": ["health", "medical", "healthcare"],
   "icons": [
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "apple touch icon"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "120x120",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "76x76",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
+      "sizes": "60x60",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
+      "sizes": "57x57",
+      "type": "image/png"
+    },
+    {
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+      "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
       "sizes": "16x16",
       "type": "image/png"
     }
@@ -64,7 +89,7 @@
       "url": "/contact",
       "icons": [
         {
-          "src": "/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png",
+          "src": "/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png",
           "sizes": "96x96"
         }
       ]

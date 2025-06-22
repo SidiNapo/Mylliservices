@@ -1,6 +1,6 @@
 
-// iOS Safari Favicon Manager - Clean URL Implementation
-// Ensures proper favicon display on iOS without breaking URLs
+// iOS Safari Favicon Manager - Healthcare Logo Implementation
+// Ensures proper favicon display on iOS Safari with enhanced window switching visibility
 
 export interface FaviconConfig {
   baseUrl: string;
@@ -13,8 +13,8 @@ export class FaviconManager {
   private isRefreshing: boolean = false;
   private lastRefreshTime: number = 0;
   private refreshCount: number = 0;
-  private readonly MAX_REFRESHES = 3;
-  private readonly MIN_REFRESH_INTERVAL = 5000;
+  private readonly MAX_REFRESHES = 5; // Increased for better iOS support
+  private readonly MIN_REFRESH_INTERVAL = 3000; // Reduced for faster refresh
   private static instance: FaviconManager | null = null;
 
   constructor(config: FaviconConfig) {
@@ -24,8 +24,8 @@ export class FaviconManager {
   static getInstance(): FaviconManager {
     if (!FaviconManager.instance) {
       FaviconManager.instance = new FaviconManager({
-        baseUrl: '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
-        version: '2024_ios_stable'
+        baseUrl: '/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png', // New healthcare logo
+        version: '2024_healthcare_ios_optimized'
       });
     }
     return FaviconManager.instance;
@@ -34,7 +34,7 @@ export class FaviconManager {
   private generateSessionId(): string {
     let sessionId = sessionStorage.getItem('mylli-favicon-session');
     if (!sessionId) {
-      sessionId = `ios_${Date.now()}_stable`;
+      sessionId = `healthcare_ios_${Date.now()}_optimized`;
       sessionStorage.setItem('mylli-favicon-session', sessionId);
     }
     return sessionId;
@@ -107,11 +107,14 @@ export class FaviconManager {
       link.setAttribute('sizes', sizes);
     }
     
-    // Use clean URL without cache busters to prevent fragment accumulation
-    link.href = this.config.baseUrl;
+    // Use the new healthcare logo with cache busting for iOS
+    const timestamp = Date.now();
+    link.href = `${this.config.baseUrl}?v=${this.config.version}&t=${timestamp}`;
     
     if (rel.includes('apple-touch-icon')) {
       link.setAttribute('data-mylli-ios-favicon', 'true');
+      // Enhanced attributes for iOS Safari window switching
+      link.setAttribute('data-ios-optimized', 'true');
     } else {
       link.setAttribute('data-mylli-favicon', 'true');
       link.type = 'image/png';
@@ -126,7 +129,7 @@ export class FaviconManager {
       return;
     }
 
-    console.log(`🍎 Setting up iOS favicons (attempt ${this.refreshCount + 1}/${this.MAX_REFRESHES})`);
+    console.log(`🏥 Setting up healthcare iOS favicons (attempt ${this.refreshCount + 1}/${this.MAX_REFRESHES})`);
     
     this.isRefreshing = true;
     this.refreshCount++;
@@ -138,15 +141,20 @@ export class FaviconManager {
     // Step 2: Clean existing dynamic favicons
     this.removeExistingFavicons();
     
-    // Step 3: Create new favicon elements
+    // Step 3: Create new healthcare favicon elements with enhanced iOS support
     const fragment = document.createDocumentFragment();
     
-    // iOS Apple Touch Icons for window switching
+    // iOS Apple Touch Icons for enhanced window switching visibility
     fragment.appendChild(this.createFaviconElement('apple-touch-icon')); // Default 180x180
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '180x180'));
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '152x152'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '144x144')); // Added for better compatibility
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '120x120'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '114x114')); // Added for iPhone 4
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '76x76'));
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '72x72')); // Added for iPad mini
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '60x60')); // Added for iPhone
+    fragment.appendChild(this.createFaviconElement('apple-touch-icon', '57x57')); // Added for legacy iPhone
     
     // Standard favicons for fallback
     fragment.appendChild(this.createFaviconElement('icon', '32x32'));
@@ -156,10 +164,10 @@ export class FaviconManager {
     // Add all to head
     document.head.appendChild(fragment);
     
-    // Step 4: Update iOS meta tags
+    // Step 4: Update iOS meta tags with healthcare branding
     this.updateIOSMetaTags();
     
-    console.log('✅ iOS favicons installed successfully');
+    console.log('✅ Healthcare iOS favicons installed successfully');
     this.isRefreshing = false;
     this.hasInitialized = true;
   }
@@ -169,7 +177,9 @@ export class FaviconManager {
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
       { name: 'apple-mobile-web-app-title', content: 'Mylli Services' },
-      { name: 'theme-color', content: '#8B5A8C' }
+      { name: 'theme-color', content: '#0077C0' }, // Updated to healthcare blue
+      { name: 'mobile-web-app-capable', content: 'yes' },
+      { name: 'application-name', content: 'Mylli Services' }
     ];
     
     metaUpdates.forEach(({ name, content }) => {
@@ -184,7 +194,7 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing clean favicon system...');
+    console.log('🏥 Initializing healthcare favicon system with iOS Safari optimization...');
     
     // Clean URL immediately
     this.cleanURL();
@@ -192,31 +202,45 @@ export class FaviconManager {
     // Initial setup
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => this.setupIOSFavicons(), 1000);
+        setTimeout(() => this.setupIOSFavicons(), 500);
       });
     } else {
-      setTimeout(() => this.setupIOSFavicons(), 1000);
+      setTimeout(() => this.setupIOSFavicons(), 500);
     }
     
-    // Handle visibility change for iOS Safari (throttled)
+    // Enhanced iOS Safari window switching support
     document.addEventListener('visibilitychange', () => {
       if (!document.hidden && this.isIOS() && this.isSafari() && this.canRefresh()) {
+        console.log('🍎 iOS Safari visibility change detected - refreshing favicon');
+        setTimeout(() => {
+          if (this.canRefresh()) {
+            this.setupIOSFavicons();
+          }
+        }, 1000);
+      }
+    });
+    
+    // Enhanced window focus for iOS Safari window switching
+    window.addEventListener('focus', () => {
+      if (this.isIOS() && this.isSafari() && this.canRefresh()) {
+        console.log('🎯 iOS Safari window focus detected - refreshing favicon');
+        setTimeout(() => {
+          if (this.canRefresh()) {
+            this.setupIOSFavicons();
+          }
+        }, 1500);
+      }
+    });
+
+    // Additional iOS Safari window switching optimization
+    window.addEventListener('pageshow', (event) => {
+      if (this.isIOS() && this.isSafari() && this.canRefresh()) {
+        console.log('📱 iOS Safari pageshow event - ensuring favicon visibility');
         setTimeout(() => {
           if (this.canRefresh()) {
             this.setupIOSFavicons();
           }
         }, 2000);
-      }
-    });
-    
-    // Handle window focus for iOS (throttled)
-    window.addEventListener('focus', () => {
-      if (this.isIOS() && this.isSafari() && this.canRefresh()) {
-        setTimeout(() => {
-          if (this.canRefresh()) {
-            this.setupIOSFavicons();
-          }
-        }, 3000);
       }
     });
   }
@@ -225,7 +249,7 @@ export class FaviconManager {
     this.refreshCount = 0;
     this.lastRefreshTime = 0;
     this.isRefreshing = false;
-    console.log('🔄 Favicon refresh limits reset');
+    console.log('🔄 Healthcare favicon refresh limits reset');
   }
 
   public cleanURLFragments(): void {
