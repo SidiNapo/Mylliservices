@@ -1,5 +1,5 @@
 
-// Image optimization utilities - Clean URL version
+// Image optimization utilities - New Healthcare Logo Version
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -42,7 +42,7 @@ export const optimizeImageUrl = (
     return `${src}?${params.toString()}`;
   }
 
-  // Handle Lovable uploads with CLEAN cache busting (no URL fragments)
+  // Handle Lovable uploads with clean cache busting
   if (src.includes('lovable-uploads')) {
     const params = new URLSearchParams();
     params.set('w', width.toString());
@@ -53,9 +53,8 @@ export const optimizeImageUrl = (
     }
     
     if (cacheBuster) {
-      // Use clean session-based cache busting - NO FRAGMENTS
-      const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-      params.set('v', '2024_final_clean');
+      const sessionId = sessionStorage.getItem('mylli-new-favicon-session') || 'new_healthcare_stable';
+      params.set('v', '2024_new_healthcare_final');
       params.set('session', sessionId);
     }
     
@@ -93,20 +92,20 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with CLEAN URLs - NO FRAGMENTS
+// Critical images with new healthcare logo
 export const getCriticalImages = (): string[] => {
-  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-  const version = '2024_final_clean';
+  const sessionId = sessionStorage.getItem('mylli-new-favicon-session') || 'new_healthcare_stable';
+  const version = '2024_new_healthcare_final';
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  const iosParam = isIOS ? '&ios=stable' : '';
+  const iosParam = isIOS ? '&ios=new_healthcare' : '';
   
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
+    `/lovable-uploads/b9acdab9-45f1-4b63-ad2b-8b0f6390ae5c.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
     `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
   ];
 };
 
-// Preload critical images with CLEAN URLs
+// Preload critical images with new healthcare logo
 export const preloadCriticalImages = (): void => {
   const criticalImages = getCriticalImages();
   
@@ -115,15 +114,15 @@ export const preloadCriticalImages = (): void => {
     link.rel = 'preload';
     link.as = 'image';
     link.href = src;
-    link.setAttribute('data-mylli-preload', 'true');
+    link.setAttribute('data-mylli-new-preload', 'true');
     
-    // Add iOS-specific attributes for favicon preloading - NO FRAGMENTS
-    if (src.includes('2fd660e3-872f-4057-81ba-00574e031c9a.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      link.setAttribute('data-ios-favicon', 'true');
+    // Add iOS-specific attributes for new healthcare favicon preloading
+    if (src.includes('b9acdab9-45f1-4b63-ad2b-8b0f6390ae5c.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      link.setAttribute('data-new-ios-favicon', 'true');
     }
     
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with clean URLs');
+  console.log('✅ Critical images preloaded with new healthcare logo');
 };

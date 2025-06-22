@@ -19,7 +19,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   description,
   keywords = 'soins domicile casablanca, infirmier domicile casablanca, aide soignant domicile casablanca, garde malade casablanca, soins infirmiers domicile, mylli services casablanca, aide domicile personnes agees, infirmier nuit casablanca, garde malade 24h casablanca, soins palliatifs domicile, assistance medicale domicile, infirmier liberal casablanca',
   canonicalUrl,
-  ogImage = '/lovable-uploads/7408a053-010a-48d7-a96a-2811465b0bba.png', // Updated to new healthcare logo
+  ogImage = '/lovable-uploads/b9acdab9-45f1-4b63-ad2b-8b0f6390ae5c.png', // New healthcare logo
   ogType = 'website',
   noindex = false,
   nofollow = false,
