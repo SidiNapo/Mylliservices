@@ -1,5 +1,5 @@
 
-// Image optimization utilities - Clean URL version
+// Image optimization utilities - Updated with new healthcare logo
 
 export interface ImageOptimizationOptions {
   width?: number;
@@ -54,8 +54,8 @@ export const optimizeImageUrl = (
     
     if (cacheBuster) {
       // Use clean session-based cache busting - NO FRAGMENTS
-      const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-      params.set('v', '2024_final_clean');
+      const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'healthcare';
+      params.set('v', '2024_healthcare_logo');
       params.set('session', sessionId);
     }
     
@@ -93,15 +93,15 @@ export const getResponsiveSizes = (
   return [...mediaQueries, defaultSize].join(', ');
 };
 
-// Critical images with CLEAN URLs - NO FRAGMENTS
+// Critical images with CLEAN URLs - Updated with new healthcare logo
 export const getCriticalImages = (): string[] => {
-  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'stable';
-  const version = '2024_final_clean';
+  const sessionId = sessionStorage.getItem('mylli-favicon-session') || 'healthcare';
+  const version = '2024_healthcare_logo';
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   const iosParam = isIOS ? '&ios=stable' : '';
   
   return [
-    `/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
+    `/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
     `/lovable-uploads/00945798-dc13-478e-94d1-d1aaa70af5a6.png?v=${version}&session=${sessionId}&critical=true${iosParam}`,
   ];
 };
@@ -117,13 +117,13 @@ export const preloadCriticalImages = (): void => {
     link.href = src;
     link.setAttribute('data-mylli-preload', 'true');
     
-    // Add iOS-specific attributes for favicon preloading - NO FRAGMENTS
-    if (src.includes('2fd660e3-872f-4057-81ba-00574e031c9a.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      link.setAttribute('data-ios-favicon', 'true');
+    // Add iOS-specific attributes for healthcare favicon preloading
+    if (src.includes('554676d0-4988-4b83-864c-15c32ee349a2.png') && /iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      link.setAttribute('data-ios-healthcare-favicon', 'true');
     }
     
     document.head.appendChild(link);
   });
   
-  console.log('✅ Critical images preloaded with clean URLs');
+  console.log('✅ Critical images preloaded with new healthcare logo');
 };
