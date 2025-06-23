@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -28,7 +27,7 @@ const Home = () => {
       id: 'aide-soignant',
       title: 'Aide-soignant à domicile',
       description: 'Accompagnement professionnel pour les soins d\'hygiène et de confort au quotidien.',
-      icon: Heart,
+      icon: 'Heart' as const,
       link: '/services/aide-soignant',
       color: 'primary',
       features: ['Soins d\'hygiène', 'Aide à la mobilité', 'Confort quotidien', 'Suivi personnalisé'],
@@ -42,7 +41,7 @@ const Home = () => {
       id: 'infirmier',
       title: 'Infirmier à domicile',
       description: 'Soins infirmiers spécialisés et surveillance médicale dans le confort de votre domicile.',
-      icon: User,
+      icon: 'User' as const,
       link: '/services/infirmier',
       color: 'secondary',
       features: ['Soins médicaux', 'Injections', 'Surveillance', 'Coordination médicale'],
@@ -260,19 +259,22 @@ const Home = () => {
           />
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {services.map((service, index) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                features={service.features}
-                link={service.link}
-                color={service.color}
-                delay={index * 0.2}
-                onLearnMore={() => setSelectedService(service)}
-              />
-            ))}
+            {services.map((service, index) => {
+              const IconComponent = service.icon === 'Heart' ? Heart : User;
+              return (
+                <ServiceCard
+                  key={service.id}
+                  title={service.title}
+                  description={service.description}
+                  icon={IconComponent}
+                  features={service.features}
+                  link={service.link}
+                  color={service.color}
+                  delay={index * 0.2}
+                  onLearnMore={() => setSelectedService(service)}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -541,8 +543,13 @@ const Home = () => {
       {/* Service Detail Dialog */}
       {selectedService && (
         <ServiceDetailDialog
-          open={!!selectedService}
-          onOpenChange={() => setSelectedService(null)}
+          isOpen={!!selectedService}
+          onClose={() => setSelectedService(null)}
+          title={selectedService.title}
+          description={selectedService.details.description}
+          icon={selectedService.icon === 'Heart' ? <Heart className="h-6 w-6" /> : <User className="h-6 w-6" />}
+          color={selectedService.color}
+          link={selectedService.link}
         />
       )}
 
