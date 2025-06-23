@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Syringe, Wheelchair } from 'lucide-react';
+import { Menu, X, Syringe, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import BrandName from '../common/BrandName';
 
@@ -112,7 +111,7 @@ const Header = () => {
           </Button>
           <Button asChild className="btn-primary text-sm px-3 py-2">
             <Link to="/services/aide-soignant" className="flex items-center space-x-1">
-              <Wheelchair size={16} />
+              <Users size={16} />
               <span>AIDE-SOIGNANT(E)</span>
             </Link>
           </Button>
@@ -157,7 +156,7 @@ const Header = () => {
             </Button>
             <Button asChild className="btn-primary w-full">
               <Link to="/services/aide-soignant" onClick={closeMenu} className="flex items-center justify-center space-x-1">
-                <Wheelchair size={16} />
+                <Users size={16} />
                 <span>AIDE-SOIGNANT(E) À DOMICILE</span>
               </Link>
             </Button>
