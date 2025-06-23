@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -78,21 +77,21 @@ const Home = () => {
       name: "Fatima El Ouardi",
       location: "Casablanca",
       rating: 5,
-      comment: "Un service exceptionnel ! L'infirmière qui s'occupe de ma mère est très professionnelle et bienveillante. Je recommande vivement MylliServices.",
+      quote: "Un service exceptionnel ! L'infirmière qui s'occupe de ma mère est très professionnelle et bienveillante. Je recommande vivement MylliServices.",
       avatar: "/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png"
     },
     {
       name: "Ahmed Benali",
       location: "Ain Chock",
       rating: 5,
-      comment: "Grâce à MylliServices, mon père peut rester à la maison tout en recevant des soins de qualité. L'équipe est remarquable.",
+      quote: "Grâce à MylliServices, mon père peut rester à la maison tout en recevant des soins de qualité. L'équipe est remarquable.",
       avatar: "/lovable-uploads/5de6ff35-cb9d-4b50-b207-1ba6bd3bd5e0.png"
     },
     {
       name: "Khadija Alami",
       location: "Maarif",
       rating: 5,
-      comment: "Service impeccable, ponctuel et professionnel. Je me sens en confiance pour les soins de ma famille.",
+      quote: "Service impeccable, ponctuel et professionnel. Je me sens en confiance pour les soins de ma famille.",
       avatar: "/lovable-uploads/5e72d59f-037f-46a2-a887-3878ba72f5dd.png"
     }
   ];
@@ -206,7 +205,7 @@ const Home = () => {
           <SectionHeading 
             title="Nos Services"
             subtitle="Des soins professionnels adaptés à vos besoins spécifiques"
-            centered={true}
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -269,7 +268,7 @@ const Home = () => {
           <SectionHeading 
             title="Pourquoi choisir MylliServices"
             subtitle="L'excellence au service de votre bien-être et celui de vos proches"
-            centered={true}
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -292,7 +291,7 @@ const Home = () => {
           <SectionHeading 
             title="Témoignages de nos familles"
             subtitle="La confiance de plus de 500 familles casablancaises"
-            centered={true}
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
