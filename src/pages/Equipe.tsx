@@ -1,3 +1,4 @@
+
 import { Award, CheckCircle, Shield, Users } from 'lucide-react';
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
@@ -74,7 +75,7 @@ const EquipePage = () => {
                 {/* Image with overlay effects */}
                 <div className="relative overflow-hidden rounded-2xl">
                   <img 
-                    src="/lovable-uploads/12ada3b4-5734-4170-b5a3-090ee9c4f507.png" 
+                    src="/lovable-uploads/21a6c87c-23d4-42e3-a542-44f2e834616d.png" 
                     alt="Équipe médicale professionnelle - Le caractère des soignants"
                     className="w-full h-auto object-cover transition-all duration-700 group-hover:scale-105"
                   />
@@ -426,7 +427,7 @@ const EquipePage = () => {
                   
                   {/* Much Larger Image container - Increased height significantly */}
                   <div className="relative h-80 overflow-hidden">
-                    <img src="/lovable-uploads/496bdd38-75d8-468b-8ab2-12ad476aac02.png" alt="Formation technique - Équipe médicale en formation" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                    <img src="/lovable-uploads/67e4a4e8-3f8d-4990-9189-4b1fa5468e2e.png" alt="Formation technique - Équipe médicale en formation" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
                     {/* Status indicator - bottom left */}
@@ -475,7 +476,7 @@ const EquipePage = () => {
                   
                   {/* Much Larger Image container - Increase height significantly */}
                   <div className="relative h-80 overflow-hidden">
-                    <img src="/lovable-uploads/b88e9383-9448-4c3e-a0c4-e2e489b62f90.png" alt="Formation relationnelle - Équipe médicale professionnelle" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
+                    <img src="/lovable-uploads/37e30e5f-e19b-476f-9b63-7be9bbaa5a3e.png" alt="Formation relationnelle - Équipe médicale professionnelle" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                     
                     {/* Status indicator - bottom left */}
