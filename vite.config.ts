@@ -18,7 +18,8 @@ export default defineConfig(({ mode }) => ({
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'DENY',
       'X-XSS-Protection': '1; mode=block',
-      'Referrer-Policy': 'strict-origin-when-cross-origin'
+      'Referrer-Policy': 'strict-origin-when-cross-origin',
+      'Cache-Control': 'public, max-age=31536000'
     }
   },
   plugins: [
@@ -32,7 +33,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['react', 'react-dom'],
+    include: ['react', 'react-dom', 'react-router-dom'],
     exclude: ['@vite/client', '@vite/env']
   },
   build: {
@@ -41,17 +42,31 @@ export default defineConfig(({ mode }) => ({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
-          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-toast']
+          ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
+          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
         }
       }
     },
     sourcemap: false,
-    minify: mode === 'production' ? 'terser' : false,
-    terserOptions: mode === 'production' ? {
+    minify: 'terser',
+    terserOptions: {
       compress: {
-        drop_console: true,
-        drop_debugger: true
+        drop_console: mode === 'production',
+        drop_debugger: true,
+        passes: 2
+      },
+      mangle: {
+        safari10: true
+      },
+      format: {
+        safari10: true
       }
-    } : undefined
+    },
+    cssMinify: true,
+    chunkSizeWarningLimit: 1000,
+    assetsInlineLimit: 4096
+  },
+  css: {
+    devSourcemap: false
   }
 }));
