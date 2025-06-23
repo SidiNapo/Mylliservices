@@ -82,15 +82,31 @@ const HomePage = () => {
   const services = [{
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-    icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
-      <OptimizedImage src="/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png" alt="Aide-soignant à domicile" width={64} height={64} className="w-full h-full object-cover" />
+    icon: <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-white to-gray-50 p-1">
+      <div className="w-full h-full rounded-xl overflow-hidden">
+        <OptimizedImage 
+          src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" 
+          alt="Aide-soignant à domicile - Soins personnalisés" 
+          width={64} 
+          height={64} 
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" 
+        />
+      </div>
     </div>,
     link: "/services/aide-soignant"
   }, {
     title: "Infirmier(ère) à domicile",
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-    icon: <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
-      <OptimizedImage src="/lovable-uploads/638e9202-dcc8-4b57-aeda-4e66c2ccc619.png" alt="Infirmier à domicile" width={64} height={64} className="w-full h-full object-cover" />
+    icon: <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-white to-gray-50 p-1">
+      <div className="w-full h-full rounded-xl overflow-hidden">
+        <OptimizedImage 
+          src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" 
+          alt="Infirmier à domicile - Soins médicaux professionnels" 
+          width={64} 
+          height={64} 
+          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" 
+        />
+      </div>
     </div>,
     link: "/services/infirmier"
   }];
@@ -400,7 +416,7 @@ const HomePage = () => {
             <div className="absolute right-20 bottom-1/4 w-24 h-24 border-2 border-mylli-secondary/10 rounded-lg rotate-12"></div>
             <div className="absolute left-1/2 top-1/2 w-32 h-32 border border-mylli-quaternary/10 rounded-xl -rotate-12 transform -translate-x-1/2 -translate-y-1/2"></div>
             
-            <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse-soft"></div>
+            <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 animate-pulse-soft"></div>
             <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
             <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{animationDelay: '2s'}}></div>
           </div>
