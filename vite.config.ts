@@ -53,20 +53,46 @@ export default defineConfig(({ mode }) => ({
       compress: {
         drop_console: mode === 'production',
         drop_debugger: true,
-        passes: 2
+        passes: 3, // Increased compression passes
+        pure_funcs: ['console.log'], // Remove console.log in production
+        reduce_vars: true,
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        cascade: true,
+        collapse_vars: true
       },
       mangle: {
-        safari10: true
+        safari10: true,
+        toplevel: true // More aggressive mangling
       },
       format: {
-        safari10: true
+        safari10: true,
+        comments: false // Remove all comments
       }
     },
-    cssMinify: true,
-    chunkSizeWarningLimit: 1000,
-    assetsInlineLimit: 4096
+    cssMinify: 'esbuild', // Faster CSS minification
+    chunkSizeWarningLimit: 500, // Lower chunk size warning
+    assetsInlineLimit: 2048, // Inline smaller assets
+    reportCompressedSize: false, // Skip gzip reporting for faster builds
+    target: 'es2020' // Modern target for smaller bundles
   },
   css: {
-    devSourcemap: false
+    devSourcemap: false,
+    preprocessorOptions: {
+      css: {
+        charset: false // Remove charset for smaller CSS
+      }
+    }
+  },
+  esbuild: {
+    legalComments: 'none', // Remove legal comments
+    minifyIdentifiers: true,
+    minifySyntax: true,
+    minifyWhitespace: true
   }
 }));
