@@ -24,7 +24,7 @@ const ServicesPage = () => {
   }, {
     title: 'INFIRMIER(ÈRE) À DOMICILE',
     description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
-    image: "/lovable-uploads/infirmier-home-care.png",
+    image: "/lovable-uploads/1c98e8da-97c0-4f68-8372-0a0fc111e027.png",
     link: "/services/infirmier",
     gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
     features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]

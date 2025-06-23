@@ -129,8 +129,8 @@ const InfirmierPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5"></div>
                     <div className="relative p-8">
                       <OptimizedImage 
-                        src="/lovable-uploads/infirmier-home-care.png" 
-                        alt="Infirmière prodiguant des soins à domicile" 
+                        src="/lovable-uploads/56541b39-1d24-4671-af65-948c581b06d3.png" 
+                        alt="Infirmier prodiguant des soins à domicile" 
                         width={600} 
                         height={400} 
                         className="w-full h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500" 
