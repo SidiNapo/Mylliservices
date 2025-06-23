@@ -517,18 +517,32 @@ const services = [{
               </aside>
               
               <article>
-                <header>
-                  <SectionHeading title="Pourquoi choisir Mylli Services" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
-                </header>
-                
-                <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
-                  <p className="mb-4">
-                    Cette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral et relationnel.
-                  </p>
-                  <p>
-                    Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de haute qualité, toujours empreint de respect et de bienveillance.
-                  </p>
-                </div>
+              <header>
+  <SectionHeading
+    title="Pourquoi choisir Mylli Services"
+    align="left"
+    variant="gradient"
+  />
+</header>
+
+<div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
+  <p className="mb-4">
+    Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc.
+    Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie,
+    nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une
+    parfaite connaissance des besoins du terrain.
+  </p>
+  <p className="mb-4">
+    Cette expérience nous permet aujourd'hui d'offrir un accompagnement personnalisé, réactif
+    et humain, en toutes circonstances. Nos compétences couvrent l'ensemble des soins à
+    domicile : assistance quotidienne, surveillance médicale, soins infirmiers, soutien moral
+    et relationnel.
+  </p>
+  <p>
+    Nous formons et sélectionnons avec exigence nos intervenants pour garantir un service de
+    haute qualité, toujours empreint de respect et de bienveillance.
+  </p>
+</div>
                 
                 <div className="animate-fade-in flex">
                   <Button asChild className="relative group overflow-hidden rounded-full px-6 py-3 bg-gradient-to-r from-mylli-primary to-mylli-quaternary hover:shadow-neon transition-all duration-300">
