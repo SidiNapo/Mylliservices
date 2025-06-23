@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -129,40 +128,35 @@ const HomePage = () => {
     icon: <CheckCircle size={32} className="text-mylli-accent" />,
     color: "accent"
   }];
-  const testimonials = [
-    {
-      name: "HAYAT ABOUNAI",
-      text: "Vous méritez plus que 5 étoiles merci infiniment et lah yrham lwalidine bonne continuation",
-      rating: 5,
-      service: "Service d'aide à domicile",
-      avatar: "H",
-      verified: true
-    },
-    {
-      name: "Mohammed Mohamed",
-      text: "Mylli Service est Un organisme professionnel, une équipe à l'écoute qui respecte les normes d'hygiène et surtout humaine ! Je vous remercie beaucoup et je vous recommanderai avec plaisir !",
-      rating: 5,
-      service: "Soins infirmiers",
-      avatar: "M",
-      verified: true
-    },
-    {
-      name: "Amal LOUDIYI",
-      text: "Merci à l'équipe qui a été très réactive et l'infirmier j'ai rien senti et très gentil. Je recommande !!!",
-      rating: 5,
-      service: "Soins infirmiers",
-      avatar: "A",
-      verified: true
-    },
-    {
-      name: "MOUHAJIR ABDELAZIZ",
-      text: "Écoute. Professionnalisme. Empathie et efficacité. Bravo et merci à tout le staff de l'équipe. Services ayant bénéficié à plusieurs membres de ma famille. 👏👏",
-      rating: 5,
-      service: "Services multiples",
-      avatar: "M",
-      verified: true
-    }
-  ];
+  const testimonials = [{
+    name: "HAYAT ABOUNAI",
+    text: "Vous méritez plus que 5 étoiles merci infiniment et lah yrham lwalidine bonne continuation",
+    rating: 5,
+    service: "Service d'aide à domicile",
+    avatar: "H",
+    verified: true
+  }, {
+    name: "Mohammed Mohamed",
+    text: "Mylli Service est Un organisme professionnel, une équipe à l'écoute qui respecte les normes d'hygiène et surtout humaine ! Je vous remercie beaucoup et je vous recommanderai avec plaisir !",
+    rating: 5,
+    service: "Soins infirmiers",
+    avatar: "M",
+    verified: true
+  }, {
+    name: "Amal LOUDIYI",
+    text: "Merci à l'équipe qui a été très réactive et l'infirmier j'ai rien senti et très gentil. Je recommande !!!",
+    rating: 5,
+    service: "Soins infirmiers",
+    avatar: "A",
+    verified: true
+  }, {
+    name: "MOUHAJIR ABDELAZIZ",
+    text: "Écoute. Professionnalisme. Empathie et efficacité. Bravo et merci à tout le staff de l'équipe. Services ayant bénéficié à plusieurs membres de ma famille. 👏👏",
+    rating: 5,
+    service: "Services multiples",
+    avatar: "M",
+    verified: true
+  }];
   const features = [{
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage src="/lovable-uploads/fcb791a8-469a-4d8f-a3a4-a0298acb30a8.png" alt="Expérience professionnelle" width={80} height={80} className="w-full h-full object-cover" />
@@ -487,13 +481,7 @@ const HomePage = () => {
                   <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
                   <div className="relative bg-white p-8 rounded-3xl shadow-soft overflow-hidden">
                     <div className="mb-8">
-                      <OptimizedImage 
-                        src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" 
-                        alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" 
-                        width={500} 
-                        height={320} 
-                        className="w-full h-auto max-h-80 object-contain mx-auto transform hover:scale-105 transition-transform duration-500" 
-                      />
+                      <OptimizedImage src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" width={500} height={320} className="w-full h-auto max-h-80 object-contain mx-auto transform hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className="flex flex-col md:flex-row justify-center gap-6 items-center">
                       <div className="flex items-center bg-gradient-to-r from-mylli-primary/10 to-mylli-quaternary/10 p-4 rounded-2xl border border-mylli-primary/20 shadow-lg">
@@ -546,54 +534,32 @@ const HomePage = () => {
         <section className="py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-mylli-light/20 relative overflow-hidden" aria-labelledby="services-heading">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-primary/8 to-mylli-secondary/4 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/8 to-mylli-accent/4 blur-3xl animate-pulse-soft" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/8 to-mylli-accent/4 blur-3xl animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
             
             <div className="absolute top-32 left-1/4 w-32 h-32 border border-mylli-primary/10 rounded-3xl rotate-12 animate-pulse-soft"></div>
-            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-2/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{ animationDelay: '3s' }}></div>
+            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-2/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{
+            animationDelay: '3s'
+          }}></div>
           </div>
 
           <div className="container-custom relative z-10 px-4 md:px-6">
             <header className="text-center mb-20">
-              <SectionHeading 
-                title="Nos Services" 
-                subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
-                variant="gradient" 
-                id="services-heading" 
-              />
+              <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="gradient" id="services-heading" />
             </header>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto">
-              {services.map((service, index) => (
-                <div 
-                  key={index} 
-                  className="group relative transform transition-all duration-700 hover:-translate-y-6 hover:scale-[1.02]"
-                  style={{ animationDelay: `${index * 300}ms` }}
-                >
+              {services.map((service, index) => <div key={index} className="group relative transform transition-all duration-700 hover:-translate-y-6 hover:scale-[1.02]" style={{
+              animationDelay: `${index * 300}ms`
+            }}>
                   <div className={`absolute -inset-2 bg-gradient-to-r ${service.gradient} rounded-3xl blur-xl opacity-0 group-hover:opacity-25 transition-all duration-500`}></div>
                   
                   <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-100/50 overflow-hidden min-h-[600px] flex flex-col">
-                    <div className={`relative h-32 bg-gradient-to-r ${service.gradient} overflow-hidden flex-shrink-0`}>
-                      <div className="absolute inset-0 opacity-10">
-                        <div className="absolute top-4 left-6 w-12 h-12 border-2 border-white rounded-full"></div>
-                        <div className="absolute top-6 right-8 w-8 h-8 border border-white rounded-lg rotate-12"></div>
-                        <div className="absolute bottom-4 left-12 w-6 h-6 bg-white rounded-full"></div>
-                        <div className="absolute bottom-3 right-16 w-16 h-16 border-3 border-white rounded-full"></div>
-                      </div>
-                      
-                      <div className="absolute bottom-6 left-8 flex items-center">
-                        <div className="w-4 h-4 bg-white rounded-full mr-4 animate-pulse"></div>
-                        <span className="text-white text-lg font-semibold opacity-95">
-                          Service Premium
-                        </span>
-                      </div>
-                      
-                      <div className="absolute top-6 right-8 text-white/30">
-                        <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                          <Heart size={24} />
-                        </div>
-                      </div>
-                    </div>
+                    
                     
                     <div className="p-10 relative flex-1 flex flex-col">
                       <div className="flex justify-center mb-8 relative z-10">
@@ -615,21 +581,16 @@ const HomePage = () => {
                         <div className="mb-8">
                           <h4 className="text-lg font-semibold text-mylli-dark mb-4 text-center">Nos prestations :</h4>
                           <div className="grid grid-cols-2 gap-3">
-                            {service.features.map((feature, idx) => (
-                              <div key={idx} className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-mylli-primary/5 transition-colors duration-300">
+                            {service.features.map((feature, idx) => <div key={idx} className="flex items-center p-3 rounded-xl bg-gray-50 hover:bg-mylli-primary/5 transition-colors duration-300">
                                 <div className="w-2 h-2 bg-mylli-primary rounded-full mr-3 flex-shrink-0"></div>
                                 <span className="text-sm font-medium text-mylli-gray">{feature}</span>
-                              </div>
-                            ))}
+                              </div>)}
                           </div>
                         </div>
                       </div>
                       
                       <div className="mt-auto">
-                        <Link 
-                          to={service.link} 
-                          className={`group/btn relative w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden text-lg`}
-                        >
+                        <Link to={service.link} className={`group/btn relative w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r ${service.gradient} text-white font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 overflow-hidden text-lg`}>
                           <div className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
                           <span className="relative z-10 mr-3">Découvrir le service</span>
                           <ArrowUpRight size={20} className="relative z-10 transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
@@ -641,8 +602,7 @@ const HomePage = () => {
                     
                     <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-white/10 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <div className="text-center mt-20">
@@ -847,20 +807,11 @@ const HomePage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-8xl mx-auto">
               {testimonials.map((testimonial, index) => {
-                const gradients = [
-                  'from-mylli-primary to-mylli-quaternary',
-                  'from-mylli-secondary to-mylli-tertiary',
-                  'from-mylli-quaternary to-mylli-accent',
-                  'from-mylli-accent to-mylli-primary'
-                ];
-                const gradient = gradients[index % gradients.length];
-                
-                return (
-                  <div 
-                    key={index} 
-                    className="group relative transform transition-all duration-700 hover:-translate-y-4 hover:scale-[1.02]"
-                    style={{ animationDelay: `${index * 150}ms` }}
-                  >
+              const gradients = ['from-mylli-primary to-mylli-quaternary', 'from-mylli-secondary to-mylli-tertiary', 'from-mylli-quaternary to-mylli-accent', 'from-mylli-accent to-mylli-primary'];
+              const gradient = gradients[index % gradients.length];
+              return <div key={index} className="group relative transform transition-all duration-700 hover:-translate-y-4 hover:scale-[1.02]" style={{
+                animationDelay: `${index * 150}ms`
+              }}>
                     <div className={`absolute -inset-1 bg-gradient-to-r ${gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500`}></div>
                     
                     <div className="relative bg-white rounded-2xl shadow-lg border border-gray-50 overflow-hidden transform group-hover:shadow-2xl transition-all duration-500 h-full min-h-[320px] flex flex-col">
@@ -875,12 +826,10 @@ const HomePage = () => {
                           <Quote size={20} className="transform rotate-12" />
                         </div>
                         
-                        {testimonial.verified && (
-                          <div className="absolute bottom-2 left-4 flex items-center">
+                        {testimonial.verified && <div className="absolute bottom-2 left-4 flex items-center">
                             <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
                             <span className="text-white text-xs font-medium opacity-90">Vérifié</span>
-                          </div>
-                        )}
+                          </div>}
                       </div>
                       
                       <div className="p-6 relative flex-1 flex flex-col">
@@ -896,15 +845,9 @@ const HomePage = () => {
                         
                         <div className="flex justify-center mb-4">
                           <div className="flex gap-1">
-                            {[...Array(testimonial.rating)].map((_, i) => (
-                              <Star 
-                                key={i} 
-                                size={14} 
-                                className="text-yellow-400 transform hover:scale-125 transition-transform duration-200" 
-                                fill="currentColor"
-                                style={{ animationDelay: `${i * 100}ms` }} 
-                              />
-                            ))}
+                            {[...Array(testimonial.rating)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 transform hover:scale-125 transition-transform duration-200" fill="currentColor" style={{
+                          animationDelay: `${i * 100}ms`
+                        }} />)}
                           </div>
                         </div>
                         
@@ -914,11 +857,9 @@ const HomePage = () => {
                             <div className={`relative w-12 h-12 rounded-full bg-gradient-to-br ${gradient} text-white flex items-center justify-center font-bold text-lg shadow-lg border-2 border-white`}>
                               {testimonial.avatar}
                             </div>
-                            {testimonial.verified && (
-                              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                            {testimonial.verified && <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white shadow-lg flex items-center justify-center">
                                 <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                              </div>
-                            )}
+                              </div>}
                           </div>
                           
                           <div className="ml-4 min-w-0">
@@ -930,9 +871,8 @@ const HomePage = () => {
                         <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left rounded-b-2xl`}></div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
             
             <div className="mt-20 relative">
