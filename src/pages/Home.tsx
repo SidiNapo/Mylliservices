@@ -83,9 +83,9 @@ const HomePage = () => {
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
     detailedDescription: "Notre service d'aide-soignant à domicile garantit un accompagnement personnalisé pour préserver votre autonomie et votre dignité. Nos professionnels qualifiés vous assistent dans les gestes du quotidien tout en respectant vos habitudes et votre rythme de vie.",
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 p-3 group-hover:scale-110 transition-all duration-500">
-     <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
- <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={120} height={120} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
-</div>
+      <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
+        <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={80} height={80} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
+      </div>
     </div>,
     features: ["Toilette et hygiène", "Aide à la mobilité", "Surveillance médicale", "Accompagnement social"],
     link: "/services/aide-soignant",
