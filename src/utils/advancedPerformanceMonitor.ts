@@ -105,10 +105,10 @@ class AdvancedPerformanceMonitor {
     });
   }
 
-  private calculateDOMDepth(element = document.body, depth = 0): number {
+  private calculateDOMDepth(element: HTMLElement = document.body, depth = 0): number {
     let maxDepth = depth;
     for (const child of element.children) {
-      const childDepth = this.calculateDOMDepth(child as Element, depth + 1);
+      const childDepth = this.calculateDOMDepth(child as HTMLElement, depth + 1);
       maxDepth = Math.max(maxDepth, childDepth);
     }
     return maxDepth;
