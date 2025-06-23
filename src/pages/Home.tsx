@@ -387,7 +387,7 @@ const services = [{
                       
                       <Button asChild variant="outline" className="w-full border-white/30 text-black bg-white hover:bg-white/90 hover:text-black backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-lg text-sm sm:text-base py-3 sm:py-4 font-medium">
                         <Link to="/mot-du-president" className="flex items-center justify-center">
-                          Mot du Président
+                          Mot du Fondateur
                           <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
                         </Link>
                       </Button>
