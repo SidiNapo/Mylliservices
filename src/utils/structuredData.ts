@@ -1,3 +1,4 @@
+
 // SEO structured data utility functions
 
 export const generateOrganizationData = () => ({
@@ -26,6 +27,19 @@ export const generateOrganizationData = () => ({
     "https://www.linkedin.com/company/mylliservices",
     "https://twitter.com/mylli_services"
   ]
+});
+
+export const generateBreadcrumbStructuredData = (breadcrumbs: Array<{ name: string; url: string }>) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@id": crumb.url,
+      "name": crumb.name
+    }
+  }))
 });
 
 export const generateHomepageStructuredData = () => {
