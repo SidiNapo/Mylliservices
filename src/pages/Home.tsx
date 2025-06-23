@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -146,8 +147,6 @@ const Home = () => {
         title="Mylli Services - Soins à domicile professionnels au Maroc"
         description="Services de soins à domicile de qualité au Maroc. Aide-soignants et infirmiers qualifiés pour un accompagnement personnalisé à Casablanca, Rabat et Mohammedia."
         keywords="soins à domicile, aide-soignant, infirmier, Casablanca, Rabat, Mohammedia, Maroc"
-        ogTitle="Mylli Services - Votre partenaire en soins à domicile"
-        ogDescription="Découvrez nos services professionnels de soins à domicile. Équipe qualifiée, disponible 7j/7 pour votre bien-être."
       />
 
       <BreadcrumbNav />
@@ -257,7 +256,7 @@ const Home = () => {
           <SectionHeading 
             title="Nos Services"
             subtitle="Découvrez notre gamme complète de services de soins à domicile"
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -284,39 +283,42 @@ const Home = () => {
           <SectionHeading 
             title="Pourquoi choisir Mylli Services"
             subtitle="Notre engagement pour votre bien-être et votre tranquillité d'esprit"
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChooseUs.map((feature, index) => (
-              <div 
-                key={index}
-                className="group relative bg-white rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-300 border border-gray-100 hover:border-mylli-primary/20 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex flex-col items-center text-center space-y-4">
-                  <div className={`w-16 h-16 rounded-2xl ${
-                    feature.color === 'primary' 
-                      ? 'bg-mylli-primary/10 text-mylli-primary' 
-                      : feature.color === 'secondary' 
-                      ? 'bg-mylli-secondary/10 text-mylli-secondary' 
-                      : 'bg-mylli-quaternary/10 text-mylli-quaternary'
-                  } flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <feature.icon className="h-8 w-8" />
+            {whyChooseUs.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div 
+                  key={index}
+                  className="group relative bg-white rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-300 border border-gray-100 hover:border-mylli-primary/20 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex flex-col items-center text-center space-y-4">
+                    <div className={`w-16 h-16 rounded-2xl ${
+                      feature.color === 'primary' 
+                        ? 'bg-mylli-primary/10 text-mylli-primary' 
+                        : feature.color === 'secondary' 
+                        ? 'bg-mylli-secondary/10 text-mylli-secondary' 
+                        : 'bg-mylli-quaternary/10 text-mylli-quaternary'
+                    } flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <IconComponent className="h-8 w-8" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-mylli-dark mb-2 group-hover:text-mylli-primary transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-mylli-gray leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                      
+                    <div className={`absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-2xl md:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-mylli-dark mb-2 group-hover:text-mylli-primary transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-mylli-gray leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
-                    
-                  <div className={`absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-2xl md:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           
           <div className="mt-12 md:mt-16 text-center px-4">
@@ -339,14 +341,14 @@ const Home = () => {
           <SectionHeading 
             title="Ce que disent nos clients"
             subtitle="Découvrez les témoignages de satisfaction de nos familles accompagnées"
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-300 border border-gray-100 hover:border-mylli-primary/20 animate-fade-in"
+                className="h-full flex flex-col bg-white rounded-2xl p-6 shadow-soft hover:shadow-hover transition-all duration-300 border border-gray-100 hover:border-mylli-primary/20 animate-fade-in min-h-[400px]"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {/* Quote Icon */}
@@ -373,7 +375,7 @@ const Home = () => {
                   {/* Author Info */}
                   <div className="flex flex-col items-center space-y-3 mt-auto">
                     {/* Profile Image */}
-                    <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-mylli-primary/20 shadow-md">
+                    <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-mylli-primary/20 shadow-md">
                       <OptimizedImage
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -400,7 +402,7 @@ const Home = () => {
           <SectionHeading 
             title="Nos zones d'intervention"
             subtitle="Nous intervenons dans les principales villes du Maroc"
-            centered
+            align="center"
           />
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -456,8 +458,7 @@ const Home = () => {
             <SectionHeading 
               title="Contactez-nous dès maintenant"
               subtitle="Notre équipe est à votre disposition pour répondre à toutes vos questions"
-              centered
-              light
+              align="center"
             />
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -540,7 +541,6 @@ const Home = () => {
       {/* Service Detail Dialog */}
       {selectedService && (
         <ServiceDetailDialog
-          service={selectedService}
           open={!!selectedService}
           onOpenChange={() => setSelectedService(null)}
         />
