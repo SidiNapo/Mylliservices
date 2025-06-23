@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import ServiceCard from '@/components/common/ServiceCard';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
-
 const ServicesPage = () => {
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
@@ -29,33 +27,13 @@ const ServicesPage = () => {
     gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
     features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
   }];
-
-  return (
-    <div>
-      <SEOHead 
-        title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
-        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
-        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" 
-        canonicalUrl="/services" 
-        structuredData={structuredData} 
-      />
+  return <div>
+      <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
-      <PageBanner 
-        title="Nos Services" 
-        subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
-        variant="modern" 
-      />
+      <PageBanner title="Nos Services" subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="modern" />
       
       {/* Introduction */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <p className="text-mylli-gray text-xl">
-              Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
-            </p>
-          </div>
-        </div>
-      </section>
+      
       
       {/* Main Services - Clean redesigned cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -66,16 +44,10 @@ const ServicesPage = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Nos Services Principaux" 
-            subtitle="Une gamme complète de services pour répondre à vos besoins" 
-            align="center" 
-            className="mb-20" 
-          />
+          <SectionHeading title="Nos Services Principaux" subtitle="Une gamme complète de services pour répondre à vos besoins" align="center" className="mb-20" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto">
-            {mainServices.map((service, index) => (
-              <div key={index} className="group relative">
+            {mainServices.map((service, index) => <div key={index} className="group relative">
                 {/* Animated background glow */}
                 <div className={`absolute -inset-8 bg-gradient-to-br ${service.gradient} rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700`}></div>
                 
@@ -88,11 +60,7 @@ const ServicesPage = () => {
                     
                     {/* Enhanced image section */}
                     <div className="relative h-96 overflow-hidden">
-                      <img 
-                        src={service.image} 
-                        alt={service.title}
-                        className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" 
-                      />
+                      <img src={service.image} alt={service.title} className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" />
                       
                       {/* Clean gradient overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60 group-hover:opacity-40 transition-all duration-500`}></div>
@@ -117,14 +85,12 @@ const ServicesPage = () => {
                         
                         {/* Clean features list */}
                         <div className="space-y-4 mb-10">
-                          {service.features.map((feature, idx) => (
-                            <div key={idx} className="flex items-center space-x-4 group/feature">
+                          {service.features.map((feature, idx) => <div key={idx} className="flex items-center space-x-4 group/feature">
                               <div className="relative">
                                 <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover/feature:scale-150 transition-all duration-300`}></div>
                               </div>
                               <span className="text-mylli-dark font-medium text-lg group-hover/feature:translate-x-2 transition-all duration-300">{feature}</span>
-                            </div>
-                          ))}
+                            </div>)}
                         </div>
                         
                         {/* Clean CTA Button */}
@@ -143,8 +109,7 @@ const ServicesPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -162,11 +127,7 @@ const ServicesPage = () => {
                 {/* Main image container */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
                   <div className="relative">
-                    <img 
-                      src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" 
-                      alt="Professionnel de santé exécutant une ordonnance médicale" 
-                      className="w-full h-80 object-cover rounded-xl" 
-                    />
+                    <img src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" alt="Professionnel de santé exécutant une ordonnance médicale" className="w-full h-80 object-cover rounded-xl" />
                     
                     {/* Overlay with gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/20 via-transparent to-transparent rounded-xl"></div>
@@ -281,8 +242,6 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ServicesPage;

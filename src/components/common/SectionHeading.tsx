@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -11,7 +10,6 @@ interface SectionHeadingProps {
   highlightText?: string;
   id?: string;
 }
-
 const SectionHeading = ({
   title,
   subtitle,
@@ -28,7 +26,6 @@ const SectionHeading = ({
     center: 'text-center mx-auto',
     right: 'text-right ml-auto'
   };
-
   const renderTitle = () => {
     switch (variant) {
       case 'modern':
@@ -88,14 +85,6 @@ const SectionHeading = ({
         return <h2 id={id} className="section-title animate-fade-in">{title}</h2>;
     }
   };
-
-  return <div className={`${alignmentClasses[align]} mb-12 md:mb-16 ${className}`}>
-      {renderTitle()}
-      {subtitle && <p className={`section-subtitle max-w-3xl animate-fade-in mt-4 leading-relaxed ${align === 'left' ? 'text-left' : align === 'right' ? 'text-right ml-auto' : 'text-center mx-auto'}`}>
-          {subtitle}
-        </p>}
-      {children}
-    </div>;
+  return;
 };
-
 export default SectionHeading;
