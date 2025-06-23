@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Syringe, Users } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import BrandName from '../common/BrandName';
 
@@ -101,20 +102,8 @@ const Header = () => {
           ))}
         </nav>
         
-        {/* Contact Button and Service Buttons */}
-        <div className="hidden md:flex items-center space-x-2">
-          <Button asChild className="btn-secondary text-sm px-3 py-2">
-            <Link to="/services/infirmier" className="flex items-center space-x-1">
-              <Syringe size={16} />
-              <span>INFIRMIER(ÈRE)</span>
-            </Link>
-          </Button>
-          <Button asChild className="btn-primary text-sm px-3 py-2">
-            <Link to="/services/aide-soignant" className="flex items-center space-x-1">
-              <Users size={16} />
-              <span>AIDE-SOIGNANT(E)</span>
-            </Link>
-          </Button>
+        {/* Contact Button */}
+        <div className="hidden md:flex items-center">
           <Button asChild className="btn-accent">
             <Link to="/contact">
               Contactez-nous
@@ -148,18 +137,6 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Button asChild className="btn-secondary w-full">
-              <Link to="/services/infirmier" onClick={closeMenu} className="flex items-center justify-center space-x-1">
-                <Syringe size={16} />
-                <span>INFIRMIER(ÈRE) À DOMICILE</span>
-              </Link>
-            </Button>
-            <Button asChild className="btn-primary w-full">
-              <Link to="/services/aide-soignant" onClick={closeMenu} className="flex items-center justify-center space-x-1">
-                <Users size={16} />
-                <span>AIDE-SOIGNANT(E) À DOMICILE</span>
-              </Link>
-            </Button>
             <Button asChild className="btn-accent w-full">
               <Link to="/contact" onClick={closeMenu}>
                 Contactez-nous
