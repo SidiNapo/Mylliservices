@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -41,7 +42,7 @@ const ServicesPage = () => {
       
       <PageBanner 
         title="Nos Services" 
-        subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" 
+        subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
         variant="modern" 
       />
       
