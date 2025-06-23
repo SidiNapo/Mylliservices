@@ -11,7 +11,6 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
-
 const HomePage = () => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -19,38 +18,45 @@ const HomePage = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [hoverCard, setHoverCard] = useState(-1);
   const [selectedFeature, setSelectedFeature] = useState<number | null>(null);
-
   const [mousePosition, setMousePosition] = useState({
     x: 0,
     y: 0
   });
-  
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const {
+      clientX,
+      clientY
+    } = e;
+    const {
+      left,
+      top,
+      width,
+      height
+    } = e.currentTarget.getBoundingClientRect();
     const x = (clientX - left) / width - 0.5;
     const y = (clientY - top) / height - 0.5;
-    setMousePosition({ x, y });
+    setMousePosition({
+      x,
+      y
+    });
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         setIsVisible(true);
       }
-    }, { threshold: 0.1 });
-    
+    }, {
+      threshold: 0.1
+    });
     if (heroRef.current) {
       observer.observe(heroRef.current);
     }
-    
     return () => {
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
     };
   }, []);
-
   useEffect(() => {
     if (isVisible) {
       const interval = setInterval(() => {
@@ -65,32 +71,19 @@ const HomePage = () => {
       return () => clearInterval(interval);
     }
   }, [isVisible]);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveImage(prev => (prev + 1) % 3);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
-  const careImages = [
-    '/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', 
-    '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', 
-    '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'
-  ];
-
+  const careImages = ['/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'];
   const services = [{
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
     icon: <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl border-3 border-white/30 bg-gradient-to-br from-white via-gray-50 to-gray-100 p-2 group-hover:scale-110 transition-all duration-500">
       <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-inner">
-        <OptimizedImage 
-          src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" 
-          alt="Aide-soignant à domicile - Soins personnalisés" 
-          width={96} 
-          height={96} 
-          className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" 
-        />
+        <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={96} height={96} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
       </div>
     </div>,
     link: "/services/aide-soignant"
@@ -99,18 +92,11 @@ const HomePage = () => {
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
     icon: <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl border-3 border-white/30 bg-gradient-to-br from-white via-gray-50 to-gray-100 p-2 group-hover:scale-110 transition-all duration-500">
       <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-inner">
-        <OptimizedImage 
-          src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" 
-          alt="Infirmier à domicile - Soins médicaux professionnels" 
-          width={96} 
-          height={96} 
-          className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" 
-        />
+        <OptimizedImage src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" alt="Infirmier à domicile - Soins médicaux professionnels" width={96} height={96} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
       </div>
     </div>,
     link: "/services/infirmier"
   }];
-
   const howItWorks = [{
     step: 1,
     title: "Rencontre à domicile",
@@ -136,7 +122,6 @@ const HomePage = () => {
     icon: <CheckCircle size={32} className="text-mylli-accent" />,
     color: "accent"
   }];
-
   const testimonials = [{
     quote: "Grâce à Mylli Services, j'ai pu continuer à vivre chez moi, malgré ma perte partielle d'autonomie suite à un grave AVC, tout en rassurant ma famille…",
     name: "M. Mohamed B.",
@@ -174,7 +159,6 @@ const HomePage = () => {
     location: "Casablanca",
     category: "professional"
   }];
-
   const features = [{
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage src="/lovable-uploads/fcb791a8-469a-4d8f-a3a4-a0298acb30a8.png" alt="Expérience professionnelle" width={80} height={80} className="w-full h-full object-cover" />
@@ -200,7 +184,6 @@ const HomePage = () => {
     color: "accent" as const,
     detailedDescription: "Un accompagnement disponible 24h/24 et 7j/7\n\nParce que les besoins en soins et en assistance ne connaissent ni pause ni horaires, Mylli Services assure une présence continue, jour et nuit, toute l'année.\n\nNos équipes sont organisées pour intervenir à tout moment, 24h/24 et 7j/7, afin d'apporter un soutien immédiat, que ce soit pour une urgence, un besoin ponctuel ou un accompagnement de longue durée. Cette disponibilité permanente garantit une tranquillité d'esprit totale aux familles, qui savent qu'elles peuvent compter sur nous à chaque instant.\n\nCette réactivité est l'une des clés de notre efficacité et un pilier fondamental de notre engagement envers les patients et leurs proches."
   }];
-
   const serviceLocations = [{
     city: "Casablanca",
     areas: [],
@@ -224,20 +207,21 @@ const HomePage = () => {
     city: "Salé",
     areas: []
   }];
-
   const structuredData = generateHomepageStructuredData();
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   const triggerAvailabilityFeature = () => {
     const featuresSection = document.getElementById('features-heading');
     if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: 'smooth' });
+      featuresSection.scrollIntoView({
+        behavior: 'smooth'
+      });
       setTimeout(() => {
         const availabilityCard = document.querySelector('[data-feature="availability"]');
         if (availabilityCard) {
@@ -252,7 +236,6 @@ const HomePage = () => {
       }, 800);
     }
   };
-
   const formatDetailedDescription = (text: string) => {
     return text.split('\n').map((line, index) => {
       if (line.trim() === '') return <br key={index} />;
@@ -276,16 +259,8 @@ const HomePage = () => {
         </p>;
     });
   };
-
-  return (
-    <>
-      <SEOHead 
-        title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" 
-        description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." 
-        keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" 
-        canonicalUrl="/" 
-        structuredData={structuredData} 
-      />
+  return <>
+      <SEOHead title="Mylli Services - Aide à Domicile Professionnelle à Casablanca | Depuis 2014" description="Depuis 2014, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie." keywords="aide à domicile Casablanca, soins à domicile, infirmier à domicile, aide-soignant, garde-malade, services médicaux domicile, Mohammedia, Marrakech" canonicalUrl="/" structuredData={structuredData} />
       
       <div className="overflow-hidden">
         {/* Hero Section */}
@@ -294,17 +269,19 @@ const HomePage = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-mylli-dark/80 via-mylli-primary/60 to-mylli-dark/70 z-10"></div>
             
             <div className="absolute inset-0 overflow-hidden">
-              {careImages.map((img, index) => (
-                <div key={index} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeImage === index ? 'opacity-100' : 'opacity-0'}`}>
+              {careImages.map((img, index) => <div key={index} className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${activeImage === index ? 'opacity-100' : 'opacity-0'}`}>
                   <img src={img} alt="Professional care services" className="absolute w-full h-full object-cover object-center filter brightness-[0.75]" />
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <div className="absolute inset-0 z-20 pointer-events-none">
               <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-mylli-primary opacity-30 blur-3xl animate-pulse-soft"></div>
-              <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-secondary opacity-20 blur-3xl animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-              <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-quaternary opacity-20 blur-2xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+              <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-mylli-secondary opacity-20 blur-3xl animate-pulse-soft" style={{
+              animationDelay: '1s'
+            }}></div>
+              <div className="absolute top-1/2 right-1/3 w-40 h-40 rounded-full bg-mylli-quaternary opacity-20 blur-2xl animate-pulse-soft" style={{
+              animationDelay: '2s'
+            }}></div>
             </div>
             
             <div className="absolute inset-0 z-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiMwMDc3QzAxMCIgZD0iTTAgMGg2MHY2MEgweiIvPjxwYXRoIGQ9Ik0zNiAxOGgtMTJWMmgxMnYxMnptMCAxMmgtMTJWMThoMTJ2MTJ6bTAgMTJoLTEyVjMwaDEydjEyIiBmaWxsPSIjMDA5OUU4MTAiLz48L2c+PC9zdmc+')]"></div>
@@ -353,10 +330,10 @@ const HomePage = () => {
                     
                     <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                       <div className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110" style={{
-                        backgroundImage: `url(${careImages[activeImage]})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      }} />
+                      backgroundImage: `url(${careImages[activeImage]})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }} />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/90 via-mylli-dark/30 to-transparent"></div>
                       
@@ -366,9 +343,7 @@ const HomePage = () => {
                       </div>
                       
                       <div className="absolute top-3 sm:top-4 right-3 sm:right-4 flex space-x-2">
-                        {careImages.map((_, index) => (
-                          <button key={index} onClick={() => setActiveImage(index)} className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 border border-white/50 ${activeImage === index ? 'bg-mylli-secondary scale-110 shadow-lg' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Image ${index + 1}`} />
-                        ))}
+                        {careImages.map((_, index) => <button key={index} onClick={() => setActiveImage(index)} className={`w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full transition-all duration-300 border border-white/50 ${activeImage === index ? 'bg-mylli-secondary scale-110 shadow-lg' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`Image ${index + 1}`} />)}
                       </div>
                     </div>
                     
@@ -417,8 +392,12 @@ const HomePage = () => {
             <div className="absolute left-1/2 top-1/2 w-32 h-32 border border-mylli-quaternary/10 rounded-xl -rotate-12 transform -translate-x-1/2 -translate-y-1/2"></div>
             
             <div className="absolute top-20 left-1/3 w-4 h-4 bg-mylli-primary/20 animate-pulse-soft"></div>
-            <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute bottom-32 right-1/4 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/2 left-20 w-3 h-3 bg-mylli-quaternary/30 rounded-full animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
           </div>
         
           <div className="container-custom relative z-10 px-4 md:px-6">
@@ -427,8 +406,7 @@ const HomePage = () => {
             </header>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-              {features.map((feature, index) => (
-                <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
+              {features.map((feature, index) => <div key={index} className="h-full" data-feature={index === 2 ? 'availability' : undefined}>
                   <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl border border-gray-50 p-6 md:p-8 h-full flex flex-col transform transition-all duration-500 hover:-translate-y-3 hover:shadow-3xl hover:border-mylli-primary/20 group relative overflow-hidden min-h-[400px] md:min-h-[450px]">
                     <div className={`absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500 ${feature.color === 'primary' ? 'bg-gradient-to-br from-mylli-primary to-mylli-quaternary' : feature.color === 'secondary' ? 'bg-gradient-to-br from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-br from-mylli-quaternary to-mylli-accent'} rounded-2xl md:rounded-3xl`}></div>
                     
@@ -460,8 +438,7 @@ const HomePage = () => {
                     
                     <div className={`absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-2xl md:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <div className="mt-12 md:mt-16 text-center px-4">
@@ -539,8 +516,7 @@ const HomePage = () => {
             </header>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-10">
-              {services.map((service, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 shadow-xl border border-transparent transition-all duration-500 hover:shadow-2xl hover:border-mylli-primary/20 hover:-translate-y-2 relative overflow-hidden group ${hoverCard === index ? 'shadow-2xl border-mylli-primary/20 -translate-y-2' : ''}`} onMouseEnter={() => setHoverCard(index)} onMouseLeave={() => setHoverCard(-1)}>
+              {services.map((service, index) => <div key={index} className={`bg-white rounded-2xl p-8 shadow-xl border border-transparent transition-all duration-500 hover:shadow-2xl hover:border-mylli-primary/20 hover:-translate-y-2 relative overflow-hidden group ${hoverCard === index ? 'shadow-2xl border-mylli-primary/20 -translate-y-2' : ''}`} onMouseEnter={() => setHoverCard(index)} onMouseLeave={() => setHoverCard(-1)}>
                   
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-quaternary"></div>
                   
@@ -569,8 +545,7 @@ const HomePage = () => {
                   </div>
                   
                   <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-mylli-primary/5 to-transparent rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              ))}
+                </div>)}
             </div>
             
             <div className="text-center animate-fade-in">
@@ -590,22 +565,22 @@ const HomePage = () => {
         <section className="section-padding bg-gradient-to-br from-mylli-light/30 via-white to-mylli-primary/5 relative overflow-hidden" aria-labelledby="how-it-works-heading">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/5 blur-3xl animate-pulse-soft"></div>
-            <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-accent/5 blur-3xl animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-accent/5 blur-3xl animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
             
             <div className="absolute top-20 left-1/4 w-24 h-24 border border-mylli-primary/10 rounded-2xl rotate-12 animate-pulse-soft"></div>
-            <div className="absolute bottom-20 right-1/3 w-16 h-16 bg-mylli-secondary/5 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/2 right-10 w-20 h-20 border-2 border-mylli-quaternary/10 rounded-xl -rotate-12 animate-pulse-soft" style={{animationDelay: '3s'}}></div>
+            <div className="absolute bottom-20 right-1/3 w-16 h-16 bg-mylli-secondary/5 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/2 right-10 w-20 h-20 border-2 border-mylli-quaternary/10 rounded-xl -rotate-12 animate-pulse-soft" style={{
+            animationDelay: '3s'
+          }}></div>
           </div>
 
           <div className="container-custom relative z-10">
             <header className="text-center mb-16">
-              <SectionHeading 
-                title="Un accompagnement personnalisé en 4 étapes" 
-                subtitle="Découvrez notre processus simple et efficace pour vous offrir les meilleurs soins à domicile, adapté à vos besoins spécifiques."
-                variant="gradient" 
-                highlightText="personnalisé" 
-                id="how-it-works-heading" 
-              />
+              <SectionHeading title="Un accompagnement personnalisé en 4 étapes" subtitle="Découvrez notre processus simple et efficace pour vous offrir les meilleurs soins à domicile, adapté à vos besoins spécifiques." variant="gradient" highlightText="personnalisé" id="how-it-works-heading" />
             </header>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
@@ -616,29 +591,18 @@ const HomePage = () => {
                   
                   <div className="relative bg-white p-3 rounded-3xl shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
                     <div className="relative overflow-hidden rounded-2xl">
-                      <OptimizedImage 
-                        src="/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png"
-                        alt="Professional healthcare services at home - Nurse providing personalized care"
-                        width={600}
-                        height={400}
-                        className="w-full h-64 sm:h-80 md:h-96 object-cover object-center filter brightness-105 contrast-105"
-                      />
+                      <OptimizedImage src="/lovable-uploads/5fab226a-8f70-4cea-9a26-129fce7788b4.png" alt="Professional healthcare services at home - Nurse providing personalized care" width={600} height={400} className="w-full h-64 sm:h-80 md:h-96 object-cover object-center filter brightness-105 contrast-105" />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-mylli-dark/20 via-transparent to-transparent"></div>
                       
-                      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                        <div className="flex items-center gap-2">
-                          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                          <span className="text-sm font-medium text-mylli-dark">Soins professionnels</span>
-                        </div>
-                      </div>
+                      
                       
                       <div className="absolute bottom-4 left-4 bg-mylli-primary/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                         <span className="text-white font-bold text-lg">+10 ans d'expérience</span>
                       </div>
                     </div>
                     
-                    <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-mylli-primary rounded-tl-2xl"></div>
+                    
                     <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-mylli-secondary rounded-br-2xl"></div>
                   </div>
                   
@@ -649,55 +613,43 @@ const HomePage = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-secondary/10 hidden md:block">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-mylli-secondary">4500+</div>
-                      <div className="text-xs text-mylli-gray">Interventions</div>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
               
               <div className="order-1 lg:order-2 space-y-6">
                 {howItWorks.map((item, index) => {
-                  const colorClasses = {
-                    primary: {
-                      bg: 'bg-mylli-primary/5',
-                      border: 'border-mylli-primary/20',
-                      text: 'text-mylli-primary',
-                      gradient: 'from-mylli-primary to-mylli-primary-dark'
-                    },
-                    secondary: {
-                      bg: 'bg-mylli-secondary/5',
-                      border: 'border-mylli-secondary/20',
-                      text: 'text-mylli-secondary',
-                      gradient: 'from-mylli-secondary to-mylli-tertiary'
-                    },
-                    quaternary: {
-                      bg: 'bg-mylli-quaternary/5',
-                      border: 'border-mylli-quaternary/20',
-                      text: 'text-mylli-quaternary',
-                      gradient: 'from-mylli-quaternary to-mylli-accent'
-                    },
-                    accent: {
-                      bg: 'bg-mylli-accent/5',
-                      border: 'border-mylli-accent/20',
-                      text: 'text-mylli-accent',
-                      gradient: 'from-mylli-accent to-mylli-quaternary'
-                    }
-                  };
-                  
-                  const colors = colorClasses[item.color as keyof typeof colorClasses];
-                  
-                  return (
-                    <div 
-                      key={index} 
-                      className="group relative transform transition-all duration-500 hover:-translate-x-2 hover:scale-[1.02]"
-                      style={{animationDelay: `${index * 200}ms`}}
-                    >
-                      {index < howItWorks.length - 1 && (
-                        <div className="absolute left-8 top-20 w-0.5 h-12 bg-gradient-to-b from-current to-transparent opacity-20 hidden sm:block"></div>
-                      )}
+                const colorClasses = {
+                  primary: {
+                    bg: 'bg-mylli-primary/5',
+                    border: 'border-mylli-primary/20',
+                    text: 'text-mylli-primary',
+                    gradient: 'from-mylli-primary to-mylli-primary-dark'
+                  },
+                  secondary: {
+                    bg: 'bg-mylli-secondary/5',
+                    border: 'border-mylli-secondary/20',
+                    text: 'text-mylli-secondary',
+                    gradient: 'from-mylli-secondary to-mylli-tertiary'
+                  },
+                  quaternary: {
+                    bg: 'bg-mylli-quaternary/5',
+                    border: 'border-mylli-quaternary/20',
+                    text: 'text-mylli-quaternary',
+                    gradient: 'from-mylli-quaternary to-mylli-accent'
+                  },
+                  accent: {
+                    bg: 'bg-mylli-accent/5',
+                    border: 'border-mylli-accent/20',
+                    text: 'text-mylli-accent',
+                    gradient: 'from-mylli-accent to-mylli-quaternary'
+                  }
+                };
+                const colors = colorClasses[item.color as keyof typeof colorClasses];
+                return <div key={index} className="group relative transform transition-all duration-500 hover:-translate-x-2 hover:scale-[1.02]" style={{
+                  animationDelay: `${index * 200}ms`
+                }}>
+                      {index < howItWorks.length - 1 && <div className="absolute left-8 top-20 w-0.5 h-12 bg-gradient-to-b from-current to-transparent opacity-20 hidden sm:block"></div>}
                       
                       <div className={`relative bg-white rounded-2xl shadow-lg border ${colors.border} p-6 sm:p-8 transition-all duration-500 hover:shadow-2xl hover:border-opacity-40 overflow-hidden`}>
                         
@@ -733,9 +685,8 @@ const HomePage = () => {
                           <div className={`absolute top-2 right-2 w-3 h-3 rounded-full ${colors.text.replace('text-', 'bg-')}`}></div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
             </div>
             
@@ -769,13 +720,19 @@ const HomePage = () => {
             <div className="absolute bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tl from-mylli-quaternary/10 to-mylli-primary/5 blur-3xl"></div>
             
             <div className="absolute top-20 left-1/4 w-32 h-32 border border-mylli-primary/10 rounded-3xl rotate-12 animate-pulse-soft"></div>
-            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{animationDelay: '1s'}}></div>
-            <div className="absolute top-1/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{animationDelay: '2s'}}></div>
+            <div className="absolute bottom-40 right-1/3 w-24 h-24 border-2 border-mylli-secondary/15 rounded-full animate-pulse-soft" style={{
+            animationDelay: '1s'
+          }}></div>
+            <div className="absolute top-1/3 right-20 w-16 h-16 bg-mylli-quaternary/10 rounded-2xl -rotate-12 animate-pulse-soft" style={{
+            animationDelay: '2s'
+          }}></div>
             
             <div className="absolute top-32 left-10 text-mylli-primary/10 animate-pulse-soft">
               <Quote size={40} />
             </div>
-            <div className="absolute bottom-40 right-16 text-mylli-secondary/15 animate-pulse-soft" style={{animationDelay: '1.5s'}}>
+            <div className="absolute bottom-40 right-16 text-mylli-secondary/15 animate-pulse-soft" style={{
+            animationDelay: '1.5s'
+          }}>
               <Quote size={32} />
             </div>
           </div>
@@ -787,28 +744,28 @@ const HomePage = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               {testimonials.map((testimonial, index) => {
-                const isEven = index % 2 === 0;
-                const categoryColors = {
-                  beneficiary: {
-                    gradient: 'from-mylli-primary to-mylli-quaternary',
-                    accent: 'mylli-primary',
-                    bg: 'mylli-primary/5'
-                  },
-                  family: {
-                    gradient: 'from-mylli-secondary to-mylli-tertiary',
-                    accent: 'mylli-secondary',
-                    bg: 'mylli-secondary/5'
-                  },
-                  professional: {
-                    gradient: 'from-mylli-quaternary to-mylli-accent',
-                    accent: 'mylli-quaternary',
-                    bg: 'mylli-quaternary/5'
-                  }
-                };
-                const colors = categoryColors[testimonial.category as keyof typeof categoryColors];
-
-                return (
-                  <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{animationDelay: `${index * 200}ms`}}>
+              const isEven = index % 2 === 0;
+              const categoryColors = {
+                beneficiary: {
+                  gradient: 'from-mylli-primary to-mylli-quaternary',
+                  accent: 'mylli-primary',
+                  bg: 'mylli-primary/5'
+                },
+                family: {
+                  gradient: 'from-mylli-secondary to-mylli-tertiary',
+                  accent: 'mylli-secondary',
+                  bg: 'mylli-secondary/5'
+                },
+                professional: {
+                  gradient: 'from-mylli-quaternary to-mylli-accent',
+                  accent: 'mylli-quaternary',
+                  bg: 'mylli-quaternary/5'
+                }
+              };
+              const colors = categoryColors[testimonial.category as keyof typeof categoryColors];
+              return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{
+                animationDelay: `${index * 200}ms`
+              }}>
                     <div className="relative h-full">
                       <div className={`absolute -inset-1 bg-gradient-to-r ${colors.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500`}></div>
                       
@@ -855,9 +812,9 @@ const HomePage = () => {
                           <div className="flex justify-center mb-6">
                             <div className={`p-3 bg-${colors.bg} rounded-2xl`}>
                               <div className="flex gap-1">
-                                {[...Array(testimonial.rating)].map((_, i) => (
-                                  <Star key={i} size={18} className={`text-${colors.accent} transform hover:scale-125 transition-transform duration-200`} fill={`var(--${colors.accent})`} style={{animationDelay: `${i * 100}ms`}} />
-                                ))}
+                                {[...Array(testimonial.rating)].map((_, i) => <Star key={i} size={18} className={`text-${colors.accent} transform hover:scale-125 transition-transform duration-200`} fill={`var(--${colors.accent})`} style={{
+                              animationDelay: `${i * 100}ms`
+                            }} />)}
                               </div>
                             </div>
                           </div>
@@ -888,9 +845,8 @@ const HomePage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                );
-              })}
+                  </div>;
+            })}
             </div>
             
             <div className="mt-20 relative">
@@ -935,8 +891,7 @@ const HomePage = () => {
       </div>
 
       {/* Feature Details Modal */}
-      {selectedFeature !== null && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      {selectedFeature !== null && <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden animate-scale-in mx-4">
             <div className={`relative p-6 md:p-8 ${features[selectedFeature].color === 'primary' ? 'bg-gradient-to-r from-mylli-primary to-mylli-primary-dark' : features[selectedFeature].color === 'secondary' ? 'bg-gradient-to-r from-mylli-secondary to-mylli-tertiary' : 'bg-gradient-to-r from-mylli-quaternary to-mylli-accent'}`}>
               <button onClick={() => setSelectedFeature(null)} className="absolute top-4 md:top-6 right-4 md:right-6 text-white/80 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full">
@@ -976,10 +931,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </>
-  );
+        </div>}
+    </>;
 };
-
 export default HomePage;
