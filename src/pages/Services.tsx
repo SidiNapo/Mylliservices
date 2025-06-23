@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Home as HomeIcon, Heart, User, Clock, Shield, CheckCircle, AlertCircle, Phone, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -45,7 +46,7 @@ const ServicesPage = () => {
         variant="modern" 
       />
       
-      {/* Main Services - Clean redesigned cards without title and subtitle */}
+      {/* Main Services - Fixed height cards for consistency */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full">
@@ -56,19 +57,19 @@ const ServicesPage = () => {
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto">
             {mainServices.map((service, index) => (
-              <div key={index} className="group relative">
+              <div key={index} className="group relative h-full">
                 {/* Animated background glow */}
                 <div className={`absolute -inset-8 bg-gradient-to-br ${service.gradient} rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700`}></div>
                 
-                {/* Main card container with clean design */}
-                <div className="relative">
+                {/* Main card container with fixed height */}
+                <div className="relative h-full flex flex-col">
                   {/* Clean border with gradient */}
                   <div className={`absolute -inset-1 bg-gradient-to-br ${service.gradient} rounded-[2.5rem] opacity-60 blur-sm transition-all duration-500 group-hover:opacity-100`}></div>
                   
-                  <div className="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden transform group-hover:-translate-y-4 group-hover:rotate-1 transition-all duration-700">
+                  <div className="relative bg-white rounded-[2.5rem] shadow-2xl overflow-hidden transform group-hover:-translate-y-4 group-hover:rotate-1 transition-all duration-700 h-full flex flex-col">
                     
-                    {/* Enhanced image section */}
-                    <div className="relative h-96 overflow-hidden">
+                    {/* Fixed height image section */}
+                    <div className="relative h-96 overflow-hidden flex-shrink-0">
                       <img 
                         src={service.image} 
                         alt={service.title} 
@@ -89,15 +90,15 @@ const ServicesPage = () => {
                       </div>
                     </div>
                     
-                    {/* Clean content section */}
-                    <div className="p-8 relative">
-                      <div className="relative">
-                        <p className="text-mylli-gray text-lg md:text-xl mb-8 leading-relaxed">
+                    {/* Content section with flex-grow for consistent height */}
+                    <div className="p-8 relative flex-grow flex flex-col">
+                      <div className="relative flex-grow flex flex-col">
+                        <p className="text-mylli-gray text-lg md:text-xl mb-8 leading-relaxed flex-grow">
                           {service.description}
                         </p>
                         
-                        {/* Clean features list */}
-                        <div className="space-y-4 mb-10">
+                        {/* Fixed height features list */}
+                        <div className="space-y-4 mb-10 min-h-[120px]">
                           {service.features.map((feature, idx) => (
                             <div key={idx} className="flex items-center space-x-4 group/feature">
                               <div className="relative">
@@ -108,117 +109,26 @@ const ServicesPage = () => {
                           ))}
                         </div>
                         
-                        {/* Clean CTA Button */}
-                        <Link to={service.link}>
-                          <div className="relative group/button">
-                            <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-2xl blur-sm opacity-70 group-hover/button:opacity-100 transition-all duration-300`}></div>
-                            <button className={`relative w-full bg-gradient-to-r ${service.gradient} text-white py-5 px-8 rounded-2xl font-bold text-lg shadow-2xl transform group-hover/button:scale-[1.02] group-hover/button:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-4 overflow-hidden`}>
-                              <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
-                              
-                              <span className="relative z-10">Découvrir ce service</span>
-                              <ArrowRight size={24} className="relative z-10 transform group-hover/button:translate-x-2 group-hover/button:scale-110 transition-all duration-300" />
-                            </button>
-                          </div>
-                        </Link>
+                        {/* CTA Button positioned at bottom */}
+                        <div className="mt-auto">
+                          <Link to={service.link}>
+                            <div className="relative group/button">
+                              <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-2xl blur-sm opacity-70 group-hover/button:opacity-100 transition-all duration-300`}></div>
+                              <button className={`relative w-full bg-gradient-to-r ${service.gradient} text-white py-5 px-8 rounded-2xl font-bold text-lg shadow-2xl transform group-hover/button:scale-[1.02] group-hover/button:-translate-y-1 transition-all duration-300 flex items-center justify-center space-x-4 overflow-hidden`}>
+                                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover/button:translate-x-full transition-transform duration-700"></div>
+                                
+                                <span className="relative z-10">Découvrir ce service</span>
+                                <ArrowRight size={24} className="relative z-10 transform group-hover/button:translate-x-2 group-hover/button:scale-110 transition-all duration-300" />
+                              </button>
+                            </div>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* Exécution d'ordonnance médicale */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image with uploaded healthcare image */}
-            <div className="animate-fade-in-right order-2 lg:order-1">
-              <div className="relative group">
-                {/* Enhanced background with gradient */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary/20 via-mylli-secondary/20 to-mylli-accent/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-all duration-500"></div>
-                
-                {/* Main image container */}
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
-                  <div className="relative">
-                    <img src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" alt="Professionnel de santé exécutant une ordonnance médicale" className="w-full h-80 object-cover rounded-xl" />
-                    
-                    {/* Overlay with gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/20 via-transparent to-transparent rounded-xl"></div>
-                    
-                    {/* Floating badge */}
-                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
-                      <div className="flex items-center space-x-2">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium text-mylli-dark">Service Actif</span>
-                      </div>
-                    </div>
-                    
-                    {/* Bottom info card */}
-                    
-                  </div>
-                </div>
-                
-                {/* Decorative elements */}
-                
-                
-                
-              </div>
-            </div>
-            
-            {/* Content - enhanced with better styling */}
-            <div className="animate-fade-in-left order-1 lg:order-2">
-              <div className="relative">
-                {/* Background decoration */}
-                <div className="absolute -top-8 -left-8 w-32 h-32 bg-gradient-to-br from-mylli-primary/10 to-mylli-secondary/10 rounded-full blur-2xl"></div>
-                
-                <div className="relative">
-                  <h2 className="text-3xl md:text-4xl font-bold text-mylli-dark mb-6 leading-tight">
-                    Exécution d'ordonnance médicale
-                  </h2>
-                  
-                  <p className="text-mylli-gray mb-6 text-lg leading-relaxed">
-                    Nos professionnels de santé assurent le suivi rigoureux des prescriptions médicales. Ce service comprend l'administration correcte des médicaments, le suivi des traitements, les injections, pansements et autres soins prescrits par le médecin.
-                  </p>
-                  
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
-                      </div>
-                      <span className="text-mylli-gray">Administration de médicaments selon les prescriptions</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
-                      </div>
-                      <span className="text-mylli-gray">Surveillance des effets secondaires et interactions médicamenteuses</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
-                      </div>
-                      <span className="text-mylli-gray">Communication régulière avec le médecin traitant</span>
-                    </li>
-                    <li className="flex items-start">
-                      <div className="flex-shrink-0 mt-1">
-                        <CheckCircle size={20} className="text-mylli-secondary mr-3" />
-                      </div>
-                      <span className="text-mylli-gray">Tenue d'un dossier médical précis et à jour</span>
-                    </li>
-                  </ul>
-                  
-                  <Button asChild className="btn-primary group">
-                    <Link to="/services/infirmier" className="flex items-center">
-                      En savoir plus sur nos services infirmiers
-                      <ArrowRight size={16} className="ml-2 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
