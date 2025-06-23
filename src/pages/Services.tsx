@@ -7,7 +7,6 @@ import ServiceCard from '@/components/common/ServiceCard';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
-
 const ServicesPage = () => {
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
@@ -28,62 +27,13 @@ const ServicesPage = () => {
     gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
     features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
   }];
-
-  return (
-    <div>
-      <SEOHead 
-        title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
-        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
-        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" 
-        canonicalUrl="/services" 
-        structuredData={structuredData} 
-      />
+  return <div>
+      <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
       
-      <PageBanner 
-        title="Nos Services" 
-        subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
-        variant="modern" 
-      />
+      <PageBanner title="Nos Services" subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="modern" />
       
-      {/* Hero Section with Service Buttons */}
-      <section className="relative bg-gradient-to-br from-mylli-primary via-blue-600 to-mylli-dark text-white py-20 overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-mylli-accent/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        <div className="container-custom relative z-10 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 animate-fade-in">
-            NOUS SOMMES LÀ POUR VOUS
-            <br />
-            <span className="text-mylli-accent">AIDER!</span>
-          </h1>
-          
-          {/* Hero Service Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12 animate-fade-in">
-            <Link to="/services/aide-soignant" className="group">
-              <button className="relative bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:bg-white/20 hover:shadow-3xl min-w-[280px]">
-                <div className="absolute inset-0 bg-gradient-to-r from-mylli-accent/20 to-mylli-secondary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">AIDE-SOIGNANT(E) À DOMICILE</span>
-                <div className="absolute -inset-1 bg-gradient-to-r from-mylli-accent to-mylli-secondary rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-              </button>
-            </Link>
-            
-            <Link to="/services/infirmier" className="group">
-              <button className="relative bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-2xl transform transition-all duration-300 hover:scale-105 hover:bg-white/20 hover:shadow-3xl min-w-[280px]">
-                <div className="absolute inset-0 bg-gradient-to-r from-mylli-secondary/20 to-mylli-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="relative z-10">INFIRMIER(ÈRE) À DOMICILE</span>
-                <div className="absolute -inset-1 bg-gradient-to-r from-mylli-secondary to-mylli-primary rounded-2xl blur opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-              </button>
-            </Link>
-          </div>
-          
-          <p className="text-xl md:text-2xl opacity-90 max-w-4xl mx-auto leading-relaxed animate-fade-in">
-            Depuis 2014, première société au Maroc à proposer des services de garde-malade à domicile avec une équipe médicale qualifiée et expérimentée pour vous accompagner dans vos moments difficiles.
-          </p>
-        </div>
-      </section>
+      {/* Introduction */}
+      
       
       {/* Main Services - Clean redesigned cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -94,12 +44,7 @@ const ServicesPage = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading 
-            title="Nos Services Principaux" 
-            subtitle="Une gamme complète de services pour répondre à vos besoins" 
-            align="center" 
-            className="mb-20" 
-          />
+          <SectionHeading title="Nos Services Principaux" subtitle="Une gamme complète de services pour répondre à vos besoins" align="center" className="mb-20" />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto">
             {mainServices.map((service, index) => <div key={index} className="group relative">
@@ -283,8 +228,6 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default ServicesPage;

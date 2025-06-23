@@ -1,4 +1,3 @@
-
 import { ReactNode } from 'react';
 interface SectionHeadingProps {
   title: string;
@@ -86,17 +85,6 @@ const SectionHeading = ({
         return <h2 id={id} className="section-title animate-fade-in">{title}</h2>;
     }
   };
-  
-  return (
-    <div className={`${alignmentClasses[align]} ${className}`}>
-      {renderTitle()}
-      {subtitle && (
-        <p className="text-lg md:text-xl text-gray-600 mt-4">
-          {subtitle}
-        </p>
-      )}
-      {children}
-    </div>
-  );
+  return;
 };
 export default SectionHeading;

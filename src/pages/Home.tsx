@@ -323,33 +323,6 @@ const HomePage = () => {
                     </span>
                   </h1>
                   
-                  {/* New Service Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 animate-fade-in delay-[800ms]">
-                    <Link 
-                      to="/services/aide-soignant" 
-                      className="group relative px-4 sm:px-6 py-3 backdrop-blur-lg bg-white/15 border border-white/30 rounded-xl hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-105 transform"
-                      aria-label="Découvrir nos services d'aide-soignant à domicile"
-                    >
-                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">
-                        AIDE-SOIGNANT(E) À DOMICILE
-                      </span>
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mylli-primary/20 to-mylli-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <ArrowRight size={16} className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                    
-                    <Link 
-                      to="/services/infirmier" 
-                      className="group relative px-4 sm:px-6 py-3 backdrop-blur-lg bg-white/15 border border-white/30 rounded-xl hover:bg-white/25 hover:border-white/40 transition-all duration-300 hover:scale-105 transform"
-                      aria-label="Découvrir nos services d'infirmier à domicile"
-                    >
-                      <span className="text-white font-medium text-sm sm:text-base whitespace-nowrap">
-                        INFIRMIER(ÈRE) À DOMICILE
-                      </span>
-                      <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-mylli-tertiary/20 to-mylli-quaternary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <ArrowRight size={16} className="inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                  
                   <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
                     Depuis <span className="text-white font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
                   </p>
