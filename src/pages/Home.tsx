@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Shield, Heart, Phone, Users, Award, Stethoscope, CheckCircle, Star, MapPin, Calendar, Syringe, Home as HomeIcon, User } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,8 @@ import ParallaxSection from '@/components/common/ParallaxSection';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
-import { generateOrganizationStructuredData, generateBreadcrumbStructuredData } from '@/utils/structuredData';
+import ServiceLocations from '@/components/common/ServiceLocations';
+import { generateOrganizationData, generateBreadcrumbStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
 
 const HomePage = () => {
@@ -231,7 +231,7 @@ const HomePage = () => {
   ];
 
   // Generate structured data
-  const organizationStructuredData = generateOrganizationStructuredData();
+  const organizationStructuredData = generateOrganizationData();
   const breadcrumbStructuredData = generateBreadcrumbStructuredData([
     { name: 'Accueil', url: '/' }
   ]);
