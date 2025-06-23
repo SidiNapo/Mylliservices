@@ -88,7 +88,23 @@ const InfirmierPage = () => {
                       Alternative à l'hospitalisation, la prise en charge des soins à domicile est aujourd'hui effective pour un nombre croissant de pathologies comme les cancers, les maladies respiratoires ou des situations de dépendance comme le handicap.
                     </p>
                     
-                    
+                    <div className="bg-gradient-to-r from-mylli-light to-white rounded-2xl p-6 border border-mylli-primary/10">
+                      
+                      <ul className="space-y-3">
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui, suite à une hospitalisation, se rétablissent chez eux d'une maladie ou d'un accident.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui souffrent d'une maladie chronique ou d'un handicap et nécessitent de recevoir des soins durant une longue période.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <CheckCircle size={20} className="text-mylli-secondary mr-3 mt-1 flex-shrink-0" />
+                          <span className="text-mylli-gray">qui nécessitent des soins palliatifs.</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                   
                   <div className="space-y-6">
