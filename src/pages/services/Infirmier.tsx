@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, Clock, File, Phone, Clipboard, Syringe, Hospital, Calendar, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,6 @@ import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const InfirmierPage = () => {
   // Patient profiles
   const patientProfiles = [{
@@ -59,7 +57,6 @@ const InfirmierPage = () => {
     title: "Fils d'un patient",
     image: "/placeholder.svg"
   }];
-
   return <div className="pb-12">
       {/* Banner */}
       <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="modern" />
@@ -72,19 +69,9 @@ const InfirmierPage = () => {
               {/* Content Side */}
               <div className="space-y-8 lg:pr-8">
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center">
-                      <Heart size={24} className="text-white" />
-                    </div>
-                    <span className="text-mylli-primary font-semibold text-lg">Soins professionnels</span>
-                  </div>
                   
-                  <SectionHeading 
-                    title="Soins infirmiers à domicile" 
-                    subtitle="Alternative moderne à l'hospitalisation" 
-                    align="left" 
-                    variant="gradient" 
-                  />
+                  
+                  <SectionHeading title="Soins infirmiers à domicile" subtitle="Alternative moderne à l'hospitalisation" align="left" variant="gradient" />
                 </div>
                 
                 <div className="space-y-6">
@@ -139,13 +126,7 @@ const InfirmierPage = () => {
                   <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-mylli-primary/10">
                     <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5"></div>
                     <div className="relative p-8">
-                      <OptimizedImage 
-                        src="/lovable-uploads/4ec4bdf4-5ed1-42c3-ae8c-c578bfbab24a.png" 
-                        alt="Infirmière prodiguant des soins à domicile" 
-                        width={600} 
-                        height={400} 
-                        className="w-full h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500" 
-                      />
+                      <OptimizedImage src="/lovable-uploads/4ec4bdf4-5ed1-42c3-ae8c-c578bfbab24a.png" alt="Infirmière prodiguant des soins à domicile" width={600} height={400} className="w-full h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500" />
                     </div>
                   </div>
                   
@@ -157,7 +138,9 @@ const InfirmierPage = () => {
                     </div>
                   </div>
                   
-                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-secondary/20 animate-float" style={{animationDelay: '1s'}}>
+                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-secondary/20 animate-float" style={{
+                  animationDelay: '1s'
+                }}>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-mylli-secondary mb-1">100%</div>
                       <div className="text-xs text-mylli-gray font-medium">Professionnel</div>
@@ -171,22 +154,19 @@ const InfirmierPage = () => {
                 
                 {/* Floating particles */}
                 <div className="absolute top-10 right-10 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-20 left-10 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                <div className="absolute top-1/2 right-0 w-3 h-3 bg-mylli-accent/20 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                <div className="absolute bottom-20 left-10 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse" style={{
+                animationDelay: '0.5s'
+              }}></div>
+                <div className="absolute top-1/2 right-0 w-3 h-3 bg-mylli-accent/20 rounded-full animate-pulse" style={{
+                animationDelay: '1.5s'
+              }}></div>
               </div>
             </div>
           </div>
         </div>
         
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-primary')} 0%, transparent 50%),
-                            radial-gradient(circle at 80% 20%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-secondary')} 0%, transparent 50%),
-                            radial-gradient(circle at 40% 80%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-accent')} 0%, transparent 50%)`,
-            backgroundSize: '50% 50%'
-          }}></div>
-        </div>
+        
       </section>
 
       {/* Patient Profiles */}
@@ -270,5 +250,4 @@ const InfirmierPage = () => {
       
     </div>;
 };
-
 export default InfirmierPage;
