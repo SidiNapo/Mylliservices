@@ -428,7 +428,7 @@ const HomePage = () => {
                     
                     <div className={`absolute top-0 right-0 w-16 md:w-20 h-16 md:h-20 ${feature.color === 'primary' ? 'bg-mylli-primary/10' : feature.color === 'secondary' ? 'bg-mylli-secondary/10' : 'bg-mylli-quaternary/10'} rounded-bl-2xl md:rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </div>
-                </div>)}
+                </div>}
             </div>
             
             <div className="mt-12 md:mt-16 text-center px-4">
@@ -453,16 +453,28 @@ const HomePage = () => {
               <aside>
                 <div className="relative">
                   <div className="absolute -inset-4 bg-gradient-to-r from-mylli-primary to-mylli-quaternary rounded-3xl opacity-20 blur-lg"></div>
-                  <div className="relative bg-white p-6 rounded-2xl shadow-soft overflow-hidden">
-                    <OptimizedImage src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" width={400} height={256} className="w-full h-auto max-h-64 object-contain mx-auto mb-6" />
-                    <div className="flex flex-col md:flex-row justify-center gap-4 items-center">
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-primary text-4xl font-bold">10</span>
-                        <span className="ml-2 text-mylli-dark">années<br />d'expérience</span>
+                  <div className="relative bg-white p-8 rounded-3xl shadow-soft overflow-hidden">
+                    <div className="mb-8">
+                      <OptimizedImage 
+                        src="/lovable-uploads/f93fedca-b6df-4264-9427-93f0e22541cd.png" 
+                        alt="Logo Mylli Services - Aide à domicile professionnelle depuis 2014" 
+                        width={500} 
+                        height={320} 
+                        className="w-full h-auto max-h-80 object-contain mx-auto transform hover:scale-105 transition-transform duration-500" 
+                      />
+                    </div>
+                    <div className="flex flex-col md:flex-row justify-center gap-6 items-center">
+                      <div className="flex items-center bg-gradient-to-r from-mylli-primary/10 to-mylli-quaternary/10 p-4 rounded-2xl border border-mylli-primary/20 shadow-lg">
+                        <div className="text-center">
+                          <span className="text-mylli-primary text-4xl font-bold block">10</span>
+                          <span className="text-mylli-dark text-sm font-medium">années<br />d'expérience</span>
+                        </div>
                       </div>
-                      <div className="flex items-center bg-mylli-light p-3 rounded-lg">
-                        <span className="text-mylli-secondary text-4xl font-bold">24/7</span>
-                        <span className="ml-2 text-mylli-dark">service<br />disponible</span>
+                      <div className="flex items-center bg-gradient-to-r from-mylli-secondary/10 to-mylli-tertiary/10 p-4 rounded-2xl border border-mylli-secondary/20 shadow-lg">
+                        <div className="text-center">
+                          <span className="text-mylli-secondary text-4xl font-bold block">24/7</span>
+                          <span className="text-mylli-dark text-sm font-medium">service<br />disponible</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -471,7 +483,7 @@ const HomePage = () => {
               
               <article>
                 <header>
-                  <SectionHeading title="Plus de 10 ans au service de laccompagnment a domicile" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
+                  <SectionHeading title="Pourquoi choisir Mylli Services" subtitle="Depuis 2014, Mylli Services est le pionnier de l'accompagnement à domicile au Maroc. Forts de plus de dix années d'engagement auprès des personnes en perte d'autonomie, nous avons développé un savoir-faire solide, basé sur l'écoute, la rigueur, et une parfaite connaissance des besoins du terrain." align="left" variant="gradient" id="about-heading" />
                 </header>
                 
                 <div className="text-lg text-mylli-gray mb-8 animate-fade-in leading-relaxed">
@@ -757,14 +769,14 @@ const HomePage = () => {
                 accent: 'mylli-primary',
                 bg: 'mylli-primary/5'
               };
-              return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{
+              return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3`} style={{
                 animationDelay: `${index * 200}ms`
               }}>
-                    <div className="relative h-full">
+                    <div className="relative h-full min-h-[500px] flex flex-col">
                       <div className={`absolute -inset-1 bg-gradient-to-r ${colors.gradient} rounded-3xl blur-lg opacity-0 group-hover:opacity-25 transition-all duration-500`}></div>
                       
-                      <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-50 overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500">
-                        <div className={`relative h-20 bg-gradient-to-r ${colors.gradient} overflow-hidden`}>
+                      <div className="relative bg-white rounded-3xl shadow-2xl border border-gray-50 overflow-hidden transform group-hover:scale-[1.02] transition-all duration-500 flex-1 flex flex-col">
+                        <div className={`relative h-24 bg-gradient-to-r ${colors.gradient} overflow-hidden flex-shrink-0`}>
                           <div className="absolute inset-0 opacity-10">
                             <div className="absolute top-2 left-4 w-8 h-8 border border-white rounded-full"></div>
                             <div className="absolute top-4 right-8 w-6 h-6 border border-white rounded-lg rotate-12"></div>
@@ -784,15 +796,15 @@ const HomePage = () => {
                           </div>
                         </div>
                         
-                        <div className="p-8 relative">
-                          <div className="mb-8">
+                        <div className="p-8 relative flex-1 flex flex-col">
+                          <div className="flex-1 mb-8">
                             <div className="relative">
                               <div className={`absolute -top-4 -left-2 text-6xl font-serif text-${colors.accent}/10 leading-none`}>
                                 "
                               </div>
                               
                               <blockquote className="relative z-10">
-                                <p className="text-mylli-gray text-lg leading-relaxed italic font-light mb-4 pl-6">
+                                <p className="text-mylli-gray text-lg leading-relaxed italic font-light mb-4 pl-6 min-h-[120px] flex items-center">
                                   {testimonial.text}
                                 </p>
                               </blockquote>
@@ -813,19 +825,21 @@ const HomePage = () => {
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-center">
+                          <div className="flex items-center justify-center mt-auto">
                             <div className="flex items-center">
                               <div className="relative">
                                 <div className={`absolute -inset-1 rounded-full bg-gradient-to-r ${colors.gradient} blur-sm opacity-70`}></div>
-                                <div className={`relative w-16 h-16 rounded-full bg-gradient-to-br ${colors.gradient} text-white flex items-center justify-center font-bold text-xl shadow-lg`}>
+                                <div className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${colors.gradient} text-white flex items-center justify-center font-bold text-2xl shadow-lg border-4 border-white`}>
                                   {testimonial.name.charAt(0)}
                                 </div>
-                                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 rounded-full border-2 border-white shadow-sm"></div>
+                                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-3 border-white shadow-lg flex items-center justify-center">
+                                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                                </div>
                               </div>
                               
-                              <div className="ml-4">
-                                <h4 className="font-bold text-mylli-dark text-lg">{testimonial.name}</h4>
-                                <p className="text-sm text-mylli-gray font-medium">{testimonial.service}</p>
+                              <div className="ml-6">
+                                <h4 className="font-bold text-mylli-dark text-xl mb-1">{testimonial.name}</h4>
+                                <p className="text-base text-mylli-gray font-medium">{testimonial.service}</p>
                               </div>
                             </div>
                           </div>
