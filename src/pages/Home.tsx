@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, User, Home as HomeIcon, Clock, Shield, CheckCircle, Star, ArrowUpRight, Phone, Share, X, Quote } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -290,6 +289,24 @@ const HomePage = () => {
                       AIDER!
                     </span>
                   </h1>
+                  
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-8 animate-fade-in delay-[400ms]">
+                    <Button asChild className="group relative overflow-hidden rounded-xl px-6 py-3 bg-white/15 hover:bg-white/25 border border-white/30 hover:border-white/50 backdrop-blur-sm text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base">
+                      <Link to="/services/aide-soignant" className="flex items-center justify-center gap-2">
+                        <Heart size={18} className="transition-transform duration-300 group-hover:scale-110" />
+                        <span>AIDE-SOIGNANT(E) À DOMICILE</span>
+                        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                    
+                    <Button asChild className="group relative overflow-hidden rounded-xl px-6 py-3 bg-white/15 hover:bg-white/25 border border-white/30 hover:border-white/50 backdrop-blur-sm text-white font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base">
+                      <Link to="/services/infirmier" className="flex items-center justify-center gap-2">
+                        <Shield size={18} className="transition-transform duration-300 group-hover:scale-110" />
+                        <span>INFIRMIER(ÈRE) À DOMICILE</span>
+                        <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                      </Link>
+                    </Button>
+                  </div>
                   
                   <p className="text-lg sm:text-xl md:text-2xl opacity-90 mb-10 max-w-2xl animate-fade-in delay-[600ms] leading-relaxed text-white px-2 sm:px-0">
                     Depuis <span className="text-white font-bold">2014</span>, première société au Maroc spécialisée dans les soins et l'accompagnement à domicile des personnes en perte d'autonomie.
