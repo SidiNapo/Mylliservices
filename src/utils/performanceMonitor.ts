@@ -7,6 +7,20 @@ interface PerformanceMetric {
   rating: 'good' | 'needs-improvement' | 'poor';
 }
 
+// Extend the built-in types for proper typing
+interface LayoutShiftEntry extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
+interface FirstInputEntry extends PerformanceEntry {
+  processingStart: number;
+}
+
+interface ResourceTimingEntry extends PerformanceEntry {
+  transferSize: number;
+}
+
 class PerformanceMonitor {
   private metrics: PerformanceMetric[] = [];
 
@@ -54,8 +68,9 @@ class PerformanceMonitor {
     let clsScore = 0;
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
-        if (!entry.hadRecentInput) {
-          clsScore += (entry as any).value;
+        const layoutShiftEntry = entry as LayoutShiftEntry;
+        if (!layoutShiftEntry.hadRecentInput) {
+          clsScore += layoutShiftEntry.value;
         }
       }
       this.recordMetric('CLS', clsScore);
@@ -66,7 +81,7 @@ class PerformanceMonitor {
   private measureFID() {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
-      const fid = entries[0];
+      const fid = entries[0] as FirstInputEntry;
       this.recordMetric('FID', fid.processingStart - fid.startTime);
     });
     observer.observe({ type: 'first-input', buffered: true });
@@ -76,8 +91,9 @@ class PerformanceMonitor {
     const observer = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       entries.forEach(entry => {
-        if (entry.transferSize > 100000) { // Resources larger than 100KB
-          console.warn(`Large resource detected: ${entry.name} (${Math.round(entry.transferSize / 1024)}KB)`);
+        const resourceEntry = entry as ResourceTimingEntry;
+        if (resourceEntry.transferSize && resourceEntry.transferSize > 100000) { // Resources larger than 100KB
+          console.warn(`Large resource detected: ${entry.name} (${Math.round(resourceEntry.transferSize / 1024)}KB)`);
         }
       });
     });
