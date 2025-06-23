@@ -3,11 +3,11 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=70"/>
-      <square150x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=150"/>
-      <wide310x150logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=310x150"/>
-      <square310x310logo src="/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png?v=2024_final_rebuild&ms=true&size=310"/>
-      <TileColor>#0077C0</TileColor>
+      <square70x70logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=70"/>
+      <square150x150logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=150"/>
+      <wide310x150logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=310x150"/>
+      <square310x310logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=310"/>
+      <TileColor>#1E88E5</TileColor>
     </tile>
     <notification>
       <polling-uri src="https://mylliservices.com/notifications/"/>

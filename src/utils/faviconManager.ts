@@ -1,5 +1,5 @@
 
-// iOS Safari Favicon Manager - Clean URL Implementation
+// iOS Safari Favicon Manager - Updated with new healthcare logo
 // Ensures proper favicon display on iOS without breaking URLs
 
 export interface FaviconConfig {
@@ -24,8 +24,8 @@ export class FaviconManager {
   static getInstance(): FaviconManager {
     if (!FaviconManager.instance) {
       FaviconManager.instance = new FaviconManager({
-        baseUrl: '/lovable-uploads/2fd660e3-872f-4057-81ba-00574e031c9a.png',
-        version: '2024_ios_stable'
+        baseUrl: '/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png',
+        version: '2024_new_healthcare_logo'
       });
     }
     return FaviconManager.instance;
@@ -34,7 +34,7 @@ export class FaviconManager {
   private generateSessionId(): string {
     let sessionId = sessionStorage.getItem('mylli-favicon-session');
     if (!sessionId) {
-      sessionId = `ios_${Date.now()}_stable`;
+      sessionId = `healthcare_${Date.now()}_stable`;
       sessionStorage.setItem('mylli-favicon-session', sessionId);
     }
     return sessionId;
@@ -92,7 +92,7 @@ export class FaviconManager {
       const elements = document.querySelectorAll(selector);
       elements.forEach(element => {
         if (element.getAttribute('data-mylli-favicon') || 
-            element.getAttribute('data-mylli-ios-favicon')) {
+            element.getAttribute('data-mylli-healthcare-favicon')) {
           element.remove();
         }
       });
@@ -111,7 +111,7 @@ export class FaviconManager {
     link.href = this.config.baseUrl;
     
     if (rel.includes('apple-touch-icon')) {
-      link.setAttribute('data-mylli-ios-favicon', 'true');
+      link.setAttribute('data-mylli-healthcare-favicon', 'true');
     } else {
       link.setAttribute('data-mylli-favicon', 'true');
       link.type = 'image/png';
@@ -126,7 +126,7 @@ export class FaviconManager {
       return;
     }
 
-    console.log(`🍎 Setting up iOS favicons (attempt ${this.refreshCount + 1}/${this.MAX_REFRESHES})`);
+    console.log(`🏥 Setting up healthcare iOS favicons (attempt ${this.refreshCount + 1}/${this.MAX_REFRESHES})`);
     
     this.isRefreshing = true;
     this.refreshCount++;
@@ -141,7 +141,7 @@ export class FaviconManager {
     // Step 3: Create new favicon elements
     const fragment = document.createDocumentFragment();
     
-    // iOS Apple Touch Icons for window switching
+    // iOS Apple Touch Icons for window switching with new healthcare logo
     fragment.appendChild(this.createFaviconElement('apple-touch-icon')); // Default 180x180
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '180x180'));
     fragment.appendChild(this.createFaviconElement('apple-touch-icon', '152x152'));
@@ -159,7 +159,7 @@ export class FaviconManager {
     // Step 4: Update iOS meta tags
     this.updateIOSMetaTags();
     
-    console.log('✅ iOS favicons installed successfully');
+    console.log('✅ Healthcare iOS favicons installed successfully');
     this.isRefreshing = false;
     this.hasInitialized = true;
   }
@@ -169,7 +169,7 @@ export class FaviconManager {
       { name: 'apple-mobile-web-app-capable', content: 'yes' },
       { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
       { name: 'apple-mobile-web-app-title', content: 'Mylli Services' },
-      { name: 'theme-color', content: '#8B5A8C' }
+      { name: 'theme-color', content: '#1E88E5' }
     ];
     
     metaUpdates.forEach(({ name, content }) => {
@@ -184,7 +184,7 @@ export class FaviconManager {
   }
 
   public initialize(): void {
-    console.log('🎯 Initializing clean favicon system...');
+    console.log('🏥 Initializing healthcare favicon system with iOS Safari optimization...');
     
     // Clean URL immediately
     this.cleanURL();
@@ -225,7 +225,7 @@ export class FaviconManager {
     this.refreshCount = 0;
     this.lastRefreshTime = 0;
     this.isRefreshing = false;
-    console.log('🔄 Favicon refresh limits reset');
+    console.log('🔄 Healthcare favicon refresh limits reset');
   }
 
   public cleanURLFragments(): void {
