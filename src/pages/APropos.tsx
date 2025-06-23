@@ -45,7 +45,7 @@ const AProposPage = () => {
     <div>
       <PageBanner 
         title="À Propos de Mylli Services" 
-        subtitle="PLUS DE 10 ANS D'EXPÉRIENCE AU SERVICE DES PERSONNES FRAGILISÉES À LEUR DOMICILE" 
+        subtitle="POURQUOI CHOISIR MYLLI SERVICES" 
       />
       
       {/* Enhanced Mission Section with new image and interactive design */}
