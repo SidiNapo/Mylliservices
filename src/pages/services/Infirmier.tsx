@@ -73,7 +73,7 @@ const InfirmierPage = () => {
               {/* Content Side */}
               <div className="space-y-8 lg:pr-8">
                 <div className="space-y-6">
-                  <SectionHeading title="Un accompagnement quotidien personnalisé" subtitle="Alternative moderne à l'hospitalisation" align="left" variant="gradient" />
+                  <SectionHeading title="Soins infirmiers à domicile" subtitle="Alternative moderne à l'hospitalisation" align="left" variant="gradient" />
                 </div>
                 
                 <div className="space-y-6">
@@ -129,8 +129,8 @@ const InfirmierPage = () => {
                     <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5"></div>
                     <div className="relative p-8">
                       <OptimizedImage 
-                        src="/lovable-uploads/56541b39-1d24-4671-af65-948c581b06d3.png" 
-                        alt="Infirmier prodiguant des soins à domicile" 
+                        src="/lovable-uploads/37bd5ff1-c777-4e7a-8e89-1a842d33e618.png" 
+                        alt="Infirmière prodiguant des soins à domicile" 
                         width={600} 
                         height={400} 
                         className="w-full h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500" 
