@@ -83,10 +83,14 @@ const services = [{
   title: "Aide-soignant(e) à domicile",
   description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
   detailedDescription: "Notre service d'aide-soignant à domicile garantit un accompagnement personnalisé pour préserver votre autonomie et votre dignité. Nos professionnels qualifiés vous assistent dans les gestes du quotidien tout en respectant vos habitudes et votre rythme de vie.",
-  icon: <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 p-4 group-hover:scale-110 transition-all duration-500">
-    <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
-      <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={120} height={120} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
+  icon: <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-br from-mylli-primary/20 via-mylli-secondary/15 to-mylli-quaternary/20 p-6 group-hover:scale-105 group-hover:rotate-3 transition-all duration-700 relative">
+    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/20 rounded-3xl"></div>
+    <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-white via-gray-50 to-white shadow-inner relative z-10 border border-gray-100">
+      <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 to-mylli-quaternary/5"></div>
+      <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={180} height={180} className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 filter brightness-110 contrast-105 saturate-110 relative z-20" />
     </div>
+    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full shadow-lg opacity-80 group-hover:scale-125 transition-transform duration-500"></div>
+    <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-gradient-to-br from-mylli-quaternary to-mylli-accent rounded-full shadow-md opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
   </div>,
   features: ["Toilette et hygiène", "Aide à la mobilité", "Surveillance médicale", "Accompagnement social"],
   link: "/services/aide-soignant",
@@ -95,10 +99,14 @@ const services = [{
   title: "Infirmier(ère) à domicile",
   description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
   detailedDescription: "Nos infirmiers diplômés d'État interviennent à votre domicile pour tous types de soins médicaux. Une alternative sécurisée à l'hospitalisation qui vous permet de rester dans votre environnement familier.",
-  icon: <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-secondary/10 to-mylli-tertiary/10 p-4 group-hover:scale-110 transition-all duration-500">
-    <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
-      <OptimizedImage src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" alt="Infirmier à domicile - Soins médicaux professionnels" width={120} height={120} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
+  icon: <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-br from-mylli-secondary/20 via-mylli-tertiary/15 to-mylli-accent/20 p-6 group-hover:scale-105 group-hover:-rotate-3 transition-all duration-700 relative">
+    <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/10 to-white/20 rounded-3xl"></div>
+    <div className="w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white shadow-inner relative z-10 border border-blue-100">
+      <div className="absolute inset-0 bg-gradient-to-br from-mylli-secondary/5 to-mylli-accent/5"></div>
+      <OptimizedImage src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" alt="Infirmier à domicile - Soins médicaux professionnels" width={180} height={180} className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 filter brightness-110 contrast-105 saturate-110 relative z-20" />
     </div>
+    <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-mylli-secondary to-mylli-tertiary rounded-full shadow-lg opacity-80 group-hover:scale-125 transition-transform duration-500"></div>
+    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-mylli-accent to-mylli-primary rounded-full shadow-md opacity-70 group-hover:scale-110 transition-transform duration-700"></div>
   </div>,
   features: ["Soins post-opératoires", "Pansements et injections", "Surveillance glycémique", "Chimiothérapie"],
   link: "/services/infirmier",
