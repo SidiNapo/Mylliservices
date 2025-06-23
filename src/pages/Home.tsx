@@ -578,7 +578,7 @@ const services = [{
 
           <div className="container-custom relative z-10 px-4 md:px-6">
             <header className="text-center mb-20">
-              <SectionHeading title="Nos Services" subtitle="Des soins professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="gradient" id="services-heading" />
+              <SectionHeading title="Nos Services" variant="gradient" id="services-heading" />
             </header>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto">
