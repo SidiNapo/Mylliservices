@@ -77,32 +77,33 @@ const HomePage = () => {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-  const careImages = ['/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'];
-  const services = [{
-    title: "Aide-soignant(e) à domicile",
-    description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-    detailedDescription: "Notre service d'aide-soignant à domicile garantit un accompagnement personnalisé pour préserver votre autonomie et votre dignité. Nos professionnels qualifiés vous assistent dans les gestes du quotidien tout en respectant vos habitudes et votre rythme de vie.",
-    icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 p-3 group-hover:scale-110 transition-all duration-500">
-      <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
-        <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={80} height={80} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
-      </div>
-    </div>,
-    features: ["Toilette et hygiène", "Aide à la mobilité", "Surveillance médicale", "Accompagnement social"],
-    link: "/services/aide-soignant",
-    gradient: "from-mylli-primary via-mylli-secondary to-mylli-quaternary"
-  }, {
-    title: "Infirmier(ère) à domicile",
-    description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-    detailedDescription: "Nos infirmiers diplômés d'État interviennent à votre domicile pour tous types de soins médicaux. Une alternative sécurisée à l'hospitalisation qui vous permet de rester dans votre environnement familier.",
-    icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-secondary/10 to-mylli-tertiary/10 p-3 group-hover:scale-110 transition-all duration-500">
-      <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
-        <OptimizedImage src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" alt="Infirmier à domicile - Soins médicaux professionnels" width={80} height={80} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
-      </div>
-    </div>,
-    features: ["Soins post-opératoires", "Pansements et injections", "Surveillance glycémique", "Chimiothérapie"],
-    link: "/services/infirmier",
-    gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-accent"
-  }];
+const careImages = ['/lovable-uploads/bc5d5201-c6c6-41c0-8594-5bef9171aea8.png', '/lovable-uploads/94cdeb85-c1e7-48bd-9d6f-66312af0fb9c.png', '/lovable-uploads/b078eb91-537d-4b59-bb66-5983988c4fab.png'];
+
+const services = [{
+  title: "Aide-soignant(e) à domicile",
+  description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
+  detailedDescription: "Notre service d'aide-soignant à domicile garantit un accompagnement personnalisé pour préserver votre autonomie et votre dignité. Nos professionnels qualifiés vous assistent dans les gestes du quotidien tout en respectant vos habitudes et votre rythme de vie.",
+  icon: <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-primary/10 to-mylli-quaternary/10 p-4 group-hover:scale-110 transition-all duration-500">
+    <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
+      <OptimizedImage src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" alt="Aide-soignant à domicile - Soins personnalisés" width={120} height={120} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
+    </div>
+  </div>,
+  features: ["Toilette et hygiène", "Aide à la mobilité", "Surveillance médicale", "Accompagnement social"],
+  link: "/services/aide-soignant",
+  gradient: "from-mylli-primary via-mylli-secondary to-mylli-quaternary"
+}, {
+  title: "Infirmier(ère) à domicile",
+  description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
+  detailedDescription: "Nos infirmiers diplômés d'État interviennent à votre domicile pour tous types de soins médicaux. Une alternative sécurisée à l'hospitalisation qui vous permet de rester dans votre environnement familier.",
+  icon: <div className="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-mylli-secondary/10 to-mylli-tertiary/10 p-4 group-hover:scale-110 transition-all duration-500">
+    <div className="w-full h-full rounded-lg overflow-hidden bg-white shadow-inner">
+      <OptimizedImage src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" alt="Infirmier à domicile - Soins médicaux professionnels" width={120} height={120} className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" />
+    </div>
+  </div>,
+  features: ["Soins post-opératoires", "Pansements et injections", "Surveillance glycémique", "Chimiothérapie"],
+  link: "/services/infirmier",
+  gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-accent"
+}];
   const howItWorks = [{
     step: 1,
     title: "Rencontre à domicile",
