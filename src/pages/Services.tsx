@@ -141,14 +141,28 @@ const ServicesPage = () => {
                     </div>
                     
                     {/* Bottom info card */}
-                    
+                    <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h4 className="font-bold text-mylli-dark">Soins Professionnels</h4>
+                          <p className="text-sm text-mylli-gray">Selon prescription médicale</p>
+                        </div>
+                        <div className="w-12 h-12 bg-gradient-to-br from-mylli-primary to-mylli-secondary rounded-full flex items-center justify-center">
+                          <Heart size={20} className="text-white" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 
                 {/* Decorative elements */}
+                <div className="absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br from-mylli-secondary to-mylli-accent rounded-2xl flex items-center justify-center shadow-lg animate-float">
+                  <Heart size={24} className="text-white" />
+                </div>
                 
-                
-                
+                <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-br from-mylli-quaternary to-mylli-primary rounded-xl flex items-center justify-center shadow-lg">
+                  <CheckCircle size={16} className="text-white" />
+                </div>
               </div>
             </div>
             
