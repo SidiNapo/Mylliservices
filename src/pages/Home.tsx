@@ -122,43 +122,32 @@ const HomePage = () => {
     icon: <CheckCircle size={32} className="text-mylli-accent" />,
     color: "accent"
   }];
-  const testimonials = [{
-    quote: "Grâce à Mylli Services, j'ai pu continuer à vivre chez moi, malgré ma perte partielle d'autonomie suite à un grave AVC, tout en rassurant ma famille…",
-    name: "M. Mohamed B.",
-    title: "68 ans",
-    role: "bénéficiaire de l'aide à domicile",
-    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-    rating: 5,
-    location: "Casablanca",
-    category: "beneficiary"
-  }, {
-    quote: "… j'ai trouvé en Mylli Services un appui considérable, ils me permettent d'apporter un maximum d'aide à ma mère âgée de 84 ans tout en gardant une vie normale.",
-    name: "Mme Leïla T.",
-    title: "52 ans",
-    role: "fille du bénéficiaire de l'aide à domicile",
-    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-    rating: 5,
-    location: "Mohammedia",
-    category: "family"
-  }, {
-    quote: "Avant Mylli Services j'étais complètement désarmé face à la maladie de ma mère, atteinte d'Alzheimer, aujourd'hui je sens que j'ai un soutien permanent et rassurant.",
-    name: "M. Hicham S.",
-    title: "43 ans",
-    role: "fils du bénéficiaire de l'aide à domicile",
-    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-    rating: 5,
-    location: "Casablanca",
-    category: "family"
-  }, {
-    quote: "Mylli Services a permis d'amener un service constant et efficace d'aide à la personne en toutes situations, et surtout de palier à l'aspect informel des interventions à domicile de notre métier…",
-    name: "Mme. Hasnaâ T.",
-    title: "31 ans",
-    role: "infirmière à Mylli Services",
-    avatar: "/lovable-uploads/700a6bf7-7fa1-4267-8bb1-9c87c6358e6a.png",
-    rating: 5,
-    location: "Casablanca",
-    category: "professional"
-  }];
+  const testimonials = [
+    {
+      name: "HAYAT ABOUNAI",
+      text: "Vous méritez plus que 5 étoiles merci infiniment et lah yrham lwalidine bonne continuation",
+      rating: 5,
+      service: "Service d'aide à domicile"
+    },
+    {
+      name: "Mohammed Mohamed",
+      text: "Mylli Service est Un organisme professionnel, une équipe à l'écoute qui respecte les normes d'hygiène et surtout humaine ! Je vous remercie beaucoup et je vous recommanderai avec plaisir !",
+      rating: 5,
+      service: "Soins infirmiers"
+    },
+    {
+      name: "Amal LOUDIYI",
+      text: "Merci à l'équipe qui a été très réactive et l'infirmier j'ai rien senti et très gentil. Je recommande !!!",
+      rating: 5,
+      service: "Soins infirmiers"
+    },
+    {
+      name: "MOUHAJIR ABDELAZIZ",
+      text: "Écoute. Professionnalisme. Empathie et efficacité. Bravo et merci à tout le staff de l'équipe. Services ayant bénéficié à plusieurs membres de ma famille. 👏👏",
+      rating: 5,
+      service: "Services multiples"
+    }
+  ];
   const features = [{
     icon: <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-xl">
       <OptimizedImage src="/lovable-uploads/fcb791a8-469a-4d8f-a3a4-a0298acb30a8.png" alt="Expérience professionnelle" width={80} height={80} className="w-full h-full object-cover" />
@@ -762,7 +751,7 @@ const HomePage = () => {
                   bg: 'mylli-quaternary/5'
                 }
               };
-              const colors = categoryColors[testimonial.category as keyof typeof categoryColors];
+              const colors = categoryColors[testimonial.service as keyof typeof categoryColors];
               return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{
                 animationDelay: `${index * 200}ms`
               }}>
@@ -781,7 +770,7 @@ const HomePage = () => {
                           <div className="absolute bottom-4 left-6 flex items-center">
                             <div className="w-3 h-3 bg-white rounded-full mr-3 animate-pulse"></div>
                             <span className="text-white text-sm font-medium opacity-90">
-                              {testimonial.category === 'beneficiary' ? 'Bénéficiaire' : testimonial.category === 'family' ? 'Famille' : 'Professionnel'}
+                              {testimonial.service}
                             </span>
                           </div>
                           
@@ -799,7 +788,7 @@ const HomePage = () => {
                               
                               <blockquote className="relative z-10">
                                 <p className="text-mylli-gray text-lg leading-relaxed italic font-light mb-4 pl-6">
-                                  {testimonial.quote}
+                                  {testimonial.text}
                                 </p>
                               </blockquote>
                               
