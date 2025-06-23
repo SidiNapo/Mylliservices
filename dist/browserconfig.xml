@@ -1,0 +1,18 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=70"/>
+      <square150x150logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=150"/>
+      <wide310x150logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=310x150"/>
+      <square310x310logo src="/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png?v=2024_healthcare_logo&ms=true&size=310"/>
+      <TileColor>#1E88E5</TileColor>
+    </tile>
+    <notification>
+      <polling-uri src="https://mylliservices.com/notifications/"/>
+      <frequency>30</frequency>
+      <cycle>1</cycle>
+    </notification>
+  </msapplication>
+</browserconfig>
