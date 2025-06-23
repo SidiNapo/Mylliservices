@@ -1,11 +1,9 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, User, Clock, Shield, CheckCircle, Star, Phone } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const AideSoignantPage = () => {
   // Roles of caregiver with specific healthcare icons
   const roles = [{
@@ -24,13 +22,8 @@ const AideSoignantPage = () => {
     title: "Accompagner et sécuriser le patient",
     iconImage: "/lovable-uploads/da550c48-1c62-4eb0-b6cc-df8d0db5cdd8.png"
   }];
-
-  return (
-    <div>
-      <PageBanner 
-        title="AIDE-SOIGNANT(E) À DOMICILE" 
-        subtitle="Préservation de l'autonomie et accompagnement quotidien" 
-      />
+  return <div>
+      <PageBanner title="AIDE-SOIGNANT(E) À DOMICILE" subtitle="Préservation de l'autonomie et accompagnement quotidien" />
       
       {/* Modern Redesigned Introduction Section */}
       <section className="py-24 relative overflow-hidden bg-white">
@@ -38,7 +31,9 @@ const AideSoignantPage = () => {
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-mylli-light/5 via-transparent to-mylli-primary/5"></div>
           <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-br from-mylli-primary/8 to-mylli-secondary/8 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-tl from-mylli-accent/8 to-mylli-quaternary/8 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-tl from-mylli-accent/8 to-mylli-quaternary/8 rounded-full blur-3xl animate-float" style={{
+          animationDelay: '2s'
+        }}></div>
         </div>
         
         <div className="container-custom relative z-10">
@@ -51,10 +46,7 @@ const AideSoignantPage = () => {
               <div className="space-y-8">
                 {/* Main Heading */}
                 <div className="space-y-6">
-                  <div className="inline-flex items-center space-x-3 bg-mylli-primary/10 rounded-full px-6 py-3 border border-mylli-primary/20">
-                    <div className="w-3 h-3 bg-mylli-primary rounded-full animate-pulse"></div>
-                    <span className="text-mylli-primary font-semibold text-lg">Service d'Excellence</span>
-                  </div>
+                  
                   
                   <h2 className="text-5xl lg:text-6xl font-bold leading-tight">
                     <span className="bg-gradient-to-r from-mylli-primary via-mylli-secondary to-mylli-accent bg-clip-text text-transparent">
@@ -67,7 +59,10 @@ const AideSoignantPage = () => {
                       <span className="bg-gradient-to-r from-mylli-secondary to-mylli-accent bg-clip-text text-transparent">
                         personnalisé
                       </span>
-                      <div className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-mylli-secondary to-mylli-accent rounded-full transform scale-x-0 animate-scale-in" style={{animationDelay: '1s', animationFillMode: 'forwards'}}></div>
+                      <div className="absolute -bottom-3 left-0 w-full h-1 bg-gradient-to-r from-mylli-secondary to-mylli-accent rounded-full transform scale-x-0 animate-scale-in" style={{
+                      animationDelay: '1s',
+                      animationFillMode: 'forwards'
+                    }}></div>
                     </span>
                   </h2>
                 </div>
@@ -126,19 +121,15 @@ const AideSoignantPage = () => {
               <div className="relative">
                 {/* Decorative elements */}
                 <div className="absolute -top-6 -left-6 w-24 h-24 bg-mylli-primary/10 rounded-full blur-xl animate-pulse"></div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-mylli-secondary/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-mylli-secondary/10 rounded-full blur-xl animate-pulse" style={{
+                animationDelay: '1s'
+              }}></div>
                 
                 {/* Main image container */}
                 <div className="relative group">
                   <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/20 to-mylli-secondary/20 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500 blur-sm"></div>
                   <div className="relative bg-white rounded-3xl p-4 shadow-2xl transform group-hover:-translate-y-2 transition-all duration-500">
-                    <OptimizedImage 
-                      src="/lovable-uploads/2c927cda-f5b2-45ec-8f1a-1603c53b8d5d.png" 
-                      alt="Aide-soignant avec patient âgé" 
-                      width={600} 
-                      height={600} 
-                      className="w-full h-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500" 
-                    />
+                    <OptimizedImage src="/lovable-uploads/2c927cda-f5b2-45ec-8f1a-1603c53b8d5d.png" alt="Aide-soignant avec patient âgé" width={600} height={600} className="w-full h-auto rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500" />
                     
                     {/* Floating stats */}
                     <div className="absolute top-8 right-8 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-mylli-primary/20 transform group-hover:scale-110 transition-all duration-500">
@@ -282,8 +273,6 @@ const AideSoignantPage = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default AideSoignantPage;
