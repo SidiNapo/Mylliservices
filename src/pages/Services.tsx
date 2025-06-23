@@ -7,33 +7,117 @@ import ServiceCard from '@/components/common/ServiceCard';
 import BrandName from '@/components/common/BrandName';
 import SEOHead from '@/components/seo/SEOHead';
 import { generateServicePageStructuredData } from '@/utils/structuredData';
+
 const ServicesPage = () => {
   // Generate structured data for services
   const structuredData = generateServicePageStructuredData();
 
   // Main services with updated images
-  const mainServices = [{
-    title: 'AIDE-SOIGNANT(E) À DOMICILE',
-    description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
-    image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
-    link: "/services/aide-soignant",
-    gradient: "from-mylli-primary via-mylli-quaternary to-mylli-accent",
-    features: ["Soins personnalisés", "Accompagnement quotidien", "Suivi médical"]
-  }, {
-    title: 'INFIRMIER(ÈRE) À DOMICILE',
-    description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
-    image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
-    link: "/services/infirmier",
-    gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
-    features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
-  }];
-  return <div>
-      <SEOHead title="Nos Services - Aide à domicile professionnelle | Mylli Services" description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" canonicalUrl="/services" structuredData={structuredData} />
+  const mainServices = [
+    {
+      title: 'AIDE-SOIGNANT(E) À DOMICILE',
+      description: 'Assistance personnalisée pour les activités de la vie quotidienne, avec un accompagnement bienveillant et professionnel.',
+      image: "/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png",
+      link: "/services/aide-soignant",
+      gradient: "from-mylli-primary via-mylli-quaternary to-mylli-accent",
+      features: ["Soins personnalisés", "Accompagnement quotidien", "Suivi médical"]
+    },
+    {
+      title: 'INFIRMIER(ÈRE) À DOMICILE',
+      description: 'Soins médicaux professionnels à domicile, incluant les injections, pansements et suivi médical.',
+      image: "/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png",
+      link: "/services/infirmier",
+      gradient: "from-mylli-secondary via-mylli-tertiary to-mylli-quaternary",
+      features: ["Injections médicales", "Pansements", "Suivi thérapeutique"]
+    }
+  ];
+
+  return (
+    <div>
+      <SEOHead 
+        title="Nos Services - Aide à domicile professionnelle | Mylli Services" 
+        description="Découvrez nos services d'aide à domicile : aide-soignant, infirmier, garde-malade jour/nuit. Soins professionnels à Casablanca et environs." 
+        keywords="services aide domicile, aide-soignant, infirmier, garde-malade, soins à domicile, Casablanca" 
+        canonicalUrl="/services" 
+        structuredData={structuredData} 
+      />
       
-      <PageBanner title="Nos Services" subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." variant="modern" />
+      <PageBanner 
+        title="Nos Services" 
+        subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
+        variant="modern" 
+      />
       
-      {/* Introduction */}
-      
+      {/* Hero Section with Service Buttons */}
+      <section className="section-padding bg-gradient-to-br from-mylli-primary via-mylli-secondary to-mylli-accent text-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="container-custom relative z-10 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+              NOUS SOMMES LÀ POUR VOUS
+              <span className="block bg-gradient-to-r from-white via-mylli-accent to-white bg-clip-text text-transparent">
+                AIDER!
+              </span>
+            </h2>
+            
+            {/* Modern Service Buttons */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12 animate-fade-in">
+              
+              {/* Aide-Soignant Button */}
+              <Link to="/services/aide-soignant" className="group relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-white/30 to-mylli-accent/30 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-6 transform group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-mylli-accent to-white rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                        <Heart size={32} className="text-mylli-primary" />
+                      </div>
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-mylli-accent transition-colors duration-300">
+                        AIDE-SOIGNANT(E)
+                      </h3>
+                      <p className="text-white/80 text-sm font-medium">
+                        À DOMICILE
+                      </p>
+                    </div>
+                    <ArrowRight size={24} className="text-white/70 group-hover:text-white group-hover:translate-x-2 transition-all duration-300" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* Infirmier Button */}
+              <Link to="/services/infirmier" className="group relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-mylli-accent/30 to-white/30 rounded-2xl blur-sm opacity-70 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl px-8 py-6 transform group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-500 shadow-2xl">
+                  <div className="flex items-center space-x-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 bg-gradient-to-br from-white to-mylli-accent rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                        <Shield size={32} className="text-mylli-primary" />
+                      </div>
+                    </div>
+                    <div className="text-left">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-mylli-accent transition-colors duration-300">
+                        INFIRMIER(ÈRE)
+                      </h3>
+                      <p className="text-white/80 text-sm font-medium">
+                        À DOMICILE
+                      </p>
+                    </div>
+                    <ArrowRight size={24} className="text-white/70 group-hover:text-white group-hover:translate-x-2 transition-all duration-300" />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       
       {/* Main Services - Clean redesigned cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
@@ -44,10 +128,16 @@ const ServicesPage = () => {
         </div>
         
         <div className="container-custom relative z-10">
-          <SectionHeading title="Nos Services Principaux" subtitle="Une gamme complète de services pour répondre à vos besoins" align="center" className="mb-20" />
+          <SectionHeading 
+            title="Nos Services Principaux" 
+            subtitle="Une gamme complète de services pour répondre à vos besoins" 
+            align="center" 
+            className="mb-20" 
+          />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-7xl mx-auto">
-            {mainServices.map((service, index) => <div key={index} className="group relative">
+            {mainServices.map((service, index) => (
+              <div key={index} className="group relative">
                 {/* Animated background glow */}
                 <div className={`absolute -inset-8 bg-gradient-to-br ${service.gradient} rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-20 transition-all duration-700`}></div>
                 
@@ -60,7 +150,11 @@ const ServicesPage = () => {
                     
                     {/* Enhanced image section */}
                     <div className="relative h-96 overflow-hidden">
-                      <img src={service.image} alt={service.title} className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" />
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className="w-full h-full object-cover object-center transition-all duration-1000 group-hover:scale-110 group-hover:brightness-110" 
+                      />
                       
                       {/* Clean gradient overlay */}
                       <div className={`absolute inset-0 bg-gradient-to-t ${service.gradient} opacity-60 group-hover:opacity-40 transition-all duration-500`}></div>
@@ -85,12 +179,14 @@ const ServicesPage = () => {
                         
                         {/* Clean features list */}
                         <div className="space-y-4 mb-10">
-                          {service.features.map((feature, idx) => <div key={idx} className="flex items-center space-x-4 group/feature">
+                          {service.features.map((feature, idx) => (
+                            <div key={idx} className="flex items-center space-x-4 group/feature">
                               <div className="relative">
                                 <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${service.gradient} group-hover/feature:scale-150 transition-all duration-300`}></div>
                               </div>
                               <span className="text-mylli-dark font-medium text-lg group-hover/feature:translate-x-2 transition-all duration-300">{feature}</span>
-                            </div>)}
+                            </div>
+                          ))}
                         </div>
                         
                         {/* Clean CTA Button */}
@@ -109,7 +205,8 @@ const ServicesPage = () => {
                     </div>
                   </div>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -127,7 +224,11 @@ const ServicesPage = () => {
                 {/* Main image container */}
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white p-6 transform group-hover:scale-[1.02] transition-all duration-500">
                   <div className="relative">
-                    <img src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" alt="Professionnel de santé exécutant une ordonnance médicale" className="w-full h-80 object-cover rounded-xl" />
+                    <img 
+                      src="/lovable-uploads/f34b6412-2bd2-410e-98f3-40493670590f.png" 
+                      alt="Professionnel de santé exécutant une ordonnance médicale" 
+                      className="w-full h-80 object-cover rounded-xl" 
+                    />
                     
                     {/* Overlay with gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-mylli-primary/20 via-transparent to-transparent rounded-xl"></div>
@@ -139,16 +240,8 @@ const ServicesPage = () => {
                         <span className="text-sm font-medium text-mylli-dark">Service Actif</span>
                       </div>
                     </div>
-                    
-                    {/* Bottom info card */}
-                    
                   </div>
                 </div>
-                
-                {/* Decorative elements */}
-                
-                
-                
               </div>
             </div>
             
@@ -228,6 +321,8 @@ const ServicesPage = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default ServicesPage;
