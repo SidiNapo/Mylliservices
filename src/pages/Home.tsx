@@ -11,6 +11,7 @@ import SEOHead from '@/components/seo/SEOHead';
 import OptimizedImage from '@/components/seo/OptimizedImage';
 import { generateHomepageStructuredData } from '@/utils/structuredData';
 import { useEffect, useRef, useState } from 'react';
+
 const HomePage = () => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -751,7 +752,11 @@ const HomePage = () => {
                   bg: 'mylli-quaternary/5'
                 }
               };
-              const colors = categoryColors[testimonial.service as keyof typeof categoryColors];
+              const colors = categoryColors[testimonial.service as keyof typeof categoryColors] || {
+                gradient: 'from-mylli-primary to-mylli-quaternary',
+                accent: 'mylli-primary',
+                bg: 'mylli-primary/5'
+              };
               return <div key={index} className={`group relative transform transition-all duration-700 hover:-translate-y-3 ${isEven ? 'lg:translate-y-8' : 'lg:-translate-y-4'}`} style={{
                 animationDelay: `${index * 200}ms`
               }}>
@@ -808,7 +813,7 @@ const HomePage = () => {
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-center">
                             <div className="flex items-center">
                               <div className="relative">
                                 <div className={`absolute -inset-1 rounded-full bg-gradient-to-r ${colors.gradient} blur-sm opacity-70`}></div>
@@ -820,13 +825,8 @@ const HomePage = () => {
                               
                               <div className="ml-4">
                                 <h4 className="font-bold text-mylli-dark text-lg">{testimonial.name}</h4>
-                                <p className="text-sm text-mylli-gray font-medium">{testimonial.title}</p>
-                                <p className="text-xs text-mylli-gray opacity-75 italic">{testimonial.role}</p>
+                                <p className="text-sm text-mylli-gray font-medium">{testimonial.service}</p>
                               </div>
-                            </div>
-                            
-                            <div className={`px-3 py-1 bg-${colors.bg} rounded-full border border-${colors.accent}/20`}>
-                              <span className={`text-${colors.accent} text-xs font-medium`}>{testimonial.location}</span>
                             </div>
                           </div>
                           
