@@ -260,13 +260,12 @@ const Home = () => {
           
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => {
-              const IconComponent = service.icon === 'Heart' ? Heart : User;
               return (
                 <ServiceCard
                   key={service.id}
                   title={service.title}
                   description={service.description}
-                  icon={IconComponent}
+                  icon={service.icon === 'Heart' ? <Heart className="h-6 w-6" /> : <User className="h-6 w-6" />}
                   features={service.features}
                   link={service.link}
                   color={service.color}
