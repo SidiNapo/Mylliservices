@@ -82,14 +82,14 @@ const HomePage = () => {
   const services = [{
     title: "Aide-soignant(e) à domicile",
     description: "Préservation de l'autonomie tout en accomplissant des actes de la vie quotidienne.",
-    icon: <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-white to-gray-50 p-1">
-      <div className="w-full h-full rounded-xl overflow-hidden">
+    icon: <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl border-3 border-white/30 bg-gradient-to-br from-white via-gray-50 to-gray-100 p-2 group-hover:scale-110 transition-all duration-500">
+      <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-inner">
         <OptimizedImage 
           src="/lovable-uploads/a19bc553-aa29-42f9-b4dc-c1b200faa0f8.png" 
           alt="Aide-soignant à domicile - Soins personnalisés" 
-          width={64} 
-          height={64} 
-          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" 
+          width={96} 
+          height={96} 
+          className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" 
         />
       </div>
     </div>,
@@ -97,14 +97,14 @@ const HomePage = () => {
   }, {
     title: "Infirmier(ère) à domicile",
     description: "Soins médicaux à domicile comme alternative à l'hospitalisation.",
-    icon: <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-white to-gray-50 p-1">
-      <div className="w-full h-full rounded-xl overflow-hidden">
+    icon: <div className="w-24 h-24 rounded-3xl overflow-hidden shadow-2xl border-3 border-white/30 bg-gradient-to-br from-white via-gray-50 to-gray-100 p-2 group-hover:scale-110 transition-all duration-500">
+      <div className="w-full h-full rounded-2xl overflow-hidden bg-white shadow-inner">
         <OptimizedImage 
           src="/lovable-uploads/50a817cb-5544-420a-88d1-793d11dc6290.png" 
           alt="Infirmier à domicile - Soins médicaux professionnels" 
-          width={64} 
-          height={64} 
-          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300" 
+          width={96} 
+          height={96} 
+          className="w-full h-full object-cover hover:scale-125 transition-transform duration-700 filter brightness-105" 
         />
       </div>
     </div>,
@@ -334,7 +334,7 @@ const HomePage = () => {
                     <p className="text-xs sm:text-sm text-white leading-tight">années d'expérience</p>
                   </Link>
                   <button onClick={() => scrollToSection('testimonials-heading')} className="text-center p-3 sm:p-4 backdrop-blur-sm bg-white/15 rounded-xl border border-white/30 hover:border-mylli-primary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-mylli-quaternary group-hover:text-mylli-primary">{isVisible ? '+4500' : '0'}</p>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-mylli-quaternary group-hover:text-mylli-primary">{isVisible ? '+6100' : '0'}</p>
                     <p className="text-xs sm:text-sm text-white leading-tight">Interventions</p>
                   </button>
                   <button onClick={triggerAvailabilityFeature} className="text-center p-3 sm:p-4 backdrop-blur-sm bg-white/15 rounded-xl border border-white/30 hover:border-mylli-quaternary/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
