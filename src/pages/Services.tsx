@@ -41,20 +41,12 @@ const ServicesPage = () => {
       
       <PageBanner 
         title="Nos Services" 
-        subtitle="Des solutions personnalisées pour tous vos besoins de santé à domicile" 
+        subtitle="Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile." 
         variant="modern" 
       />
       
       {/* Introduction */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center animate-fade-in">
-            <p className="text-mylli-gray text-xl">
-              Des gardes-malades professionnels et attentifs pour répondre à tous vos besoins d'accompagnement à domicile.
-            </p>
-          </div>
-        </div>
-      </section>
+    
       
       {/* Main Services - Clean redesigned cards */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
