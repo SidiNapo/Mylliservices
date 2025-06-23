@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Heart, Clock, File, Phone, Clipboard, Syringe, Hospital, Calendar, CheckCircle, User, MessageSquare } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,6 @@ import PageBanner from '@/components/common/PageBanner';
 import SectionHeading from '@/components/common/SectionHeading';
 import TestimonialCard from '@/components/common/TestimonialCard';
 import OptimizedImage from '@/components/seo/OptimizedImage';
-
 const InfirmierPage = () => {
   // Patient profiles
   const patientProfiles = [{
@@ -24,7 +22,7 @@ const InfirmierPage = () => {
     icon: <User className="text-mylli-primary" size={32} />
   }];
 
-  // Nurse roles with updated images
+  // Nurse roles with images
   const nurseRoles = [{
     title: "Exécuter une ordonnance médicale",
     description: "Administration de traitements, préparation et administration d'injections, surveillance des effets secondaires.",
@@ -32,7 +30,7 @@ const InfirmierPage = () => {
   }, {
     title: "Poser et surveiller les sondes",
     description: "Installation et maintenance des sondes urinaires, nasogastriques et autres dispositifs médicaux invasifs.",
-    iconImage: "/lovable-uploads/37fedd5b-3a3c-476d-89c3-c57957c696c5.png"
+    iconImage: "/lovable-uploads/5364c2b1-9466-4ff2-b1bf-f6288e735add.png"
   }, {
     title: "Poser et surveiller une perfusion",
     description: "Mise en place et surveillance des perfusions pour l'hydratation, la nutrition et l'administration de médicaments.",
@@ -44,7 +42,7 @@ const InfirmierPage = () => {
   }, {
     title: "Rédiger un rapport quotidiennement",
     description: "Documentation détaillée des soins prodigués, des observations et de l'évolution du patient pour une traçabilité optimale.",
-    iconImage: "/lovable-uploads/bc659d89-2f47-4184-b283-c7f41ba9193c.png"
+    iconImage: "/lovable-uploads/0ac5ce88-2b3f-4931-9488-210bc9425794.png"
   }];
 
   // Testimonials
@@ -59,133 +57,73 @@ const InfirmierPage = () => {
     title: "Fils d'un patient",
     image: "/placeholder.svg"
   }];
-
   return <div className="pb-12">
       {/* Banner */}
       <PageBanner title="INFIRMIER(ÈRE) À DOMICILE" subtitle="Une alternative professionnelle à l'hospitalisation pour les patients nécessitant des soins médicaux réguliers" variant="modern" />
       
-      {/* Redesigned Description Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-mylli-light/20 relative overflow-hidden">
+      {/* Description Section - Centered and Unique */}
+      <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
         <div className="container-custom">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              {/* Content Side */}
-              <div className="space-y-8 lg:pr-8">
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center">
-                      <Heart size={24} className="text-white" />
+          <div className="max-w-5xl mx-auto">
+            <div className="relative">
+              {/* Background decorative elements */}
+              <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/5 via-transparent to-mylli-secondary/5 rounded-3xl transform rotate-1"></div>
+              <div className="absolute -inset-4 bg-gradient-to-l from-mylli-accent/5 via-transparent to-mylli-primary/5 rounded-3xl transform -rotate-1"></div>
+              
+              {/* Main content card */}
+              <div className="relative bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-12 border border-mylli-primary/10">
+                <div className="text-center mb-12">
+                  <div className="flex justify-center mb-8">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-mylli-primary to-mylli-secondary flex items-center justify-center shadow-xl">
+                      <Heart size={48} className="text-white" />
                     </div>
-                    <span className="text-mylli-primary font-semibold text-lg">Soins professionnels</span>
                   </div>
                   
-                  <SectionHeading 
-                    title="Soins infirmiers à domicile" 
-                    subtitle="Alternative moderne à l'hospitalisation" 
-                    align="left" 
-                    variant="gradient" 
-                  />
+                  <SectionHeading title="Soins infirmiers à domicile" subtitle="Alternative à l'hospitalisation" align="center" variant="gradient" />
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-mylli-primary/10 hover:border-mylli-primary/30 transition-all duration-300">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                  <div className="space-y-6">
                     <p className="text-lg text-mylli-gray leading-relaxed">
                       Alternative à l'hospitalisation, la prise en charge des soins à domicile est aujourd'hui effective pour un nombre croissant de pathologies comme les cancers, les maladies respiratoires ou des situations de dépendance comme le handicap.
                     </p>
+                    
+                    
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5 rounded-xl p-5 border border-mylli-primary/10">
-                      <div className="flex items-center mb-3">
-                        <File className="text-mylli-primary mr-3" size={20} />
-                        <h4 className="font-semibold text-mylli-dark">Prescription médicale</h4>
-                      </div>
-                      <p className="text-sm text-mylli-gray">
+                  <div className="space-y-6">
+                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                      <p className="text-lg text-mylli-gray leading-relaxed mb-4">
                         Les soins infirmiers à domicile se font toujours suite à une prescription d'un médecin, sauf pour les soins d'hygiène.
+                      </p>
+                      <p className="text-lg text-mylli-gray leading-relaxed mb-4">
+                        L'infirmier à domicile doit rédiger et tenir à jour un dossier pour chaque patient.
+                      </p>
+                      <p className="text-lg text-mylli-gray leading-relaxed">
+                        Le service d'infirmier assure les gardes de jour, de nuit ou de 24h/24h.
                       </p>
                     </div>
                     
-                    <div className="bg-gradient-to-br from-mylli-secondary/5 to-mylli-primary/5 rounded-xl p-5 border border-mylli-secondary/10">
+                    {/* Decorative info card */}
+                    <div className="bg-gradient-to-br from-mylli-primary to-mylli-secondary text-white rounded-2xl p-6 shadow-xl">
                       <div className="flex items-center mb-3">
-                        <Clipboard className="text-mylli-secondary mr-3" size={20} />
-                        <h4 className="font-semibold text-mylli-dark">Dossier patient</h4>
+                        <Clock size={24} className="mr-3" />
+                        <h4 className="font-bold text-lg">Service continu</h4>
                       </div>
-                      <p className="text-sm text-mylli-gray">
-                        L'infirmier à domicile doit rédiger et tenir à jour un dossier pour chaque patient.
+                      <p className="text-white/90">
+                        Notre équipe d'infirmiers qualifiés assure une présence adaptée à vos besoins, 24h/24 si nécessaire.
                       </p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gradient-to-r from-mylli-primary to-mylli-secondary text-white rounded-2xl p-6 shadow-xl relative overflow-hidden">
-                    <div className="relative z-10">
-                      <div className="flex items-center mb-4">
-                        <Clock size={28} className="mr-4" />
-                        <h4 className="font-bold text-xl">Service continu 24h/24</h4>
-                      </div>
-                      <p className="text-white/95 text-lg">
-                        Notre équipe d'infirmiers qualifiés assure une présence adaptée à vos besoins, avec des gardes de jour, de nuit ou continues selon vos besoins médicaux.
-                      </p>
-                    </div>
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full transform translate-x-16 -translate-y-16"></div>
-                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full transform -translate-x-12 translate-y-12"></div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Image Side */}
-              <div className="relative">
-                <div className="relative z-10">
-                  {/* Main image container with modern styling */}
-                  <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-mylli-primary/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-mylli-primary/5 to-mylli-secondary/5"></div>
-                    <div className="relative p-8">
-                      <OptimizedImage 
-                        src="/lovable-uploads/4ec4bdf4-5ed1-42c3-ae8c-c578bfbab24a.png" 
-                        alt="Infirmière prodiguant des soins à domicile" 
-                        width={600} 
-                        height={400} 
-                        className="w-full h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500" 
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Floating stats cards */}
-                  <div className="absolute -top-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-primary/20 animate-float">
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-mylli-primary mb-1">24/7</div>
-                      <div className="text-xs text-mylli-gray font-medium">Service continu</div>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-mylli-secondary/20 animate-float" style={{animationDelay: '1s'}}>
-                    <div className="text-center">
-                      <div className="text-2xl font-bold text-mylli-secondary mb-1">100%</div>
-                      <div className="text-xs text-mylli-gray font-medium">Professionnel</div>
                     </div>
                   </div>
                 </div>
                 
-                {/* Background decorative elements */}
-                <div className="absolute inset-0 bg-gradient-to-r from-mylli-primary/10 to-mylli-secondary/10 rounded-3xl transform rotate-3 scale-105 -z-10"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-mylli-accent/5 to-transparent rounded-3xl transform -rotate-2 scale-110 -z-20"></div>
-                
-                {/* Floating particles */}
-                <div className="absolute top-10 right-10 w-4 h-4 bg-mylli-primary/20 rounded-full animate-pulse"></div>
-                <div className="absolute bottom-20 left-10 w-6 h-6 bg-mylli-secondary/20 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                <div className="absolute top-1/2 right-0 w-3 h-3 bg-mylli-accent/20 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+                {/* Decorative floating elements */}
+                <div className="absolute -top-6 -right-6 w-16 h-16 rounded-full bg-mylli-primary/10 animate-pulse"></div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 rounded-full bg-mylli-secondary/10 animate-pulse delay-1000"></div>
+                <div className="absolute top-1/3 -right-2 w-8 h-8 rounded-full bg-mylli-accent/10 animate-pulse delay-500"></div>
               </div>
             </div>
           </div>
-        </div>
-        
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-primary')} 0%, transparent 50%),
-                            radial-gradient(circle at 80% 20%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-secondary')} 0%, transparent 50%),
-                            radial-gradient(circle at 40% 80%, ${getComputedStyle(document.documentElement).getPropertyValue('--mylli-accent')} 0%, transparent 50%)`,
-            backgroundSize: '50% 50%'
-          }}></div>
         </div>
       </section>
 
@@ -270,5 +208,4 @@ const InfirmierPage = () => {
       
     </div>;
 };
-
 export default InfirmierPage;
