@@ -1,16 +1,16 @@
-
 {
   "name": "Mylli Services - Soins à Domicile Casablanca",
   "short_name": "Mylli Services",
-  "description": "Leader des soins à domicile Casablanca. Services d'infirmier et aide-soignant professionnels 24h/24. Soins de qualité à domicile depuis 2014.",
+  "description": "N°1 des soins à domicile Casablanca depuis 2014. Infirmiers diplômés d'État, aides-soignants certifiés, garde malades 24h/24.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1E88E5",
-  "theme_color": "#1E88E5",
+  "background_color": "#ffffff",
+  "theme_color": "#0077C0",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "fr-MA",
-  "categories": ["health", "medical", "healthcare"],
+  "dir": "ltr",
+  "categories": ["medical", "health", "business"],
   "icons": [
     {
       "src": "/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png",
@@ -58,10 +58,22 @@
   ],
   "shortcuts": [
     {
-      "name": "Contactez-nous",
+      "name": "Contact",
       "short_name": "Contact",
-      "description": "Contactez Mylli Services pour vos besoins de soins à domicile",
+      "description": "Contactez Mylli Services",
       "url": "/contact",
+      "icons": [
+        {
+          "src": "/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "description": "Nos services de soins à domicile",
+      "url": "/services",
       "icons": [
         {
           "src": "/lovable-uploads/554676d0-4988-4b83-864c-15c32ee349a2.png",

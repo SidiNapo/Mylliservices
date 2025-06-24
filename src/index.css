@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,400;0,600;0,700;1,400&family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Inter:wght@700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -47,34 +46,34 @@
     --sidebar-ring: 201 100% 35%;
   }
 
-  /* Load Gliker Bold font */
-  @font-face {
-    font-family: 'Gliker Bold';
-    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
   * {
     @apply border-border;
+    -webkit-tap-highlight-color: transparent;
   }
 
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     @apply bg-background text-foreground font-sans;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold tracking-tight;
+    @apply font-bold tracking-tight;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
-  /* Brand Name Global Styling with Gliker Bold and specific colors */
+  /* Brand Name Global Styling with iOS-friendly fonts */
   .brand-name {
-    font-family: 'Gliker Bold', 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 700;
     white-space: nowrap;
     display: inline-block;
@@ -95,6 +94,25 @@
   .brand-name .services {
     color: #029edd;
   }
+
+  /* iOS-specific fixes */
+  input, textarea, select {
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  button {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Fix for iOS Safari viewport issues */
+  @supports (-webkit-touch-callout: none) {
+    .container-custom {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+  }
 }
 
 @layer components {
@@ -104,14 +122,17 @@
   
   .btn-primary {
     @apply bg-mylli-primary hover:bg-mylli-primary-dark text-white py-3 px-6 rounded-full font-medium transition-all duration-300 shadow-soft hover:shadow-md transform hover:-translate-y-1;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .btn-secondary {
     @apply bg-mylli-secondary hover:bg-mylli-secondary/90 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 shadow-soft hover:shadow-md;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .btn-accent {
     @apply bg-mylli-accent hover:bg-mylli-accent/90 text-white py-3 px-6 rounded-full font-medium transition-all duration-300 shadow-soft hover:shadow-md transform hover:-translate-y-1;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .card-service {
@@ -132,10 +153,12 @@
   
   .input-field {
     @apply w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-mylli-primary focus:border-transparent outline-none transition-all duration-200;
+    -webkit-appearance: none;
   }
   
   .nav-link {
     @apply relative text-gray-700 hover:text-mylli-primary transition-colors duration-300 px-4 py-2 font-medium;
+    -webkit-tap-highlight-color: transparent;
   }
   
   .nav-link::after {
@@ -155,7 +178,7 @@
     @apply w-full;
   }
 
-  /* New Glass Card Styles */
+  /* Simplified Glass Card Styles */
   .glass-card {
     @apply backdrop-blur-md bg-white/20 border border-white/30 shadow-glass;
   }
@@ -173,67 +196,39 @@
     @apply opacity-100;
   }
 
-  .animated-border-gradient {
-    position: relative;
-  }
-
-  .animated-border-gradient::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    z-index: -1;
-    background: linear-gradient(90deg, var(--mylli-accent), var(--mylli-primary), var(--mylli-secondary), var(--mylli-accent));
-    background-size: 300% 300%;
-    border-radius: inherit;
-    animation: border-rotate 4s linear infinite;
-  }
-
-  @keyframes border-rotate {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
+  /* Simplified animations for better iOS performance */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-mylli-primary to-mylli-secondary;
+    @apply bg-gradient-to-r from-mylli-primary to-mylli-accent bg-clip-text text-transparent;
   }
 
-  /* New 3D Effects */
   .card-3d {
-    @apply relative transition-all duration-500 transform;
-    perspective: 1000px;
+    @apply transform transition-all duration-300 hover:scale-105;
   }
 
   .card-3d:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+    @apply shadow-xl;
   }
 
   .shadow-soft {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .shadow-hover {
-    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.07), 0 10px 15px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .shadow-glass {
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   }
 
   .shadow-neon {
-    box-shadow: 0 0 15px rgba(0, 119, 192, 0.6), 0 0 30px rgba(0, 119, 192, 0.4), 0 0 45px rgba(0, 119, 192, 0.2);
+    box-shadow: 0 0 20px rgba(0, 119, 192, 0.5);
   }
 
-  /* New Animation Utilities */
+  /* Simplified animations */
   .animate-text-gradient {
-    background-size: 200%;
-    animation: text-gradient 3s linear infinite;
+    background-size: 200% 200%;
+    animation: text-gradient 3s ease infinite;
   }
 
   @keyframes text-gradient {
@@ -265,86 +260,95 @@
   }
 
   .animate-pulse-soft {
-    animation: pulse-soft 3s ease-in-out infinite;
+    animation: pulse-soft 2s ease-in-out infinite;
   }
 
   @keyframes pulse-soft {
     0%, 100% {
-      opacity: 0.5;
+      opacity: 1;
     }
     50% {
-      opacity: 1;
+      opacity: 0.8;
     }
   }
 
   .animate-wave {
-    animation: wave 2s ease-in-out infinite;
+    animation: wave 1.5s infinite;
   }
 
   @keyframes wave {
-    0%, 100% {
+    0% {
       transform: rotate(0deg);
     }
-    25% {
-      transform: rotate(15deg);
+    10% {
+      transform: rotate(14deg);
     }
-    75% {
-      transform: rotate(-10deg);
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
     }
   }
 
-  /* Feature highlight effects */
   .feature-highlight {
-    @apply relative overflow-hidden rounded-2xl;
+    @apply relative overflow-hidden;
   }
 
   .feature-highlight::before {
     content: '';
-    @apply absolute -inset-2 bg-gradient-to-br from-mylli-primary/30 to-mylli-secondary/30 rounded-2xl blur-xl opacity-0 transition-opacity duration-500;
-    z-index: -1;
+    @apply absolute inset-0 bg-gradient-to-r from-mylli-primary/20 to-mylli-accent/20 transform scale-x-0 transition-transform duration-300 origin-left;
   }
 
   .feature-highlight:hover::before {
-    @apply opacity-100;
+    @apply scale-x-100;
   }
 
-  /* Glow effect on hover */
   .hover-glow {
-    @apply relative transition-all duration-300;
+    @apply relative overflow-hidden;
   }
 
   .hover-glow::after {
     content: '';
-    @apply absolute inset-0 rounded-xl bg-gradient-to-r from-mylli-primary/40 to-mylli-secondary/40 opacity-0 blur-xl transition-opacity duration-300;
-    z-index: -1;
+    @apply absolute inset-0 bg-gradient-to-r from-mylli-primary/0 via-mylli-primary/20 to-mylli-primary/0 transform -translate-x-full transition-transform duration-500;
   }
 
   .hover-glow:hover::after {
-    @apply opacity-100;
+    @apply translate-x-full;
   }
 
-  /* Floating elements */
   .floating-element {
-    animation: float 6s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
-  /* Fancy border with clip path */
   .fancy-border {
-    @apply relative;
-    clip-path: polygon(
-      0% 5%,
-      5% 0%,
-      95% 0%,
-      100% 5%,
-      100% 95%,
-      95% 100%,
-      5% 100%,
-      0% 95%
-    );
+    position: relative;
+    background: linear-gradient(90deg, #029edd, #ff0707, #029edd);
+    background-size: 200% 200%;
+    animation: text-gradient 3s linear infinite;
+    padding: 2px;
+    border-radius: 9999px;
+  }
+
+  .fancy-border > * {
+    background: white;
+    border-radius: 9999px;
   }
 
   .animate-bounce-subtle {
-    animation: bounce-subtle 2s infinite;
+    animation: bounce-subtle 2s ease-in-out infinite;
   }
 
   @keyframes bounce-subtle {
@@ -356,28 +360,16 @@
     }
   }
 
-  /* Enhanced White Flash Animation */
   .flash-white-strong {
-    animation: flash-white-enhanced 4s ease-in-out infinite;
+    animation: flash-white-enhanced 2s ease-in-out infinite;
   }
 
   @keyframes flash-white-enhanced {
-    0%, 75%, 100% {
-      color: white;
-      text-shadow: 
-        0 0 5px rgba(255, 255, 255, 0.3),
-        0 0 10px rgba(255, 255, 255, 0.2);
-      transform: scale(1);
-      filter: brightness(1);
+    0%, 100% {
+      background-color: transparent;
     }
-    37.5% {
-      color: #ffffff;
-      text-shadow: 
-        0 0 15px rgba(255, 255, 255, 0.8),
-        0 0 25px rgba(255, 255, 255, 0.6),
-        0 0 35px rgba(255, 255, 255, 0.4);
-      transform: scale(1.02);
-      filter: brightness(1.3);
+    50% {
+      background-color: rgba(255, 255, 255, 0.3);
     }
   }
 }

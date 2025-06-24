@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -114,30 +113,32 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button 
-            className="text-mylli-dark focus:outline-none" 
+            className="text-mylli-dark focus:outline-none p-2" 
             onClick={toggleMenu} 
             aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            style={{ WebkitTapHighlightColor: 'transparent' }}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
       
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Simplified for iOS */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4">
           <div className="container-custom flex flex-col space-y-4">
             {navLinks.map(link => (
               <Link 
                 key={link.path} 
                 to={link.path} 
-                className={`p-2 ${isActiveLink(link.path) ? 'text-mylli-primary font-medium' : 'text-mylli-dark'}`} 
+                className={`p-3 text-lg ${isActiveLink(link.path) ? 'text-mylli-primary font-medium' : 'text-mylli-dark'}`} 
                 onClick={closeMenu}
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 {link.name}
               </Link>
             ))}
-            <Button asChild className="btn-accent w-full">
+            <Button asChild className="btn-accent w-full mt-4">
               <Link to="/contact" onClick={closeMenu}>
                 Contactez-nous
               </Link>

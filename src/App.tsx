@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -21,75 +20,41 @@ import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
 import MotDuPresident from "./pages/MotDuPresident";
 import NotFound from "./pages/NotFound";
 import { initEmailJS } from "./utils/emailjs";
-import { initializeFaviconManager, cleanURLFragments } from "./utils/faviconManager";
 import CookieConsentManager from "./components/cookies/CookieConsentManager";
-import SecurityDashboard from "./components/security/SecurityDashboard";
-import { securitySession } from "./utils/securitySession";
-import { advancedPerformanceMonitor } from "./utils/advancedPerformanceMonitor";
-import { inlineCriticalCSS, deferNonCriticalCSS, preloadCriticalResources } from "./utils/criticalCssOptimizer";
-import { optimizeDOM, reduceReflows } from "./utils/domOptimizer";
 import "./styles/global.css";
 
-// Optimized QueryClient configuration
+// Simplified QueryClient configuration for better iOS compatibility
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 5 * 60 * 1000,
       gcTime: 10 * 60 * 1000,
       refetchOnWindowFocus: false,
-      retry: 1, // Reduce retries for faster failure
+      retry: 1,
     },
   },
 });
 
 const App: React.FC = () => {
   useEffect(() => {
-    console.log('🚀 Initializing performance-optimized Mylli Services...');
+    console.log('🚀 Initializing Mylli Services...');
     
-    // PHASE 1: Critical performance optimizations (immediate)
-    inlineCriticalCSS();
-    preloadCriticalResources();
-    advancedPerformanceMonitor.init();
-    
-    // PHASE 2: Security and cleanup (high priority)
-    securitySession.initializeSession();
-    cleanURLFragments();
-    
-    // PHASE 3: DOM optimizations (requestIdleCallback)
-    requestIdleCallback(() => {
-      optimizeDOM();
-      reduceReflows();
-      deferNonCriticalCSS();
-    }, { timeout: 1000 });
-    
-    // PHASE 4: Non-critical resources (low priority)
-    requestIdleCallback(() => {
-      initializeFaviconManager();
-      
-      // Register optimized service worker
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw-optimized.js')
-          .then(() => console.log('✅ Optimized Service Worker registered'))
-          .catch(() => console.log('ℹ️ Service Worker registration failed'));
-      }
-      
-      try {
-        initEmailJS();
-        console.log("✅ EmailJS initialized");
-      } catch (error) {
-        console.error("❌ EmailJS failed:", error);
-      }
-    }, { timeout: 2000 });
-    
-    // PHASE 5: Performance monitoring (delayed)
-    setTimeout(() => {
-      const report = advancedPerformanceMonitor.generateReport();
-      if (report.performance < 80) {
-        console.warn('⚠️ Performance below target, check metrics');
-      }
-    }, 5000);
+    // Initialize EmailJS
+    try {
+      initEmailJS();
+      console.log("✅ EmailJS initialized");
+    } catch (error) {
+      console.error("❌ EmailJS failed:", error);
+    }
 
-    console.log('✅ All performance optimizations initialized');
+    // Register service worker with error handling
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw-optimized.js')
+        .then(() => console.log('✅ Service Worker registered'))
+        .catch((error) => console.log('ℹ️ Service Worker registration failed:', error));
+    }
+
+    console.log('✅ App initialization complete');
   }, []);
 
   return (
@@ -115,7 +80,6 @@ const App: React.FC = () => {
             <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
           </Routes>
           <CookieConsentManager />
-          <SecurityDashboard />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

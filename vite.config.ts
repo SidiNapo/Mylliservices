@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -43,42 +42,17 @@ export default defineConfig(({ mode }) => ({
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
           ui: ['@radix-ui/react-accordion', '@radix-ui/react-dialog', '@radix-ui/react-toast'],
-          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+          utils: ['clsx', 'tailwind-merge', 'class-variance-author']
         }
       }
     },
     sourcemap: false,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: mode === 'production',
-        drop_debugger: true,
-        passes: 2,
-        pure_funcs: ['console.log'],
-        reduce_vars: true,
-        sequences: true,
-        dead_code: true,
-        conditionals: true,
-        booleans: true,
-        unused: true,
-        if_return: true,
-        join_vars: true,
-        collapse_vars: true
-      },
-      mangle: {
-        safari10: true,
-        toplevel: true
-      },
-      format: {
-        safari10: true,
-        comments: false
-      }
-    },
+    minify: 'esbuild',
+    target: 'es2015',
     cssMinify: 'esbuild',
     chunkSizeWarningLimit: 500,
-    assetsInlineLimit: 2048,
-    reportCompressedSize: false,
-    target: 'es2020'
+    assetsInlineLimit: 4096,
+    reportCompressedSize: false
   },
   css: {
     devSourcemap: false,
@@ -90,8 +64,9 @@ export default defineConfig(({ mode }) => ({
   },
   esbuild: {
     legalComments: 'none',
-    minifyIdentifiers: true,
+    minifyIdentifiers: false,
     minifySyntax: true,
-    minifyWhitespace: true
+    minifyWhitespace: true,
+    target: 'es2015'
   }
 }));
