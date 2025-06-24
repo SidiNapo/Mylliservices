@@ -1,185 +1,125 @@
 
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
-import { Toaster } from "@/components/ui/sonner";
-import MainLayout from '@/components/layout/MainLayout';
-import HomePage from '@/pages/Home';
-import ServicesPage from '@/pages/Services';
-import AideSoignantPage from '@/pages/services/AideSoignant';
-import InfirmierPage from '@/pages/services/Infirmier';
-import ContactPage from '@/pages/Contact';
-import FonctionnementPage from '@/pages/Fonctionnement';
-import OutilsPage from '@/pages/Outils';
-import AProposPage from '@/pages/APropos';
-import ArticlesPage from '@/pages/Articles';
-import ArticleDetailPage from '@/pages/ArticleDetail';
-import NotFoundPage from '@/pages/NotFound';
-import CookieConsentManager from '@/components/cookies/CookieConsentManager';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./components/layout/MainLayout";
+import HomePage from "./pages/Home";
+import ServicesPage from "./pages/Services";
+import FonctionnementPage from "./pages/Fonctionnement";
+import EquipePage from "./pages/Equipe";
+import AProposPage from "./pages/APropos";
+import ContactPage from "./pages/Contact";
+import AideSoignantPage from "./pages/services/AideSoignant";
+import InfirmierPage from "./pages/services/Infirmier";
+import ArticlesPage from "./pages/Articles";
+import ArticleDetail from "./pages/ArticleDetail";
+import CookiePolicy from "./pages/CookiePolicy";
+import PolitiqueConfidentialite from "./pages/PolitiqueConfidentialite";
+import MotDuPresident from "./pages/MotDuPresident";
+import NotFound from "./pages/NotFound";
+import { initEmailJS } from "./utils/emailjs";
+import { initializeFaviconManager, cleanURLFragments } from "./utils/faviconManager";
+import CookieConsentManager from "./components/cookies/CookieConsentManager";
+import SecurityDashboard from "./components/security/SecurityDashboard";
+import { securitySession } from "./utils/securitySession";
+import { advancedPerformanceMonitor } from "./utils/advancedPerformanceMonitor";
+import { inlineCriticalCSS, deferNonCriticalCSS, preloadCriticalResources } from "./utils/criticalCssOptimizer";
+import { optimizeDOM, reduceReflows } from "./utils/domOptimizer";
+import "./styles/global.css";
 
-// Component to handle scroll to top on route change
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// Optimized QueryClient configuration
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      gcTime: 10 * 60 * 1000,
+      refetchOnWindowFocus: false,
+      retry: 1, // Reduce retries for faster failure
+    },
+  },
+});
 
+const App: React.FC = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
-function App() {
-  useEffect(() => {
-    // iOS-specific optimizations
-    const applyIOSOptimizations = () => {
-      // Prevent zoom on input focus for iOS
-      const viewport = document.querySelector('meta[name="viewport"]');
-      if (viewport) {
-        viewport.setAttribute('content', 
-          'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'
-        );
-      }
-
-      // Prevent rubber band scrolling on iOS
-      document.body.style.overscrollBehavior = 'none';
+    console.log('🚀 Initializing performance-optimized Mylli Services...');
+    
+    // PHASE 1: Critical performance optimizations (immediate)
+    inlineCriticalCSS();
+    preloadCriticalResources();
+    advancedPerformanceMonitor.init();
+    
+    // PHASE 2: Security and cleanup (high priority)
+    securitySession.initializeSession();
+    cleanURLFragments();
+    
+    // PHASE 3: DOM optimizations (requestIdleCallback)
+    requestIdleCallback(() => {
+      optimizeDOM();
+      reduceReflows();
+      deferNonCriticalCSS();
+    }, { timeout: 1000 });
+    
+    // PHASE 4: Non-critical resources (low priority)
+    requestIdleCallback(() => {
+      initializeFaviconManager();
       
-      // Improve touch responsiveness on iOS
-      document.body.style.touchAction = 'manipulation';
-      
-      // Prevent text selection highlighting on iOS
-      const style = document.createElement('style');
-      style.textContent = `
-        * {
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -webkit-tap-highlight-color: transparent;
-        }
-        input, textarea {
-          -webkit-user-select: text;
-        }
-        .selectable-text {
-          -webkit-user-select: text;
-        }
-        /* iOS Safari specific fixes */
-        @supports (-webkit-touch-callout: none) {
-          .fixed {
-            position: -webkit-sticky;
-            position: sticky;
-          }
-          
-          /* Fix for iOS viewport units */
-          .min-h-screen {
-            min-height: 100vh;
-            min-height: -webkit-fill-available;
-          }
-          
-          /* Smooth scrolling for iOS */
-          html {
-            -webkit-overflow-scrolling: touch;
-          }
-          
-          /* Button touch improvements */
-          button, .btn {
-            -webkit-appearance: none;
-            border-radius: 0;
-          }
-        }
-        
-        /* Additional iOS fixes */
-        .ios-fix {
-          transform: translateZ(0);
-          -webkit-transform: translateZ(0);
-        }
-      `;
-      document.head.appendChild(style);
-
-      // Handle iOS safe area
-      const handleSafeArea = () => {
-        const safeAreaStyle = document.createElement('style');
-        safeAreaStyle.textContent = `
-          :root {
-            --safe-area-inset-top: env(safe-area-inset-top);
-            --safe-area-inset-right: env(safe-area-inset-right);
-            --safe-area-inset-bottom: env(safe-area-inset-bottom);
-            --safe-area-inset-left: env(safe-area-inset-left);
-          }
-          
-          .safe-area-top {
-            padding-top: calc(var(--safe-area-inset-top) + 1rem);
-          }
-          
-          .safe-area-bottom {
-            padding-bottom: calc(var(--safe-area-inset-bottom) + 1rem);
-          }
-        `;
-        document.head.appendChild(safeAreaStyle);
-      };
-
-      handleSafeArea();
-
-      // Prevent iOS bounce effect
-      const preventBounce = (e: TouchEvent) => {
-        const target = e.target as HTMLElement;
-        const isScrollable = target.scrollHeight > target.clientHeight;
-        
-        if (!isScrollable) {
-          e.preventDefault();
-        }
-      };
-
-      document.addEventListener('touchmove', preventBounce, { passive: false });
-
-      // Cleanup function
-      return () => {
-        document.removeEventListener('touchmove', preventBounce);
-      };
-    };
-
-    // Apply optimizations
-    const cleanup = applyIOSOptimizations();
-
-    // Performance optimizations
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        // Pause heavy animations when tab is not visible
-        document.body.classList.add('paused');
-      } else {
-        document.body.classList.remove('paused');
+      // Register optimized service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw-optimized.js')
+          .then(() => console.log('✅ Optimized Service Worker registered'))
+          .catch(() => console.log('ℹ️ Service Worker registration failed'));
       }
-    };
+      
+      try {
+        initEmailJS();
+        console.log("✅ EmailJS initialized");
+      } catch (error) {
+        console.error("❌ EmailJS failed:", error);
+      }
+    }, { timeout: 2000 });
+    
+    // PHASE 5: Performance monitoring (delayed)
+    setTimeout(() => {
+      const report = advancedPerformanceMonitor.generateReport();
+      if (report.performance < 80) {
+        console.warn('⚠️ Performance below target, check metrics');
+      }
+    }, 5000);
 
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      if (cleanup) cleanup();
-    };
+    console.log('✅ All performance optimizations initialized');
   }, []);
 
   return (
-    <Router>
-      <div className="App ios-fix">
-        <ScrollToTop />
-        <MainLayout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/services/aide-soignant" element={<AideSoignantPage />} />
-            <Route path="/services/infirmier" element={<InfirmierPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/fonctionnement" element={<FonctionnementPage />} />
-            <Route path="/outils" element={<OutilsPage />} />
-            <Route path="/apropos" element={<AProposPage />} />
-            <Route path="/articles" element={<ArticlesPage />} />
-            <Route path="/articles/:slug" element={<ArticleDetailPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </MainLayout>
-        <CookieConsentManager />
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
         <Toaster />
-      </div>
-    </Router>
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+            <Route path="/services" element={<MainLayout><ServicesPage /></MainLayout>} />
+            <Route path="/services/aide-soignant" element={<MainLayout><AideSoignantPage /></MainLayout>} />
+            <Route path="/services/infirmier" element={<MainLayout><InfirmierPage /></MainLayout>} />
+            <Route path="/fonctionnement" element={<MainLayout><FonctionnementPage /></MainLayout>} />
+            <Route path="/outils" element={<MainLayout><EquipePage /></MainLayout>} />
+            <Route path="/apropos" element={<MainLayout><AProposPage /></MainLayout>} />
+            <Route path="/contact" element={<MainLayout><ContactPage /></MainLayout>} />
+            <Route path="/articles" element={<MainLayout><ArticlesPage /></MainLayout>} />
+            <Route path="/articles/:slug" element={<MainLayout><ArticleDetail /></MainLayout>} />
+            <Route path="/politique-cookies" element={<MainLayout><CookiePolicy /></MainLayout>} />
+            <Route path="/politique-confidentialite" element={<MainLayout><PolitiqueConfidentialite /></MainLayout>} />
+            <Route path="/mot-du-president" element={<MainLayout><MotDuPresident /></MainLayout>} />
+            <Route path="*" element={<MainLayout><NotFound /></MainLayout>} />
+          </Routes>
+          <CookieConsentManager />
+          <SecurityDashboard />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
