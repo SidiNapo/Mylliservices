@@ -40,19 +40,19 @@ const HomePage = () => {
   const testimonials = [
     {
       name: "Fatima El Amrani",
-      content: "Le service de Mylli Services a été exceptionnel. L'aide-soignante était très professionnelle et bienveillante avec ma mère.",
+      quote: "Le service de Mylli Services a été exceptionnel. L'aide-soignante était très professionnelle et bienveillante avec ma mère.",
       rating: 5,
       image: "/lovable-uploads/37fedd5b-3a3c-476d-89c3-c57957c696c5.png"
     },
     {
       name: "Ahmed Benali",
-      content: "Grâce à l'infirmière à domicile, j'ai pu recevoir mes soins quotidiens dans le confort de ma maison. Service impeccable !",
+      quote: "Grâce à l'infirmière à domicile, j'ai pu recevoir mes soins quotidiens dans le confort de ma maison. Service impeccable !",
       rating: 5,
       image: "/lovable-uploads/37e30e5f-e19b-476f-9b63-7be9bbaa5a3e.png"
     },
     {
       name: "Khadija Tazi",
-      content: "L'équipe de Mylli Services nous a accompagnés pendant une période difficile. Leur professionnalisme et leur humanité nous ont beaucoup aidés.",
+      quote: "L'équipe de Mylli Services nous a accompagnés pendant une période difficile. Leur professionnalisme et leur humanité nous ont beaucoup aidés.",
       rating: 5,
       image: "/lovable-uploads/1154475c-65aa-44df-bcaf-ab3092ac9960.png"
     }
@@ -189,9 +189,16 @@ const HomePage = () => {
       </section>
 
       {/* Parallax Section */}
-      <ParallaxSection
-        backgroundImage="/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png"
-      />
+      <ParallaxSection backgroundGradient="linear-gradient(135deg, #0077C0 0%, #005e9c 100%)">
+        <div className="container-custom py-20 text-center text-white">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Des soins de qualité
+          </h2>
+          <p className="text-xl opacity-90 max-w-2xl mx-auto">
+            Notre équipe de professionnels qualifiés vous accompagne avec expertise et bienveillance
+          </p>
+        </div>
+      </ParallaxSection>
 
       {/* Testimonials Section */}
       <section className="section-padding bg-gradient-to-b from-gray-50 to-white">
@@ -207,7 +214,7 @@ const HomePage = () => {
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
-                content={testimonial.content}
+                quote={testimonial.quote}
                 rating={testimonial.rating}
                 image={testimonial.image}
               />

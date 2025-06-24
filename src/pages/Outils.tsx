@@ -48,7 +48,7 @@ const OutilsPage = () => {
       <PageBanner
         title="Nos Outils"
         subtitle="La qualité de nos services repose sur notre équipe d'experts et nos méthodes rigoureuses"
-        backgroundImage="/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png"
+        bgImage="/lovable-uploads/93fb824b-3948-43af-a313-a54ebaf3ded0.png"
       />
 
       <section className="section-padding">
