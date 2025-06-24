@@ -41,9 +41,10 @@ const App: React.FC = () => {
     
     // iOS-specific optimizations
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-      // Optimize for iOS Safari
-      document.body.style.webkitTouchCallout = 'none';
-      document.body.style.webkitUserSelect = 'none';
+      // Optimize for iOS Safari with proper type assertions
+      const bodyStyle = document.body.style as any;
+      bodyStyle.webkitTouchCallout = 'none';
+      bodyStyle.webkitUserSelect = 'none';
       
       // Prevent zoom on focus
       const viewport = document.querySelector('meta[name="viewport"]');
