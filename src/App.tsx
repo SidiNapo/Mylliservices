@@ -14,7 +14,7 @@ import AProposPage from '@/pages/APropos';
 import ArticlesPage from '@/pages/Articles';
 import ArticleDetailPage from '@/pages/ArticleDetail';
 import NotFoundPage from '@/pages/NotFound';
-import CookieConsentBanner from '@/components/cookies/CookieConsentBanner';
+import CookieConsentManager from '@/components/cookies/CookieConsentManager';
 import './App.css';
 
 // Component to handle scroll to top on route change
@@ -175,7 +175,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </MainLayout>
-        <CookieConsentBanner />
+        <CookieConsentManager />
         <Toaster />
       </div>
     </Router>

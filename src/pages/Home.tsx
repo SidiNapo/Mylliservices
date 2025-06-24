@@ -10,10 +10,10 @@ import BrandName from '@/components/common/BrandName';
 import ParallaxSection from '@/components/common/ParallaxSection';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import SEOHead from '@/components/seo/SEOHead';
-import { generateHomePageStructuredData } from '@/utils/structuredData';
+import { generateHomepageStructuredData } from '@/utils/structuredData';
 
 const HomePage = () => {
-  const structuredData = generateHomePageStructuredData();
+  const structuredData = generateHomepageStructuredData();
 
   const stats = [
     { number: '500+', label: 'Patients satisfaits', icon: Users },
@@ -40,21 +40,18 @@ const HomePage = () => {
   const testimonials = [
     {
       name: "Fatima El Amrani",
-      role: "Fille de patiente",
       content: "Le service de Mylli Services a été exceptionnel. L'aide-soignante était très professionnelle et bienveillante avec ma mère.",
       rating: 5,
       image: "/lovable-uploads/37fedd5b-3a3c-476d-89c3-c57957c696c5.png"
     },
     {
       name: "Ahmed Benali",
-      role: "Patient",
       content: "Grâce à l'infirmière à domicile, j'ai pu recevoir mes soins quotidiens dans le confort de ma maison. Service impeccable !",
       rating: 5,
       image: "/lovable-uploads/37e30e5f-e19b-476f-9b63-7be9bbaa5a3e.png"
     },
     {
       name: "Khadija Tazi",
-      role: "Épouse de patient",
       content: "L'équipe de Mylli Services nous a accompagnés pendant une période difficile. Leur professionnalisme et leur humanité nous ont beaucoup aidés.",
       rating: 5,
       image: "/lovable-uploads/1154475c-65aa-44df-bcaf-ab3092ac9960.png"
@@ -163,7 +160,7 @@ const HomePage = () => {
           <SectionHeading 
             title="Nos Services Principaux" 
             subtitle="Des soins professionnels adaptés à vos besoins, dispensés par des experts qualifiés dans le confort de votre domicile."
-            centered
+            align="center"
           />
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
@@ -174,7 +171,7 @@ const HomePage = () => {
                   description={service.description}
                   image={service.image}
                   link={service.link}
-                  variant="modern"
+                  style="modern"
                 />
               </div>
             ))}
@@ -194,10 +191,6 @@ const HomePage = () => {
       {/* Parallax Section */}
       <ParallaxSection
         backgroundImage="/lovable-uploads/6dec9a42-92c0-4aa4-8c65-89a7b3a95c5b.png"
-        title="Votre bien-être, notre priorité"
-        subtitle="Découvrez comment nous révolutionnons les soins à domicile avec notre approche personnalisée et nos technologies de pointe."
-        ctaText="Découvrir notre approche"
-        ctaLink="/fonctionnement"
       />
 
       {/* Testimonials Section */}
@@ -206,7 +199,7 @@ const HomePage = () => {
           <SectionHeading 
             title="Ce que disent nos patients" 
             subtitle="La satisfaction de nos patients et de leurs familles est au cœur de notre mission. Découvrez leurs témoignages."
-            centered
+            align="center"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
@@ -214,7 +207,6 @@ const HomePage = () => {
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
-                role={testimonial.role}
                 content={testimonial.content}
                 rating={testimonial.rating}
                 image={testimonial.image}
