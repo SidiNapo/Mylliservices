@@ -3,7 +3,11 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// GitHub Sync Test - Force rebuild timestamp: ${new Date().toISOString()}
-console.log('🚀 App starting with GitHub sync test at:', new Date().toISOString());
+console.log('🚀 Mylli Services app starting...');
 
-createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById("root");
+if (!rootElement) {
+  throw new Error("Root element not found");
+}
+
+createRoot(rootElement).render(<App />);

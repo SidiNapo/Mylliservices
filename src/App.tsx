@@ -37,59 +37,54 @@ const queryClient = new QueryClient({
       staleTime: 5 * 60 * 1000,
       gcTime: 10 * 60 * 1000,
       refetchOnWindowFocus: false,
-      retry: 1, // Reduce retries for faster failure
+      retry: 1,
     },
   },
 });
 
 const App: React.FC = () => {
   useEffect(() => {
-    console.log('🚀 Initializing performance-optimized Mylli Services...');
+    console.log('🚀 Initializing Mylli Services...');
     
-    // PHASE 1: Critical performance optimizations (immediate)
-    inlineCriticalCSS();
-    preloadCriticalResources();
-    advancedPerformanceMonitor.init();
-    
-    // PHASE 2: Security and cleanup (high priority)
-    securitySession.initializeSession();
-    cleanURLFragments();
-    
-    // PHASE 3: DOM optimizations (requestIdleCallback)
-    requestIdleCallback(() => {
-      optimizeDOM();
-      reduceReflows();
-      deferNonCriticalCSS();
-    }, { timeout: 1000 });
-    
-    // PHASE 4: Non-critical resources (low priority)
-    requestIdleCallback(() => {
-      initializeFaviconManager();
+    // Critical performance optimizations
+    try {
+      inlineCriticalCSS();
+      preloadCriticalResources();
+      advancedPerformanceMonitor.init();
       
-      // Register optimized service worker
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw-optimized.js')
-          .then(() => console.log('✅ Optimized Service Worker registered'))
-          .catch(() => console.log('ℹ️ Service Worker registration failed'));
-      }
+      // Security and cleanup
+      securitySession.initializeSession();
+      cleanURLFragments();
       
-      try {
-        initEmailJS();
-        console.log("✅ EmailJS initialized");
-      } catch (error) {
-        console.error("❌ EmailJS failed:", error);
-      }
-    }, { timeout: 2000 });
-    
-    // PHASE 5: Performance monitoring (delayed)
-    setTimeout(() => {
-      const report = advancedPerformanceMonitor.generateReport();
-      if (report.performance < 80) {
-        console.warn('⚠️ Performance below target, check metrics');
-      }
-    }, 5000);
+      // DOM optimizations
+      requestIdleCallback(() => {
+        optimizeDOM();
+        reduceReflows();
+        deferNonCriticalCSS();
+      }, { timeout: 1000 });
+      
+      // Non-critical resources
+      requestIdleCallback(() => {
+        initializeFaviconManager();
+        
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw-optimized.js')
+            .then(() => console.log('✅ Service Worker registered'))
+            .catch(() => console.log('ℹ️ Service Worker registration failed'));
+        }
+        
+        try {
+          initEmailJS();
+          console.log("✅ EmailJS initialized");
+        } catch (error) {
+          console.error("❌ EmailJS failed:", error);
+        }
+      }, { timeout: 2000 });
 
-    console.log('✅ All performance optimizations initialized');
+      console.log('✅ App initialization complete');
+    } catch (error) {
+      console.error('❌ App initialization failed:', error);
+    }
   }, []);
 
   return (
