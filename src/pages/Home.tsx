@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -48,24 +47,24 @@ const HomePage: React.FC = () => {
   const testimonials = [
     {
       name: "Fatima Bennani",
-      location: "Maarif, Casablanca",
+      title: "Maarif, Casablanca",
       rating: 5,
-      comment: "Service exceptionnel! L'infirmière était très professionnelle et à l'écoute. Je recommande vivement Mylli Services.",
-      avatar: "/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png"
+      quote: "Service exceptionnel! L'infirmière était très professionnelle et à l'écoute. Je recommande vivement Mylli Services.",
+      image: "/lovable-uploads/2d768651-e0d0-42ed-925c-e0c72eba8ee1.png"
     },
     {
       name: "Mohammed Alami",
-      location: "Gauthier, Casablanca",
+      title: "Gauthier, Casablanca",
       rating: 5,
-      comment: "Rapidité d'intervention remarquable. Mon père a reçu des soins de qualité à domicile. Merci à toute l'équipe!",
-      avatar: "/lovable-uploads/37e30e5f-e19b-476f-9b63-7be9bbaa5a3e.png"
+      quote: "Rapidité d'intervention remarquable. Mon père a reçu des soins de qualité à domicile. Merci à toute l'équipe!",
+      image: "/lovable-uploads/37e30e5f-e19b-476f-9b63-7be9bbaa5a3e.png"
     },
     {
       name: "Aicha Tazi",
-      location: "Ain Diab, Casablanca",
+      title: "Ain Diab, Casablanca",
       rating: 5,
-      comment: "Personnel très compétent et chaleureux. Les tarifs sont raisonnables pour la qualité des services proposés.",
-      avatar: "/lovable-uploads/2f756573-a96c-4061-998c-b25adfae324e.png"
+      quote: "Personnel très compétent et chaleureux. Les tarifs sont raisonnables pour la qualité des services proposés.",
+      image: "/lovable-uploads/2f756573-a96c-4061-998c-b25adfae324e.png"
     }
   ];
 
